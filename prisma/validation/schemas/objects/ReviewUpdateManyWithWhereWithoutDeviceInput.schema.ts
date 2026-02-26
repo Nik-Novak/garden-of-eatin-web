@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ReviewScalarWhereInputObjectSchema as ReviewScalarWhereInputObjectSchema } from './ReviewScalarWhereInput.schema';
 import { ReviewUpdateManyMutationInputObjectSchema as ReviewUpdateManyMutationInputObjectSchema } from './ReviewUpdateManyMutationInput.schema';
 import { ReviewUncheckedUpdateManyWithoutDeviceInputObjectSchema as ReviewUncheckedUpdateManyWithoutDeviceInputObjectSchema } from './ReviewUncheckedUpdateManyWithoutDeviceInput.schema'

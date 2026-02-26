@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../generated/prisma/client';
+import type { Prisma } from '../../../.generated/prisma/client';
 import * as z from 'zod';
 import { PostSelectObjectSchema as PostSelectObjectSchema } from './objects/PostSelect.schema';
 import { PostCreateInputObjectSchema as PostCreateInputObjectSchema } from './objects/PostCreateInput.schema';

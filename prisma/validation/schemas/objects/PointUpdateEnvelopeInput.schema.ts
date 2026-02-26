@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
 import { PointUpdateInputObjectSchema as PointUpdateInputObjectSchema } from './PointUpdateInput.schema'
 

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { MealOccurrenceSelectObjectSchema as MealOccurrenceSelectObjectSchema } from './MealOccurrenceSelect.schema';
 import { MealOccurrenceIncludeObjectSchema as MealOccurrenceIncludeObjectSchema } from './MealOccurrenceInclude.schema'
 

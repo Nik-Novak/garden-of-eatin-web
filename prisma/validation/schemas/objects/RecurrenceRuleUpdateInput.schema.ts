@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { NullableIntFieldUpdateOperationsInputObjectSchema as NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
 import { WeekdaySchema } from '../enums/Weekday.schema';
 import { NullableEnumWeekdayFieldUpdateOperationsInputObjectSchema as NullableEnumWeekdayFieldUpdateOperationsInputObjectSchema } from './NullableEnumWeekdayFieldUpdateOperationsInput.schema';

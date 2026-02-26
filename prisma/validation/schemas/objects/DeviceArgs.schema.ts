@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { DeviceSelectObjectSchema as DeviceSelectObjectSchema } from './DeviceSelect.schema';
 import { DeviceIncludeObjectSchema as DeviceIncludeObjectSchema } from './DeviceInclude.schema'
 

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { InviteInviter_idEmailCompoundUniqueInputObjectSchema as InviteInviter_idEmailCompoundUniqueInputObjectSchema } from './InviteInviter_idEmailCompoundUniqueInput.schema'
 
 const makeSchema = () => z.object({

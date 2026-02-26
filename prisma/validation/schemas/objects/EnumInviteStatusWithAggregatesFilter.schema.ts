@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { InviteStatusSchema } from '../enums/InviteStatus.schema';
 import { NestedEnumInviteStatusWithAggregatesFilterObjectSchema as NestedEnumInviteStatusWithAggregatesFilterObjectSchema } from './NestedEnumInviteStatusWithAggregatesFilter.schema';
 import { NestedIntFilterObjectSchema as NestedIntFilterObjectSchema } from './NestedIntFilter.schema';

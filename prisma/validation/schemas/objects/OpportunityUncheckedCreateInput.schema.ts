@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { OpportunityStatusSchema } from '../enums/OpportunityStatus.schema';
 import { OpportunityApplicationUncheckedCreateNestedManyWithoutOpportunityInputObjectSchema as OpportunityApplicationUncheckedCreateNestedManyWithoutOpportunityInputObjectSchema } from './OpportunityApplicationUncheckedCreateNestedManyWithoutOpportunityInput.schema'
 

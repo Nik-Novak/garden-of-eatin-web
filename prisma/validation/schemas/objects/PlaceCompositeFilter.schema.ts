@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { PlaceObjectEqualityInputObjectSchema as PlaceObjectEqualityInputObjectSchema } from './PlaceObjectEqualityInput.schema';
 import { PlaceWhereInputObjectSchema as PlaceWhereInputObjectSchema } from './PlaceWhereInput.schema'
 

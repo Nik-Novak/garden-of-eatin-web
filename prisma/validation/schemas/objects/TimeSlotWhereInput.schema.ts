@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { IntFilterObjectSchema as IntFilterObjectSchema } from './IntFilter.schema'
 
 const timeslotwhereinputSchema = z.object({

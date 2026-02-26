@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { RecurrenceRuleCreateInputObjectSchema as RecurrenceRuleCreateInputObjectSchema } from './RecurrenceRuleCreateInput.schema';
 import { RecurrenceRuleUpdateManyInputObjectSchema as RecurrenceRuleUpdateManyInputObjectSchema } from './RecurrenceRuleUpdateManyInput.schema';
 import { RecurrenceRuleDeleteManyInputObjectSchema as RecurrenceRuleDeleteManyInputObjectSchema } from './RecurrenceRuleDeleteManyInput.schema'

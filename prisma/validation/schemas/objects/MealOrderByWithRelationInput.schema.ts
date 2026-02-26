@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { PlaceOrderByInputObjectSchema as PlaceOrderByInputObjectSchema } from './PlaceOrderByInput.schema';
 import { PointOrderByInputObjectSchema as PointOrderByInputObjectSchema } from './PointOrderByInput.schema';

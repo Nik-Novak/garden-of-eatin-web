@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { EnumTravelModeNullableFilterObjectSchema as EnumTravelModeNullableFilterObjectSchema } from './EnumTravelModeNullableFilter.schema';
 import { TravelModeSchema } from '../enums/TravelMode.schema';
 import { DateTimeNullableFilterObjectSchema as DateTimeNullableFilterObjectSchema } from './DateTimeNullableFilter.schema'

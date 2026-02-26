@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../generated/prisma/client';
+import type { Prisma } from '../../../.generated/prisma/client';
 import * as z from 'zod';
 import { InviteUpdateManyMutationInputObjectSchema as InviteUpdateManyMutationInputObjectSchema } from './objects/InviteUpdateManyMutationInput.schema';
 import { InviteWhereInputObjectSchema as InviteWhereInputObjectSchema } from './objects/InviteWhereInput.schema';

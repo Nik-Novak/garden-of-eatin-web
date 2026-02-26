@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ScheduleTypeSchema } from '../enums/ScheduleType.schema';
 import { EnumScheduleTypeFieldUpdateOperationsInputObjectSchema as EnumScheduleTypeFieldUpdateOperationsInputObjectSchema } from './EnumScheduleTypeFieldUpdateOperationsInput.schema';
 import { IntFieldUpdateOperationsInputObjectSchema as IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';

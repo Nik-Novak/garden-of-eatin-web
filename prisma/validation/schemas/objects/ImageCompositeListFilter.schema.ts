@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ImageObjectEqualityInputObjectSchema as ImageObjectEqualityInputObjectSchema } from './ImageObjectEqualityInput.schema';
 import { ImageWhereInputObjectSchema as ImageWhereInputObjectSchema } from './ImageWhereInput.schema'
 

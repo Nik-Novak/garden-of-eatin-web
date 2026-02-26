@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ReviewWhereUniqueInputObjectSchema as ReviewWhereUniqueInputObjectSchema } from './ReviewWhereUniqueInput.schema';
 import { ReviewCreateWithoutMealInputObjectSchema as ReviewCreateWithoutMealInputObjectSchema } from './ReviewCreateWithoutMealInput.schema';
 import { ReviewUncheckedCreateWithoutMealInputObjectSchema as ReviewUncheckedCreateWithoutMealInputObjectSchema } from './ReviewUncheckedCreateWithoutMealInput.schema'

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ScheduleTypeSchema } from '../enums/ScheduleType.schema';
 import { TimeSlotObjectEqualityInputObjectSchema as TimeSlotObjectEqualityInputObjectSchema } from './TimeSlotObjectEqualityInput.schema';
 import { RecurrenceRuleObjectEqualityInputObjectSchema as RecurrenceRuleObjectEqualityInputObjectSchema } from './RecurrenceRuleObjectEqualityInput.schema'

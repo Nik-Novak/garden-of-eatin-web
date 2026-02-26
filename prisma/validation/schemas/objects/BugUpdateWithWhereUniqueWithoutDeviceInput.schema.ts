@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { BugWhereUniqueInputObjectSchema as BugWhereUniqueInputObjectSchema } from './BugWhereUniqueInput.schema';
 import { BugUpdateWithoutDeviceInputObjectSchema as BugUpdateWithoutDeviceInputObjectSchema } from './BugUpdateWithoutDeviceInput.schema';
 import { BugUncheckedUpdateWithoutDeviceInputObjectSchema as BugUncheckedUpdateWithoutDeviceInputObjectSchema } from './BugUncheckedUpdateWithoutDeviceInput.schema'

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { MealOccurrenceWhereInputObjectSchema as MealOccurrenceWhereInputObjectSchema } from './MealOccurrenceWhereInput.schema'
 
 const makeSchema = () => z.object({

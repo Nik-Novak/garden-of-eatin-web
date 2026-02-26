@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { StatsUpdateInputObjectSchema as StatsUpdateInputObjectSchema } from './StatsUpdateInput.schema'
 

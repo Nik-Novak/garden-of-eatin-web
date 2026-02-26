@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { UserArgsObjectSchema as UserArgsObjectSchema } from './UserArgs.schema'
 
 const makeSchema = () => z.object({

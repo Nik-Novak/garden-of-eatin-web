@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { OpportunityApplicationCreateManyUserInputObjectSchema as OpportunityApplicationCreateManyUserInputObjectSchema } from './OpportunityApplicationCreateManyUserInput.schema'
 
 const makeSchema = () => z.object({

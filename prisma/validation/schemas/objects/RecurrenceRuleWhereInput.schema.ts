@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { IntNullableFilterObjectSchema as IntNullableFilterObjectSchema } from './IntNullableFilter.schema';
 import { EnumWeekdayNullableFilterObjectSchema as EnumWeekdayNullableFilterObjectSchema } from './EnumWeekdayNullableFilter.schema';
 import { WeekdaySchema } from '../enums/Weekday.schema';

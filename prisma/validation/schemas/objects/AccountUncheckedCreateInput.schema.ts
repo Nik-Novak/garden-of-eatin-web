@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { AccountCreateapprovedLocationsInputObjectSchema as AccountCreateapprovedLocationsInputObjectSchema } from './AccountCreateapprovedLocationsInput.schema'
 
 const makeSchema = () => z.object({

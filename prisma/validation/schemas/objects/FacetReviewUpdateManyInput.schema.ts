@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { FacetReviewWhereInputObjectSchema as FacetReviewWhereInputObjectSchema } from './FacetReviewWhereInput.schema';
 import { FacetReviewUpdateInputObjectSchema as FacetReviewUpdateInputObjectSchema } from './FacetReviewUpdateInput.schema'
 

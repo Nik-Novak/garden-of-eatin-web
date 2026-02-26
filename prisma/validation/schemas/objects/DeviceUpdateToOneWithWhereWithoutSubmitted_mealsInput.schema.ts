@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema';
 import { DeviceUpdateWithoutSubmitted_mealsInputObjectSchema as DeviceUpdateWithoutSubmitted_mealsInputObjectSchema } from './DeviceUpdateWithoutSubmitted_mealsInput.schema';
 import { DeviceUncheckedUpdateWithoutSubmitted_mealsInputObjectSchema as DeviceUncheckedUpdateWithoutSubmitted_mealsInputObjectSchema } from './DeviceUncheckedUpdateWithoutSubmitted_mealsInput.schema'

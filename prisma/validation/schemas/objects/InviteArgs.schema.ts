@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { InviteSelectObjectSchema as InviteSelectObjectSchema } from './InviteSelect.schema';
 import { InviteIncludeObjectSchema as InviteIncludeObjectSchema } from './InviteInclude.schema'
 

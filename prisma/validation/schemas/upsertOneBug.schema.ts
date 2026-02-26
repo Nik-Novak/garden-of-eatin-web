@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../generated/prisma/client';
+import type { Prisma } from '../../../.generated/prisma/client';
 import * as z from 'zod';
 import { BugSelectObjectSchema as BugSelectObjectSchema } from './objects/BugSelect.schema';
 import { BugIncludeObjectSchema as BugIncludeObjectSchema } from './objects/BugInclude.schema';

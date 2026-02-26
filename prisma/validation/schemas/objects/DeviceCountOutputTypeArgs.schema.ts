@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { DeviceCountOutputTypeSelectObjectSchema as DeviceCountOutputTypeSelectObjectSchema } from './DeviceCountOutputTypeSelect.schema'
 
 const makeSchema = () => z.object({

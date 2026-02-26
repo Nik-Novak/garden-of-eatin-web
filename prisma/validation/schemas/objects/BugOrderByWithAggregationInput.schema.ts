@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { BugCountOrderByAggregateInputObjectSchema as BugCountOrderByAggregateInputObjectSchema } from './BugCountOrderByAggregateInput.schema';
 import { BugMaxOrderByAggregateInputObjectSchema as BugMaxOrderByAggregateInputObjectSchema } from './BugMaxOrderByAggregateInput.schema';

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ContactRequestWhereUniqueInputObjectSchema as ContactRequestWhereUniqueInputObjectSchema } from './ContactRequestWhereUniqueInput.schema';
 import { ContactRequestUpdateWithoutDeviceInputObjectSchema as ContactRequestUpdateWithoutDeviceInputObjectSchema } from './ContactRequestUpdateWithoutDeviceInput.schema';
 import { ContactRequestUncheckedUpdateWithoutDeviceInputObjectSchema as ContactRequestUncheckedUpdateWithoutDeviceInputObjectSchema } from './ContactRequestUncheckedUpdateWithoutDeviceInput.schema'

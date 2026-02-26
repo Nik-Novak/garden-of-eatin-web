@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { MealCreateManySubmitterInputObjectSchema as MealCreateManySubmitterInputObjectSchema } from './MealCreateManySubmitterInput.schema'
 
 const makeSchema = () => z.object({

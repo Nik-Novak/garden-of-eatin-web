@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { AccountFindManySchema as AccountFindManySchema } from '../findManyAccount.schema';
 import { DeviceFindManySchema as DeviceFindManySchema } from '../findManyDevice.schema';
 import { SessionFindManySchema as SessionFindManySchema } from '../findManySession.schema';

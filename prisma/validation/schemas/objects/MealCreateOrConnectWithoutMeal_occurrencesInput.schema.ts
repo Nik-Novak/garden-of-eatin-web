@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { MealWhereUniqueInputObjectSchema as MealWhereUniqueInputObjectSchema } from './MealWhereUniqueInput.schema';
 import { MealCreateWithoutMeal_occurrencesInputObjectSchema as MealCreateWithoutMeal_occurrencesInputObjectSchema } from './MealCreateWithoutMeal_occurrencesInput.schema';
 import { MealUncheckedCreateWithoutMeal_occurrencesInputObjectSchema as MealUncheckedCreateWithoutMeal_occurrencesInputObjectSchema } from './MealUncheckedCreateWithoutMeal_occurrencesInput.schema'

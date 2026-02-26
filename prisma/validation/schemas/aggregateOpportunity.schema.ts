@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../generated/prisma/client';
+import type { Prisma } from '../../../.generated/prisma/client';
 import * as z from 'zod';
 import { OpportunityOrderByWithRelationInputObjectSchema as OpportunityOrderByWithRelationInputObjectSchema } from './objects/OpportunityOrderByWithRelationInput.schema';
 import { OpportunityWhereInputObjectSchema as OpportunityWhereInputObjectSchema } from './objects/OpportunityWhereInput.schema';

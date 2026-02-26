@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../generated/prisma/client';
+import type { Prisma } from '../../../../.generated/prisma/client';
 import { ImageCreateInputObjectSchema as ImageCreateInputObjectSchema } from './ImageCreateInput.schema';
 import { ImageUpdateManyInputObjectSchema as ImageUpdateManyInputObjectSchema } from './ImageUpdateManyInput.schema';
 import { ImageDeleteManyInputObjectSchema as ImageDeleteManyInputObjectSchema } from './ImageDeleteManyInput.schema'

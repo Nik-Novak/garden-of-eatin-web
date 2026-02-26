@@ -10,6 +10,8 @@ export const maxDuration = 300;
 function isAuthorized(request: Request) {
   const authHeader = request.headers.get("authorization");
   // Vercel automatically sends the CRON_SECRET as a Bearer token
+  console.log('DEBUG auth check:');
+  console.log(authHeader, '==', `Bearer ${process.env.CRON_SECRET}`);
   return authHeader === `Bearer ${process.env.CRON_SECRET}`;
 }
 
@@ -31,6 +33,7 @@ export async function GET(request: Request) {
 // POST handler for your manual programmatic triggers
 export async function POST(request: Request) {
   if (!isAuthorized(request)) {
+    console.log('Code-level authorization block');
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

@@ -1,6 +1,7 @@
+import { database } from "@/prisma/database";
 import { NextResponse } from "next/server";
 // Adjust this path to wherever your script actually lives
-import cronGenerateOccurences from "@/prisma/migrations/cron-generate-occurrences"; 
+// import cronGenerateOccurences from "@/prisma/migrations/cron-generate-occurrences"; 
 
 // Allow this function to run for up to 5 minutes (max for Vercel Pro)
 // If you are on the Hobby plan, the max is 10 seconds.
@@ -10,8 +11,6 @@ export const maxDuration = 300;
 function isAuthorized(request: Request) {
   const authHeader = request.headers.get("authorization");
   // Vercel automatically sends the CRON_SECRET as a Bearer token
-  console.log('DEBUG auth check:');
-  console.log(authHeader, '==', `Bearer ${process.env.CRON_SECRET}`);
   return authHeader === `Bearer ${process.env.CRON_SECRET}`;
 }
 
@@ -22,7 +21,8 @@ export async function GET(request: Request) {
   }
 
   try {
-    await cronGenerateOccurences();
+    console.log(await database.meal.findMany());
+    // await cronGenerateOccurences();
     return NextResponse.json({ success: true, message: "Cron: Occurrences generated." });
   } catch (error) {
     console.error("Error in generate-occurrences cron:", error);
@@ -38,7 +38,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    await cronGenerateOccurences();
+    console.log(await database.meal.findMany());
+    // await cronGenerateOccurences();
     return NextResponse.json({ success: true, message: "Manual: Occurrences generated." });
   } catch (error) {
     console.error("Error in generate-occurrences manual trigger:", error);

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "generatorVersion": "0.1.0",
-  "generatedAt": "2026-02-26T19:22:08.959Z",
+  "generatedAt": "2026-02-26T21:39:57.233Z",
   "outputPath": "/Users/apple/Documents/dev/gardenofeatin/garden-of-eatin-web/prisma/validation",
   "files": [
     "schemas/enums/AccountScalarFieldEnum.schema.ts",

@@ -1,0 +1,56 @@
+enum OpportunityStatus {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
+
+model Opportunity {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  abstract    String?
+  description String? // Tiptap HTML RTF content
+  status      OpportunityStatus @default(OPEN)
+
+  applications OpportunityApplication[]
+
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("opportunities")
+}
+enum OpportunityApplicationStatus {
+  // PENDING_VERIFICATION //when a user account is not yet verified, they can come back to the app later - Superseded by null user field
+  IN_PROGRESS //submitted
+  ACCEPTED
+  REJECTED
+}
+
+type OpportunityGroupedTimeRange {
+  day       DateTime
+  start     Int // ms offset from day
+  end       Int // ms offset from day
+}
+
+model OpportunityApplication {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  opportunity   Opportunity @relation(fields: [opportunity_id], references: [id])
+  opportunity_id String @db.ObjectId
+
+  user          User?    @relation(fields: [user_id], references: [id]) //optional only when user has not signed in yet. paired with status PENDING_VERIFICATION
+  user_id       String?  @db.ObjectId
+
+  status        OpportunityApplicationStatus @default(IN_PROGRESS)
+
+  applicant_first_name String
+  applicant_last_name  String
+  applicant_email      String
+  applicant_phone      String
+
+  applicant_availability OpportunityGroupedTimeRange[] //Array of time slots for availability
+
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  @@map("opportunityapplications")
+  @@index([opportunity_id], name: "idx_opportunity_id")
+}

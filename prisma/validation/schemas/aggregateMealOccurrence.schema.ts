@@ -1,0 +1,12 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { MealOccurrenceOrderByWithRelationInputObjectSchema as MealOccurrenceOrderByWithRelationInputObjectSchema } from './objects/MealOccurrenceOrderByWithRelationInput.schema';
+import { MealOccurrenceWhereInputObjectSchema as MealOccurrenceWhereInputObjectSchema } from './objects/MealOccurrenceWhereInput.schema';
+import { MealOccurrenceWhereUniqueInputObjectSchema as MealOccurrenceWhereUniqueInputObjectSchema } from './objects/MealOccurrenceWhereUniqueInput.schema';
+import { MealOccurrenceCountAggregateInputObjectSchema as MealOccurrenceCountAggregateInputObjectSchema } from './objects/MealOccurrenceCountAggregateInput.schema';
+import { MealOccurrenceMinAggregateInputObjectSchema as MealOccurrenceMinAggregateInputObjectSchema } from './objects/MealOccurrenceMinAggregateInput.schema';
+import { MealOccurrenceMaxAggregateInputObjectSchema as MealOccurrenceMaxAggregateInputObjectSchema } from './objects/MealOccurrenceMaxAggregateInput.schema';
+
+export const MealOccurrenceAggregateSchema: z.ZodType<Prisma.MealOccurrenceAggregateArgs> = z.object({ orderBy: z.union([MealOccurrenceOrderByWithRelationInputObjectSchema, MealOccurrenceOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealOccurrenceWhereInputObjectSchema.optional(), cursor: MealOccurrenceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: MealOccurrenceMinAggregateInputObjectSchema.optional(), _max: MealOccurrenceMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceAggregateArgs>;
+
+export const MealOccurrenceAggregateZodSchema = z.object({ orderBy: z.union([MealOccurrenceOrderByWithRelationInputObjectSchema, MealOccurrenceOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealOccurrenceWhereInputObjectSchema.optional(), cursor: MealOccurrenceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: MealOccurrenceMinAggregateInputObjectSchema.optional(), _max: MealOccurrenceMaxAggregateInputObjectSchema.optional() }).strict();

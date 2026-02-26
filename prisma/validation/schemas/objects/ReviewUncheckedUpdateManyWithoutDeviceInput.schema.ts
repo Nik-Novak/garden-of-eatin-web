@@ -1,0 +1,22 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../../generated/prisma/client';
+import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
+import { FloatFieldUpdateOperationsInputObjectSchema as FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
+import { FacetReviewListUpdateEnvelopeInputObjectSchema as FacetReviewListUpdateEnvelopeInputObjectSchema } from './FacetReviewListUpdateEnvelopeInput.schema';
+import { FacetReviewCreateInputObjectSchema as FacetReviewCreateInputObjectSchema } from './FacetReviewCreateInput.schema';
+import { ReviewUpdatefeature_reviewsInputObjectSchema as ReviewUpdatefeature_reviewsInputObjectSchema } from './ReviewUpdatefeature_reviewsInput.schema';
+import { FeatureSchema } from '../enums/Feature.schema';
+import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
+import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema'
+
+const makeSchema = () => z.object({
+  name: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  overall: z.union([z.number(), z.lazy(() => FloatFieldUpdateOperationsInputObjectSchema)]).optional(),
+  facet_reviews: z.union([z.lazy(() => FacetReviewListUpdateEnvelopeInputObjectSchema), z.lazy(() => FacetReviewCreateInputObjectSchema), z.lazy(() => FacetReviewCreateInputObjectSchema).array()]).optional(),
+  feature_reviews: z.union([z.lazy(() => ReviewUpdatefeature_reviewsInputObjectSchema), FeatureSchema.array()]).optional(),
+  meal_id: z.union([z.string().max(24), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional()
+}).strict();
+export const ReviewUncheckedUpdateManyWithoutDeviceInputObjectSchema: z.ZodType<Prisma.ReviewUncheckedUpdateManyWithoutDeviceInput> = makeSchema() as unknown as z.ZodType<Prisma.ReviewUncheckedUpdateManyWithoutDeviceInput>;
+export const ReviewUncheckedUpdateManyWithoutDeviceInputObjectZodSchema = makeSchema();

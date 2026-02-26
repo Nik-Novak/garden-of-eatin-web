@@ -1,0 +1,12 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { OpportunityOrderByWithRelationInputObjectSchema as OpportunityOrderByWithRelationInputObjectSchema } from './objects/OpportunityOrderByWithRelationInput.schema';
+import { OpportunityWhereInputObjectSchema as OpportunityWhereInputObjectSchema } from './objects/OpportunityWhereInput.schema';
+import { OpportunityWhereUniqueInputObjectSchema as OpportunityWhereUniqueInputObjectSchema } from './objects/OpportunityWhereUniqueInput.schema';
+import { OpportunityCountAggregateInputObjectSchema as OpportunityCountAggregateInputObjectSchema } from './objects/OpportunityCountAggregateInput.schema';
+import { OpportunityMinAggregateInputObjectSchema as OpportunityMinAggregateInputObjectSchema } from './objects/OpportunityMinAggregateInput.schema';
+import { OpportunityMaxAggregateInputObjectSchema as OpportunityMaxAggregateInputObjectSchema } from './objects/OpportunityMaxAggregateInput.schema';
+
+export const OpportunityAggregateSchema: z.ZodType<Prisma.OpportunityAggregateArgs> = z.object({ orderBy: z.union([OpportunityOrderByWithRelationInputObjectSchema, OpportunityOrderByWithRelationInputObjectSchema.array()]).optional(), where: OpportunityWhereInputObjectSchema.optional(), cursor: OpportunityWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), OpportunityCountAggregateInputObjectSchema ]).optional(), _min: OpportunityMinAggregateInputObjectSchema.optional(), _max: OpportunityMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.OpportunityAggregateArgs>;
+
+export const OpportunityAggregateZodSchema = z.object({ orderBy: z.union([OpportunityOrderByWithRelationInputObjectSchema, OpportunityOrderByWithRelationInputObjectSchema.array()]).optional(), where: OpportunityWhereInputObjectSchema.optional(), cursor: OpportunityWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), OpportunityCountAggregateInputObjectSchema ]).optional(), _min: OpportunityMinAggregateInputObjectSchema.optional(), _max: OpportunityMaxAggregateInputObjectSchema.optional() }).strict();

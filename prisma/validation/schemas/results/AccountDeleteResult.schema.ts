@@ -1,0 +1,25 @@
+import * as z from 'zod';
+export const AccountDeleteResultSchema = z.nullable(z.object({
+  id: z.string(),
+  userId: z.string(),
+  type: z.string(),
+  provider: z.string(),
+  providerAccountId: z.string(),
+  refresh_token: z.string().optional(),
+  access_token: z.string().optional(),
+  expires_at: z.number().int().optional(),
+  expires_in: z.number().int().optional(),
+  token_type: z.string().optional(),
+  scope: z.string().optional(),
+  id_token: z.string().optional(),
+  session_state: z.string().optional(),
+  api_domain: z.string().optional(),
+  userType: z.string().optional(),
+  locationId: z.string().optional(),
+  company_id: z.string().optional(),
+  approvedLocations: z.array(z.string()),
+  planId: z.string().optional(),
+  user: z.unknown(),
+  created_at: z.date(),
+  updated_at: z.date()
+}));

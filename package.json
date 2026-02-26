@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build:steps": "yarn prisma generate && next build",
+    "build": "dotenvx run -f .env.production -- yarn run build:steps",
+    "migrate": "dotenvx run -f .env -- tsx ./prisma/migrations/index.ts",
+    "dev": "dotenvx run -f .env -- next dev",
+    "start": "dotenvx run -f .env.production -- next start",
     "lint": "biome check",
     "format": "biome format --write"
   },
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.52.0",
+    "@prisma/client": "6.x.x",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "spacetime": "^7.12.0",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -20,6 +26,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "prisma": "6.x.x",
+    "prisma-zod-generator": "1.32.1",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   },
   "packageManager": "yarn@4.12.0+sha512.f45ab632439a67f8bc759bf32ead036a1f413287b9042726b7cc4818b7b49e14e9423ba49b18f9e06ea4941c1ad062385b1d8760a8d5091a1a31e5f6219afca8"

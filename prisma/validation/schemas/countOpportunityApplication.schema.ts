@@ -1,0 +1,10 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { OpportunityApplicationOrderByWithRelationInputObjectSchema as OpportunityApplicationOrderByWithRelationInputObjectSchema } from './objects/OpportunityApplicationOrderByWithRelationInput.schema';
+import { OpportunityApplicationWhereInputObjectSchema as OpportunityApplicationWhereInputObjectSchema } from './objects/OpportunityApplicationWhereInput.schema';
+import { OpportunityApplicationWhereUniqueInputObjectSchema as OpportunityApplicationWhereUniqueInputObjectSchema } from './objects/OpportunityApplicationWhereUniqueInput.schema';
+import { OpportunityApplicationCountAggregateInputObjectSchema as OpportunityApplicationCountAggregateInputObjectSchema } from './objects/OpportunityApplicationCountAggregateInput.schema';
+
+export const OpportunityApplicationCountSchema: z.ZodType<Prisma.OpportunityApplicationCountArgs> = z.object({ orderBy: z.union([OpportunityApplicationOrderByWithRelationInputObjectSchema, OpportunityApplicationOrderByWithRelationInputObjectSchema.array()]).optional(), where: OpportunityApplicationWhereInputObjectSchema.optional(), cursor: OpportunityApplicationWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), OpportunityApplicationCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.OpportunityApplicationCountArgs>;
+
+export const OpportunityApplicationCountZodSchema = z.object({ orderBy: z.union([OpportunityApplicationOrderByWithRelationInputObjectSchema, OpportunityApplicationOrderByWithRelationInputObjectSchema.array()]).optional(), where: OpportunityApplicationWhereInputObjectSchema.optional(), cursor: OpportunityApplicationWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), OpportunityApplicationCountAggregateInputObjectSchema ]).optional() }).strict();

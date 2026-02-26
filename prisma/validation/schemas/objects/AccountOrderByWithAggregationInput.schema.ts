@@ -1,0 +1,39 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../../generated/prisma/client';
+import { SortOrderSchema } from '../enums/SortOrder.schema';
+import { AccountCountOrderByAggregateInputObjectSchema as AccountCountOrderByAggregateInputObjectSchema } from './AccountCountOrderByAggregateInput.schema';
+import { AccountAvgOrderByAggregateInputObjectSchema as AccountAvgOrderByAggregateInputObjectSchema } from './AccountAvgOrderByAggregateInput.schema';
+import { AccountMaxOrderByAggregateInputObjectSchema as AccountMaxOrderByAggregateInputObjectSchema } from './AccountMaxOrderByAggregateInput.schema';
+import { AccountMinOrderByAggregateInputObjectSchema as AccountMinOrderByAggregateInputObjectSchema } from './AccountMinOrderByAggregateInput.schema';
+import { AccountSumOrderByAggregateInputObjectSchema as AccountSumOrderByAggregateInputObjectSchema } from './AccountSumOrderByAggregateInput.schema'
+
+const makeSchema = () => z.object({
+  id: SortOrderSchema.optional(),
+  userId: SortOrderSchema.optional(),
+  type: SortOrderSchema.optional(),
+  provider: SortOrderSchema.optional(),
+  providerAccountId: SortOrderSchema.optional(),
+  refresh_token: SortOrderSchema.optional(),
+  access_token: SortOrderSchema.optional(),
+  expires_at: SortOrderSchema.optional(),
+  expires_in: SortOrderSchema.optional(),
+  token_type: SortOrderSchema.optional(),
+  scope: SortOrderSchema.optional(),
+  id_token: SortOrderSchema.optional(),
+  session_state: SortOrderSchema.optional(),
+  api_domain: SortOrderSchema.optional(),
+  userType: SortOrderSchema.optional(),
+  locationId: SortOrderSchema.optional(),
+  company_id: SortOrderSchema.optional(),
+  approvedLocations: SortOrderSchema.optional(),
+  planId: SortOrderSchema.optional(),
+  created_at: SortOrderSchema.optional(),
+  updated_at: SortOrderSchema.optional(),
+  _count: z.lazy(() => AccountCountOrderByAggregateInputObjectSchema).optional(),
+  _avg: z.lazy(() => AccountAvgOrderByAggregateInputObjectSchema).optional(),
+  _max: z.lazy(() => AccountMaxOrderByAggregateInputObjectSchema).optional(),
+  _min: z.lazy(() => AccountMinOrderByAggregateInputObjectSchema).optional(),
+  _sum: z.lazy(() => AccountSumOrderByAggregateInputObjectSchema).optional()
+}).strict();
+export const AccountOrderByWithAggregationInputObjectSchema: z.ZodType<Prisma.AccountOrderByWithAggregationInput> = makeSchema() as unknown as z.ZodType<Prisma.AccountOrderByWithAggregationInput>;
+export const AccountOrderByWithAggregationInputObjectZodSchema = makeSchema();

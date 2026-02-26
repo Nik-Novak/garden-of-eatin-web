@@ -1,0 +1,40 @@
+//schedule.prisma
+
+enum Weekday {
+  Sunday
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+}
+
+enum ScheduleType {
+  Daily
+  Weekly
+  Monthly
+  Yearly
+}
+
+type RecurrenceRule {
+  ordinal         Int?   // used to set first, 2nd, 3rd, last(-1) weekday of the month, or last(-1), secondlast(-2) day of month
+  weekday         Weekday?   // optional weekday (daily schedules omit, weekly uses to set weekday, monthly set for ordinal)
+  date            DateTime?  // optional UTC startOf('day') (daily schedules omit, weekly omit, monthly to determine month number, yearly for actual date)
+}
+
+type TimeSlot {
+  start           Int        // ms offset from midnight
+  end             Int        // ms offset from midnight
+}
+
+type Schedule {
+  type              ScheduleType
+  every             Int            // interval (1 = every, 2 = every other, etc)
+  start_date        DateTime
+  end_date          DateTime?
+
+  reference_dates   DateTime[]  //the dates entered used to infer the schedule
+  times             TimeSlot[]
+  recurrence_rules  RecurrenceRule[]
+}

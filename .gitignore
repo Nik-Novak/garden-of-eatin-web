@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore prisma generated folder
+generated/
+
+# Ignore the private decryption keys!
+.env.keys
+# (Optional but recommended) Explicitly allow your encrypted files
+!.env
+!.env.production

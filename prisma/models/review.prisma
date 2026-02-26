@@ -1,0 +1,35 @@
+enum FacetType {
+  hospitality
+  tastiness
+  accessibility
+  restrooms
+  resources
+}
+
+type FacetReview {
+  facet     FacetType
+  rating    Float //0-5
+  feedback  String?
+}
+
+model Review {
+  id                        String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  name                      String?
+
+  overall                   Float
+
+  facet_reviews             FacetReview[]
+  feature_reviews           Feature[]
+
+  device        Device      @relation(fields: [device_id], references: [id])
+  device_id     String      @db.ObjectId
+
+  meal          Meal        @relation(fields: [meal_id], references: [id])
+  meal_id       String      @db.ObjectId
+
+
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  @@map("reviews")
+}

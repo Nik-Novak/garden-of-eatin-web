@@ -1,0 +1,20 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../../generated/prisma/client';
+import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
+import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
+import { OpportunityStatusSchema } from '../enums/OpportunityStatus.schema';
+import { EnumOpportunityStatusFieldUpdateOperationsInputObjectSchema as EnumOpportunityStatusFieldUpdateOperationsInputObjectSchema } from './EnumOpportunityStatusFieldUpdateOperationsInput.schema';
+import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
+import { OpportunityApplicationUncheckedUpdateManyWithoutOpportunityNestedInputObjectSchema as OpportunityApplicationUncheckedUpdateManyWithoutOpportunityNestedInputObjectSchema } from './OpportunityApplicationUncheckedUpdateManyWithoutOpportunityNestedInput.schema'
+
+const makeSchema = () => z.object({
+  title: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  abstract: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  description: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  status: z.union([OpportunityStatusSchema, z.lazy(() => EnumOpportunityStatusFieldUpdateOperationsInputObjectSchema)]).optional(),
+  created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  applications: z.lazy(() => OpportunityApplicationUncheckedUpdateManyWithoutOpportunityNestedInputObjectSchema).optional()
+}).strict();
+export const OpportunityUncheckedUpdateInputObjectSchema: z.ZodType<Prisma.OpportunityUncheckedUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.OpportunityUncheckedUpdateInput>;
+export const OpportunityUncheckedUpdateInputObjectZodSchema = makeSchema();

@@ -1,0 +1,104 @@
+//meal.prisma
+enum PointType {
+  Point
+}
+type Point {
+  type  PointType
+  coordinates Float[] //manually index as: '2dsphere'
+}
+
+type Place {
+  address   String
+  location  Point
+}
+
+enum Parking {
+  OnPremise
+  Street
+  None
+}
+
+enum Service {
+  ServedToYou
+  ServedInLine
+}
+
+enum Setting {
+  Indoors
+  Outdoors
+}
+
+enum Feature {
+  VeganOptions
+  WifiAvailable
+  Outlets
+  Seating
+  Coffee
+  Snacks
+  PetFriendly
+  Donations
+  PetSupplies
+  Entertainment
+  Groceries
+  Shower
+  Laundry
+  Medical
+}
+
+type Stats {
+  views       Int
+  navigations Int
+}
+
+model Meal {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  name          String
+  place         Place
+  // address       String
+  location      Point
+  schedule      Schedule
+
+  timezone      String   // "America/Los_Angeles"
+
+  setting       Setting[] @default([])
+  service       Service?
+  parking       Parking?
+  features      Feature[] @default([])
+
+  reviews       Review[]
+
+  meal_occurrences  MealOccurrence[]
+
+  approved        Boolean?
+  submitter       Device?     @relation(fields: [submitter_id], references: [id])
+  submitter_id    String?     @db.ObjectId
+  submitter_name  String?
+
+  stats         Stats
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  // @@unique([name, place.address]) //TODO: MANUALLY INDEX
+  // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
+  @@map("meals")
+}
+
+model MealOccurrence {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  meal      Meal     @relation(fields: [meal_id], references: [id], onDelete: Cascade)
+  meal_id   String  @db.ObjectId
+
+  start     DateTime
+  end       DateTime
+  timezone  String
+
+  location  Point     // GeoJSON Point (copied from Meal)
+
+  @@unique([meal_id, start, end])
+  @@index([start])
+  @@index([meal_id, start])
+  // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
+  @@map("meal_occurrences")
+}

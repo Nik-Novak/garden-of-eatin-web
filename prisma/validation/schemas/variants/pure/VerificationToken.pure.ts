@@ -1,0 +1,12 @@
+import * as z from 'zod';
+// prettier-ignore
+export const VerificationTokenModelSchema = z.object({
+    id: z.string(),
+    identifier: z.string(),
+    token: z.string(),
+    expires: z.date(),
+    created_at: z.date(),
+    updated_at: z.date()
+}).strict();
+
+export type VerificationTokenPureType = z.infer<typeof VerificationTokenModelSchema>;

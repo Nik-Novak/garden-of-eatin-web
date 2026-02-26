@@ -1,0 +1,20 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../../generated/prisma/client';
+import { SortOrderSchema } from '../enums/SortOrder.schema';
+import { VerificationTokenCountOrderByAggregateInputObjectSchema as VerificationTokenCountOrderByAggregateInputObjectSchema } from './VerificationTokenCountOrderByAggregateInput.schema';
+import { VerificationTokenMaxOrderByAggregateInputObjectSchema as VerificationTokenMaxOrderByAggregateInputObjectSchema } from './VerificationTokenMaxOrderByAggregateInput.schema';
+import { VerificationTokenMinOrderByAggregateInputObjectSchema as VerificationTokenMinOrderByAggregateInputObjectSchema } from './VerificationTokenMinOrderByAggregateInput.schema'
+
+const makeSchema = () => z.object({
+  id: SortOrderSchema.optional(),
+  identifier: SortOrderSchema.optional(),
+  token: SortOrderSchema.optional(),
+  expires: SortOrderSchema.optional(),
+  created_at: SortOrderSchema.optional(),
+  updated_at: SortOrderSchema.optional(),
+  _count: z.lazy(() => VerificationTokenCountOrderByAggregateInputObjectSchema).optional(),
+  _max: z.lazy(() => VerificationTokenMaxOrderByAggregateInputObjectSchema).optional(),
+  _min: z.lazy(() => VerificationTokenMinOrderByAggregateInputObjectSchema).optional()
+}).strict();
+export const VerificationTokenOrderByWithAggregationInputObjectSchema: z.ZodType<Prisma.VerificationTokenOrderByWithAggregationInput> = makeSchema() as unknown as z.ZodType<Prisma.VerificationTokenOrderByWithAggregationInput>;
+export const VerificationTokenOrderByWithAggregationInputObjectZodSchema = makeSchema();

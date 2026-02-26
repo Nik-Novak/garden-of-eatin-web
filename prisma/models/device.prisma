@@ -1,0 +1,31 @@
+enum TravelMode {
+  Walking
+  Cycling
+  Driving
+}
+type DeviceSettings {
+  travel_mode               TravelMode?
+  accepted_terms_of_service DateTime?
+  accepted_privacy_policy   DateTime?
+  opened_terms_of_service   DateTime?
+  opened_privacy_policy     DateTime?
+}
+model Device {
+  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
+  uuid                  String              @unique
+
+  settings              DeviceSettings
+
+  user                  User?              @relation(fields: [user_id], references: [id])
+  user_id               String?            @db.ObjectId
+
+  bugs                  Bug[]
+  contact_requests      ContactRequest[]
+  reviews               Review[]
+
+  submitted_meals       Meal[]
+  
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  @@map("devices")
+}

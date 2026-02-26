@@ -1,0 +1,9 @@
+import * as z from 'zod';
+import type { Prisma } from '../../../../generated/prisma/client';
+import { ReviewWhereInputObjectSchema as ReviewWhereInputObjectSchema } from './ReviewWhereInput.schema'
+
+const makeSchema = () => z.object({
+  where: z.lazy(() => ReviewWhereInputObjectSchema).optional()
+}).strict();
+export const MealCountOutputTypeCountReviewsArgsObjectSchema = makeSchema();
+export const MealCountOutputTypeCountReviewsArgsObjectZodSchema = makeSchema();

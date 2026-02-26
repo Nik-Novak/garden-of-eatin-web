@@ -1,0 +1,13 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { OpportunityWhereInputObjectSchema as OpportunityWhereInputObjectSchema } from './objects/OpportunityWhereInput.schema';
+import { OpportunityOrderByWithAggregationInputObjectSchema as OpportunityOrderByWithAggregationInputObjectSchema } from './objects/OpportunityOrderByWithAggregationInput.schema';
+import { OpportunityScalarWhereWithAggregatesInputObjectSchema as OpportunityScalarWhereWithAggregatesInputObjectSchema } from './objects/OpportunityScalarWhereWithAggregatesInput.schema';
+import { OpportunityScalarFieldEnumSchema } from './enums/OpportunityScalarFieldEnum.schema';
+import { OpportunityCountAggregateInputObjectSchema as OpportunityCountAggregateInputObjectSchema } from './objects/OpportunityCountAggregateInput.schema';
+import { OpportunityMinAggregateInputObjectSchema as OpportunityMinAggregateInputObjectSchema } from './objects/OpportunityMinAggregateInput.schema';
+import { OpportunityMaxAggregateInputObjectSchema as OpportunityMaxAggregateInputObjectSchema } from './objects/OpportunityMaxAggregateInput.schema';
+
+export const OpportunityGroupBySchema: z.ZodType<Prisma.OpportunityGroupByArgs> = z.object({ where: OpportunityWhereInputObjectSchema.optional(), orderBy: z.union([OpportunityOrderByWithAggregationInputObjectSchema, OpportunityOrderByWithAggregationInputObjectSchema.array()]).optional(), having: OpportunityScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(OpportunityScalarFieldEnumSchema), _count: z.union([ z.literal(true), OpportunityCountAggregateInputObjectSchema ]).optional(), _min: OpportunityMinAggregateInputObjectSchema.optional(), _max: OpportunityMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.OpportunityGroupByArgs>;
+
+export const OpportunityGroupByZodSchema = z.object({ where: OpportunityWhereInputObjectSchema.optional(), orderBy: z.union([OpportunityOrderByWithAggregationInputObjectSchema, OpportunityOrderByWithAggregationInputObjectSchema.array()]).optional(), having: OpportunityScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(OpportunityScalarFieldEnumSchema), _count: z.union([ z.literal(true), OpportunityCountAggregateInputObjectSchema ]).optional(), _min: OpportunityMinAggregateInputObjectSchema.optional(), _max: OpportunityMaxAggregateInputObjectSchema.optional() }).strict();

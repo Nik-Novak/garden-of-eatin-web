@@ -1,0 +1,13 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { ContactRequestWhereInputObjectSchema as ContactRequestWhereInputObjectSchema } from './objects/ContactRequestWhereInput.schema';
+import { ContactRequestOrderByWithAggregationInputObjectSchema as ContactRequestOrderByWithAggregationInputObjectSchema } from './objects/ContactRequestOrderByWithAggregationInput.schema';
+import { ContactRequestScalarWhereWithAggregatesInputObjectSchema as ContactRequestScalarWhereWithAggregatesInputObjectSchema } from './objects/ContactRequestScalarWhereWithAggregatesInput.schema';
+import { ContactRequestScalarFieldEnumSchema } from './enums/ContactRequestScalarFieldEnum.schema';
+import { ContactRequestCountAggregateInputObjectSchema as ContactRequestCountAggregateInputObjectSchema } from './objects/ContactRequestCountAggregateInput.schema';
+import { ContactRequestMinAggregateInputObjectSchema as ContactRequestMinAggregateInputObjectSchema } from './objects/ContactRequestMinAggregateInput.schema';
+import { ContactRequestMaxAggregateInputObjectSchema as ContactRequestMaxAggregateInputObjectSchema } from './objects/ContactRequestMaxAggregateInput.schema';
+
+export const ContactRequestGroupBySchema: z.ZodType<Prisma.ContactRequestGroupByArgs> = z.object({ where: ContactRequestWhereInputObjectSchema.optional(), orderBy: z.union([ContactRequestOrderByWithAggregationInputObjectSchema, ContactRequestOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ContactRequestScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ContactRequestScalarFieldEnumSchema), _count: z.union([ z.literal(true), ContactRequestCountAggregateInputObjectSchema ]).optional(), _min: ContactRequestMinAggregateInputObjectSchema.optional(), _max: ContactRequestMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ContactRequestGroupByArgs>;
+
+export const ContactRequestGroupByZodSchema = z.object({ where: ContactRequestWhereInputObjectSchema.optional(), orderBy: z.union([ContactRequestOrderByWithAggregationInputObjectSchema, ContactRequestOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ContactRequestScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ContactRequestScalarFieldEnumSchema), _count: z.union([ z.literal(true), ContactRequestCountAggregateInputObjectSchema ]).optional(), _min: ContactRequestMinAggregateInputObjectSchema.optional(), _max: ContactRequestMaxAggregateInputObjectSchema.optional() }).strict();

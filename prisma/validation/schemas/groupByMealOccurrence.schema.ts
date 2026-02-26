@@ -1,0 +1,13 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { MealOccurrenceWhereInputObjectSchema as MealOccurrenceWhereInputObjectSchema } from './objects/MealOccurrenceWhereInput.schema';
+import { MealOccurrenceOrderByWithAggregationInputObjectSchema as MealOccurrenceOrderByWithAggregationInputObjectSchema } from './objects/MealOccurrenceOrderByWithAggregationInput.schema';
+import { MealOccurrenceScalarWhereWithAggregatesInputObjectSchema as MealOccurrenceScalarWhereWithAggregatesInputObjectSchema } from './objects/MealOccurrenceScalarWhereWithAggregatesInput.schema';
+import { MealOccurrenceScalarFieldEnumSchema } from './enums/MealOccurrenceScalarFieldEnum.schema';
+import { MealOccurrenceCountAggregateInputObjectSchema as MealOccurrenceCountAggregateInputObjectSchema } from './objects/MealOccurrenceCountAggregateInput.schema';
+import { MealOccurrenceMinAggregateInputObjectSchema as MealOccurrenceMinAggregateInputObjectSchema } from './objects/MealOccurrenceMinAggregateInput.schema';
+import { MealOccurrenceMaxAggregateInputObjectSchema as MealOccurrenceMaxAggregateInputObjectSchema } from './objects/MealOccurrenceMaxAggregateInput.schema';
+
+export const MealOccurrenceGroupBySchema: z.ZodType<Prisma.MealOccurrenceGroupByArgs> = z.object({ where: MealOccurrenceWhereInputObjectSchema.optional(), orderBy: z.union([MealOccurrenceOrderByWithAggregationInputObjectSchema, MealOccurrenceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealOccurrenceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealOccurrenceScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: MealOccurrenceMinAggregateInputObjectSchema.optional(), _max: MealOccurrenceMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceGroupByArgs>;
+
+export const MealOccurrenceGroupByZodSchema = z.object({ where: MealOccurrenceWhereInputObjectSchema.optional(), orderBy: z.union([MealOccurrenceOrderByWithAggregationInputObjectSchema, MealOccurrenceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealOccurrenceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealOccurrenceScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: MealOccurrenceMinAggregateInputObjectSchema.optional(), _max: MealOccurrenceMaxAggregateInputObjectSchema.optional() }).strict();

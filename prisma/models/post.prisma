@@ -1,0 +1,20 @@
+type Image{
+  src     String
+  width   Int
+  height  Int
+}
+
+model Post {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  title             String    @unique
+  category          String?
+
+  images            Image[]
+  summary           String?
+  content           String
+  keywords          String[]  @default([])
+  
+  created_at        DateTime    @default(now())
+  updated_at        DateTime    @updatedAt
+  @@map("posts")
+}

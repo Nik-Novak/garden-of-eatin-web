@@ -1,0 +1,13 @@
+import type { Prisma } from '../../../generated/prisma/client';
+import * as z from 'zod';
+import { OpportunityApplicationSelectObjectSchema as OpportunityApplicationSelectObjectSchema } from './objects/OpportunityApplicationSelect.schema';
+import { OpportunityApplicationIncludeObjectSchema as OpportunityApplicationIncludeObjectSchema } from './objects/OpportunityApplicationInclude.schema';
+import { OpportunityApplicationWhereUniqueInputObjectSchema as OpportunityApplicationWhereUniqueInputObjectSchema } from './objects/OpportunityApplicationWhereUniqueInput.schema';
+import { OpportunityApplicationCreateInputObjectSchema as OpportunityApplicationCreateInputObjectSchema } from './objects/OpportunityApplicationCreateInput.schema';
+import { OpportunityApplicationUncheckedCreateInputObjectSchema as OpportunityApplicationUncheckedCreateInputObjectSchema } from './objects/OpportunityApplicationUncheckedCreateInput.schema';
+import { OpportunityApplicationUpdateInputObjectSchema as OpportunityApplicationUpdateInputObjectSchema } from './objects/OpportunityApplicationUpdateInput.schema';
+import { OpportunityApplicationUncheckedUpdateInputObjectSchema as OpportunityApplicationUncheckedUpdateInputObjectSchema } from './objects/OpportunityApplicationUncheckedUpdateInput.schema';
+
+export const OpportunityApplicationUpsertOneSchema: z.ZodType<Prisma.OpportunityApplicationUpsertArgs> = z.object({ select: OpportunityApplicationSelectObjectSchema.optional(), include: OpportunityApplicationIncludeObjectSchema.optional(), where: OpportunityApplicationWhereUniqueInputObjectSchema, create: z.union([ OpportunityApplicationCreateInputObjectSchema, OpportunityApplicationUncheckedCreateInputObjectSchema ]), update: z.union([ OpportunityApplicationUpdateInputObjectSchema, OpportunityApplicationUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.OpportunityApplicationUpsertArgs>;
+
+export const OpportunityApplicationUpsertOneZodSchema = z.object({ select: OpportunityApplicationSelectObjectSchema.optional(), include: OpportunityApplicationIncludeObjectSchema.optional(), where: OpportunityApplicationWhereUniqueInputObjectSchema, create: z.union([ OpportunityApplicationCreateInputObjectSchema, OpportunityApplicationUncheckedCreateInputObjectSchema ]), update: z.union([ OpportunityApplicationUpdateInputObjectSchema, OpportunityApplicationUncheckedUpdateInputObjectSchema ]) }).strict();

@@ -1,12 +1,11 @@
 import type { NextConfig } from "next";
+import path from 'path';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  outputFileTracingRoot: path.join(__dirname, '../../'),
   outputFileTracingIncludes: {
-    // Tells Vercel to explicitly bundle the engine files 
-    // from the root .generated folder into all API routes
-    "/api/**/*": ["./.generated/**/*"],
+    "/api/**/*": ["./.generated/prisma/*.node"],
   },
 };
 

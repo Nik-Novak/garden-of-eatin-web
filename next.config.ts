@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
-import path from 'path';
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  outputFileTracingRoot: path.join(__dirname, '../../'),
   outputFileTracingIncludes: {
-    "/api/**/*": ["./.generated/prisma/*.node"],
+    // This tells Next.js to include everything in your generated prisma folder
+    // for all API routes. Use a relative path from the project root.
+    "/api/**/*": ["./.generated/prisma/**/*"],
   },
 };
 

@@ -34,9 +34,7 @@ export async function POST(request: Request) {
     console.log('Code-level authorization block');
     return new NextResponse("Unauthorized", { status: 401 });
   }
-
-  console.log('TEST DB URL', process.env.DATABASE_URL);
-
+  
   try {
     await cronGenerateOccurences();
     return NextResponse.json({ success: true, message: "Manual: Occurrences generated." });

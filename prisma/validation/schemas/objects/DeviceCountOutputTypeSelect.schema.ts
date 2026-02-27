@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { DeviceCountOutputTypeCountBugsArgsObjectSchema as DeviceCountOutputTypeCountBugsArgsObjectSchema } from './DeviceCountOutputTypeCountBugsArgs.schema';
 import { DeviceCountOutputTypeCountContactRequestsArgsObjectSchema as DeviceCountOutputTypeCountContactRequestsArgsObjectSchema } from './DeviceCountOutputTypeCountContactRequestsArgs.schema';
 import { DeviceCountOutputTypeCountReviewsArgsObjectSchema as DeviceCountOutputTypeCountReviewsArgsObjectSchema } from './DeviceCountOutputTypeCountReviewsArgs.schema';

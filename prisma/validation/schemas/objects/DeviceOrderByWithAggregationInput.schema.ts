@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { DeviceCountOrderByAggregateInputObjectSchema as DeviceCountOrderByAggregateInputObjectSchema } from './DeviceCountOrderByAggregateInput.schema';
 import { DeviceMaxOrderByAggregateInputObjectSchema as DeviceMaxOrderByAggregateInputObjectSchema } from './DeviceMaxOrderByAggregateInput.schema';

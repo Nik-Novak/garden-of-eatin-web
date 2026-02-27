@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { DeviceArgsObjectSchema as DeviceArgsObjectSchema } from './DeviceArgs.schema';
 import { MealArgsObjectSchema as MealArgsObjectSchema } from './MealArgs.schema'
 

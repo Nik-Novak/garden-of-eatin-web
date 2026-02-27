@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { OpportunityApplicationStatusSchema } from '../enums/OpportunityApplicationStatus.schema';
 import { NestedEnumOpportunityApplicationStatusFilterObjectSchema as NestedEnumOpportunityApplicationStatusFilterObjectSchema } from './NestedEnumOpportunityApplicationStatusFilter.schema'
 

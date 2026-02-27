@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { EnumFacetTypeFilterObjectSchema as EnumFacetTypeFilterObjectSchema } from './EnumFacetTypeFilter.schema';
 import { FacetTypeSchema } from '../enums/FacetType.schema';
 import { FloatFilterObjectSchema as FloatFilterObjectSchema } from './FloatFilter.schema';

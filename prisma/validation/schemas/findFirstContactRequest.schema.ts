@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import * as z from 'zod';
 import { ContactRequestIncludeObjectSchema as ContactRequestIncludeObjectSchema } from './objects/ContactRequestInclude.schema';
 import { ContactRequestOrderByWithRelationInputObjectSchema as ContactRequestOrderByWithRelationInputObjectSchema } from './objects/ContactRequestOrderByWithRelationInput.schema';

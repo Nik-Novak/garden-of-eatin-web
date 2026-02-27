@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { InviteStatusSchema } from '../enums/InviteStatus.schema';
 import { UserCreateNestedOneWithoutInvites_sentInputObjectSchema as UserCreateNestedOneWithoutInvites_sentInputObjectSchema } from './UserCreateNestedOneWithoutInvites_sentInput.schema';
 import { UserCreateNestedOneWithoutInvite_usedInputObjectSchema as UserCreateNestedOneWithoutInvite_usedInputObjectSchema } from './UserCreateNestedOneWithoutInvite_usedInput.schema'

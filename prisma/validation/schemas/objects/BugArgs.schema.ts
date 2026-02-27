@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { BugSelectObjectSchema as BugSelectObjectSchema } from './BugSelect.schema';
 import { BugIncludeObjectSchema as BugIncludeObjectSchema } from './BugInclude.schema'
 

@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import * as z from 'zod';
 import { MealSelectObjectSchema as MealSelectObjectSchema } from './objects/MealSelect.schema';
 import { MealIncludeObjectSchema as MealIncludeObjectSchema } from './objects/MealInclude.schema';

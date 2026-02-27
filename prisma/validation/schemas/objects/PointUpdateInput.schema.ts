@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { PointTypeSchema } from '../enums/PointType.schema';
 import { EnumPointTypeFieldUpdateOperationsInputObjectSchema as EnumPointTypeFieldUpdateOperationsInputObjectSchema } from './EnumPointTypeFieldUpdateOperationsInput.schema';
 import { PointUpdatecoordinatesInputObjectSchema as PointUpdatecoordinatesInputObjectSchema } from './PointUpdatecoordinatesInput.schema'

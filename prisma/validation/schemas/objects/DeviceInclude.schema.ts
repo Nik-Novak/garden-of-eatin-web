@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { UserArgsObjectSchema as UserArgsObjectSchema } from './UserArgs.schema';
 import { BugFindManySchema as BugFindManySchema } from '../findManyBug.schema';
 import { ContactRequestFindManySchema as ContactRequestFindManySchema } from '../findManyContactRequest.schema';

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { PointTypeSchema } from '../enums/PointType.schema';
 import { NestedEnumPointTypeFilterObjectSchema as NestedEnumPointTypeFilterObjectSchema } from './NestedEnumPointTypeFilter.schema'
 

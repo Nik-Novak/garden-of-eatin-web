@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { ScheduleCreateInputObjectSchema as ScheduleCreateInputObjectSchema } from './ScheduleCreateInput.schema';
 import { ScheduleUpdateInputObjectSchema as ScheduleUpdateInputObjectSchema } from './ScheduleUpdateInput.schema'
 

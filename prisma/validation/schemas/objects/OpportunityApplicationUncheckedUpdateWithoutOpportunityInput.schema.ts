@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { OpportunityApplicationStatusSchema } from '../enums/OpportunityApplicationStatus.schema';
 import { EnumOpportunityApplicationStatusFieldUpdateOperationsInputObjectSchema as EnumOpportunityApplicationStatusFieldUpdateOperationsInputObjectSchema } from './EnumOpportunityApplicationStatusFieldUpdateOperationsInput.schema';

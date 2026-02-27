@@ -1,5 +1,5 @@
-import { Meal } from "@/generated/prisma/client"
-import { MealCreateInput } from "@/generated/prisma/models"
+import { Meal } from "@prisma/client"
+import { MealCreateInput } from "@prisma/client"
 
 export type MealCreatePayload = {
   meal: MealCreateInput,

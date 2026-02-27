@@ -1,7 +1,7 @@
 import { JsonObject, JsonValue } from '@prisma/client/runtime/library';
 import { ZodTypeAny, z } from 'zod';
 // import * as ZodSchemas from '../validation/schemas'; //uncomment to enable validate()
-import { Prisma, PrismaClient } from '@/generated/prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { prismaDmmf } from './prisma-dmmf';
 // let modelnames = Prisma.dmmf.datamodel.models.map(m=>m.name); Value `in` modelnames
 

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { EnumPointTypeFilterObjectSchema as EnumPointTypeFilterObjectSchema } from './EnumPointTypeFilter.schema';
 import { PointTypeSchema } from '../enums/PointType.schema';
 import { FloatNullableListFilterObjectSchema as FloatNullableListFilterObjectSchema } from './FloatNullableListFilter.schema'

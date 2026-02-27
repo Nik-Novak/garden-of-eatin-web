@@ -1,5 +1,5 @@
 // prisma-dmmf.ts
-import { Prisma } from '@/generated/prisma/client';
+import { Prisma } from '@prisma/client';
 
 /**
  * Minimal DMMF field shape used by polish()

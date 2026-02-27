@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { OpportunityApplicationScalarWhereInputObjectSchema as OpportunityApplicationScalarWhereInputObjectSchema } from './OpportunityApplicationScalarWhereInput.schema';
 import { OpportunityApplicationUpdateManyMutationInputObjectSchema as OpportunityApplicationUpdateManyMutationInputObjectSchema } from './OpportunityApplicationUpdateManyMutationInput.schema';
 import { OpportunityApplicationUncheckedUpdateManyWithoutOpportunityInputObjectSchema as OpportunityApplicationUncheckedUpdateManyWithoutOpportunityInputObjectSchema } from './OpportunityApplicationUncheckedUpdateManyWithoutOpportunityInput.schema'

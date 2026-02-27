@@ -1,11 +1,11 @@
 //preload.ts
 import { database } from "../database/database";
-import { MealCreateInput } from "@/generated/prisma/models";
+import { Prisma } from "@prisma/client";
 
 export default async function preloadDatabase(){
   console.log('STARTING MIGRATION');
 
-  const meals:MealCreateInput[] = [
+  const meals:Prisma.MealCreateInput[] = [
     {
       approved: true,
       name: "Serve Love - Sunday Night",

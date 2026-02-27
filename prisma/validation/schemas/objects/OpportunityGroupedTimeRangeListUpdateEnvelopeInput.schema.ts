@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { OpportunityGroupedTimeRangeCreateInputObjectSchema as OpportunityGroupedTimeRangeCreateInputObjectSchema } from './OpportunityGroupedTimeRangeCreateInput.schema';
 import { OpportunityGroupedTimeRangeUpdateManyInputObjectSchema as OpportunityGroupedTimeRangeUpdateManyInputObjectSchema } from './OpportunityGroupedTimeRangeUpdateManyInput.schema';
 import { OpportunityGroupedTimeRangeDeleteManyInputObjectSchema as OpportunityGroupedTimeRangeDeleteManyInputObjectSchema } from './OpportunityGroupedTimeRangeDeleteManyInput.schema'

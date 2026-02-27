@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { FacetReviewCreateInputObjectSchema as FacetReviewCreateInputObjectSchema } from './FacetReviewCreateInput.schema';
 import { FacetReviewUpdateManyInputObjectSchema as FacetReviewUpdateManyInputObjectSchema } from './FacetReviewUpdateManyInput.schema';
 import { FacetReviewDeleteManyInputObjectSchema as FacetReviewDeleteManyInputObjectSchema } from './FacetReviewDeleteManyInput.schema'

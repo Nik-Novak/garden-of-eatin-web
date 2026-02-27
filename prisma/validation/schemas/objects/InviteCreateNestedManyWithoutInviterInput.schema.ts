@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { InviteCreateWithoutInviterInputObjectSchema as InviteCreateWithoutInviterInputObjectSchema } from './InviteCreateWithoutInviterInput.schema';
 import { InviteUncheckedCreateWithoutInviterInputObjectSchema as InviteUncheckedCreateWithoutInviterInputObjectSchema } from './InviteUncheckedCreateWithoutInviterInput.schema';
 import { InviteCreateOrConnectWithoutInviterInputObjectSchema as InviteCreateOrConnectWithoutInviterInputObjectSchema } from './InviteCreateOrConnectWithoutInviterInput.schema';

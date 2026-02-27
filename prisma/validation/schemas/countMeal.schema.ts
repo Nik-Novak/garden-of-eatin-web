@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import * as z from 'zod';
 import { MealOrderByWithRelationInputObjectSchema as MealOrderByWithRelationInputObjectSchema } from './objects/MealOrderByWithRelationInput.schema';
 import { MealWhereInputObjectSchema as MealWhereInputObjectSchema } from './objects/MealWhereInput.schema';

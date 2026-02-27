@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { StatsObjectEqualityInputObjectSchema as StatsObjectEqualityInputObjectSchema } from './StatsObjectEqualityInput.schema';
 import { StatsWhereInputObjectSchema as StatsWhereInputObjectSchema } from './StatsWhereInput.schema'
 

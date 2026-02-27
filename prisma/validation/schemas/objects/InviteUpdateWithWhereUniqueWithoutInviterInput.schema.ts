@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { InviteWhereUniqueInputObjectSchema as InviteWhereUniqueInputObjectSchema } from './InviteWhereUniqueInput.schema';
 import { InviteUpdateWithoutInviterInputObjectSchema as InviteUpdateWithoutInviterInputObjectSchema } from './InviteUpdateWithoutInviterInput.schema';
 import { InviteUncheckedUpdateWithoutInviterInputObjectSchema as InviteUncheckedUpdateWithoutInviterInputObjectSchema } from './InviteUncheckedUpdateWithoutInviterInput.schema'

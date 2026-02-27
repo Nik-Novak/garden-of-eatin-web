@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { UserCreateWithoutDevicesInputObjectSchema as UserCreateWithoutDevicesInputObjectSchema } from './UserCreateWithoutDevicesInput.schema';
 import { UserUncheckedCreateWithoutDevicesInputObjectSchema as UserUncheckedCreateWithoutDevicesInputObjectSchema } from './UserUncheckedCreateWithoutDevicesInput.schema';
 import { UserCreateOrConnectWithoutDevicesInputObjectSchema as UserCreateOrConnectWithoutDevicesInputObjectSchema } from './UserCreateOrConnectWithoutDevicesInput.schema';

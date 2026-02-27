@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema';
 import { DeviceUpdateWithoutContact_requestsInputObjectSchema as DeviceUpdateWithoutContact_requestsInputObjectSchema } from './DeviceUpdateWithoutContact_requestsInput.schema';
 import { DeviceUncheckedUpdateWithoutContact_requestsInputObjectSchema as DeviceUncheckedUpdateWithoutContact_requestsInputObjectSchema } from './DeviceUncheckedUpdateWithoutContact_requestsInput.schema'

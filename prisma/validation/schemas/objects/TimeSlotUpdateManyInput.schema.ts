@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { TimeSlotWhereInputObjectSchema as TimeSlotWhereInputObjectSchema } from './TimeSlotWhereInput.schema';
 import { TimeSlotUpdateInputObjectSchema as TimeSlotUpdateInputObjectSchema } from './TimeSlotUpdateInput.schema'
 

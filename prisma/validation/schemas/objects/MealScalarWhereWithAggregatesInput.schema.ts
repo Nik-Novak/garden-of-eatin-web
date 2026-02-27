@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { StringWithAggregatesFilterObjectSchema as StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
 import { EnumSettingNullableListFilterObjectSchema as EnumSettingNullableListFilterObjectSchema } from './EnumSettingNullableListFilter.schema';
 import { EnumServiceNullableWithAggregatesFilterObjectSchema as EnumServiceNullableWithAggregatesFilterObjectSchema } from './EnumServiceNullableWithAggregatesFilter.schema';

@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { MealScalarWhereInputObjectSchema as MealScalarWhereInputObjectSchema } from './MealScalarWhereInput.schema';
 import { MealUpdateManyMutationInputObjectSchema as MealUpdateManyMutationInputObjectSchema } from './MealUpdateManyMutationInput.schema';
 import { MealUncheckedUpdateManyWithoutSubmitterInputObjectSchema as MealUncheckedUpdateManyWithoutSubmitterInputObjectSchema } from './MealUncheckedUpdateManyWithoutSubmitterInput.schema'

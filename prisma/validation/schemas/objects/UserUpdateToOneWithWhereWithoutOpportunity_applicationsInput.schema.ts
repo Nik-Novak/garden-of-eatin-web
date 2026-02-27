@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import type { Prisma } from '../../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import { UserWhereInputObjectSchema as UserWhereInputObjectSchema } from './UserWhereInput.schema';
 import { UserUpdateWithoutOpportunity_applicationsInputObjectSchema as UserUpdateWithoutOpportunity_applicationsInputObjectSchema } from './UserUpdateWithoutOpportunity_applicationsInput.schema';
 import { UserUncheckedUpdateWithoutOpportunity_applicationsInputObjectSchema as UserUncheckedUpdateWithoutOpportunity_applicationsInputObjectSchema } from './UserUncheckedUpdateWithoutOpportunity_applicationsInput.schema'

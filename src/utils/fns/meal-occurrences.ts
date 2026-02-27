@@ -5,7 +5,7 @@ import {
   MealOccurrence, 
   TravelMode, 
   Weekday 
-} from "@/generated/prisma/client";
+} from "@prisma/client";
 import { GeoMealOccurrence } from "@/types/meal";
 
 // Defined locally to ensure type safety if generated client lags

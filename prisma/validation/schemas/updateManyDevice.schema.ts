@@ -1,4 +1,4 @@
-import type { Prisma } from '../../../.generated/prisma/client';
+import type { Prisma } from '@prisma/client';
 import * as z from 'zod';
 import { DeviceUpdateManyMutationInputObjectSchema as DeviceUpdateManyMutationInputObjectSchema } from './objects/DeviceUpdateManyMutationInput.schema';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './objects/DeviceWhereInput.schema';

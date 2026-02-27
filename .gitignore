@@ -49,3 +49,4 @@ generated/
 # (Optional but recommended) Explicitly allow your encrypted files
 !.env
 !.env.production
+ 

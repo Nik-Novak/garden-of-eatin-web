@@ -2,6 +2,23 @@ import { NextResponse } from "next/server";
 // Adjust this path to wherever your script actually lives
 import cronGenerateOccurences from "@/prisma/migrations/cron-generate-occurrences"; 
 
+console.warn('fake-instrumentation')
+    const { config } = await import('@dotenvx/dotenvx');
+    
+    // Get the environment from NODE_ENV, with a fallback to VERCEL_ENV
+    const env = process.env.NODE_ENV || process.env.VERCEL_ENV;
+    
+    if (env) {
+      // Sources the specific .env.ENVIRONMENT file strictly (e.g., .env.production, .env.preview)
+      config({ 
+        path: `.env.${env}` ,
+        // // Suppress the noisy warning about the missing base .env file
+        // ignore: ['MISSING_ENV_FILE']
+      });
+    } else {
+      throw Error('Neither NODE_ENV nor VERCEL_ENV is defined. No environment variables were loaded.');
+    }
+
 // Allow this function to run for up to 5 minutes (max for Vercel Pro)
 // If you are on the Hobby plan, the max is 10 seconds.
 export const maxDuration = 300; 

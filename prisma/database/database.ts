@@ -3,7 +3,7 @@ import { ZodTypeAny, z } from 'zod';
 // import * as ZodSchemas from '../validation/schemas'; //uncomment to enable validate()
 import { Prisma, PrismaClient } from '@prisma/client';
 import { prismaDmmf } from './prisma-dmmf';
-import '../../env-init';
+import '@/lib/env-init';
 // let modelnames = Prisma.dmmf.datamodel.models.map(m=>m.name); Value `in` modelnames
 
 export type DatabaseRecord = {

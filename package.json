@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "build:steps": "next build",
-    "build": "dotenvx run -f .env.production -- yarn run build:steps",
-    "migrate": "dotenvx run -f .env -- tsx ./prisma/migrations/index.ts",
-    "dev": "dotenvx run -f .env -- next dev",
-    "start": "dotenvx run -f .env.production -- next start",
+    "build": "NODE_ENV=production dotenvx run -f .env.production -- yarn run build:steps",
+    "migrate": "NODE_ENV=production dotenvx run -f .env.production -- tsx ./prisma/migrations/index.ts",
+    "dev": "NODE_ENV=development dotenvx run -f .env.development -- next dev",
+    "start": "NODE_ENV=production dotenvx run -f .env.production -- next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "postinstall": "dotenvx run -f .env.production -- prisma generate"
+    "postinstall": "NODE_ENV=production dotenvx run -f .env.production -- prisma generate"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.52.0",

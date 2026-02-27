@@ -48,5 +48,6 @@ generated/
 .env.keys
 # (Optional but recommended) Explicitly allow your encrypted files
 !.env
+!.env.development
 !.env.production
  

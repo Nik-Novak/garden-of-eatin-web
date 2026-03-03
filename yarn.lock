@@ -993,6 +993,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/suncalc@npm:^1":
+  version: 1.9.2
+  resolution: "@types/suncalc@npm:1.9.2"
+  checksum: 10c0/13fd49e65f3c31ac09d41f79c812a66b74f40574a683d0503d337114685eb84557748f98ff62c5c440470aa209d39f83dd5f783decbf06a1d68f48fdaf2aa758
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^4.0.0":
   version: 4.0.0
   resolution: "abbrev@npm:4.0.0"
@@ -1776,6 +1783,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
+    "@types/suncalc": "npm:^1"
     babel-plugin-react-compiler: "npm:1.0.0"
     next: "npm:16.1.6"
     prisma: "npm:6.x.x"
@@ -1783,6 +1791,7 @@ __metadata:
     react: "npm:19.2.3"
     react-dom: "npm:19.2.3"
     spacetime: "npm:^7.12.0"
+    suncalc: "npm:^1.9.0"
     tsx: "npm:^4.21.0"
     typescript: "npm:^5"
     zod: "npm:^4.3.5"
@@ -3023,6 +3032,13 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 10c0/ace50e7ea5ae5ae6a3b65a50994c51fca6ae7df9c7ecfd0104c36be0b4b3a9c5c1a2374d16e2a11e256d0b20be6d47256d768ecb4f91ab390f60752a075780f5
+  languageName: node
+  linkType: hard
+
+"suncalc@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "suncalc@npm:1.9.0"
+  checksum: 10c0/3c76c600ec8e60b7a6efab72f48cce3fc9b4ce95f8fa404fcd13d22f618fee2b83d7ad486544aee76bc20129c9f4eae4a76b09640c54167edd1de6099ca6cd3d
   languageName: node
   linkType: hard
 

@@ -1,20 +1,25 @@
-// meal-occurrences.ts
 import spacetime, { Spacetime } from "spacetime";
+import SunCalc from "suncalc";
 import { 
   Meal, 
   MealOccurrence, 
   TravelMode, 
-  Weekday 
+  Weekday,
+  TimeAnchor 
 } from "@prisma/client";
 import { GeoMealOccurrence } from "@/types/meal";
-
-// Defined locally to ensure type safety if generated client lags
-type ScheduleType = 'Daily' | 'Weekly' | 'Monthly' | 'Yearly';
 
 interface OccurrenceInput {
   meal: Meal;
   windowStart: Date;
   windowEnd: Date;
+}
+
+interface TimeSlotInput {
+  start: number;
+  start_anchor: TimeAnchor;
+  end: number;
+  end_anchor: TimeAnchor;
 }
 
 // Maps Prisma Enums to Spacetime indices (0 = Sunday, 6 = Saturday)
@@ -72,20 +77,55 @@ function getNthWeekday(baseDate: Spacetime, ordinal: number, dayIndex: number): 
 }
 
 /**
+ * Resolves a TimeAnchor into an exact Spacetime base object.
+ */
+function getBaseTime(date: Spacetime, anchor: TimeAnchor, coordinates: number[]): Spacetime {
+  if (!anchor || anchor === 'Midnight') {
+    return date.clone().startOf('day');
+  }
+
+  // MongoDB 2dsphere / GeoJSON stores coordinates as [longitude, latitude]
+  const [lng, lat] = coordinates;
+  
+  // suncalc needs a standard JS Date. 
+  // We use the 12:00 PM of the target day to ensure we get the correct solar cycle for that specific day.
+  const targetDate = date.clone().time('12:00pm').toNativeDate();
+  const sunTimes = SunCalc.getTimes(targetDate, lat, lng);
+
+  let eventDate: Date | undefined;
+  switch (anchor) {
+    case 'Sunrise': eventDate = sunTimes.sunrise; break;
+    case 'Sunset':  eventDate = sunTimes.sunset; break;
+    case 'Dawn':    eventDate = sunTimes.dawn; break;
+    case 'Dusk':    eventDate = sunTimes.dusk; break;
+  }
+
+  // If valid, wrap the absolute UTC Date back into Spacetime using the meal's timezone
+  if (eventDate && !isNaN(eventDate.getTime())) {
+    return spacetime(eventDate, date.timezone().name);
+  }
+
+  // Fallback to Midnight if the solar event is invalid (e.g., extreme polar latitudes)
+  return date.clone().startOf('day');
+}
+
+/**
  * Creates an occurrence object if the timeslot fits within the window.
  */
 function createOccurrence(
   date: Spacetime, 
-  startMs: number, 
-  endMs: number, 
+  slot: TimeSlotInput, 
   meal: Meal,
   windowStart: number,
   windowEnd: number
 ): Omit<MealOccurrence, "id"> | null {
-  // Reset to midnight of the meal's timezone, then apply ms offsets
-  const base = date.startOf('day');
-  const start = base.add(startMs, 'millisecond');
-  const end = base.add(endMs, 'millisecond');
+  // Resolve base times based on anchor & meal coordinates
+  const startBase = getBaseTime(date, slot.start_anchor, meal.location.coordinates);
+  const endBase = getBaseTime(date, slot.end_anchor, meal.location.coordinates);
+
+  // Apply integer offsets to their respective base anchors
+  const start = startBase.add(slot.start, 'millisecond');
+  const end = endBase.add(slot.end, 'millisecond');
 
   const startEpoch = start.epoch;
   
@@ -131,29 +171,24 @@ export function mealOccurrences({
   const wEndEpoch = new Date(windowEnd).getTime();
 
   // Determine if this is a Recurring Schedule or Manual/One-off
-  // Recurrence is ON if 'every' > 0 AND (it is Daily OR has specific rules defined)
-  // Daily is the exception that doesn't strictly need a 'recurrence_rule' entry
   const everyVal = Number(every ?? 0);
   const hasRules = recurrence_rules && recurrence_rules.length > 0;
   const isRecurring = everyVal > 0 && (type === 'Daily' || hasRules);
 
   // 1. NON-RECURRING: Use Reference Dates
-  // Only process reference dates if recurrence is effectively OFF
   if (!isRecurring && reference_dates && reference_dates.length > 0) {
     for (const refDate of reference_dates) {
-      // Parse reference date in the correct timezone
       const sDate = spacetime(refDate, tz);
       for (const slot of times) {
-        const occ = createOccurrence(sDate, slot.start, slot.end, meal, wStartEpoch, wEndEpoch);
+        // We typecast or structure the slot depending on how Prisma outputs it
+        const occ = createOccurrence(sDate, slot as unknown as TimeSlotInput, meal, wStartEpoch, wEndEpoch);
         if (occ) occurrences.push(occ);
       }
     }
   }
 
   // 2. RECURRING: Use Loop
-  // Only run this block if recurrence is actually active
   if (isRecurring) {
-    // Initialize cursor at schedule start in the correct timezone
     let cursor = spacetime(start_date, tz);
     
     // Optimization: Fast-forward cursor to window start if applicable
@@ -167,7 +202,6 @@ export function mealOccurrences({
                  
       const diff = windowStartSt.diff(cursor, unit);
       if (diff > 0) {
-        // Calculate how many 'every' intervals fit in the diff
         const jumps = Math.floor(diff / everyVal);
         if (jumps > 0) {
           cursor = cursor.add(jumps * everyVal, unit);
@@ -177,7 +211,6 @@ export function mealOccurrences({
 
     // Loop until we pass the window
     while (cursor.epoch < wEndEpoch) {
-      // Collect valid dates for this interval (e.g. valid days in this specific week)
       const validDates: Spacetime[] = [];
 
       // --- DAILY ---
@@ -189,12 +222,8 @@ export function mealOccurrences({
       else if (type === "Weekly") {
         for (const rule of recurrence_rules) {
           if (rule.weekday) {
-            const dayIdx = WEEKDAY_MAP[rule.weekday]; // Now a number (0-6)
-            
-            // Determine the date of that weekday in the current cursor's week
+            const dayIdx = WEEKDAY_MAP[rule.weekday];
             const candidate = cursor.day(dayIdx);
-            
-            // Ensure the candidate is actually in the future of the start_date
             if (candidate.epoch >= new Date(start_date).getTime()) {
                validDates.push(candidate);
             }
@@ -205,24 +234,19 @@ export function mealOccurrences({
       // --- MONTHLY ---
       else if (type === "Monthly") {
         for (const rule of recurrence_rules) {
-          // Mode A: Ordinal (e.g., 3rd Friday)
           if (rule.ordinal && rule.weekday) {
-            const dayIdx = WEEKDAY_MAP[rule.weekday]; // Now a number
+            const dayIdx = WEEKDAY_MAP[rule.weekday];
             const candidate = getNthWeekday(cursor, rule.ordinal, dayIdx);
             validDates.push(candidate);
           }
-          // Mode B: Specific Date (e.g., 15th)
           else if (rule.date) {
              const ruleDate = spacetime(rule.date, tz);
-             const targetDate = ruleDate.date(); // 1-31
-             
-             // Check strict validity (e.g. Feb 30th doesn't exist)
+             const targetDate = ruleDate.date();
              const candidate = cursor.date(targetDate);
              if (candidate.month() === cursor.month()) {
                validDates.push(candidate);
              }
           }
-          // Mode C: Last day of month (ordinal -1, no weekday)
           else if (rule.ordinal === -1 && !rule.weekday) {
             validDates.push(cursor.endOf("month"));
           }
@@ -234,10 +258,7 @@ export function mealOccurrences({
         for (const rule of recurrence_rules) {
           if (rule.date) {
             const rDate = spacetime(rule.date, tz);
-            // Try to set the cursor (current year) to the rule's month/date
             const candidate = cursor.month(rDate.month()).date(rDate.date());
-            
-            // Validation for leap years etc
             if (candidate.month() === rDate.month()) {
               validDates.push(candidate);
             }
@@ -246,12 +267,10 @@ export function mealOccurrences({
       }
 
       // --- APPLY TIMES ---
-      // For every valid date found in this interval, apply all time slots
       for (const date of validDates) {
-        // Ensure we don't generate occurrences before the actual start_date 
         if (date.epoch >= new Date(start_date).getTime()) {
           for (const slot of times) {
-            const occ = createOccurrence(date, slot.start, slot.end, meal, wStartEpoch, wEndEpoch);
+            const occ = createOccurrence(date, slot as unknown as TimeSlotInput, meal, wStartEpoch, wEndEpoch);
             if (occ) occurrences.push(occ);
           }
         }

@@ -23,9 +23,19 @@ type RecurrenceRule {
   date            DateTime?  // optional UTC startOf('day') (daily schedules omit, weekly omit, monthly to determine month number, yearly for actual date)
 }
 
+enum TimeAnchor {
+  Midnight  // The standard fixed time reference
+  Sunrise
+  Sunset
+  Dawn
+  Dusk
+}
+
 type TimeSlot {
-  start           Int        // ms offset from midnight
-  end             Int        // ms offset from midnight
+  start         Int          // ms offset from start_anchor
+  start_anchor  TimeAnchor  @default(Midnight)
+  end           Int          // ms offset from end_anchor
+  end_anchor    TimeAnchor  @default(Midnight)
 }
 
 type Schedule {

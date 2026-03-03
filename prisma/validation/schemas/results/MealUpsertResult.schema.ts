@@ -13,6 +13,7 @@ export const MealUpsertResultSchema = z.object({
   reviews: z.array(z.unknown()),
   meal_occurrences: z.array(z.unknown()),
   approved: z.boolean().optional(),
+  rejection_reason: z.string().optional(),
   submitter: z.unknown().optional(),
   submitter_id: z.string().optional(),
   submitter_name: z.string().optional(),

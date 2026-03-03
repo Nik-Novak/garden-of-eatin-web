@@ -29,6 +29,7 @@ const makeSchema = () => z.object({
   parking: ParkingSchema.optional().nullable(),
   features: z.union([z.lazy(() => MealCreatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
   approved: z.boolean().optional().nullable(),
+  rejection_reason: z.string().optional().nullable(),
   submitter_name: z.string().optional().nullable(),
   stats: z.union([z.lazy(() => StatsCreateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),

@@ -11,6 +11,7 @@ const makeSchema = () => z.object({
   parking: z.literal(true).optional(),
   features: z.literal(true).optional(),
   approved: z.literal(true).optional(),
+  rejection_reason: z.literal(true).optional(),
   submitter_id: z.literal(true).optional(),
   submitter_name: z.literal(true).optional(),
   created_at: z.literal(true).optional(),

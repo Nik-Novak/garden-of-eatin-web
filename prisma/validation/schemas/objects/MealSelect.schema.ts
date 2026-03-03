@@ -19,6 +19,7 @@ const makeSchema = () => z.object({
   reviews: z.union([z.boolean(), z.lazy(() => ReviewFindManySchema)]).optional(),
   meal_occurrences: z.union([z.boolean(), z.lazy(() => MealOccurrenceFindManySchema)]).optional(),
   approved: z.boolean().optional(),
+  rejection_reason: z.boolean().optional(),
   submitter: z.union([z.boolean(), z.lazy(() => DeviceArgsObjectSchema)]).optional(),
   submitter_id: z.boolean().optional(),
   submitter_name: z.boolean().optional(),

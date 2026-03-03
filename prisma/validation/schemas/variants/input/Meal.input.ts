@@ -18,6 +18,7 @@ export const MealInputSchema = z.object({
     reviews: z.array(z.unknown()),
     meal_occurrences: z.array(z.unknown()),
     approved: z.boolean().optional().nullable(),
+    rejection_reason: z.string().optional().nullable(),
     submitter: z.unknown().optional().nullable(),
     submitter_id: z.string().optional().nullable(),
     submitter_name: z.string().optional().nullable(),

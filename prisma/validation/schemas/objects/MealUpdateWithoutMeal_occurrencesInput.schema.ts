@@ -34,6 +34,7 @@ const makeSchema = () => z.object({
   parking: z.union([ParkingSchema, z.lazy(() => NullableEnumParkingFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   features: z.union([z.lazy(() => MealUpdatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
   approved: z.union([z.boolean(), z.lazy(() => NullableBoolFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  rejection_reason: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   submitter_name: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   stats: z.union([z.lazy(() => StatsUpdateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),

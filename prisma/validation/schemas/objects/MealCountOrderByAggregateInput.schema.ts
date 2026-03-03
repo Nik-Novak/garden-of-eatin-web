@@ -11,6 +11,7 @@ const makeSchema = () => z.object({
   parking: SortOrderSchema.optional(),
   features: SortOrderSchema.optional(),
   approved: SortOrderSchema.optional(),
+  rejection_reason: SortOrderSchema.optional(),
   submitter_id: SortOrderSchema.optional(),
   submitter_name: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),

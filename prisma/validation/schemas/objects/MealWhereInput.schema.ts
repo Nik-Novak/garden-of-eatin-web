@@ -38,6 +38,7 @@ const mealwhereinputSchema = z.object({
   parking: z.union([z.lazy(() => EnumParkingNullableFilterObjectSchema), ParkingSchema]).optional().nullable(),
   features: z.lazy(() => EnumFeatureNullableListFilterObjectSchema).optional(),
   approved: z.union([z.lazy(() => BoolNullableFilterObjectSchema), z.boolean()]).optional().nullable(),
+  rejection_reason: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   submitter_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   submitter_name: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   stats: z.union([z.lazy(() => StatsCompositeFilterObjectSchema), z.lazy(() => StatsObjectEqualityInputObjectSchema)]).optional(),

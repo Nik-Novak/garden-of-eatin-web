@@ -23,6 +23,7 @@ const mealscalarwherewithaggregatesinputSchema = z.object({
   parking: z.union([z.lazy(() => EnumParkingNullableWithAggregatesFilterObjectSchema), ParkingSchema]).optional().nullable(),
   features: z.lazy(() => EnumFeatureNullableListFilterObjectSchema).optional(),
   approved: z.union([z.lazy(() => BoolNullableWithAggregatesFilterObjectSchema), z.boolean()]).optional().nullable(),
+  rejection_reason: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string()]).optional().nullable(),
   submitter_id: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   submitter_name: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string()]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()]).optional(),

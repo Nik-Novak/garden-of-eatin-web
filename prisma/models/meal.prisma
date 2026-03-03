@@ -70,7 +70,9 @@ model Meal {
 
   meal_occurrences  MealOccurrence[]
 
-  approved        Boolean?
+  approved         Boolean?
+  rejection_reason String?
+
   submitter       Device?     @relation(fields: [submitter_id], references: [id])
   submitter_id    String?     @db.ObjectId
   submitter_name  String?

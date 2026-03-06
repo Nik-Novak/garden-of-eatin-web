@@ -176,9 +176,6 @@ export default function NewMealTemplate({
             <Text style={{ ...sectionHeader, marginBottom: '5px', textAlign: 'center' }}>
               Admin Actions
             </Text>
-            <Text style={{ marginBottom: '20px', textAlign: 'center' }}>
-              {meal.name}
-            </Text>
             <Row>
               <Column style={{ paddingRight: '10px', width: '50%' }}>
                 <Button href={approveLink} style={approveButton}>
@@ -191,6 +188,10 @@ export default function NewMealTemplate({
                 </Button>
               </Column>
             </Row>
+
+            <Text style={{ marginBottom: '20px', textAlign: 'center' }}>
+              {meal.name}
+            </Text>
             
             {/* Context Link */}
             <Section style={{ marginTop: '20px', textAlign: 'center' }}>

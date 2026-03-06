@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     // if(process.env.NODE_ENV === 'production'){
       console.log('MEAL: Sending new meal notification...');
       let title = `New Meal Created!`;
-      let subject = `${constants.appName}: ${title}`;
+      let subject = `${constants.appName}: ${title} ${meal.id}`;
       let templateProps: NewMealTemplateProps = {
         appName: constants.appName,
         title,

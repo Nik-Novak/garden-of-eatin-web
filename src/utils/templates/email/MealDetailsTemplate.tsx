@@ -14,7 +14,7 @@ import {
   Hr,
   Link,
 } from '@react-email/components';
-import type { Meal } from '@/generated/prisma/client';
+import type { Meal } from '@prisma/client';
 
 export type MealDetailsTemplateProps = {
   appName: string;

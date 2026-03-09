@@ -5,7 +5,7 @@ import { database } from "@/prisma/database";
 import { MealCreatePayload } from "@/types/meal";
 import NewMealTemplate, { NewMealTemplateProps } from "@/utils/templates/email/NewMealTemplate";
 import React from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { v7 as uuidv7 } from 'uuid';
 import spacetime from "spacetime";
 import crypto from "crypto"; // <-- Added for secure token derivation
 import { NextRequest, NextResponse } from "next/server";
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 1. Generate a random string
-    const rawString = uuidv4();
+    const rawString = uuidv7();
 
     // 2. Hash it with your CRON_SECRET
     const signature = crypto

@@ -3,7 +3,7 @@ import { database } from "@/prisma/database";
 import { GeoMealOccurrence } from "@/types/meal";
 import { getDistanceInMiles, mealOccurrences } from "@/utils/fns/meal-occurrences";
 import spacetime from "spacetime";
-import { v4 as uuidv4 } from 'uuid';
+import { v7 as uuidv7 } from 'uuid';
 import { z } from "zod"; // 1. Import Zod
 
 // 2. Define the exact schema and custom error messages
@@ -86,7 +86,7 @@ export async function GET(request: NextRequest, { params }: RouteContext) {
     ...o, 
     distance_miles, 
     meal, 
-    id: 'local://' + uuidv4() 
+    id: 'local://' + uuidv7() 
   }));
 
   if (start_date && end_date) { 

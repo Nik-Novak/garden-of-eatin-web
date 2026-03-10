@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react';
 import LoadAgreement from '@/components/LoadAgreement';
 
-export default function PrivacyPage() {
+export default function ReleasePage() {
   return (
     <main style={styles.container}>
       <Suspense fallback={<div style={styles.loading}>Loading...</div>}>
         <div style={styles.content}>
-          <LoadAgreement type="PrivacyPolicy" />
+          <LoadAgreement type="ReleaseOfLiability" />
         </div>
       </Suspense>
     </main>

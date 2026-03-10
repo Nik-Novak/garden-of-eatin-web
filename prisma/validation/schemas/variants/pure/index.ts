@@ -10,6 +10,7 @@ export { BugModelSchema } from './Bug.pure';
 export { ContactRequestModelSchema } from './ContactRequest.pure';
 export { DeviceModelSchema } from './Device.pure';
 export { InviteModelSchema } from './Invite.pure';
+export { AgreementModelSchema } from './Agreement.pure';
 export { MealModelSchema } from './Meal.pure';
 export { MealOccurrenceModelSchema } from './MealOccurrence.pure';
 export { MealOccurrenceSearchModelSchema } from './MealOccurrenceSearch.pure';

@@ -1,0 +1,18 @@
+enum AgreementType {
+  TermsofService
+  PrivacyPolicy
+  ReleaseOfLiability
+}
+
+model Agreement {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+
+  agreement_type AgreementType
+
+  effective_date  DateTime
+  content_md      String
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  @@map("agreements")
+}

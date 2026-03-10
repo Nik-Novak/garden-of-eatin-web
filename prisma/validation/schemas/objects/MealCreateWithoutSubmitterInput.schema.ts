@@ -15,7 +15,8 @@ import { FeatureSchema } from '../enums/Feature.schema';
 import { StatsCreateEnvelopeInputObjectSchema as StatsCreateEnvelopeInputObjectSchema } from './StatsCreateEnvelopeInput.schema';
 import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { ReviewCreateNestedManyWithoutMealInputObjectSchema as ReviewCreateNestedManyWithoutMealInputObjectSchema } from './ReviewCreateNestedManyWithoutMealInput.schema';
-import { MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceCreateNestedManyWithoutMealInput.schema'
+import { MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceCreateNestedManyWithoutMealInput.schema';
+import { MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema as MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema } from './MealOccurrenceSearchCreateNestedManyWithoutMealsInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -35,7 +36,8 @@ const makeSchema = () => z.object({
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional(),
   reviews: z.lazy(() => ReviewCreateNestedManyWithoutMealInputObjectSchema).optional(),
-  meal_occurrences: z.lazy(() => MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema).optional()
+  meal_occurrences: z.lazy(() => MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema).optional()
 }).strict();
 export const MealCreateWithoutSubmitterInputObjectSchema: z.ZodType<Prisma.MealCreateWithoutSubmitterInput> = makeSchema() as unknown as z.ZodType<Prisma.MealCreateWithoutSubmitterInput>;
 export const MealCreateWithoutSubmitterInputObjectZodSchema = makeSchema();

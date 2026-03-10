@@ -12,6 +12,8 @@ export const MealUpdateResultSchema = z.nullable(z.object({
   features: z.array(z.unknown()),
   reviews: z.array(z.unknown()),
   meal_occurrences: z.array(z.unknown()),
+  meal_occurrence_searches: z.array(z.unknown()),
+  meal_occurrence_search_ids: z.array(z.string()),
   approved: z.boolean().optional(),
   rejection_reason: z.string().optional(),
   submitter: z.unknown().optional(),

@@ -21,7 +21,8 @@ import { StatsUpdateEnvelopeInputObjectSchema as StatsUpdateEnvelopeInputObjectS
 import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { ReviewUpdateManyWithoutMealNestedInputObjectSchema as ReviewUpdateManyWithoutMealNestedInputObjectSchema } from './ReviewUpdateManyWithoutMealNestedInput.schema';
-import { MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema as MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema } from './MealOccurrenceUpdateManyWithoutMealNestedInput.schema'
+import { MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema as MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema } from './MealOccurrenceUpdateManyWithoutMealNestedInput.schema';
+import { MealOccurrenceSearchUpdateManyWithoutMealsNestedInputObjectSchema as MealOccurrenceSearchUpdateManyWithoutMealsNestedInputObjectSchema } from './MealOccurrenceSearchUpdateManyWithoutMealsNestedInput.schema'
 
 const makeSchema = () => z.object({
   name: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -40,7 +41,8 @@ const makeSchema = () => z.object({
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   reviews: z.lazy(() => ReviewUpdateManyWithoutMealNestedInputObjectSchema).optional(),
-  meal_occurrences: z.lazy(() => MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema).optional()
+  meal_occurrences: z.lazy(() => MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUpdateManyWithoutMealsNestedInputObjectSchema).optional()
 }).strict();
 export const MealUpdateWithoutSubmitterInputObjectSchema: z.ZodType<Prisma.MealUpdateWithoutSubmitterInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUpdateWithoutSubmitterInput>;
 export const MealUpdateWithoutSubmitterInputObjectZodSchema = makeSchema();

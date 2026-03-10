@@ -3,6 +3,8 @@ import spacetime from 'spacetime';
 import { JsonObject } from "@prisma/client/runtime/library";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { GeoMealOccurrence } from "@/types/meal";
+import { SearchType } from "@prisma/client";
 
 const toMongoDate = (date: Date) => ({ $date: date.toISOString() });
 
@@ -18,6 +20,13 @@ export type RawResult<T> = {
 const QuerySchema = z.object({
   start_date: z.string().optional(),
   end_date: z.string().optional(),
+
+  search_type: z.enum(SearchType, {
+    error: (issue) => 
+      issue.input === undefined 
+        ? "search_type is required." 
+        : "Invalid search type provided.",
+  }),
   
   user_lat: z.coerce.number({
     error: (issue) => 
@@ -56,7 +65,7 @@ export async function GET(request: NextRequest) {
   }
 
   // 2. Keep the extracted variables in snake_case
-  const { user_lat, user_lng, radius_mi, start_date, end_date } = validation.data;
+  const { search_type, user_lat, user_lng, radius_mi, start_date, end_date } = validation.data;
 
   // 3. Switch internal variables to snake_case to match
   const isAllMode = !start_date && !end_date;
@@ -120,8 +129,19 @@ export async function GET(request: NextRequest) {
     const raw = rawUnknown as unknown as RawResult<JsonObject>;
 
     const formattedResults = raw.cursor.firstBatch.map(
-      o => database.mealOccurrence.convertRawJson(o)
+      o => database.mealOccurrence.convertRawJson(o) as GeoMealOccurrence
     );
+
+    let mealIds = formattedResults.map(r=>r.meal_id);
+
+    await database.mealOccurrenceSearch.create({data:{
+      search_type,
+      start: start_date,
+      end: end_date,
+      radius_mi,
+      user_location: {type:'Point', coordinates:[user_lng, user_lat]},
+      meals:{connect:mealIds.map(id=>({id}))}
+    }});
 
     return NextResponse.json(formattedResults);
     

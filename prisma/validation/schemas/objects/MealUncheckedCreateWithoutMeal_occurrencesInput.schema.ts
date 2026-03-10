@@ -12,9 +12,11 @@ import { ServiceSchema } from '../enums/Service.schema';
 import { ParkingSchema } from '../enums/Parking.schema';
 import { MealCreatefeaturesInputObjectSchema as MealCreatefeaturesInputObjectSchema } from './MealCreatefeaturesInput.schema';
 import { FeatureSchema } from '../enums/Feature.schema';
+import { MealCreatemeal_occurrence_search_idsInputObjectSchema as MealCreatemeal_occurrence_search_idsInputObjectSchema } from './MealCreatemeal_occurrence_search_idsInput.schema';
 import { StatsCreateEnvelopeInputObjectSchema as StatsCreateEnvelopeInputObjectSchema } from './StatsCreateEnvelopeInput.schema';
 import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
-import { ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema as ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './ReviewUncheckedCreateNestedManyWithoutMealInput.schema'
+import { ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema as ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './ReviewUncheckedCreateNestedManyWithoutMealInput.schema';
+import { MealOccurrenceSearchUncheckedCreateNestedManyWithoutMealsInputObjectSchema as MealOccurrenceSearchUncheckedCreateNestedManyWithoutMealsInputObjectSchema } from './MealOccurrenceSearchUncheckedCreateNestedManyWithoutMealsInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().optional(),
@@ -27,6 +29,7 @@ const makeSchema = () => z.object({
   service: ServiceSchema.optional().nullable(),
   parking: ParkingSchema.optional().nullable(),
   features: z.union([z.lazy(() => MealCreatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
+  meal_occurrence_search_ids: z.union([z.lazy(() => MealCreatemeal_occurrence_search_idsInputObjectSchema), z.string().array()]).optional(),
   approved: z.boolean().optional().nullable(),
   rejection_reason: z.string().optional().nullable(),
   submitter_id: z.string().optional().nullable(),
@@ -34,7 +37,8 @@ const makeSchema = () => z.object({
   stats: z.union([z.lazy(() => StatsCreateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional(),
-  reviews: z.lazy(() => ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional()
+  reviews: z.lazy(() => ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUncheckedCreateNestedManyWithoutMealsInputObjectSchema).optional()
 }).strict();
 export const MealUncheckedCreateWithoutMeal_occurrencesInputObjectSchema: z.ZodType<Prisma.MealUncheckedCreateWithoutMeal_occurrencesInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUncheckedCreateWithoutMeal_occurrencesInput>;
 export const MealUncheckedCreateWithoutMeal_occurrencesInputObjectZodSchema = makeSchema();

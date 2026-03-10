@@ -13,6 +13,7 @@ const makeSchema = () => z.object({
   service: SortOrderSchema.optional(),
   parking: SortOrderSchema.optional(),
   features: SortOrderSchema.optional(),
+  meal_occurrence_search_ids: SortOrderSchema.optional(),
   approved: SortOrderSchema.optional(),
   rejection_reason: SortOrderSchema.optional(),
   submitter_id: SortOrderSchema.optional(),

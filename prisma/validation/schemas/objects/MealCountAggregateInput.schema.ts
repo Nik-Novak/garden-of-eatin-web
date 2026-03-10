@@ -10,6 +10,7 @@ const makeSchema = () => z.object({
   service: z.literal(true).optional(),
   parking: z.literal(true).optional(),
   features: z.literal(true).optional(),
+  meal_occurrence_search_ids: z.literal(true).optional(),
   approved: z.literal(true).optional(),
   rejection_reason: z.literal(true).optional(),
   submitter_id: z.literal(true).optional(),

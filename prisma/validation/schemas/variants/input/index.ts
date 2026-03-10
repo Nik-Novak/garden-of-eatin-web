@@ -12,6 +12,7 @@ export { DeviceInputSchema } from './Device.input';
 export { InviteInputSchema } from './Invite.input';
 export { MealInputSchema } from './Meal.input';
 export { MealOccurrenceInputSchema } from './MealOccurrence.input';
+export { MealOccurrenceSearchInputSchema } from './MealOccurrenceSearch.input';
 export { OpportunityInputSchema } from './Opportunity.input';
 export { OpportunityApplicationInputSchema } from './OpportunityApplication.input';
 export { PostInputSchema } from './Post.input';

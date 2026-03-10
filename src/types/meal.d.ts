@@ -1,8 +1,8 @@
 import { Meal } from "@prisma/client"
-import { MealCreateInput } from "@prisma/client"
+import { Prisma, MealOccurrence } from "@prisma/client"
 
 export type MealCreatePayload = {
-  meal: MealCreateInput,
+  meal: Prisma.MealCreateInput,
   device_uuid: string
 }
 

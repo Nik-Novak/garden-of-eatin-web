@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { MealOccurrenceSearchOrderByWithRelationInputObjectSchema as MealOccurrenceSearchOrderByWithRelationInputObjectSchema } from './objects/MealOccurrenceSearchOrderByWithRelationInput.schema';
+import { MealOccurrenceSearchWhereInputObjectSchema as MealOccurrenceSearchWhereInputObjectSchema } from './objects/MealOccurrenceSearchWhereInput.schema';
+import { MealOccurrenceSearchWhereUniqueInputObjectSchema as MealOccurrenceSearchWhereUniqueInputObjectSchema } from './objects/MealOccurrenceSearchWhereUniqueInput.schema';
+import { MealOccurrenceSearchCountAggregateInputObjectSchema as MealOccurrenceSearchCountAggregateInputObjectSchema } from './objects/MealOccurrenceSearchCountAggregateInput.schema';
+
+export const MealOccurrenceSearchCountSchema: z.ZodType<Prisma.MealOccurrenceSearchCountArgs> = z.object({ orderBy: z.union([MealOccurrenceSearchOrderByWithRelationInputObjectSchema, MealOccurrenceSearchOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealOccurrenceSearchWhereInputObjectSchema.optional(), cursor: MealOccurrenceSearchWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), MealOccurrenceSearchCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceSearchCountArgs>;
+
+export const MealOccurrenceSearchCountZodSchema = z.object({ orderBy: z.union([MealOccurrenceSearchOrderByWithRelationInputObjectSchema, MealOccurrenceSearchOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealOccurrenceSearchWhereInputObjectSchema.optional(), cursor: MealOccurrenceSearchWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), MealOccurrenceSearchCountAggregateInputObjectSchema ]).optional() }).strict();

@@ -1,0 +1,9 @@
+import * as z from 'zod';
+import type { Prisma } from '@prisma/client';
+
+
+const makeSchema = () => z.object({
+  radius_mi: z.literal(true).optional()
+}).strict();
+export const MealOccurrenceSearchSumAggregateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchSumAggregateInputType> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchSumAggregateInputType>;
+export const MealOccurrenceSearchSumAggregateInputObjectZodSchema = makeSchema();

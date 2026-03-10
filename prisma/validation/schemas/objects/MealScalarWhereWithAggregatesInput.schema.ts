@@ -7,6 +7,7 @@ import { ServiceSchema } from '../enums/Service.schema';
 import { EnumParkingNullableWithAggregatesFilterObjectSchema as EnumParkingNullableWithAggregatesFilterObjectSchema } from './EnumParkingNullableWithAggregatesFilter.schema';
 import { ParkingSchema } from '../enums/Parking.schema';
 import { EnumFeatureNullableListFilterObjectSchema as EnumFeatureNullableListFilterObjectSchema } from './EnumFeatureNullableListFilter.schema';
+import { StringNullableListFilterObjectSchema as StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 import { BoolNullableWithAggregatesFilterObjectSchema as BoolNullableWithAggregatesFilterObjectSchema } from './BoolNullableWithAggregatesFilter.schema';
 import { StringNullableWithAggregatesFilterObjectSchema as StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 import { DateTimeWithAggregatesFilterObjectSchema as DateTimeWithAggregatesFilterObjectSchema } from './DateTimeWithAggregatesFilter.schema'
@@ -22,6 +23,7 @@ const mealscalarwherewithaggregatesinputSchema = z.object({
   service: z.union([z.lazy(() => EnumServiceNullableWithAggregatesFilterObjectSchema), ServiceSchema]).optional().nullable(),
   parking: z.union([z.lazy(() => EnumParkingNullableWithAggregatesFilterObjectSchema), ParkingSchema]).optional().nullable(),
   features: z.lazy(() => EnumFeatureNullableListFilterObjectSchema).optional(),
+  meal_occurrence_search_ids: z.lazy(() => StringNullableListFilterObjectSchema).optional(),
   approved: z.union([z.lazy(() => BoolNullableWithAggregatesFilterObjectSchema), z.boolean()]).optional().nullable(),
   rejection_reason: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string()]).optional().nullable(),
   submitter_id: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string().max(24)]).optional().nullable(),

@@ -70,6 +70,9 @@ model Meal {
 
   meal_occurrences  MealOccurrence[]
 
+  meal_occurrence_searches    MealOccurrenceSearch[] @relation(fields: [meal_occurrence_search_ids], references: [id])
+  meal_occurrence_search_ids  String[] @db.ObjectId
+
   approved         Boolean?
   rejection_reason String?
 
@@ -90,7 +93,7 @@ model MealOccurrence {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
 
   meal      Meal     @relation(fields: [meal_id], references: [id], onDelete: Cascade)
-  meal_id   String  @db.ObjectId
+  meal_id   String   @db.ObjectId
 
   start     DateTime
   end       DateTime
@@ -103,4 +106,28 @@ model MealOccurrence {
   @@index([meal_id, start])
   // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
   @@map("meal_occurrences")
+}
+
+enum SearchType {
+  Button
+  Explore
+  Refresh
+}
+model MealOccurrenceSearch {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+
+  search_type      SearchType
+
+  meals     Meal[]      @relation(fields: [meal_ids], references: [id])
+  meal_ids  String[]    @db.ObjectId
+
+  start     DateTime?
+  end       DateTime?
+  radius_mi Float
+
+  user_location  Point     // GeoJSON Point
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  @@map("meal_occurrence_searches")
 }

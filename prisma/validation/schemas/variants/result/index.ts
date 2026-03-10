@@ -12,6 +12,7 @@ export { DeviceResultSchema } from './Device.result';
 export { InviteResultSchema } from './Invite.result';
 export { MealResultSchema } from './Meal.result';
 export { MealOccurrenceResultSchema } from './MealOccurrence.result';
+export { MealOccurrenceSearchResultSchema } from './MealOccurrenceSearch.result';
 export { OpportunityResultSchema } from './Opportunity.result';
 export { OpportunityApplicationResultSchema } from './OpportunityApplication.result';
 export { PostResultSchema } from './Post.result';

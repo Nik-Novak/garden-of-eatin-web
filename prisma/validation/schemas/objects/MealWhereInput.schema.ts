@@ -13,6 +13,7 @@ import { ServiceSchema } from '../enums/Service.schema';
 import { EnumParkingNullableFilterObjectSchema as EnumParkingNullableFilterObjectSchema } from './EnumParkingNullableFilter.schema';
 import { ParkingSchema } from '../enums/Parking.schema';
 import { EnumFeatureNullableListFilterObjectSchema as EnumFeatureNullableListFilterObjectSchema } from './EnumFeatureNullableListFilter.schema';
+import { StringNullableListFilterObjectSchema as StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 import { BoolNullableFilterObjectSchema as BoolNullableFilterObjectSchema } from './BoolNullableFilter.schema';
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { StatsCompositeFilterObjectSchema as StatsCompositeFilterObjectSchema } from './StatsCompositeFilter.schema';
@@ -20,6 +21,7 @@ import { StatsObjectEqualityInputObjectSchema as StatsObjectEqualityInputObjectS
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { ReviewListRelationFilterObjectSchema as ReviewListRelationFilterObjectSchema } from './ReviewListRelationFilter.schema';
 import { MealOccurrenceListRelationFilterObjectSchema as MealOccurrenceListRelationFilterObjectSchema } from './MealOccurrenceListRelationFilter.schema';
+import { MealOccurrenceSearchListRelationFilterObjectSchema as MealOccurrenceSearchListRelationFilterObjectSchema } from './MealOccurrenceSearchListRelationFilter.schema';
 import { DeviceNullableScalarRelationFilterObjectSchema as DeviceNullableScalarRelationFilterObjectSchema } from './DeviceNullableScalarRelationFilter.schema';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema'
 
@@ -37,6 +39,7 @@ const mealwhereinputSchema = z.object({
   service: z.union([z.lazy(() => EnumServiceNullableFilterObjectSchema), ServiceSchema]).optional().nullable(),
   parking: z.union([z.lazy(() => EnumParkingNullableFilterObjectSchema), ParkingSchema]).optional().nullable(),
   features: z.lazy(() => EnumFeatureNullableListFilterObjectSchema).optional(),
+  meal_occurrence_search_ids: z.lazy(() => StringNullableListFilterObjectSchema).optional(),
   approved: z.union([z.lazy(() => BoolNullableFilterObjectSchema), z.boolean()]).optional().nullable(),
   rejection_reason: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   submitter_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
@@ -46,6 +49,7 @@ const mealwhereinputSchema = z.object({
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   reviews: z.lazy(() => ReviewListRelationFilterObjectSchema).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceListRelationFilterObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchListRelationFilterObjectSchema).optional(),
   submitter: z.union([z.lazy(() => DeviceNullableScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional()
 }).strict();
 export const MealWhereInputObjectSchema: z.ZodType<Prisma.MealWhereInput> = mealwhereinputSchema as unknown as z.ZodType<Prisma.MealWhereInput>;

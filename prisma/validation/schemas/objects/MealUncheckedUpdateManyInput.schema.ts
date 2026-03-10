@@ -15,6 +15,7 @@ import { ParkingSchema } from '../enums/Parking.schema';
 import { NullableEnumParkingFieldUpdateOperationsInputObjectSchema as NullableEnumParkingFieldUpdateOperationsInputObjectSchema } from './NullableEnumParkingFieldUpdateOperationsInput.schema';
 import { MealUpdatefeaturesInputObjectSchema as MealUpdatefeaturesInputObjectSchema } from './MealUpdatefeaturesInput.schema';
 import { FeatureSchema } from '../enums/Feature.schema';
+import { MealUpdatemeal_occurrence_search_idsInputObjectSchema as MealUpdatemeal_occurrence_search_idsInputObjectSchema } from './MealUpdatemeal_occurrence_search_idsInput.schema';
 import { NullableBoolFieldUpdateOperationsInputObjectSchema as NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { StatsUpdateEnvelopeInputObjectSchema as StatsUpdateEnvelopeInputObjectSchema } from './StatsUpdateEnvelopeInput.schema';
@@ -31,6 +32,7 @@ const makeSchema = () => z.object({
   service: z.union([ServiceSchema, z.lazy(() => NullableEnumServiceFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   parking: z.union([ParkingSchema, z.lazy(() => NullableEnumParkingFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   features: z.union([z.lazy(() => MealUpdatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
+  meal_occurrence_search_ids: z.union([z.lazy(() => MealUpdatemeal_occurrence_search_idsInputObjectSchema), z.string().max(24).array()]).optional(),
   approved: z.union([z.boolean(), z.lazy(() => NullableBoolFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   rejection_reason: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   submitter_id: z.union([z.string().max(24), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),

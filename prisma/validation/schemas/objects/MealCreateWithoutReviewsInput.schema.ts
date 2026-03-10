@@ -15,6 +15,7 @@ import { FeatureSchema } from '../enums/Feature.schema';
 import { StatsCreateEnvelopeInputObjectSchema as StatsCreateEnvelopeInputObjectSchema } from './StatsCreateEnvelopeInput.schema';
 import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceCreateNestedManyWithoutMealInput.schema';
+import { MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema as MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema } from './MealOccurrenceSearchCreateNestedManyWithoutMealsInput.schema';
 import { DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema as DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema } from './DeviceCreateNestedOneWithoutSubmitted_mealsInput.schema'
 
 const makeSchema = () => z.object({
@@ -35,6 +36,7 @@ const makeSchema = () => z.object({
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema).optional()
 }).strict();
 export const MealCreateWithoutReviewsInputObjectSchema: z.ZodType<Prisma.MealCreateWithoutReviewsInput> = makeSchema() as unknown as z.ZodType<Prisma.MealCreateWithoutReviewsInput>;

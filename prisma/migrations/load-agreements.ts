@@ -3,12 +3,13 @@ import { database } from "../database/database";
 import { Prisma } from "@prisma/client";
 
 export default async function preloadDatabase(){
+  let effective_date = new Date('03/10/2026')
   let privacy = await database.agreement.createOrFind({data:{
     agreement_type: "privacy_policy",
-    effective_date: new Date('03/10/2026'),
+    effective_date,
     content_md: `# Privacy Policy for Garden of Eatin'
 
-**Effective Date:** 03-10-2026
+**Effective Date:** ${effective_date.toLocaleDateString()}
 
 This Privacy Policy explains how Garden of Eatin' ("we," "us," or "our") collects, uses, and protects your information when you use our mobile application ("the App"). The App's primary purpose is to help you discover and share free community meals in your area.
 
@@ -68,15 +69,15 @@ If you have questions about this Privacy Policy or wish to exercise your data ri
 
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
 * **Website:** [gardenofeatin.io](https://gardenofeatin.io)`
-  }}, {where:{agreement_type:"privacy_policy"}});
+  }}, {where:{agreement_type:"privacy_policy", effective_date}});
   console.log(privacy.created ? 'Created' : 'Found existing', 'Privacy Policy with id:', privacy.document.id);
 
   let terms = await database.agreement.createOrFind({data:{
     agreement_type: "terms_of_service",
-    effective_date: new Date('03/10/2026'),
+    effective_date,
     content_md: `# Terms of Service for Garden of Eatin'
 
-**Effective Date:** 03-10-2026
+**Effective Date:** ${effective_date.toLocaleDateString()}
 
 Welcome to Garden of Eatin' ("we," "us," or "our"). By downloading, accessing, or using the Garden of Eatin' mobile application ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.
 
@@ -121,15 +122,15 @@ We reserve the right to modify these Terms at any time. We will provide notice o
 If you have any questions about these Terms, please contact us at:
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
 * **Website:** [gardenofeatin.io](https://gardenofeatin.io)`
-  }}, {where:{agreement_type:"terms_of_service"}});
+  }}, {where:{agreement_type:"terms_of_service", effective_date}});
   console.log(terms.created ? 'Created' : 'Found existing', 'Terms of Service with id:', terms.document.id);
 
   let release = await database.agreement.createOrFind({data:{
     agreement_type: "release_of_liability",
-    effective_date: new Date('03/10/2026'),
+    effective_date,
     content_md: `# Release of Liability and Assumption of Risk Agreement
 
-**Effective Date:** 03-10-2026
+**Effective Date:** ${effective_date.toLocaleDateString()}
 
 This Release of Liability and Assumption of Risk Agreement ("Agreement") is a legally binding contract between you ("User" or "Participant") and Garden of Eatin', its owners, developers, affiliates, acting agents, representatives, and volunteers (collectively, "Releasees"). 
 

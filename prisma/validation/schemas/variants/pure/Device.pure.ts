@@ -4,6 +4,7 @@ export const DeviceModelSchema = z.object({
     id: z.string(),
     uuid: z.string(),
     settings: z.unknown(),
+    device_agreements: z.array(z.unknown()),
     user: z.unknown().nullable(),
     user_id: z.string().nullable(),
     bugs: z.array(z.unknown()),

@@ -3,6 +3,7 @@ export const DeviceFindFirstResultSchema = z.nullable(z.object({
   id: z.string(),
   uuid: z.string(),
   settings: z.unknown(),
+  device_agreements: z.array(z.unknown()),
   user: z.unknown().optional(),
   user_id: z.string().optional(),
   bugs: z.array(z.unknown()),

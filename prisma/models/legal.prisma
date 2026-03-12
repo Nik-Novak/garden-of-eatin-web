@@ -1,18 +1,37 @@
 enum AgreementType {
-  TermsofService
+  TermsOfService
   PrivacyPolicy
   ReleaseOfLiability
 }
 
 model Agreement {
-  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  id                String      @id @default(auto()) @map("_id") @db.ObjectId
 
-  agreement_type AgreementType
+  agreement_type    AgreementType
 
-  effective_date  DateTime
-  content_md      String
+  effective_date    DateTime
+  content_md        String
 
-  created_at    DateTime    @default(now())
-  updated_at    DateTime    @updatedAt
+  device_agreeents  DeviceAgreement[]
+
+  created_at        DateTime    @default(now())
+  updated_at        DateTime    @updatedAt
   @@map("agreements")
+}
+
+model DeviceAgreement {
+  id              String              @id @default(auto()) @map("_id") @db.ObjectId
+
+  device          Device              @relation(fields: [device_id], references: [id], onDelete: Cascade)  
+  device_id       String              @db.ObjectId
+
+  agreement       Agreement           @relation(fields: [agreement_id], references: [id], onDelete: Cascade)
+  agreement_id    String              @db.ObjectId
+  
+  opened          DateTime
+  accepted        DateTime
+
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  @@map("deviceagreements")
 }

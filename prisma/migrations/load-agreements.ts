@@ -57,10 +57,13 @@ If you are a California resident, the California Consumer Privacy Act (CCPA) and
 
 To exercise your rights, please contact us using the information below. Because we do not maintain traditional user accounts, you will need to provide your device ID so we can locate your anonymous data.
 
-## 8. Changes to This Privacy Policy
+## 8. Responsibility for Shared Devices and Third-Party Use
+Because this App does not utilize individualized user accounts or passwords, your acceptance of these terms is tied directly to the device you are using. If you permit another individual to access or use the App on your device, you acknowledge and agree that you assume full responsibility for their actions, data submissions, and any real-world risks they undertake. Garden of Eatin' explicitly disclaims any and all responsibility or liability for any injuries, damages, illnesses, or claims arising from the use of the App by anyone accessing it through your device. By initially accepting these terms, you certify that you accept full liability and assumption of risk on behalf of any subsequent user of your device.
+
+## 9. Changes to This Privacy Policy
 We reserve the right to modify this Privacy Policy at any time. We will provide notice of significant changes by updating the "Effective Date" at the top of this document. Your continued use of the App after such changes constitutes your acceptance of the new Privacy Policy.
 
-## 9. Contact Us
+## 10. Contact Us
 If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us at:
 
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
@@ -108,10 +111,13 @@ In no event shall Garden of Eatin' be liable for any indirect, incidental, speci
 ## 7. Governing Law
 These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions.
 
-## 8. Changes to These Terms
+## 8. Responsibility for Shared Devices and Third-Party Use
+Because this App does not utilize individualized user accounts or passwords, your acceptance of these terms is tied directly to the device you are using. If you permit another individual to access or use the App on your device, you acknowledge and agree that you assume full responsibility for their actions, data submissions, and any real-world risks they undertake. Garden of Eatin' explicitly disclaims any and all responsibility or liability for any injuries, damages, illnesses, or claims arising from the use of the App by anyone accessing it through your device. By initially accepting these terms, you certify that you accept full liability and assumption of risk on behalf of any subsequent user of your device.
+
+## 9. Changes to These Terms
 We reserve the right to modify these Terms at any time. We will provide notice of significant changes by updating the "Effective Date" at the top of this document. Your continued use of the App after such changes constitutes your acceptance of the new Terms.
 
-## 9. Contact Us
+## 10. Contact Us
 If you have any questions about these Terms, please contact us at:
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
 * **Website:** [gardenofeatin.io](https://gardenofeatin.io)`
@@ -151,7 +157,10 @@ You understand that Garden of Eatin' does not provide medical, health, or emerge
 ## 5. Severability and Governing Law
 If any provision of this Agreement is found to be overly broad, invalid, or unenforceable, that provision shall be severed, and the remaining provisions will continue in full legal force and effect. This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law principles.
 
-## 6. Acknowledgment of Understanding
+## 6. Responsibility for Shared Devices and Third-Party Use
+Because this App does not utilize individualized user accounts or passwords, your acceptance of these terms is tied directly to the device you are using. If you permit another individual to access or use the App on your device, you acknowledge and agree that you assume full responsibility for their actions, data submissions, and any real-world risks they undertake. Garden of Eatin' explicitly disclaims any and all responsibility or liability for any injuries, damages, illnesses, or claims arising from the use of the App by anyone accessing it through your device. By initially accepting these terms, you certify that you accept full liability and assumption of risk on behalf of any subsequent user of your device.
+
+## 7. Acknowledgment of Understanding
 By using the Garden of Eatin' App, you acknowledge that you have read this Release of Liability and Assumption of Risk Agreement, fully understand its terms, and understand that you are giving up substantial rights, including your right to sue. You acknowledge that you are agreeing to this Agreement freely and voluntarily.
 
 ---

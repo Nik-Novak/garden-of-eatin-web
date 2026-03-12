@@ -2,6 +2,7 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { DeviceSettingsOrderByInputObjectSchema as DeviceSettingsOrderByInputObjectSchema } from './DeviceSettingsOrderByInput.schema';
+import { DeviceAgreementOrderByRelationAggregateInputObjectSchema as DeviceAgreementOrderByRelationAggregateInputObjectSchema } from './DeviceAgreementOrderByRelationAggregateInput.schema';
 import { UserOrderByWithRelationInputObjectSchema as UserOrderByWithRelationInputObjectSchema } from './UserOrderByWithRelationInput.schema';
 import { BugOrderByRelationAggregateInputObjectSchema as BugOrderByRelationAggregateInputObjectSchema } from './BugOrderByRelationAggregateInput.schema';
 import { ContactRequestOrderByRelationAggregateInputObjectSchema as ContactRequestOrderByRelationAggregateInputObjectSchema } from './ContactRequestOrderByRelationAggregateInput.schema';
@@ -15,6 +16,7 @@ const makeSchema = () => z.object({
   user_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional(),
+  device_agreements: z.lazy(() => DeviceAgreementOrderByRelationAggregateInputObjectSchema).optional(),
   user: z.lazy(() => UserOrderByWithRelationInputObjectSchema).optional(),
   bugs: z.lazy(() => BugOrderByRelationAggregateInputObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestOrderByRelationAggregateInputObjectSchema).optional(),

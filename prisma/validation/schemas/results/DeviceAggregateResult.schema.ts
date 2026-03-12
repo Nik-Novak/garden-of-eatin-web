@@ -3,6 +3,7 @@ export const DeviceAggregateResultSchema = z.object({  _count: z.object({
     id: z.number(),
     uuid: z.number(),
     settings: z.number(),
+    device_agreements: z.number(),
     user: z.number(),
     user_id: z.number(),
     bugs: z.number(),

@@ -1,5 +1,6 @@
 import type { Prisma } from '@prisma/client';
 import * as z from 'zod';
+import { AgreementIncludeObjectSchema as AgreementIncludeObjectSchema } from './objects/AgreementInclude.schema';
 import { AgreementOrderByWithRelationInputObjectSchema as AgreementOrderByWithRelationInputObjectSchema } from './objects/AgreementOrderByWithRelationInput.schema';
 import { AgreementWhereInputObjectSchema as AgreementWhereInputObjectSchema } from './objects/AgreementWhereInput.schema';
 import { AgreementWhereUniqueInputObjectSchema as AgreementWhereUniqueInputObjectSchema } from './objects/AgreementWhereUniqueInput.schema';
@@ -13,8 +14,10 @@ export const AgreementFindFirstSelectSchema: z.ZodType<Prisma.AgreementSelect> =
     agreement_type: z.boolean().optional(),
     effective_date: z.boolean().optional(),
     content_md: z.boolean().optional(),
+    device_agreeents: z.boolean().optional(),
     created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional()
+    updated_at: z.boolean().optional(),
+    _count: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.AgreementSelect>;
 
 export const AgreementFindFirstSelectZodSchema = z.object({
@@ -22,10 +25,12 @@ export const AgreementFindFirstSelectZodSchema = z.object({
     agreement_type: z.boolean().optional(),
     effective_date: z.boolean().optional(),
     content_md: z.boolean().optional(),
+    device_agreeents: z.boolean().optional(),
     created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional()
+    updated_at: z.boolean().optional(),
+    _count: z.boolean().optional()
   }).strict();
 
-export const AgreementFindFirstSchema: z.ZodType<Prisma.AgreementFindFirstArgs> = z.object({ select: AgreementFindFirstSelectSchema.optional(),  orderBy: z.union([AgreementOrderByWithRelationInputObjectSchema, AgreementOrderByWithRelationInputObjectSchema.array()]).optional(), where: AgreementWhereInputObjectSchema.optional(), cursor: AgreementWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([AgreementScalarFieldEnumSchema, AgreementScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.AgreementFindFirstArgs>;
+export const AgreementFindFirstSchema: z.ZodType<Prisma.AgreementFindFirstArgs> = z.object({ select: AgreementFindFirstSelectSchema.optional(), include: z.lazy(() => AgreementIncludeObjectSchema.optional()), orderBy: z.union([AgreementOrderByWithRelationInputObjectSchema, AgreementOrderByWithRelationInputObjectSchema.array()]).optional(), where: AgreementWhereInputObjectSchema.optional(), cursor: AgreementWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([AgreementScalarFieldEnumSchema, AgreementScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.AgreementFindFirstArgs>;
 
-export const AgreementFindFirstZodSchema = z.object({ select: AgreementFindFirstSelectSchema.optional(),  orderBy: z.union([AgreementOrderByWithRelationInputObjectSchema, AgreementOrderByWithRelationInputObjectSchema.array()]).optional(), where: AgreementWhereInputObjectSchema.optional(), cursor: AgreementWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([AgreementScalarFieldEnumSchema, AgreementScalarFieldEnumSchema.array()]).optional() }).strict();
+export const AgreementFindFirstZodSchema = z.object({ select: AgreementFindFirstSelectSchema.optional(), include: z.lazy(() => AgreementIncludeObjectSchema.optional()), orderBy: z.union([AgreementOrderByWithRelationInputObjectSchema, AgreementOrderByWithRelationInputObjectSchema.array()]).optional(), where: AgreementWhereInputObjectSchema.optional(), cursor: AgreementWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([AgreementScalarFieldEnumSchema, AgreementScalarFieldEnumSchema.array()]).optional() }).strict();

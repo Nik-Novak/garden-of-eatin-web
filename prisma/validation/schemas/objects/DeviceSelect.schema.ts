@@ -1,5 +1,6 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
+import { DeviceAgreementFindManySchema as DeviceAgreementFindManySchema } from '../findManyDeviceAgreement.schema';
 import { UserArgsObjectSchema as UserArgsObjectSchema } from './UserArgs.schema';
 import { BugFindManySchema as BugFindManySchema } from '../findManyBug.schema';
 import { ContactRequestFindManySchema as ContactRequestFindManySchema } from '../findManyContactRequest.schema';
@@ -11,6 +12,7 @@ const makeSchema = () => z.object({
   id: z.boolean().optional(),
   uuid: z.boolean().optional(),
   settings: z.boolean().optional(),
+  device_agreements: z.union([z.boolean(), z.lazy(() => DeviceAgreementFindManySchema)]).optional(),
   user: z.union([z.boolean(), z.lazy(() => UserArgsObjectSchema)]).optional(),
   user_id: z.boolean().optional(),
   bugs: z.union([z.boolean(), z.lazy(() => BugFindManySchema)]).optional(),

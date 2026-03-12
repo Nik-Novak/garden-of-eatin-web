@@ -4,17 +4,14 @@ enum TravelMode {
   Driving
 }
 type DeviceSettings {
-  travel_mode               TravelMode?
-  accepted_terms_of_service DateTime?
-  accepted_privacy_policy   DateTime?
-  opened_terms_of_service   DateTime?
-  opened_privacy_policy     DateTime?
+  travel_mode                   TravelMode?
 }
 model Device {
   id                    String              @id @default(auto()) @map("_id") @db.ObjectId
   uuid                  String              @unique
 
   settings              DeviceSettings
+  device_agreements     DeviceAgreement[]
 
   user                  User?              @relation(fields: [user_id], references: [id])
   user_id               String?            @db.ObjectId

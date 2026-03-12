@@ -11,6 +11,7 @@ export { ContactRequestInputSchema } from './ContactRequest.input';
 export { DeviceInputSchema } from './Device.input';
 export { InviteInputSchema } from './Invite.input';
 export { AgreementInputSchema } from './Agreement.input';
+export { DeviceAgreementInputSchema } from './DeviceAgreement.input';
 export { MealInputSchema } from './Meal.input';
 export { MealOccurrenceInputSchema } from './MealOccurrence.input';
 export { MealOccurrenceSearchInputSchema } from './MealOccurrenceSearch.input';

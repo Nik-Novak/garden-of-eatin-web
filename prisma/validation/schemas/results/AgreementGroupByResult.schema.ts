@@ -10,6 +10,7 @@ export const AgreementGroupByResultSchema = z.array(z.object({
     agreement_type: z.number(),
     effective_date: z.number(),
     content_md: z.number(),
+    device_agreeents: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),

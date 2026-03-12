@@ -5,6 +5,7 @@ import { DeviceSettingsCompositeFilterObjectSchema as DeviceSettingsCompositeFil
 import { DeviceSettingsObjectEqualityInputObjectSchema as DeviceSettingsObjectEqualityInputObjectSchema } from './DeviceSettingsObjectEqualityInput.schema';
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
+import { DeviceAgreementListRelationFilterObjectSchema as DeviceAgreementListRelationFilterObjectSchema } from './DeviceAgreementListRelationFilter.schema';
 import { UserNullableScalarRelationFilterObjectSchema as UserNullableScalarRelationFilterObjectSchema } from './UserNullableScalarRelationFilter.schema';
 import { UserWhereInputObjectSchema as UserWhereInputObjectSchema } from './UserWhereInput.schema';
 import { BugListRelationFilterObjectSchema as BugListRelationFilterObjectSchema } from './BugListRelationFilter.schema';
@@ -22,6 +23,7 @@ const devicewhereinputSchema = z.object({
   user_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
+  device_agreements: z.lazy(() => DeviceAgreementListRelationFilterObjectSchema).optional(),
   user: z.union([z.lazy(() => UserNullableScalarRelationFilterObjectSchema), z.lazy(() => UserWhereInputObjectSchema)]).optional(),
   bugs: z.lazy(() => BugListRelationFilterObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestListRelationFilterObjectSchema).optional(),

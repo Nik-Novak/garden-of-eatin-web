@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { DeviceAgreementWhereInputObjectSchema as DeviceAgreementWhereInputObjectSchema } from './objects/DeviceAgreementWhereInput.schema';
+import { DeviceAgreementOrderByWithAggregationInputObjectSchema as DeviceAgreementOrderByWithAggregationInputObjectSchema } from './objects/DeviceAgreementOrderByWithAggregationInput.schema';
+import { DeviceAgreementScalarWhereWithAggregatesInputObjectSchema as DeviceAgreementScalarWhereWithAggregatesInputObjectSchema } from './objects/DeviceAgreementScalarWhereWithAggregatesInput.schema';
+import { DeviceAgreementScalarFieldEnumSchema } from './enums/DeviceAgreementScalarFieldEnum.schema';
+import { DeviceAgreementCountAggregateInputObjectSchema as DeviceAgreementCountAggregateInputObjectSchema } from './objects/DeviceAgreementCountAggregateInput.schema';
+import { DeviceAgreementMinAggregateInputObjectSchema as DeviceAgreementMinAggregateInputObjectSchema } from './objects/DeviceAgreementMinAggregateInput.schema';
+import { DeviceAgreementMaxAggregateInputObjectSchema as DeviceAgreementMaxAggregateInputObjectSchema } from './objects/DeviceAgreementMaxAggregateInput.schema';
+
+export const DeviceAgreementGroupBySchema: z.ZodType<Prisma.DeviceAgreementGroupByArgs> = z.object({ where: DeviceAgreementWhereInputObjectSchema.optional(), orderBy: z.union([DeviceAgreementOrderByWithAggregationInputObjectSchema, DeviceAgreementOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DeviceAgreementScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DeviceAgreementScalarFieldEnumSchema), _count: z.union([ z.literal(true), DeviceAgreementCountAggregateInputObjectSchema ]).optional(), _min: DeviceAgreementMinAggregateInputObjectSchema.optional(), _max: DeviceAgreementMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.DeviceAgreementGroupByArgs>;
+
+export const DeviceAgreementGroupByZodSchema = z.object({ where: DeviceAgreementWhereInputObjectSchema.optional(), orderBy: z.union([DeviceAgreementOrderByWithAggregationInputObjectSchema, DeviceAgreementOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DeviceAgreementScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DeviceAgreementScalarFieldEnumSchema), _count: z.union([ z.literal(true), DeviceAgreementCountAggregateInputObjectSchema ]).optional(), _min: DeviceAgreementMinAggregateInputObjectSchema.optional(), _max: DeviceAgreementMaxAggregateInputObjectSchema.optional() }).strict();

@@ -6,6 +6,7 @@ export const AgreementResultSchema = z.object({
     agreement_type: AgreementTypeSchema,
     effective_date: z.date(),
     content_md: z.string(),
+    device_agreeents: z.array(z.unknown()),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

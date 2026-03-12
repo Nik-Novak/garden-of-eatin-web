@@ -11,6 +11,7 @@ export { ContactRequestResultSchema } from './ContactRequest.result';
 export { DeviceResultSchema } from './Device.result';
 export { InviteResultSchema } from './Invite.result';
 export { AgreementResultSchema } from './Agreement.result';
+export { DeviceAgreementResultSchema } from './DeviceAgreement.result';
 export { MealResultSchema } from './Meal.result';
 export { MealOccurrenceResultSchema } from './MealOccurrence.result';
 export { MealOccurrenceSearchResultSchema } from './MealOccurrenceSearch.result';

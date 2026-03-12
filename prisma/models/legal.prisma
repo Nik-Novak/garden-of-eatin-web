@@ -1,7 +1,7 @@
 enum AgreementType {
-  TermsOfService
-  PrivacyPolicy
-  ReleaseOfLiability
+  terms_of_service
+  privacy_policy
+  release_of_liability
 }
 
 model Agreement {
@@ -33,5 +33,5 @@ model DeviceAgreement {
 
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
-  @@map("deviceagreements")
+  @@map("device_agreements")
 }

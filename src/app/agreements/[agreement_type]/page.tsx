@@ -1,12 +1,19 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, use } from 'react';
 import LoadAgreement from '@/components/LoadAgreement';
+import { AgreementType } from '@prisma/client';
 
-export default function TermsPage() {
+type RouteContext = {
+  params: Promise<{ agreement_type: AgreementType }>
+};
+
+export default async function AgreementPage({ params }: RouteContext) {
+  const {agreement_type} = await params; //TODO: validate
+
   return (
     <main style={styles.container}>
       <Suspense fallback={<div style={styles.loading}>Loading...</div>}>
         <div style={styles.content}>
-          <LoadAgreement type="TermsofService" />
+          <LoadAgreement type={agreement_type} />
         </div>
       </Suspense>
     </main>

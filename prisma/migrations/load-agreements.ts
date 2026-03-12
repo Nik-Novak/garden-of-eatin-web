@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 
 export default async function preloadDatabase(){
   let privacy = await database.agreement.createOrFind({data:{
-    agreement_type: "PrivacyPolicy",
+    agreement_type: "privacy_policy",
     effective_date: new Date('03/10/2026'),
     content_md: `# Privacy Policy for Garden of Eatin'
 
@@ -68,11 +68,11 @@ If you have questions about this Privacy Policy or wish to exercise your data ri
 
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
 * **Website:** [gardenofeatin.io](https://gardenofeatin.io)`
-  }}, {where:{agreement_type:"PrivacyPolicy"}});
+  }}, {where:{agreement_type:"privacy_policy"}});
   console.log(privacy.created ? 'Created' : 'Found existing', 'Privacy Policy with id:', privacy.document.id);
 
   let terms = await database.agreement.createOrFind({data:{
-    agreement_type: "TermsofService",
+    agreement_type: "terms_of_service",
     effective_date: new Date('03/10/2026'),
     content_md: `# Terms of Service for Garden of Eatin'
 
@@ -121,11 +121,11 @@ We reserve the right to modify these Terms at any time. We will provide notice o
 If you have any questions about these Terms, please contact us at:
 * **Email:** [contact@gardenofeatin.io](mailto:contact@gardenofeatin.io)
 * **Website:** [gardenofeatin.io](https://gardenofeatin.io)`
-  }}, {where:{agreement_type:"TermsofService"}});
+  }}, {where:{agreement_type:"terms_of_service"}});
   console.log(terms.created ? 'Created' : 'Found existing', 'Terms of Service with id:', terms.document.id);
 
   let release = await database.agreement.createOrFind({data:{
-    agreement_type: "ReleaseOfLiability",
+    agreement_type: "release_of_liability",
     effective_date: new Date('03/10/2026'),
     content_md: `# Release of Liability and Assumption of Risk Agreement
 
@@ -165,6 +165,6 @@ By using the Garden of Eatin' App, you acknowledge that you have read this Relea
 
 ---
 *If you do not agree to these terms, you must immediately cease using the Garden of Eatin' application.*`
-  }}, {where:{agreement_type:"ReleaseOfLiability"}});
+  }}, {where:{agreement_type:"release_of_liability"}});
   console.log(release.created ? 'Created' : 'Found existing', 'Release of Liability with id:', release.document.id);
 }

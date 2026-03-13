@@ -62,7 +62,7 @@ export function Footer() {
         <Divider sx={{ my: 4 }} />
 
         <Typography variant="body2" color="text.secondary" align="center">
-          © {new Date().getFullYear()} Garden of Eatin'. All rights reserved.
+          © {new Date().getFullYear()} Software for People. All rights reserved.
         </Typography>
       </Container>
     </Box>

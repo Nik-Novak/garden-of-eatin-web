@@ -5,6 +5,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Roboto, Lora } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/features/theme';
+import { NotificationProvider } from "@/components/NotificationQueue";
 
 // Initialize Lora for Headings
 const lora = Lora({
@@ -38,7 +39,9 @@ export default function RootLayout({
       <body className={`${lora.variable} ${roboto.variable}`}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            {children}
+            <NotificationProvider>
+              {children}
+            </NotificationProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

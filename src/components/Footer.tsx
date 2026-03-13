@@ -51,8 +51,8 @@ export function Footer() {
               variant="outlined" 
               color="primary" 
               startIcon={<MailOutlineIcon />}
-              onClick={()=>console.log('CONTACT!')}
               sx={{ borderRadius: 8 }}
+              href="/contact"
             >
               Get in Touch
             </Button>

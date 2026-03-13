@@ -22,6 +22,7 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import { Footer } from "@/components/Footer";
+import ContactButton from "@/components/ContactButton";
 
 export default function Home() {
   return (
@@ -49,9 +50,9 @@ export default function Home() {
                 <Button variant="contained" color="secondary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
                   Download App
                 </Button>
-                <Button variant="outlined" color="primary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
+                <ContactButton variant="outlined" color="primary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
                   Learn More
-                </Button>
+                </ContactButton>
               </Stack>
             </Grid>
             <Grid size={{xs:12, md:6}}>

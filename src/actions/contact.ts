@@ -6,14 +6,13 @@ import DataTableTemplate, { DataTableTemplateProps } from "@/utils/templates/ema
 import React from "react";
 import { sendAdmin } from "./email";
 import { database } from "@/prisma/database";
-import { createOrFindDevice } from "./device";
 
 export async function createContactRequest(name:string, phone:string, email:string, uuid:string){
   // const session = await auth();
-  const client = await createOrFindDevice(uuid);
+  // const client = await createOrFindDevice(uuid);
   const data = {
     name, phone, email,
-    device_id: client.id
+    // device_id: client.id
     // project_id: client.settings.selected_project_id || undefined
   };
   await database.contactRequest.create({ data });

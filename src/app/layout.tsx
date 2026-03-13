@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/features/theme';
 import { NotificationProvider } from "@/components/NotificationQueue";
 import FloatingNav from "@/components/FloatingNav";
+import { CssBaseline } from "@mui/material";
 
 // Initialize Lora for Headings
 const lora = Lora({
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className={`${lora.variable} ${roboto.variable}`}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <NotificationProvider>
               <FloatingNav />
               {children}

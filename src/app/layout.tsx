@@ -6,6 +6,7 @@ import { Roboto, Lora } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/features/theme';
 import { NotificationProvider } from "@/components/NotificationQueue";
+import FloatingNav from "@/components/FloatingNav";
 
 // Initialize Lora for Headings
 const lora = Lora({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NotificationProvider>
+              <FloatingNav />
               {children}
             </NotificationProvider>
           </ThemeProvider>

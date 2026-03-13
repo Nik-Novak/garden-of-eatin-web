@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Box, Button, Container, Divider, Grid, Stack, Typography } from "@mui/material";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';

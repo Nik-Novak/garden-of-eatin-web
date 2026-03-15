@@ -7,7 +7,8 @@ import { FloatFieldUpdateOperationsInputObjectSchema as FloatFieldUpdateOperatio
 import { PointUpdateEnvelopeInputObjectSchema as PointUpdateEnvelopeInputObjectSchema } from './PointUpdateEnvelopeInput.schema';
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
-import { MealUpdateManyWithoutMeal_occurrence_searchesNestedInputObjectSchema as MealUpdateManyWithoutMeal_occurrence_searchesNestedInputObjectSchema } from './MealUpdateManyWithoutMeal_occurrence_searchesNestedInput.schema'
+import { MealSearchHitUpdateManyWithoutSearchNestedInputObjectSchema as MealSearchHitUpdateManyWithoutSearchNestedInputObjectSchema } from './MealSearchHitUpdateManyWithoutSearchNestedInput.schema';
+import { DeviceUpdateOneRequiredWithoutMeal_occurrence_searchesNestedInputObjectSchema as DeviceUpdateOneRequiredWithoutMeal_occurrence_searchesNestedInputObjectSchema } from './DeviceUpdateOneRequiredWithoutMeal_occurrence_searchesNestedInput.schema'
 
 const makeSchema = () => z.object({
   search_type: z.union([SearchTypeSchema, z.lazy(() => EnumSearchTypeFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -17,7 +18,8 @@ const makeSchema = () => z.object({
   user_location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  meals: z.lazy(() => MealUpdateManyWithoutMeal_occurrence_searchesNestedInputObjectSchema).optional()
+  hits: z.lazy(() => MealSearchHitUpdateManyWithoutSearchNestedInputObjectSchema).optional(),
+  device: z.lazy(() => DeviceUpdateOneRequiredWithoutMeal_occurrence_searchesNestedInputObjectSchema).optional()
 }).strict();
 export const MealOccurrenceSearchUpdateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchUpdateInput>;
 export const MealOccurrenceSearchUpdateInputObjectZodSchema = makeSchema();

@@ -15,15 +15,13 @@ import { ParkingSchema } from '../enums/Parking.schema';
 import { NullableEnumParkingFieldUpdateOperationsInputObjectSchema as NullableEnumParkingFieldUpdateOperationsInputObjectSchema } from './NullableEnumParkingFieldUpdateOperationsInput.schema';
 import { MealUpdatefeaturesInputObjectSchema as MealUpdatefeaturesInputObjectSchema } from './MealUpdatefeaturesInput.schema';
 import { FeatureSchema } from '../enums/Feature.schema';
-import { MealUpdatemeal_occurrence_search_idsInputObjectSchema as MealUpdatemeal_occurrence_search_idsInputObjectSchema } from './MealUpdatemeal_occurrence_search_idsInput.schema';
 import { NullableBoolFieldUpdateOperationsInputObjectSchema as NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
-import { StatsUpdateEnvelopeInputObjectSchema as StatsUpdateEnvelopeInputObjectSchema } from './StatsUpdateEnvelopeInput.schema';
-import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { ReviewUncheckedUpdateManyWithoutMealNestedInputObjectSchema as ReviewUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './ReviewUncheckedUpdateManyWithoutMealNestedInput.schema';
 import { MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealOccurrenceUncheckedUpdateManyWithoutMealNestedInput.schema';
-import { MealOccurrenceSearchUncheckedUpdateManyWithoutMealsNestedInputObjectSchema as MealOccurrenceSearchUncheckedUpdateManyWithoutMealsNestedInputObjectSchema } from './MealOccurrenceSearchUncheckedUpdateManyWithoutMealsNestedInput.schema'
+import { MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealSearchHitUncheckedUpdateManyWithoutMealNestedInput.schema';
+import { MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealInteractionUncheckedUpdateManyWithoutMealNestedInput.schema'
 
 const makeSchema = () => z.object({
   name: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -35,16 +33,15 @@ const makeSchema = () => z.object({
   service: z.union([ServiceSchema, z.lazy(() => NullableEnumServiceFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   parking: z.union([ParkingSchema, z.lazy(() => NullableEnumParkingFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   features: z.union([z.lazy(() => MealUpdatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
-  meal_occurrence_search_ids: z.union([z.lazy(() => MealUpdatemeal_occurrence_search_idsInputObjectSchema), z.string().array()]).optional(),
   approved: z.union([z.boolean(), z.lazy(() => NullableBoolFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   rejection_reason: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   submitter_name: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
-  stats: z.union([z.lazy(() => StatsUpdateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   reviews: z.lazy(() => ReviewUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
-  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUncheckedUpdateManyWithoutMealsNestedInputObjectSchema).optional()
+  meal_search_hits: z.lazy(() => MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
+  meal_interactions: z.lazy(() => MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional()
 }).strict();
 export const MealUncheckedUpdateWithoutSubmitterInputObjectSchema: z.ZodType<Prisma.MealUncheckedUpdateWithoutSubmitterInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUncheckedUpdateWithoutSubmitterInput>;
 export const MealUncheckedUpdateWithoutSubmitterInputObjectZodSchema = makeSchema();

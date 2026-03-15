@@ -68,7 +68,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Indoors', 'Outdoors'],
       features: ['VeganOptions', 'WifiAvailable', 'Outlets', 'Seating', 'Coffee', 'Snacks', 'Donations', 'Entertainment', 'Medical', 'PetFriendly', 'PetSupplies'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -112,7 +112,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Outdoors'],
       features: ['VeganOptions', 'WifiAvailable', 'Snacks', 'Donations', 'PetFriendly', 'PetSupplies'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -147,7 +147,7 @@ export default async function preloadDatabase(){
       parking: 'Street',
       setting: [],
       features: ['Snacks'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -184,7 +184,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Indoors'],
       features: ['Seating', 'Donations', 'Snacks'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -216,7 +216,7 @@ export default async function preloadDatabase(){
       parking: 'Street',
       setting: [],
       features: ['PetFriendly', 'Groceries', 'Snacks'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -249,7 +249,7 @@ export default async function preloadDatabase(){
       parking: 'Street',
       setting: ['Indoors'],
       features: ['WifiAvailable', 'Seating', 'Coffee', 'Snacks', 'PetFriendly'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -281,7 +281,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: [],
       features: ['VeganOptions', 'Coffee', 'PetFriendly', 'Donations', 'Groceries', 'Snacks'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -313,7 +313,7 @@ export default async function preloadDatabase(){
       parking: 'Street',
       // setting: [],
       features: ['Outlets', 'Seating', 'Coffee', 'PetFriendly', 'Donations', 'Groceries', 'Snacks', 'Entertainment'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -345,7 +345,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Outdoors'],
       features: ['WifiAvailable', 'Seating', 'PetFriendly'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -378,7 +378,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Outdoors'],
       features: ['Outlets', 'WifiAvailable', 'Seating', 'Entertainment', 'PetFriendly'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -411,7 +411,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Indoors'],
       features: ['Outlets', 'Seating', 'Coffee'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -444,7 +444,7 @@ export default async function preloadDatabase(){
       parking: 'Street',
       setting: ['Outdoors'],
       features: ['VeganOptions', 'WifiAvailable', 'Coffee', 'PetFriendly', 'PetSupplies'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -477,7 +477,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Outdoors'],
       features: ['Outlets', 'WifiAvailable', 'Seating', 'Entertainment', 'PetFriendly'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
     {
       approved: true,
@@ -511,7 +511,7 @@ export default async function preloadDatabase(){
       parking: 'OnPremise',
       setting: ['Outdoors'],
       features: ['Outlets', 'WifiAvailable', 'Seating', 'Entertainment', 'PetFriendly'],
-      stats: {views:0, navigations:0}
+      // stats: {views:0, navigations:0}
     },
   ];
 

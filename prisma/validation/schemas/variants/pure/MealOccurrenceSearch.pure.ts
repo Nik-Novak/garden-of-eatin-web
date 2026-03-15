@@ -4,12 +4,13 @@ import { SearchTypeSchema } from '../../enums/SearchType.schema';
 export const MealOccurrenceSearchModelSchema = z.object({
     id: z.string(),
     search_type: SearchTypeSchema,
-    meals: z.array(z.unknown()),
-    meal_ids: z.array(z.string()),
+    hits: z.array(z.unknown()),
     start: z.date().nullable(),
     end: z.date().nullable(),
     radius_mi: z.number(),
     user_location: z.unknown(),
+    device: z.unknown(),
+    device_id: z.string(),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

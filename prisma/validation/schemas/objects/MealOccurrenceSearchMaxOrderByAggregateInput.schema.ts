@@ -8,6 +8,7 @@ const makeSchema = () => z.object({
   start: SortOrderSchema.optional(),
   end: SortOrderSchema.optional(),
   radius_mi: SortOrderSchema.optional(),
+  device_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional()
 }).strict();

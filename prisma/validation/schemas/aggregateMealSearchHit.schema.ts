@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { MealSearchHitOrderByWithRelationInputObjectSchema as MealSearchHitOrderByWithRelationInputObjectSchema } from './objects/MealSearchHitOrderByWithRelationInput.schema';
+import { MealSearchHitWhereInputObjectSchema as MealSearchHitWhereInputObjectSchema } from './objects/MealSearchHitWhereInput.schema';
+import { MealSearchHitWhereUniqueInputObjectSchema as MealSearchHitWhereUniqueInputObjectSchema } from './objects/MealSearchHitWhereUniqueInput.schema';
+import { MealSearchHitCountAggregateInputObjectSchema as MealSearchHitCountAggregateInputObjectSchema } from './objects/MealSearchHitCountAggregateInput.schema';
+import { MealSearchHitMinAggregateInputObjectSchema as MealSearchHitMinAggregateInputObjectSchema } from './objects/MealSearchHitMinAggregateInput.schema';
+import { MealSearchHitMaxAggregateInputObjectSchema as MealSearchHitMaxAggregateInputObjectSchema } from './objects/MealSearchHitMaxAggregateInput.schema';
+
+export const MealSearchHitAggregateSchema: z.ZodType<Prisma.MealSearchHitAggregateArgs> = z.object({ orderBy: z.union([MealSearchHitOrderByWithRelationInputObjectSchema, MealSearchHitOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealSearchHitWhereInputObjectSchema.optional(), cursor: MealSearchHitWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealSearchHitCountAggregateInputObjectSchema ]).optional(), _min: MealSearchHitMinAggregateInputObjectSchema.optional(), _max: MealSearchHitMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealSearchHitAggregateArgs>;
+
+export const MealSearchHitAggregateZodSchema = z.object({ orderBy: z.union([MealSearchHitOrderByWithRelationInputObjectSchema, MealSearchHitOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealSearchHitWhereInputObjectSchema.optional(), cursor: MealSearchHitWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealSearchHitCountAggregateInputObjectSchema ]).optional(), _min: MealSearchHitMinAggregateInputObjectSchema.optional(), _max: MealSearchHitMaxAggregateInputObjectSchema.optional() }).strict();

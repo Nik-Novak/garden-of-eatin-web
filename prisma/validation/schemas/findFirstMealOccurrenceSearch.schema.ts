@@ -12,12 +12,13 @@ import { MealOccurrenceSearchScalarFieldEnumSchema } from './enums/MealOccurrenc
 export const MealOccurrenceSearchFindFirstSelectSchema: z.ZodType<Prisma.MealOccurrenceSearchSelect> = z.object({
     id: z.boolean().optional(),
     search_type: z.boolean().optional(),
-    meals: z.boolean().optional(),
-    meal_ids: z.boolean().optional(),
+    hits: z.boolean().optional(),
     start: z.boolean().optional(),
     end: z.boolean().optional(),
     radius_mi: z.boolean().optional(),
     user_location: z.boolean().optional(),
+    device: z.boolean().optional(),
+    device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional(),
     _count: z.boolean().optional()
@@ -26,12 +27,13 @@ export const MealOccurrenceSearchFindFirstSelectSchema: z.ZodType<Prisma.MealOcc
 export const MealOccurrenceSearchFindFirstSelectZodSchema = z.object({
     id: z.boolean().optional(),
     search_type: z.boolean().optional(),
-    meals: z.boolean().optional(),
-    meal_ids: z.boolean().optional(),
+    hits: z.boolean().optional(),
     start: z.boolean().optional(),
     end: z.boolean().optional(),
     radius_mi: z.boolean().optional(),
     user_location: z.boolean().optional(),
+    device: z.boolean().optional(),
+    device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional(),
     _count: z.boolean().optional()

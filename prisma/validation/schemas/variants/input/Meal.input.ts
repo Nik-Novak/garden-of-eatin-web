@@ -17,14 +17,13 @@ export const MealInputSchema = z.object({
     features: FeatureSchema.array(),
     reviews: z.array(z.unknown()),
     meal_occurrences: z.array(z.unknown()),
-    meal_occurrence_searches: z.array(z.unknown()),
-    meal_occurrence_search_ids: z.array(z.string()),
+    meal_search_hits: z.array(z.unknown()),
+    meal_interactions: z.array(z.unknown()),
     approved: z.boolean().optional().nullable(),
     rejection_reason: z.string().optional().nullable(),
     submitter: z.unknown().optional().nullable(),
     submitter_id: z.string().optional().nullable(),
     submitter_name: z.string().optional().nullable(),
-    stats: z.unknown(),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

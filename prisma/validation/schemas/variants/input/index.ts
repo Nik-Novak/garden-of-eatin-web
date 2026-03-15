@@ -15,6 +15,8 @@ export { DeviceAgreementInputSchema } from './DeviceAgreement.input';
 export { MealInputSchema } from './Meal.input';
 export { MealOccurrenceInputSchema } from './MealOccurrence.input';
 export { MealOccurrenceSearchInputSchema } from './MealOccurrenceSearch.input';
+export { MealSearchHitInputSchema } from './MealSearchHit.input';
+export { MealInteractionInputSchema } from './MealInteraction.input';
 export { OpportunityInputSchema } from './Opportunity.input';
 export { OpportunityApplicationInputSchema } from './OpportunityApplication.input';
 export { PostInputSchema } from './Post.input';

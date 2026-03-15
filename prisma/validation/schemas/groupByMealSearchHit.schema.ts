@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { MealSearchHitWhereInputObjectSchema as MealSearchHitWhereInputObjectSchema } from './objects/MealSearchHitWhereInput.schema';
+import { MealSearchHitOrderByWithAggregationInputObjectSchema as MealSearchHitOrderByWithAggregationInputObjectSchema } from './objects/MealSearchHitOrderByWithAggregationInput.schema';
+import { MealSearchHitScalarWhereWithAggregatesInputObjectSchema as MealSearchHitScalarWhereWithAggregatesInputObjectSchema } from './objects/MealSearchHitScalarWhereWithAggregatesInput.schema';
+import { MealSearchHitScalarFieldEnumSchema } from './enums/MealSearchHitScalarFieldEnum.schema';
+import { MealSearchHitCountAggregateInputObjectSchema as MealSearchHitCountAggregateInputObjectSchema } from './objects/MealSearchHitCountAggregateInput.schema';
+import { MealSearchHitMinAggregateInputObjectSchema as MealSearchHitMinAggregateInputObjectSchema } from './objects/MealSearchHitMinAggregateInput.schema';
+import { MealSearchHitMaxAggregateInputObjectSchema as MealSearchHitMaxAggregateInputObjectSchema } from './objects/MealSearchHitMaxAggregateInput.schema';
+
+export const MealSearchHitGroupBySchema: z.ZodType<Prisma.MealSearchHitGroupByArgs> = z.object({ where: MealSearchHitWhereInputObjectSchema.optional(), orderBy: z.union([MealSearchHitOrderByWithAggregationInputObjectSchema, MealSearchHitOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealSearchHitScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealSearchHitScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealSearchHitCountAggregateInputObjectSchema ]).optional(), _min: MealSearchHitMinAggregateInputObjectSchema.optional(), _max: MealSearchHitMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealSearchHitGroupByArgs>;
+
+export const MealSearchHitGroupByZodSchema = z.object({ where: MealSearchHitWhereInputObjectSchema.optional(), orderBy: z.union([MealSearchHitOrderByWithAggregationInputObjectSchema, MealSearchHitOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealSearchHitScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealSearchHitScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealSearchHitCountAggregateInputObjectSchema ]).optional(), _min: MealSearchHitMinAggregateInputObjectSchema.optional(), _max: MealSearchHitMaxAggregateInputObjectSchema.optional() }).strict();

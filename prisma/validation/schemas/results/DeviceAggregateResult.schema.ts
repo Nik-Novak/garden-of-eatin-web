@@ -6,10 +6,12 @@ export const DeviceAggregateResultSchema = z.object({  _count: z.object({
     device_agreements: z.number(),
     user: z.number(),
     user_id: z.number(),
+    meal_interactions: z.number(),
     bugs: z.number(),
     contact_requests: z.number(),
     reviews: z.number(),
     submitted_meals: z.number(),
+    meal_occurrence_searches: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),

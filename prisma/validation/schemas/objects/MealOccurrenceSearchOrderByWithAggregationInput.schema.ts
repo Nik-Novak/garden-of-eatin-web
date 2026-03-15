@@ -10,10 +10,10 @@ import { MealOccurrenceSearchSumOrderByAggregateInputObjectSchema as MealOccurre
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
   search_type: SortOrderSchema.optional(),
-  meal_ids: SortOrderSchema.optional(),
   start: SortOrderSchema.optional(),
   end: SortOrderSchema.optional(),
   radius_mi: SortOrderSchema.optional(),
+  device_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional(),
   _count: z.lazy(() => MealOccurrenceSearchCountOrderByAggregateInputObjectSchema).optional(),

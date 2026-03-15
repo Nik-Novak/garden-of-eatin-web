@@ -3,7 +3,8 @@ import type { Prisma } from '@prisma/client';
 import { SearchTypeSchema } from '../enums/SearchType.schema';
 import { PointCreateEnvelopeInputObjectSchema as PointCreateEnvelopeInputObjectSchema } from './PointCreateEnvelopeInput.schema';
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
-import { MealCreateNestedManyWithoutMeal_occurrence_searchesInputObjectSchema as MealCreateNestedManyWithoutMeal_occurrence_searchesInputObjectSchema } from './MealCreateNestedManyWithoutMeal_occurrence_searchesInput.schema'
+import { MealSearchHitCreateNestedManyWithoutSearchInputObjectSchema as MealSearchHitCreateNestedManyWithoutSearchInputObjectSchema } from './MealSearchHitCreateNestedManyWithoutSearchInput.schema';
+import { DeviceCreateNestedOneWithoutMeal_occurrence_searchesInputObjectSchema as DeviceCreateNestedOneWithoutMeal_occurrence_searchesInputObjectSchema } from './DeviceCreateNestedOneWithoutMeal_occurrence_searchesInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -13,7 +14,8 @@ const makeSchema = () => z.object({
   radius_mi: z.number(),
   user_location: z.union([z.lazy(() => PointCreateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),
-  meals: z.lazy(() => MealCreateNestedManyWithoutMeal_occurrence_searchesInputObjectSchema).optional()
+  hits: z.lazy(() => MealSearchHitCreateNestedManyWithoutSearchInputObjectSchema).optional(),
+  device: z.lazy(() => DeviceCreateNestedOneWithoutMeal_occurrence_searchesInputObjectSchema)
 }).strict();
 export const MealOccurrenceSearchCreateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchCreateInput>;
 export const MealOccurrenceSearchCreateInputObjectZodSchema = makeSchema();

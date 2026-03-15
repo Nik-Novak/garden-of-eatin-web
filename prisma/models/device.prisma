@@ -6,21 +6,25 @@ enum TravelMode {
 type DeviceSettings {
   travel_mode                   TravelMode?
 }
+
 model Device {
-  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-  uuid                  String              @unique
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  uuid                      String              @unique
 
-  settings              DeviceSettings
-  device_agreements     DeviceAgreement[]
+  settings                  DeviceSettings
+  device_agreements         DeviceAgreement[]
 
-  user                  User?              @relation(fields: [user_id], references: [id])
-  user_id               String?            @db.ObjectId
+  user                      User?              @relation(fields: [user_id], references: [id])
+  user_id                   String?            @db.ObjectId
 
-  bugs                  Bug[]
-  contact_requests      ContactRequest[]
-  reviews               Review[]
+  meal_interactions         MealInteraction[] @relation(fields: [], references: [])
 
-  submitted_meals       Meal[]
+  bugs                      Bug[]
+  contact_requests          ContactRequest[]
+  reviews                   Review[]
+
+  submitted_meals           Meal[]
+  meal_occurrence_searches  MealOccurrenceSearch[]
   
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt

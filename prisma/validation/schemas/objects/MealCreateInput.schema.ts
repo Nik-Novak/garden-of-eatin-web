@@ -12,11 +12,10 @@ import { ServiceSchema } from '../enums/Service.schema';
 import { ParkingSchema } from '../enums/Parking.schema';
 import { MealCreatefeaturesInputObjectSchema as MealCreatefeaturesInputObjectSchema } from './MealCreatefeaturesInput.schema';
 import { FeatureSchema } from '../enums/Feature.schema';
-import { StatsCreateEnvelopeInputObjectSchema as StatsCreateEnvelopeInputObjectSchema } from './StatsCreateEnvelopeInput.schema';
-import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema';
 import { ReviewCreateNestedManyWithoutMealInputObjectSchema as ReviewCreateNestedManyWithoutMealInputObjectSchema } from './ReviewCreateNestedManyWithoutMealInput.schema';
 import { MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceCreateNestedManyWithoutMealInput.schema';
-import { MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema as MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema } from './MealOccurrenceSearchCreateNestedManyWithoutMealsInput.schema';
+import { MealSearchHitCreateNestedManyWithoutMealInputObjectSchema as MealSearchHitCreateNestedManyWithoutMealInputObjectSchema } from './MealSearchHitCreateNestedManyWithoutMealInput.schema';
+import { MealInteractionCreateNestedManyWithoutMealInputObjectSchema as MealInteractionCreateNestedManyWithoutMealInputObjectSchema } from './MealInteractionCreateNestedManyWithoutMealInput.schema';
 import { DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema as DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema } from './DeviceCreateNestedOneWithoutSubmitted_mealsInput.schema'
 
 const makeSchema = () => z.object({
@@ -33,11 +32,11 @@ const makeSchema = () => z.object({
   approved: z.boolean().optional().nullable(),
   rejection_reason: z.string().optional().nullable(),
   submitter_name: z.string().optional().nullable(),
-  stats: z.union([z.lazy(() => StatsCreateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),
   reviews: z.lazy(() => ReviewCreateNestedManyWithoutMealInputObjectSchema).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema).optional(),
-  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchCreateNestedManyWithoutMealsInputObjectSchema).optional(),
+  meal_search_hits: z.lazy(() => MealSearchHitCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  meal_interactions: z.lazy(() => MealInteractionCreateNestedManyWithoutMealInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema).optional()
 }).strict();
 export const MealCreateInputObjectSchema: z.ZodType<Prisma.MealCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealCreateInput>;

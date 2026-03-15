@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { MealInteractionWhereInputObjectSchema as MealInteractionWhereInputObjectSchema } from './objects/MealInteractionWhereInput.schema';
+import { MealInteractionOrderByWithAggregationInputObjectSchema as MealInteractionOrderByWithAggregationInputObjectSchema } from './objects/MealInteractionOrderByWithAggregationInput.schema';
+import { MealInteractionScalarWhereWithAggregatesInputObjectSchema as MealInteractionScalarWhereWithAggregatesInputObjectSchema } from './objects/MealInteractionScalarWhereWithAggregatesInput.schema';
+import { MealInteractionScalarFieldEnumSchema } from './enums/MealInteractionScalarFieldEnum.schema';
+import { MealInteractionCountAggregateInputObjectSchema as MealInteractionCountAggregateInputObjectSchema } from './objects/MealInteractionCountAggregateInput.schema';
+import { MealInteractionMinAggregateInputObjectSchema as MealInteractionMinAggregateInputObjectSchema } from './objects/MealInteractionMinAggregateInput.schema';
+import { MealInteractionMaxAggregateInputObjectSchema as MealInteractionMaxAggregateInputObjectSchema } from './objects/MealInteractionMaxAggregateInput.schema';
+
+export const MealInteractionGroupBySchema: z.ZodType<Prisma.MealInteractionGroupByArgs> = z.object({ where: MealInteractionWhereInputObjectSchema.optional(), orderBy: z.union([MealInteractionOrderByWithAggregationInputObjectSchema, MealInteractionOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealInteractionScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealInteractionScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealInteractionCountAggregateInputObjectSchema ]).optional(), _min: MealInteractionMinAggregateInputObjectSchema.optional(), _max: MealInteractionMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealInteractionGroupByArgs>;
+
+export const MealInteractionGroupByZodSchema = z.object({ where: MealInteractionWhereInputObjectSchema.optional(), orderBy: z.union([MealInteractionOrderByWithAggregationInputObjectSchema, MealInteractionOrderByWithAggregationInputObjectSchema.array()]).optional(), having: MealInteractionScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(MealInteractionScalarFieldEnumSchema), _count: z.union([ z.literal(true), MealInteractionCountAggregateInputObjectSchema ]).optional(), _min: MealInteractionMinAggregateInputObjectSchema.optional(), _max: MealInteractionMaxAggregateInputObjectSchema.optional() }).strict();

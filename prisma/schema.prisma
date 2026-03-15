@@ -1,8 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  // provider      = "prisma-client"
-  // output        = "../src/generated/prisma" // Put it inside src/
-  // binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 generator zod {

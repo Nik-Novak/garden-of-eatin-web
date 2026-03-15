@@ -4,9 +4,11 @@ import { DeviceSettingsCreateEnvelopeInputObjectSchema as DeviceSettingsCreateEn
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema as DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema } from './DeviceAgreementCreateNestedManyWithoutDeviceInput.schema';
 import { UserCreateNestedOneWithoutDevicesInputObjectSchema as UserCreateNestedOneWithoutDevicesInputObjectSchema } from './UserCreateNestedOneWithoutDevicesInput.schema';
+import { MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema as MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema } from './MealInteractionCreateNestedManyWithoutDeviceInput.schema';
 import { BugCreateNestedManyWithoutDeviceInputObjectSchema as BugCreateNestedManyWithoutDeviceInputObjectSchema } from './BugCreateNestedManyWithoutDeviceInput.schema';
 import { ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema as ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema } from './ContactRequestCreateNestedManyWithoutDeviceInput.schema';
-import { MealCreateNestedManyWithoutSubmitterInputObjectSchema as MealCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealCreateNestedManyWithoutSubmitterInput.schema'
+import { MealCreateNestedManyWithoutSubmitterInputObjectSchema as MealCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealCreateNestedManyWithoutSubmitterInput.schema';
+import { MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema as MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema } from './MealOccurrenceSearchCreateNestedManyWithoutDeviceInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -16,9 +18,11 @@ const makeSchema = () => z.object({
   updated_at: z.coerce.date().optional(),
   device_agreements: z.lazy(() => DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   user: z.lazy(() => UserCreateNestedOneWithoutDevicesInputObjectSchema).optional(),
+  meal_interactions: z.lazy(() => MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   bugs: z.lazy(() => BugCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
-  submitted_meals: z.lazy(() => MealCreateNestedManyWithoutSubmitterInputObjectSchema).optional()
+  submitted_meals: z.lazy(() => MealCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema).optional()
 }).strict();
 export const DeviceCreateWithoutReviewsInputObjectSchema: z.ZodType<Prisma.DeviceCreateWithoutReviewsInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceCreateWithoutReviewsInput>;
 export const DeviceCreateWithoutReviewsInputObjectZodSchema = makeSchema();

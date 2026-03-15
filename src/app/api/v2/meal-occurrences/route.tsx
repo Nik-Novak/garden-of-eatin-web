@@ -48,6 +48,13 @@ const QuerySchema = z.object({
         ? "radius_mi is required." 
         : "radius_mi must be a valid number.",
   }).positive({ error: "radius_mi must be greater than 0." }),
+
+  device_id: z.string({
+    error: (issue) => 
+      issue.input === undefined 
+        ? "device_id is required." 
+        : "device_id must be a valid string.",
+  }),
 });
 
 export async function GET(request: NextRequest) {
@@ -65,7 +72,7 @@ export async function GET(request: NextRequest) {
   }
 
   // 2. Keep the extracted variables in snake_case
-  const { search_type, user_lat, user_lng, radius_mi, start_date, end_date } = validation.data;
+  const { search_type, user_lat, user_lng, radius_mi, start_date, end_date, device_id } = validation.data;
 
   // 3. Switch internal variables to snake_case to match
   const isAllMode = !start_date && !end_date;
@@ -128,20 +135,38 @@ export async function GET(request: NextRequest) {
 
     const raw = rawUnknown as unknown as RawResult<JsonObject>;
 
-    const formattedResults = raw.cursor.firstBatch.map(
+    let formattedResults = raw.cursor.firstBatch.map(
       o => database.mealOccurrence.convertRawJson(o) as GeoMealOccurrence
     );
 
-    let mealIds = formattedResults.map(r=>r.meal_id);
+    // // ### QUERY Meal.interactionStats ###
+    // for (let mealOcc of formattedResults){
+    //   const interactionStats = await database.mealInteraction.groupBy({
+    //     by: ['interaction_type'],
+    //     where: {
+    //       meal_id:mealOcc.id
+    //     },
+    //     _count: {
+    //       _all: true
+    //     }
+    //   });
+    //   mealOcc.meal.interactionStats = interactionStats;
+    // }
 
-    await database.mealOccurrenceSearch.create({data:{
+    let mealOccurrenceSearch = await database.mealOccurrenceSearch.create({data:{
       search_type,
       start: start_date,
       end: end_date,
       radius_mi,
       user_location: {type:'Point', coordinates:[user_lng, user_lat]},
-      meals:{connect:mealIds.map(id=>({id}))}
-    }});
+      device_id
+    }})
+
+    let mealHits = formattedResults.length ? 
+      await database.mealSearchHit.createMany({
+        data:formattedResults.map(mo=>({meal_id: mo.meal_id, search_id: mealOccurrenceSearch.id}))
+      },)
+      : [];
 
     return NextResponse.json(formattedResults);
     

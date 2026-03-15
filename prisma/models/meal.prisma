@@ -45,45 +45,38 @@ enum Feature {
   Medical
 }
 
-type Stats {
-  views       Int
-  navigations Int
-}
-
 model Meal {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                          String    @id @default(auto()) @map("_id") @db.ObjectId
 
-  name          String
-  place         Place
-  // address       String
-  location      Point
-  schedule      Schedule
+  name                        String
+  place                       Place
+  location                    Point
+  schedule                    Schedule
 
-  timezone      String   // "America/Los_Angeles"
+  timezone                    String   // "America/Los_Angeles"
 
-  setting       Setting[] @default([])
-  service       Service?
-  parking       Parking?
-  features      Feature[] @default([])
+  setting                     Setting[] @default([])
+  service                     Service?
+  parking                     Parking?
+  features                    Feature[] @default([])
 
-  reviews       Review[]
+  reviews                     Review[]
 
-  meal_occurrences  MealOccurrence[]
+  meal_occurrences            MealOccurrence[]
 
-  meal_occurrence_searches    MealOccurrenceSearch[] @relation(fields: [meal_occurrence_search_ids], references: [id])
-  meal_occurrence_search_ids  String[] @db.ObjectId
+  meal_search_hits            MealSearchHit[] 
+  meal_interactions           MealInteraction[]
 
-  approved         Boolean?
-  rejection_reason String?
+  approved                    Boolean?
+  rejection_reason            String?
 
-  submitter       Device?     @relation(fields: [submitter_id], references: [id])
-  submitter_id    String?     @db.ObjectId
-  submitter_name  String?
+  submitter                   Device?     @relation(fields: [submitter_id], references: [id])
+  submitter_id                String?     @db.ObjectId
+  submitter_name              String?
 
-  stats         Stats
 
-  created_at    DateTime    @default(now())
-  updated_at    DateTime    @updatedAt
+  created_at                  DateTime    @default(now())
+  updated_at                  DateTime    @updatedAt
   // @@unique([name, place.address]) //TODO: MANUALLY INDEX
   // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
   @@map("meals")
@@ -101,6 +94,7 @@ model MealOccurrence {
 
   location  Point     // GeoJSON Point (copied from Meal)
 
+  created_at        DateTime    @default(now())
   @@unique([meal_id, start, end])
   @@index([start])
   @@index([meal_id, start])
@@ -114,20 +108,58 @@ enum SearchType {
   Refresh
 }
 model MealOccurrenceSearch {
+  id                String      @id @default(auto()) @map("_id") @db.ObjectId
+
+  search_type       SearchType
+
+  hits              MealSearchHit[]
+
+  start             DateTime?
+  end               DateTime?
+  radius_mi         Float
+
+  user_location     Point     // GeoJSON Point
+
+  device            Device    @relation(fields: [device_id], references: [id], onDelete: Cascade)
+  device_id         String    @db.ObjectId
+
+  created_at        DateTime    @default(now())
+  @@map("meal_occurrence_searches")
+}
+model MealSearchHit {
+  id                String               @id @default(auto()) @map("_id") @db.ObjectId
+  
+  meal              Meal                 @relation(fields: [meal_id], references: [id])
+  meal_id           String               @db.ObjectId
+
+  search            MealOccurrenceSearch @relation(fields: [search_id], references: [id], onDelete: Cascade)
+  search_id         String               @db.ObjectId
+
+  created_at        DateTime            @default(now())
+
+  @@index([meal_id])
+  @@map("meal_search_hits")
+}
+
+enum InteractionType {
+  View
+  Navigate
+  Share
+}
+
+model MealInteraction {
   id        String      @id @default(auto()) @map("_id") @db.ObjectId
 
-  search_type      SearchType
+  interaction_type  InteractionType
 
-  meals     Meal[]      @relation(fields: [meal_ids], references: [id])
-  meal_ids  String[]    @db.ObjectId
+  meal     Meal      @relation(fields: [meal_id], references: [id], onDelete: Cascade)
+  meal_id  String    @db.ObjectId
 
-  start     DateTime?
-  end       DateTime?
-  radius_mi Float
+  device      Device    @relation(fields: [device_id], references: [id], onDelete: Cascade)
+  device_id   String    @db.ObjectId
 
   user_location  Point     // GeoJSON Point
 
   created_at    DateTime    @default(now())
-  updated_at    DateTime    @updatedAt
-  @@map("meal_occurrence_searches")
+  @@map("meal_interactions")
 }

@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { MealInteractionOrderByWithRelationInputObjectSchema as MealInteractionOrderByWithRelationInputObjectSchema } from './objects/MealInteractionOrderByWithRelationInput.schema';
+import { MealInteractionWhereInputObjectSchema as MealInteractionWhereInputObjectSchema } from './objects/MealInteractionWhereInput.schema';
+import { MealInteractionWhereUniqueInputObjectSchema as MealInteractionWhereUniqueInputObjectSchema } from './objects/MealInteractionWhereUniqueInput.schema';
+import { MealInteractionCountAggregateInputObjectSchema as MealInteractionCountAggregateInputObjectSchema } from './objects/MealInteractionCountAggregateInput.schema';
+import { MealInteractionMinAggregateInputObjectSchema as MealInteractionMinAggregateInputObjectSchema } from './objects/MealInteractionMinAggregateInput.schema';
+import { MealInteractionMaxAggregateInputObjectSchema as MealInteractionMaxAggregateInputObjectSchema } from './objects/MealInteractionMaxAggregateInput.schema';
+
+export const MealInteractionAggregateSchema: z.ZodType<Prisma.MealInteractionAggregateArgs> = z.object({ orderBy: z.union([MealInteractionOrderByWithRelationInputObjectSchema, MealInteractionOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealInteractionWhereInputObjectSchema.optional(), cursor: MealInteractionWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealInteractionCountAggregateInputObjectSchema ]).optional(), _min: MealInteractionMinAggregateInputObjectSchema.optional(), _max: MealInteractionMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MealInteractionAggregateArgs>;
+
+export const MealInteractionAggregateZodSchema = z.object({ orderBy: z.union([MealInteractionOrderByWithRelationInputObjectSchema, MealInteractionOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealInteractionWhereInputObjectSchema.optional(), cursor: MealInteractionWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MealInteractionCountAggregateInputObjectSchema ]).optional(), _min: MealInteractionMinAggregateInputObjectSchema.optional(), _max: MealInteractionMaxAggregateInputObjectSchema.optional() }).strict();

@@ -11,10 +11,7 @@ import { SettingSchema } from '../enums/Setting.schema';
 import { ServiceSchema } from '../enums/Service.schema';
 import { ParkingSchema } from '../enums/Parking.schema';
 import { MealCreatefeaturesInputObjectSchema as MealCreatefeaturesInputObjectSchema } from './MealCreatefeaturesInput.schema';
-import { FeatureSchema } from '../enums/Feature.schema';
-import { MealCreatemeal_occurrence_search_idsInputObjectSchema as MealCreatemeal_occurrence_search_idsInputObjectSchema } from './MealCreatemeal_occurrence_search_idsInput.schema';
-import { StatsCreateEnvelopeInputObjectSchema as StatsCreateEnvelopeInputObjectSchema } from './StatsCreateEnvelopeInput.schema';
-import { StatsCreateInputObjectSchema as StatsCreateInputObjectSchema } from './StatsCreateInput.schema'
+import { FeatureSchema } from '../enums/Feature.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -27,12 +24,10 @@ const makeSchema = () => z.object({
   service: ServiceSchema.optional().nullable(),
   parking: ParkingSchema.optional().nullable(),
   features: z.union([z.lazy(() => MealCreatefeaturesInputObjectSchema), FeatureSchema.array()]).optional(),
-  meal_occurrence_search_ids: z.union([z.lazy(() => MealCreatemeal_occurrence_search_idsInputObjectSchema), z.string().max(24).array()]).optional(),
   approved: z.boolean().optional().nullable(),
   rejection_reason: z.string().optional().nullable(),
   submitter_id: z.string().max(24).optional().nullable(),
   submitter_name: z.string().optional().nullable(),
-  stats: z.union([z.lazy(() => StatsCreateEnvelopeInputObjectSchema), z.lazy(() => StatsCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional()
 }).strict();

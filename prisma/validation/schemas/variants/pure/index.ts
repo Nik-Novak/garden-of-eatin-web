@@ -15,6 +15,8 @@ export { DeviceAgreementModelSchema } from './DeviceAgreement.pure';
 export { MealModelSchema } from './Meal.pure';
 export { MealOccurrenceModelSchema } from './MealOccurrence.pure';
 export { MealOccurrenceSearchModelSchema } from './MealOccurrenceSearch.pure';
+export { MealSearchHitModelSchema } from './MealSearchHit.pure';
+export { MealInteractionModelSchema } from './MealInteraction.pure';
 export { OpportunityModelSchema } from './Opportunity.pure';
 export { OpportunityApplicationModelSchema } from './OpportunityApplication.pure';
 export { PostModelSchema } from './Post.pure';

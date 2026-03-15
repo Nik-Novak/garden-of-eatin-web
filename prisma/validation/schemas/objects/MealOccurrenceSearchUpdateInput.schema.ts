@@ -17,7 +17,6 @@ const makeSchema = () => z.object({
   radius_mi: z.union([z.number(), z.lazy(() => FloatFieldUpdateOperationsInputObjectSchema)]).optional(),
   user_location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   hits: z.lazy(() => MealSearchHitUpdateManyWithoutSearchNestedInputObjectSchema).optional(),
   device: z.lazy(() => DeviceUpdateOneRequiredWithoutMeal_occurrence_searchesNestedInputObjectSchema).optional()
 }).strict();

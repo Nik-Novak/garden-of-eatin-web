@@ -24,7 +24,6 @@ const mealoccurrencesearchwhereinputSchema = z.object({
   user_location: z.union([z.lazy(() => PointCompositeFilterObjectSchema), z.lazy(() => PointObjectEqualityInputObjectSchema)]).optional(),
   device_id: z.union([z.lazy(() => StringFilterObjectSchema), z.string().max(24)]).optional(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
-  updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   hits: z.lazy(() => MealSearchHitListRelationFilterObjectSchema).optional(),
   device: z.union([z.lazy(() => DeviceScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional()
 }).strict();

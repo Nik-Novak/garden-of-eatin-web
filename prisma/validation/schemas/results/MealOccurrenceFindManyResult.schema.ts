@@ -7,7 +7,8 @@ export const MealOccurrenceFindManyResultSchema = z.object({
   start: z.date(),
   end: z.date(),
   timezone: z.string(),
-  location: z.unknown()
+  location: z.unknown(),
+  created_at: z.date()
 })),
   pagination: z.object({
   page: z.number().int().min(1),

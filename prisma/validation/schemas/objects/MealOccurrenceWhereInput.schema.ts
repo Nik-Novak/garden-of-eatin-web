@@ -17,6 +17,7 @@ const mealoccurrencewhereinputSchema = z.object({
   end: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   location: z.union([z.lazy(() => PointCompositeFilterObjectSchema), z.lazy(() => PointObjectEqualityInputObjectSchema)]).optional(),
+  created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   meal: z.union([z.lazy(() => MealScalarRelationFilterObjectSchema), z.lazy(() => MealWhereInputObjectSchema)]).optional()
 }).strict();
 export const MealOccurrenceWhereInputObjectSchema: z.ZodType<Prisma.MealOccurrenceWhereInput> = mealoccurrencewhereinputSchema as unknown as z.ZodType<Prisma.MealOccurrenceWhereInput>;

@@ -13,7 +13,6 @@ const makeSchema = () => z.object({
   radius_mi: z.number(),
   user_location: z.union([z.lazy(() => PointCreateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]),
   created_at: z.coerce.date().optional(),
-  updated_at: z.coerce.date().optional(),
   device: z.lazy(() => DeviceCreateNestedOneWithoutMeal_occurrence_searchesInputObjectSchema)
 }).strict();
 export const MealOccurrenceSearchCreateWithoutHitsInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchCreateWithoutHitsInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchCreateWithoutHitsInput>;

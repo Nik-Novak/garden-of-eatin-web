@@ -11,7 +11,8 @@ const mealoccurrencescalarwherewithaggregatesinputSchema = z.object({
   meal_id: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string().max(24)]).optional(),
   start: z.union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()]).optional(),
   end: z.union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()]).optional(),
-  timezone: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional()
+  timezone: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional(),
+  created_at: z.union([z.lazy(() => DateTimeWithAggregatesFilterObjectSchema), z.coerce.date()]).optional()
 }).strict();
 export const MealOccurrenceScalarWhereWithAggregatesInputObjectSchema: z.ZodType<Prisma.MealOccurrenceScalarWhereWithAggregatesInput> = mealoccurrencescalarwherewithaggregatesinputSchema as unknown as z.ZodType<Prisma.MealOccurrenceScalarWhereWithAggregatesInput>;
 export const MealOccurrenceScalarWhereWithAggregatesInputObjectZodSchema = mealoccurrencescalarwherewithaggregatesinputSchema;

@@ -9,7 +9,8 @@ const makeSchema = () => z.object({
   start: z.boolean().optional(),
   end: z.boolean().optional(),
   timezone: z.boolean().optional(),
-  location: z.boolean().optional()
+  location: z.boolean().optional(),
+  created_at: z.boolean().optional()
 }).strict();
 export const MealOccurrenceSelectObjectSchema: z.ZodType<Prisma.MealOccurrenceSelect> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSelect>;
 export const MealOccurrenceSelectObjectZodSchema = makeSchema();

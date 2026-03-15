@@ -11,8 +11,7 @@ export const MealOccurrenceSearchInputSchema = z.object({
     user_location: z.unknown(),
     device: z.unknown(),
     device_id: z.string(),
-    created_at: z.date(),
-    updated_at: z.date()
+    created_at: z.date()
 }).strict();
 
 export type MealOccurrenceSearchInputType = z.infer<typeof MealOccurrenceSearchInputSchema>;

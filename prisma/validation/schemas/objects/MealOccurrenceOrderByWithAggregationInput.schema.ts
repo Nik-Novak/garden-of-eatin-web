@@ -11,6 +11,7 @@ const makeSchema = () => z.object({
   start: SortOrderSchema.optional(),
   end: SortOrderSchema.optional(),
   timezone: SortOrderSchema.optional(),
+  created_at: SortOrderSchema.optional(),
   _count: z.lazy(() => MealOccurrenceCountOrderByAggregateInputObjectSchema).optional(),
   _max: z.lazy(() => MealOccurrenceMaxOrderByAggregateInputObjectSchema).optional(),
   _min: z.lazy(() => MealOccurrenceMinOrderByAggregateInputObjectSchema).optional()

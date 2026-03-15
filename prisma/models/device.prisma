@@ -7,9 +7,31 @@ type DeviceSettings {
   travel_mode                   TravelMode?
 }
 
+enum DeviceType {
+  UNKNOWN
+  PHONE
+  TABLET
+  TV
+  DESKTOP
+}
+
+type DeviceHardware {
+  brand           String?
+  manufacturer    String?
+  model_name      String?
+  os_name         String?
+  os_version      String?
+  os_build_id     String?
+  total_memory    Int?
+  device_type     DeviceType?
+  is_device       Boolean?
+}
+
 model Device {
   id        String          @id @default(auto()) @map("_id") @db.ObjectId
   uuid                      String              @unique
+
+  hardware                  DeviceHardware?
 
   settings                  DeviceSettings
   device_agreements         DeviceAgreement[]

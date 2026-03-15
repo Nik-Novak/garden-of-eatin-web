@@ -20,7 +20,6 @@ export const MealOccurrenceSearchFindFirstSelectSchema: z.ZodType<Prisma.MealOcc
     device: z.boolean().optional(),
     device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional(),
     _count: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceSearchSelect>;
 
@@ -35,7 +34,6 @@ export const MealOccurrenceSearchFindFirstSelectZodSchema = z.object({
     device: z.boolean().optional(),
     device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional(),
     _count: z.boolean().optional()
   }).strict();
 

@@ -6,19 +6,22 @@ export const MealOccurrenceAggregateResultSchema = z.object({  _count: z.object(
     start: z.number(),
     end: z.number(),
     timezone: z.number(),
-    location: z.number()
+    location: z.number(),
+    created_at: z.number()
   }).optional(),
   _min: z.object({
     id: z.string().nullable(),
     meal_id: z.string().nullable(),
     start: z.date().nullable(),
     end: z.date().nullable(),
-    timezone: z.string().nullable()
+    timezone: z.string().nullable(),
+    created_at: z.date().nullable()
   }).nullable().optional(),
   _max: z.object({
     id: z.string().nullable(),
     meal_id: z.string().nullable(),
     start: z.date().nullable(),
     end: z.date().nullable(),
-    timezone: z.string().nullable()
+    timezone: z.string().nullable(),
+    created_at: z.date().nullable()
   }).nullable().optional()});

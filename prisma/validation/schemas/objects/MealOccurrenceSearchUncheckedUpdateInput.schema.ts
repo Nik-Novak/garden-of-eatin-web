@@ -18,7 +18,6 @@ const makeSchema = () => z.object({
   user_location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
   device_id: z.union([z.string().max(24), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   hits: z.lazy(() => MealSearchHitUncheckedUpdateManyWithoutSearchNestedInputObjectSchema).optional()
 }).strict();
 export const MealOccurrenceSearchUncheckedUpdateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchUncheckedUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchUncheckedUpdateInput>;

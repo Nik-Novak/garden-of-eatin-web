@@ -10,7 +10,8 @@ const makeSchema = () => z.object({
   start: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   end: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   timezone: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional()
+  location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
+  created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional()
 }).strict();
 export const MealOccurrenceUncheckedUpdateManyInputObjectSchema: z.ZodType<Prisma.MealOccurrenceUncheckedUpdateManyInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceUncheckedUpdateManyInput>;
 export const MealOccurrenceUncheckedUpdateManyInputObjectZodSchema = makeSchema();

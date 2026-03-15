@@ -15,7 +15,6 @@ const makeSchema = () => z.object({
   device: z.union([z.boolean(), z.lazy(() => DeviceArgsObjectSchema)]).optional(),
   device_id: z.boolean().optional(),
   created_at: z.boolean().optional(),
-  updated_at: z.boolean().optional(),
   _count: z.union([z.boolean(), z.lazy(() => MealOccurrenceSearchCountOutputTypeArgsObjectSchema)]).optional()
 }).strict();
 export const MealOccurrenceSearchSelectObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchSelect> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchSelect>;

@@ -10,6 +10,7 @@ const makeSchema = () => z.object({
   end: z.coerce.date(),
   timezone: z.string(),
   location: z.union([z.lazy(() => PointCreateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]),
+  created_at: z.coerce.date().optional(),
   meal: z.lazy(() => MealCreateNestedOneWithoutMeal_occurrencesInputObjectSchema)
 }).strict();
 export const MealOccurrenceCreateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceCreateInput>;

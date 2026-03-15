@@ -1,6 +1,8 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFilter.schema';
+import { DeviceHardwareNullableCompositeFilterObjectSchema as DeviceHardwareNullableCompositeFilterObjectSchema } from './DeviceHardwareNullableCompositeFilter.schema';
+import { DeviceHardwareObjectEqualityInputObjectSchema as DeviceHardwareObjectEqualityInputObjectSchema } from './DeviceHardwareObjectEqualityInput.schema';
 import { DeviceSettingsCompositeFilterObjectSchema as DeviceSettingsCompositeFilterObjectSchema } from './DeviceSettingsCompositeFilter.schema';
 import { DeviceSettingsObjectEqualityInputObjectSchema as DeviceSettingsObjectEqualityInputObjectSchema } from './DeviceSettingsObjectEqualityInput.schema';
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
@@ -21,6 +23,7 @@ const devicewhereinputSchema = z.object({
   NOT: z.union([z.lazy(() => DeviceWhereInputObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema).array()]).optional(),
   id: z.union([z.lazy(() => StringFilterObjectSchema), z.string().max(24)]).optional(),
   uuid: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
+  hardware: z.union([z.lazy(() => DeviceHardwareNullableCompositeFilterObjectSchema), z.lazy(() => DeviceHardwareObjectEqualityInputObjectSchema)]).optional().nullable(),
   settings: z.union([z.lazy(() => DeviceSettingsCompositeFilterObjectSchema), z.lazy(() => DeviceSettingsObjectEqualityInputObjectSchema)]).optional(),
   user_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),

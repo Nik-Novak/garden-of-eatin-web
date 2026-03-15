@@ -13,6 +13,7 @@ import { DeviceCountOutputTypeArgsObjectSchema as DeviceCountOutputTypeArgsObjec
 const makeSchema = () => z.object({
   id: z.boolean().optional(),
   uuid: z.boolean().optional(),
+  hardware: z.boolean().optional(),
   settings: z.boolean().optional(),
   device_agreements: z.union([z.boolean(), z.lazy(() => DeviceAgreementFindManySchema)]).optional(),
   user: z.union([z.boolean(), z.lazy(() => UserArgsObjectSchema)]).optional(),

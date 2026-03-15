@@ -9,8 +9,7 @@ const makeSchema = () => z.object({
   end: z.literal(true).optional(),
   radius_mi: z.literal(true).optional(),
   device_id: z.literal(true).optional(),
-  created_at: z.literal(true).optional(),
-  updated_at: z.literal(true).optional()
+  created_at: z.literal(true).optional()
 }).strict();
 export const MealOccurrenceSearchMaxAggregateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchMaxAggregateInputType> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchMaxAggregateInputType>;
 export const MealOccurrenceSearchMaxAggregateInputObjectZodSchema = makeSchema();

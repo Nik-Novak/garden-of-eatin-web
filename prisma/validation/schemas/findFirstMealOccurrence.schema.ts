@@ -16,7 +16,8 @@ export const MealOccurrenceFindFirstSelectSchema: z.ZodType<Prisma.MealOccurrenc
     start: z.boolean().optional(),
     end: z.boolean().optional(),
     timezone: z.boolean().optional(),
-    location: z.boolean().optional()
+    location: z.boolean().optional(),
+    created_at: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceSelect>;
 
 export const MealOccurrenceFindFirstSelectZodSchema = z.object({
@@ -26,7 +27,8 @@ export const MealOccurrenceFindFirstSelectZodSchema = z.object({
     start: z.boolean().optional(),
     end: z.boolean().optional(),
     timezone: z.boolean().optional(),
-    location: z.boolean().optional()
+    location: z.boolean().optional(),
+    created_at: z.boolean().optional()
   }).strict();
 
 export const MealOccurrenceFindFirstSchema: z.ZodType<Prisma.MealOccurrenceFindFirstArgs> = z.object({ select: MealOccurrenceFindFirstSelectSchema.optional(), include: z.lazy(() => MealOccurrenceIncludeObjectSchema.optional()), orderBy: z.union([MealOccurrenceOrderByWithRelationInputObjectSchema, MealOccurrenceOrderByWithRelationInputObjectSchema.array()]).optional(), where: MealOccurrenceWhereInputObjectSchema.optional(), cursor: MealOccurrenceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([MealOccurrenceScalarFieldEnumSchema, MealOccurrenceScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.MealOccurrenceFindFirstArgs>;

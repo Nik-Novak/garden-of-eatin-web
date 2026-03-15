@@ -9,8 +9,7 @@ const makeSchema = () => z.object({
   end: SortOrderSchema.optional(),
   radius_mi: SortOrderSchema.optional(),
   device_id: SortOrderSchema.optional(),
-  created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional()
+  created_at: SortOrderSchema.optional()
 }).strict();
 export const MealOccurrenceSearchMinOrderByAggregateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceSearchMinOrderByAggregateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceSearchMinOrderByAggregateInput>;
 export const MealOccurrenceSearchMinOrderByAggregateInputObjectZodSchema = makeSchema();

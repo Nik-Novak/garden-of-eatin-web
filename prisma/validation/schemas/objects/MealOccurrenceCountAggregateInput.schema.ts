@@ -8,6 +8,7 @@ const makeSchema = () => z.object({
   start: z.literal(true).optional(),
   end: z.literal(true).optional(),
   timezone: z.literal(true).optional(),
+  created_at: z.literal(true).optional(),
   _all: z.literal(true).optional()
 }).strict();
 export const MealOccurrenceCountAggregateInputObjectSchema: z.ZodType<Prisma.MealOccurrenceCountAggregateInputType> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceCountAggregateInputType>;

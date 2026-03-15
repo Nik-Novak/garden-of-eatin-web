@@ -12,6 +12,7 @@ import { DeviceScalarFieldEnumSchema } from './enums/DeviceScalarFieldEnum.schem
 export const DeviceFindFirstOrThrowSelectSchema: z.ZodType<Prisma.DeviceSelect> = z.object({
     id: z.boolean().optional(),
     uuid: z.boolean().optional(),
+    hardware: z.boolean().optional(),
     settings: z.boolean().optional(),
     device_agreements: z.boolean().optional(),
     user: z.boolean().optional(),
@@ -30,6 +31,7 @@ export const DeviceFindFirstOrThrowSelectSchema: z.ZodType<Prisma.DeviceSelect> 
 export const DeviceFindFirstOrThrowSelectZodSchema = z.object({
     id: z.boolean().optional(),
     uuid: z.boolean().optional(),
+    hardware: z.boolean().optional(),
     settings: z.boolean().optional(),
     device_agreements: z.boolean().optional(),
     user: z.boolean().optional(),

@@ -11,6 +11,7 @@ const makeSchema = () => z.object({
   end: SortOrderSchema.optional(),
   timezone: SortOrderSchema.optional(),
   location: z.lazy(() => PointOrderByInputObjectSchema).optional(),
+  created_at: SortOrderSchema.optional(),
   meal: z.lazy(() => MealOrderByWithRelationInputObjectSchema).optional()
 }).strict();
 export const MealOccurrenceOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.MealOccurrenceOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOccurrenceOrderByWithRelationInput>;

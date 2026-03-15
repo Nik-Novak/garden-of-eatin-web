@@ -14,7 +14,6 @@ const makeSchema = () => z.object({
   user_location: z.lazy(() => PointOrderByInputObjectSchema).optional(),
   device_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional(),
   hits: z.lazy(() => MealSearchHitOrderByRelationAggregateInputObjectSchema).optional(),
   device: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional()
 }).strict();

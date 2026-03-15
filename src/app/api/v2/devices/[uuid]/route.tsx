@@ -1,14 +1,57 @@
 import { createOrFindDevice } from "@/actions/device";
 import { database } from "@/prisma/database";
 import { AugmentedMeal, AugmentedMealDevice, MealInteractionStats } from "@/types/meal";
-import { InteractionType } from "@prisma/client";
+import { DeviceHardware, InteractionType } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
+import z from 'zod';
+import * as ZS from '@/prisma/validation/schemas/objects/DeviceHardwareCreateInput.schema'
+
+const coerceParams = (obj: Record<string, string>) => {
+  const coerced: Record<string, any> = {};
+  
+  for (const [key, value] of Object.entries(obj)) {
+    // Handle Booleans
+    if (value.toLowerCase() === 'true') {
+      coerced[key] = true;
+    } else if (value.toLowerCase() === 'false') {
+      coerced[key] = false;
+    } 
+    // Handle Numbers (ensure it's not an empty string)
+    else if (value !== '' && !isNaN(Number(value))) {
+      coerced[key] = Number(value);
+    } 
+    // Keep as String (Enums, UUIDs, etc.)
+    else {
+      coerced[key] = value;
+    }
+  }
+  return coerced;
+};
 
 type RouteContext = { params: Promise<{ uuid: string }> };
 
+
 export async function GET(request: NextRequest, {params}: RouteContext) {
   const { uuid } = await params;
-  console.log(`GET devices @ uuid=${uuid}`);
+  const rawParams = Object.fromEntries(request.nextUrl.searchParams);
+
+  console.log(rawParams);
+
+  const validation = z.safeParse(ZS.DeviceHardwareCreateInputObjectZodSchema, coerceParams(rawParams)); //I want to attempt to coerce to their respective schema types, but my zod schemas are generated from a generator
+
+  if (!validation.success) {
+    console.error(`An issue with hardware query params was found: ${rawParams}`);
+    console.log(JSON.stringify(z.treeifyError(validation.error), null, 2));
+    return NextResponse.json(
+      { 
+        error: "Invalid hardware query params", 
+        details: z.treeifyError(validation.error) 
+      },
+      { status: 400 }
+    );
+  }
+
+  console.log(`GET devices @ uuid=${uuid} ? ${request.nextUrl.searchParams}`);
   // const device = await database.device.findFirst({where:{uuid}});
   const device = await createOrFindDevice(uuid, 
     {
@@ -20,7 +63,8 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
           }
         }
       }
-    }
+    },
+    validation.data as DeviceHardware
   );
 
   // 2. Get all meal IDs to use in a single interactionStats query

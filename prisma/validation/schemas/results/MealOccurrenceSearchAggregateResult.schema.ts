@@ -9,8 +9,7 @@ export const MealOccurrenceSearchAggregateResultSchema = z.object({  _count: z.o
     user_location: z.number(),
     device: z.number(),
     device_id: z.number(),
-    created_at: z.number(),
-    updated_at: z.number()
+    created_at: z.number()
   }).optional(),
   _sum: z.object({
     radius_mi: z.number().nullable()
@@ -24,8 +23,7 @@ export const MealOccurrenceSearchAggregateResultSchema = z.object({  _count: z.o
     end: z.date().nullable(),
     radius_mi: z.number().nullable(),
     device_id: z.string().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    created_at: z.date().nullable()
   }).nullable().optional(),
   _max: z.object({
     id: z.string().nullable(),
@@ -33,6 +31,5 @@ export const MealOccurrenceSearchAggregateResultSchema = z.object({  _count: z.o
     end: z.date().nullable(),
     radius_mi: z.number().nullable(),
     device_id: z.string().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    created_at: z.date().nullable()
   }).nullable().optional()});

@@ -11,7 +11,8 @@ const mealoccurrencescalarwhereinputSchema = z.object({
   meal_id: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   start: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   end: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
-  timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional()
+  timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
+  created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional()
 }).strict();
 export const MealOccurrenceScalarWhereInputObjectSchema: z.ZodType<Prisma.MealOccurrenceScalarWhereInput> = mealoccurrencescalarwhereinputSchema as unknown as z.ZodType<Prisma.MealOccurrenceScalarWhereInput>;
 export const MealOccurrenceScalarWhereInputObjectZodSchema = mealoccurrencescalarwhereinputSchema;

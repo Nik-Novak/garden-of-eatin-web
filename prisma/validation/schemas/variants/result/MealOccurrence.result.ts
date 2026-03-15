@@ -7,7 +7,8 @@ export const MealOccurrenceResultSchema = z.object({
     start: z.date(),
     end: z.date(),
     timezone: z.string(),
-    location: z.unknown()
+    location: z.unknown(),
+    created_at: z.date()
 }).strict();
 
 export type MealOccurrenceResultType = z.infer<typeof MealOccurrenceResultSchema>;

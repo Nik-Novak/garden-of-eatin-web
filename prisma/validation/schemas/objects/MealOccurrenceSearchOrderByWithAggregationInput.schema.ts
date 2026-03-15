@@ -15,7 +15,6 @@ const makeSchema = () => z.object({
   radius_mi: SortOrderSchema.optional(),
   device_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional(),
   _count: z.lazy(() => MealOccurrenceSearchCountOrderByAggregateInputObjectSchema).optional(),
   _avg: z.lazy(() => MealOccurrenceSearchAvgOrderByAggregateInputObjectSchema).optional(),
   _max: z.lazy(() => MealOccurrenceSearchMaxOrderByAggregateInputObjectSchema).optional(),

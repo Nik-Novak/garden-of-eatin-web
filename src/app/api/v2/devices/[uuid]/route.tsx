@@ -58,8 +58,12 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
         // Map the enum value to the count
         acc[curr.interaction_type] = curr._count._all;
         return acc;
-      }, DEFAULT_STATS)
+      }, {...DEFAULT_STATS})
     };
+    console.log(meal.name);
+    console.log(DEFAULT_STATS);
+    console.log(mealStatsRows);
+    console.log(interactionStats)
     
     return {
       ...meal,

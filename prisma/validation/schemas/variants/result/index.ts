@@ -17,6 +17,7 @@ export { MealOccurrenceResultSchema } from './MealOccurrence.result';
 export { MealOccurrenceSearchResultSchema } from './MealOccurrenceSearch.result';
 export { MealSearchHitResultSchema } from './MealSearchHit.result';
 export { MealInteractionResultSchema } from './MealInteraction.result';
+export { NoticeResultSchema } from './Notice.result';
 export { OpportunityResultSchema } from './Opportunity.result';
 export { OpportunityApplicationResultSchema } from './OpportunityApplication.result';
 export { PostResultSchema } from './Post.result';

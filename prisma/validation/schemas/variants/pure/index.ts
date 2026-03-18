@@ -17,6 +17,7 @@ export { MealOccurrenceModelSchema } from './MealOccurrence.pure';
 export { MealOccurrenceSearchModelSchema } from './MealOccurrenceSearch.pure';
 export { MealSearchHitModelSchema } from './MealSearchHit.pure';
 export { MealInteractionModelSchema } from './MealInteraction.pure';
+export { NoticeModelSchema } from './Notice.pure';
 export { OpportunityModelSchema } from './Opportunity.pure';
 export { OpportunityApplicationModelSchema } from './OpportunityApplication.pure';
 export { PostModelSchema } from './Post.pure';

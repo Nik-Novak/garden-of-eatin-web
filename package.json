@@ -1,6 +1,6 @@
 {
   "name": "garden-of-eatin-web",
-  "version": "1.0.3",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "build:steps": "next build",

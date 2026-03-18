@@ -138,6 +138,7 @@ function createOccurrence(
       end: new Date(end.epoch),
       timezone: meal.timezone ?? 'UTC',
       location: meal.location,
+      created_at: new Date()
     };
   }
   return null;

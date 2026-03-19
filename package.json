@@ -1,11 +1,11 @@
 {
   "name": "garden-of-eatin-web",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "build:steps": "next build",
     "build": "NODE_ENV=production dotenvx run -f .env.production -- yarn run build:steps",
-    "migrate": "NODE_ENV=development dotenvx run -f .env.development -- tsx ./prisma/migrations/index.ts",
+    "migrate": "NODE_ENV=production dotenvx run -f .env.production -- tsx ./prisma/migrations/index.ts",
     "dev": "NODE_ENV=development dotenvx run -f .env.development -- next dev",
     "start": "NODE_ENV=production dotenvx run -f .env.production -- next start",
     "lint": "biome check",

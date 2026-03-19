@@ -10,7 +10,7 @@ if (!migrationName) {
 
 (async () => {
   try {
-    console.log(`🔄 Attempting to run migration "${migrationName}"`);
+    console.log(`🔄 Attempting to run migration "${migrationName}" with args`, ...migrationArgs);
     const migration = await import(`./${migrationName}`);
     
     if (typeof migration.default === "function") {

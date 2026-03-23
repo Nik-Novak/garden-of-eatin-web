@@ -5,28 +5,29 @@ import { DeviceHardware, InteractionType } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import z from 'zod';
 import * as ZS from '@/prisma/validation/schemas/objects/DeviceHardwareCreateInput.schema'
+import { coercedZodSchema } from "@/utils/fns/zod";
 
-const coerceParams = (obj: Record<string, string>) => {
-  const coerced: Record<string, any> = {};
+// const coerceParams = (obj: Record<string, string>) => {
+//   const coerced: Record<string, any> = {};
   
-  for (const [key, value] of Object.entries(obj)) {
-    // Handle Booleans
-    if (value.toLowerCase() === 'true') {
-      coerced[key] = true;
-    } else if (value.toLowerCase() === 'false') {
-      coerced[key] = false;
-    } 
-    // Handle Numbers (ensure it's not an empty string)
-    else if (value !== '' && !isNaN(Number(value))) {
-      coerced[key] = Number(value);
-    } 
-    // Keep as String (Enums, UUIDs, etc.)
-    else {
-      coerced[key] = value;
-    }
-  }
-  return coerced;
-};
+//   for (const [key, value] of Object.entries(obj)) {
+//     // Handle Booleans
+//     if (value.toLowerCase() === 'true') {
+//       coerced[key] = true;
+//     } else if (value.toLowerCase() === 'false') {
+//       coerced[key] = false;
+//     } 
+//     // Handle Numbers (ensure it's not an empty string)
+//     else if (value !== '' && !isNaN(Number(value))) {
+//       coerced[key] = Number(value);
+//     } 
+//     // Keep as String (Enums, UUIDs, etc.)
+//     else {
+//       coerced[key] = value;
+//     }
+//   }
+//   return coerced;
+// };
 
 type RouteContext = { params: Promise<{ uuid: string }> };
 
@@ -37,7 +38,7 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
 
   console.log(rawParams);
 
-  const validation = z.safeParse(ZS.DeviceHardwareCreateInputObjectZodSchema, coerceParams(rawParams)); //I want to attempt to coerce to their respective schema types, but my zod schemas are generated from a generator
+  const validation = z.safeParse(coercedZodSchema(ZS.DeviceHardwareCreateInputObjectZodSchema), rawParams); //I want to attempt to coerce to their respective schema types, but my zod schemas are generated from a generator
 
   if (!validation.success) {
     console.error(`An issue with hardware query params was found: ${rawParams}`);

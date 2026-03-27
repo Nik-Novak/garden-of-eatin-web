@@ -15,7 +15,9 @@ enum DeviceType {
   DESKTOP
 }
 
-type DeviceHardware {
+type DeviceMetadata {
+  app_version     String?
+  app_build       String?
   brand           String?
   manufacturer    String?
   model_name      String?
@@ -31,7 +33,7 @@ model Device {
   id        String          @id @default(auto()) @map("_id") @db.ObjectId
   uuid                      String              @unique
 
-  hardware                  DeviceHardware?
+  metadata                  DeviceMetadata?
 
   settings                  DeviceSettings
   device_agreements         DeviceAgreement[]

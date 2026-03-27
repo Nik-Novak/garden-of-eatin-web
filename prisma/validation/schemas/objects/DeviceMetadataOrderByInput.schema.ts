@@ -3,6 +3,8 @@ import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema'
 
 const makeSchema = () => z.object({
+  app_version: SortOrderSchema.optional(),
+  app_build: SortOrderSchema.optional(),
   brand: SortOrderSchema.optional(),
   manufacturer: SortOrderSchema.optional(),
   model_name: SortOrderSchema.optional(),
@@ -13,5 +15,5 @@ const makeSchema = () => z.object({
   device_type: SortOrderSchema.optional(),
   is_device: SortOrderSchema.optional()
 }).strict();
-export const DeviceHardwareOrderByInputObjectSchema: z.ZodType<Prisma.DeviceHardwareOrderByInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceHardwareOrderByInput>;
-export const DeviceHardwareOrderByInputObjectZodSchema = makeSchema();
+export const DeviceMetadataOrderByInputObjectSchema: z.ZodType<Prisma.DeviceMetadataOrderByInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceMetadataOrderByInput>;
+export const DeviceMetadataOrderByInputObjectZodSchema = makeSchema();

@@ -1,7 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
-import { DeviceHardwareOrderByInputObjectSchema as DeviceHardwareOrderByInputObjectSchema } from './DeviceHardwareOrderByInput.schema';
+import { DeviceMetadataOrderByInputObjectSchema as DeviceMetadataOrderByInputObjectSchema } from './DeviceMetadataOrderByInput.schema';
 import { DeviceSettingsOrderByInputObjectSchema as DeviceSettingsOrderByInputObjectSchema } from './DeviceSettingsOrderByInput.schema';
 import { DeviceAgreementOrderByRelationAggregateInputObjectSchema as DeviceAgreementOrderByRelationAggregateInputObjectSchema } from './DeviceAgreementOrderByRelationAggregateInput.schema';
 import { UserOrderByWithRelationInputObjectSchema as UserOrderByWithRelationInputObjectSchema } from './UserOrderByWithRelationInput.schema';
@@ -15,7 +15,7 @@ import { MealOccurrenceSearchOrderByRelationAggregateInputObjectSchema as MealOc
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
   uuid: SortOrderSchema.optional(),
-  hardware: z.lazy(() => DeviceHardwareOrderByInputObjectSchema).optional(),
+  metadata: z.lazy(() => DeviceMetadataOrderByInputObjectSchema).optional(),
   settings: z.lazy(() => DeviceSettingsOrderByInputObjectSchema).optional(),
   user_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),

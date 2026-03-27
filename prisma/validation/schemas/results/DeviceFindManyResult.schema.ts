@@ -3,7 +3,7 @@ export const DeviceFindManyResultSchema = z.object({
   data: z.array(z.object({
   id: z.string(),
   uuid: z.string(),
-  hardware: z.unknown().optional(),
+  metadata: z.unknown().optional(),
   settings: z.unknown(),
   device_agreements: z.array(z.unknown()),
   user: z.unknown().optional(),

@@ -3,6 +3,8 @@ import type { Prisma } from '@prisma/client';
 import { DeviceTypeSchema } from '../enums/DeviceType.schema'
 
 const makeSchema = () => z.object({
+  app_version: z.string().optional().nullable(),
+  app_build: z.string().optional().nullable(),
   brand: z.string().optional().nullable(),
   manufacturer: z.string().optional().nullable(),
   model_name: z.string().optional().nullable(),
@@ -13,5 +15,5 @@ const makeSchema = () => z.object({
   device_type: DeviceTypeSchema.optional().nullable(),
   is_device: z.boolean().optional().nullable()
 }).strict();
-export const DeviceHardwareCreateInputObjectSchema: z.ZodType<Prisma.DeviceHardwareCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceHardwareCreateInput>;
-export const DeviceHardwareCreateInputObjectZodSchema = makeSchema();
+export const DeviceMetadataCreateInputObjectSchema: z.ZodType<Prisma.DeviceMetadataCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceMetadataCreateInput>;
+export const DeviceMetadataCreateInputObjectZodSchema = makeSchema();

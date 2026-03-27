@@ -1,4 +1,3 @@
-import { createOrFindDevice } from "@/actions/device";
 import { database } from "@/prisma/database";
 import { AugmentedDeviceAgreement } from "@/types/agreements";
 import { DeviceAgreement } from "@prisma/client";

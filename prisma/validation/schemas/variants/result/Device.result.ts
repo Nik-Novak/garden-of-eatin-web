@@ -3,7 +3,7 @@ import * as z from 'zod';
 export const DeviceResultSchema = z.object({
     id: z.string(),
     uuid: z.string(),
-    hardware: z.unknown().nullable(),
+    metadata: z.unknown().nullable(),
     settings: z.unknown(),
     device_agreements: z.array(z.unknown()),
     user: z.unknown().nullable(),

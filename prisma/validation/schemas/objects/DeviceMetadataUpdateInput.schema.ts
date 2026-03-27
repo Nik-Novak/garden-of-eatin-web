@@ -7,6 +7,8 @@ import { NullableEnumDeviceTypeFieldUpdateOperationsInputObjectSchema as Nullabl
 import { NullableBoolFieldUpdateOperationsInputObjectSchema as NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema'
 
 const makeSchema = () => z.object({
+  app_version: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  app_build: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   brand: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   manufacturer: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   model_name: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
@@ -17,5 +19,5 @@ const makeSchema = () => z.object({
   device_type: z.union([DeviceTypeSchema, z.lazy(() => NullableEnumDeviceTypeFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   is_device: z.union([z.boolean(), z.lazy(() => NullableBoolFieldUpdateOperationsInputObjectSchema)]).optional().nullable()
 }).strict();
-export const DeviceHardwareUpdateInputObjectSchema: z.ZodType<Prisma.DeviceHardwareUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceHardwareUpdateInput>;
-export const DeviceHardwareUpdateInputObjectZodSchema = makeSchema();
+export const DeviceMetadataUpdateInputObjectSchema: z.ZodType<Prisma.DeviceMetadataUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceMetadataUpdateInput>;
+export const DeviceMetadataUpdateInputObjectZodSchema = makeSchema();

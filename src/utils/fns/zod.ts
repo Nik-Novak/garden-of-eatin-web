@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export function coercedZodSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
+export function coercedZodSchema<T extends z.ZodTypeAny>(schema: T): T {
   // Zod v4 moves internals to `_zod.def`, but we fallback to `_def` just in case.
   const def = (schema as any)._zod?.def ?? (schema as any)._def;
   
@@ -36,18 +36,18 @@ export function coercedZodSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
       newObj = newObj.strict();
     }
     
-    return newObj;
+    return newObj as unknown as T;
   }
 
   // 4. Swap Base Types for Coerced Types
   if (typeName === 'ZodString' || typeName === 'string') {
-    return z.coerce.string();
+    return z.coerce.string() as unknown as T;
   }
   
   if (typeName === 'ZodBoolean' || typeName === 'boolean') {
     // Note: Zod v4 also introduced `z.stringbool()` for "true"/"false"/"1"/"0", 
     // but standard coerce.boolean() acts identically to v3.
-    return z.coerce.boolean();
+    return z.coerce.boolean() as unknown as T;
   }
   
   if (typeName === 'ZodNumber' || typeName === 'number') {
@@ -57,7 +57,7 @@ export function coercedZodSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
     if (checks.some((c: any) => c.kind === 'int' || c.check === 'int')) {
       numSchema = numSchema.int();
     }
-    return numSchema;
+    return numSchema as unknown as T;
   }
 
   // 5. Intercept Enums / Native Enums
@@ -67,7 +67,7 @@ export function coercedZodSchema(schema: z.ZodTypeAny): z.ZodTypeAny {
     typeName === 'ZodEnum' || 
     typeName === 'enum'
   ) {
-    return z.preprocess((val) => String(val), schema);
+    return z.preprocess((val) => String(val), schema) as unknown as T;
   }
 
   // Fallback for anything else

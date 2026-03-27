@@ -3,7 +3,7 @@ import constants from "@/constants";
 import React from "react";
 import DataTableTemplate, { DataTableTemplateProps } from "@/utils/templates/email/DataTableTemplate";
 import { flattenObject } from "@/utils/fns/general";
-import type { Device, DeviceHardware, Prisma } from "@prisma/client";
+import type { Device, DeviceMetadata, Prisma } from "@prisma/client";
 import { database } from "@/prisma/database";
 import { sendAdmin } from "./email";
 import _ from "lodash";
@@ -22,10 +22,10 @@ interface Session {
   // Add other extra fields as needed
 }
 
-const updateDeviceHardware = async (device:Device, hardware:DeviceHardware|undefined)=>{
-  if(!_.isEqual(device.hardware ?? null, hardware ?? null)){
-    console.log('DEVICE: Found new device hardware, updating...');
-    await database.device.updateById(device.id,{data:{hardware}});
+const updateDeviceHardware = async (device:Device, metadata:DeviceMetadata|undefined)=>{
+  if(!_.isEqual(device.metadata ?? null, metadata ?? null)){
+    console.log('DEVICE: Found new device metadata, updating...');
+    await database.device.updateById(device.id,{data:{metadata}});
     console.log('done updating.')
   }
 }
@@ -35,7 +35,7 @@ export async function createOrFindDevice<
 >(
   uuid: string,
   include?: T,
-  hardware?: DeviceHardware
+  metadata?:DeviceMetadata
 ): Promise<T extends Prisma.DeviceInclude ? Prisma.DeviceGetPayload<{ include: T }> : Device> {
   let session = await auth(); //await auth();
   let client = await database.device.findFirst({where:{
@@ -56,7 +56,7 @@ export async function createOrFindDevice<
         console.log('DEVICE: Device was not tied to current user. Updating device record.');
         return await database.device.updateById(clientWithoutUser.id, {data:{
           user_id: session.user.id,
-          hardware
+          metadata
           // settings:{
           //   update:{
           //     credits:0 //drain credits to prevent dupes
@@ -65,7 +65,7 @@ export async function createOrFindDevice<
         }, include}) as any;
       } //end sync
       console.log('DEVICE: Device was not tied to current user, but no valid user_id was found.');
-      await updateDeviceHardware(clientWithoutUser, hardware);
+      await updateDeviceHardware(clientWithoutUser, metadata);
       return clientWithoutUser as any; //otherwise return raw client
     }
     else{
@@ -74,7 +74,7 @@ export async function createOrFindDevice<
         uuid,
         user_id: session?.user.id,
         settings: {},
-        hardware
+        metadata
       }, include});
       console.log('DEVICE: done');
       
@@ -96,7 +96,7 @@ export async function createOrFindDevice<
     }
   }
   console.log('DEVICE: Returning device with id:', client.id);
-  await updateDeviceHardware(client, hardware);
+  await updateDeviceHardware(client, metadata);
   return client as any;
 } 
 

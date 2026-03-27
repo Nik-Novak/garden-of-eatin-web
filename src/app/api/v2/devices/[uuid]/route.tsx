@@ -1,10 +1,10 @@
 import { createOrFindDevice } from "@/actions/device";
 import { database } from "@/prisma/database";
 import { AugmentedMeal, AugmentedMealDevice, MealInteractionStats } from "@/types/meal";
-import { DeviceHardware, InteractionType } from "@prisma/client";
+import { DeviceMetadata, InteractionType } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import z from 'zod';
-import * as ZS from '@/prisma/validation/schemas/objects/DeviceHardwareCreateInput.schema'
+import * as ZS from '@/prisma/validation/schemas/objects/DeviceMetadataCreateInput.schema'
 import { coercedZodSchema } from "@/utils/fns/zod";
 
 
@@ -14,10 +14,11 @@ type RouteContext = { params: Promise<{ uuid: string }> };
 export async function GET(request: NextRequest, {params}: RouteContext) {
   const { uuid } = await params;
   const rawParams = Object.fromEntries(request.nextUrl.searchParams);
-
+  console.log(`GET devices @ uuid=${uuid} ? ${request.nextUrl.searchParams}`);
+  
   console.log(rawParams);
 
-  const validation = z.safeParse(coercedZodSchema(ZS.DeviceHardwareCreateInputObjectZodSchema), rawParams); //I want to attempt to coerce to their respective schema types, but my zod schemas are generated from a generator
+  const validation = z.safeParse(coercedZodSchema(ZS.DeviceMetadataCreateInputObjectZodSchema), rawParams);
 
   if (!validation.success) {
     console.error(`An issue with hardware query params was found: ${rawParams}`);
@@ -31,7 +32,6 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
     // );
   }
 
-  console.log(`GET devices @ uuid=${uuid} ? ${request.nextUrl.searchParams}`);
   // const device = await database.device.findFirst({where:{uuid}});
   const device = await createOrFindDevice(uuid, 
     {
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
         }
       }
     },
-    validation.success ? validation.data as DeviceHardware : undefined //fallback to no hw if issues with validation
+    validation.success ? validation.data as DeviceMetadata : undefined //fallback to no hw if issues with validation
   );
 
   // 2. Get all meal IDs to use in a single interactionStats query

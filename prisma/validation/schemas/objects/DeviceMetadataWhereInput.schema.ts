@@ -6,10 +6,12 @@ import { EnumDeviceTypeNullableFilterObjectSchema as EnumDeviceTypeNullableFilte
 import { DeviceTypeSchema } from '../enums/DeviceType.schema';
 import { BoolNullableFilterObjectSchema as BoolNullableFilterObjectSchema } from './BoolNullableFilter.schema'
 
-const devicehardwarewhereinputSchema = z.object({
-  AND: z.union([z.lazy(() => DeviceHardwareWhereInputObjectSchema), z.lazy(() => DeviceHardwareWhereInputObjectSchema).array()]).optional(),
-  OR: z.lazy(() => DeviceHardwareWhereInputObjectSchema).array().optional(),
-  NOT: z.union([z.lazy(() => DeviceHardwareWhereInputObjectSchema), z.lazy(() => DeviceHardwareWhereInputObjectSchema).array()]).optional(),
+const devicemetadatawhereinputSchema = z.object({
+  AND: z.union([z.lazy(() => DeviceMetadataWhereInputObjectSchema), z.lazy(() => DeviceMetadataWhereInputObjectSchema).array()]).optional(),
+  OR: z.lazy(() => DeviceMetadataWhereInputObjectSchema).array().optional(),
+  NOT: z.union([z.lazy(() => DeviceMetadataWhereInputObjectSchema), z.lazy(() => DeviceMetadataWhereInputObjectSchema).array()]).optional(),
+  app_version: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
+  app_build: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   brand: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   manufacturer: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   model_name: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
@@ -20,5 +22,5 @@ const devicehardwarewhereinputSchema = z.object({
   device_type: z.union([z.lazy(() => EnumDeviceTypeNullableFilterObjectSchema), DeviceTypeSchema]).optional().nullable(),
   is_device: z.union([z.lazy(() => BoolNullableFilterObjectSchema), z.boolean()]).optional().nullable()
 }).strict();
-export const DeviceHardwareWhereInputObjectSchema: z.ZodType<Prisma.DeviceHardwareWhereInput> = devicehardwarewhereinputSchema as unknown as z.ZodType<Prisma.DeviceHardwareWhereInput>;
-export const DeviceHardwareWhereInputObjectZodSchema = devicehardwarewhereinputSchema;
+export const DeviceMetadataWhereInputObjectSchema: z.ZodType<Prisma.DeviceMetadataWhereInput> = devicemetadatawhereinputSchema as unknown as z.ZodType<Prisma.DeviceMetadataWhereInput>;
+export const DeviceMetadataWhereInputObjectZodSchema = devicemetadatawhereinputSchema;

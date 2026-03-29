@@ -47,7 +47,7 @@ export default function Home() {
                 Connecting communities through the power of a shared meal. Find local, free food with dignity and ease.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <Button variant="contained" color="secondary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
+                <Button variant="contained" href="/download" color="secondary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
                   Download App
                 </Button>
                 <ContactButton variant="outlined" color="primary" size="large" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}>
@@ -68,7 +68,7 @@ export default function Home() {
                 }}
               >
                 <Image 
-                  src="/banner.png"
+                  src="/img/banner.png"
                   alt="Garden of Eatin Banner"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -172,7 +172,7 @@ export default function Home() {
           <Typography variant="body1" sx={{ mb: 5, fontSize: '1.2rem' }}>
             Let's make sure no one misses out on a great meal, vital resources, and wonderful company.
           </Typography>
-          <Button variant="contained" color="secondary" size="large" sx={{ px: 5, py: 2, fontSize: '1.2rem', borderRadius: 50 }}>
+          <Button variant="contained" href="/download" color="secondary" size="large" sx={{ px: 5, py: 2, fontSize: '1.2rem', borderRadius: 50 }}>
             Download Now
           </Button>
         </Container>

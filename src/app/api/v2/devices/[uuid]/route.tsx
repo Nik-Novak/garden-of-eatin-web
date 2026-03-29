@@ -18,7 +18,7 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
   
   console.log(rawParams);
 
-  const validation = z.safeParse(coercedZodSchema(ZS.DeviceMetadataCreateInputObjectZodSchema), rawParams);
+  const validation = z.safeParse(coercedZodSchema(ZS.DeviceMetadataCreateInputObjectZodSchema.strip()), rawParams);
 
   if (!validation.success) {
     console.error(`An issue with hardware query params was found: ${rawParams}`);

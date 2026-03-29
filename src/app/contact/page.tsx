@@ -55,7 +55,7 @@ export default function ContactPage() {
               elevation={0} 
               sx={{ 
                 p: { xs: 3, md: 6 }, 
-                borderRadius: 8, 
+                borderRadius: {xs:4, md:8}, 
                 border: '1px solid', 
                 borderColor: 'divider',
                 boxShadow: '0px 20px 40px rgba(28, 74, 45, 0.05)'

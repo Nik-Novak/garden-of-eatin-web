@@ -28,6 +28,10 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Garden of Eatin'",
   description: "Connecting communities through the power of a shared meal",
+  itunes: {
+    appId: '6759996982',
+    // appArgument: 'gardenofeatin://home', // Optional: triggers a deep link if the app is already installed
+  },
 };
 
 export default function RootLayout({

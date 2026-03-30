@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { PlatformUsageStatsOrderByWithRelationInputObjectSchema as PlatformUsageStatsOrderByWithRelationInputObjectSchema } from './objects/PlatformUsageStatsOrderByWithRelationInput.schema';
+import { PlatformUsageStatsWhereInputObjectSchema as PlatformUsageStatsWhereInputObjectSchema } from './objects/PlatformUsageStatsWhereInput.schema';
+import { PlatformUsageStatsWhereUniqueInputObjectSchema as PlatformUsageStatsWhereUniqueInputObjectSchema } from './objects/PlatformUsageStatsWhereUniqueInput.schema';
+import { PlatformUsageStatsCountAggregateInputObjectSchema as PlatformUsageStatsCountAggregateInputObjectSchema } from './objects/PlatformUsageStatsCountAggregateInput.schema';
+
+export const PlatformUsageStatsCountSchema: z.ZodType<Prisma.PlatformUsageStatsCountArgs> = z.object({ orderBy: z.union([PlatformUsageStatsOrderByWithRelationInputObjectSchema, PlatformUsageStatsOrderByWithRelationInputObjectSchema.array()]).optional(), where: PlatformUsageStatsWhereInputObjectSchema.optional(), cursor: PlatformUsageStatsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), PlatformUsageStatsCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.PlatformUsageStatsCountArgs>;
+
+export const PlatformUsageStatsCountZodSchema = z.object({ orderBy: z.union([PlatformUsageStatsOrderByWithRelationInputObjectSchema, PlatformUsageStatsOrderByWithRelationInputObjectSchema.array()]).optional(), where: PlatformUsageStatsWhereInputObjectSchema.optional(), cursor: PlatformUsageStatsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), PlatformUsageStatsCountAggregateInputObjectSchema ]).optional() }).strict();

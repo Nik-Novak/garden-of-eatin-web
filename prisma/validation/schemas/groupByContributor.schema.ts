@@ -1,0 +1,15 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ContributorWhereInputObjectSchema as ContributorWhereInputObjectSchema } from './objects/ContributorWhereInput.schema';
+import { ContributorOrderByWithAggregationInputObjectSchema as ContributorOrderByWithAggregationInputObjectSchema } from './objects/ContributorOrderByWithAggregationInput.schema';
+import { ContributorScalarWhereWithAggregatesInputObjectSchema as ContributorScalarWhereWithAggregatesInputObjectSchema } from './objects/ContributorScalarWhereWithAggregatesInput.schema';
+import { ContributorScalarFieldEnumSchema } from './enums/ContributorScalarFieldEnum.schema';
+import { ContributorCountAggregateInputObjectSchema as ContributorCountAggregateInputObjectSchema } from './objects/ContributorCountAggregateInput.schema';
+import { ContributorMinAggregateInputObjectSchema as ContributorMinAggregateInputObjectSchema } from './objects/ContributorMinAggregateInput.schema';
+import { ContributorMaxAggregateInputObjectSchema as ContributorMaxAggregateInputObjectSchema } from './objects/ContributorMaxAggregateInput.schema';
+import { ContributorAvgAggregateInputObjectSchema as ContributorAvgAggregateInputObjectSchema } from './objects/ContributorAvgAggregateInput.schema';
+import { ContributorSumAggregateInputObjectSchema as ContributorSumAggregateInputObjectSchema } from './objects/ContributorSumAggregateInput.schema';
+
+export const ContributorGroupBySchema: z.ZodType<Prisma.ContributorGroupByArgs> = z.object({ where: ContributorWhereInputObjectSchema.optional(), orderBy: z.union([ContributorOrderByWithAggregationInputObjectSchema, ContributorOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ContributorScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ContributorScalarFieldEnumSchema), _count: z.union([ z.literal(true), ContributorCountAggregateInputObjectSchema ]).optional(), _min: ContributorMinAggregateInputObjectSchema.optional(), _max: ContributorMaxAggregateInputObjectSchema.optional(), _avg: ContributorAvgAggregateInputObjectSchema.optional(), _sum: ContributorSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ContributorGroupByArgs>;
+
+export const ContributorGroupByZodSchema = z.object({ where: ContributorWhereInputObjectSchema.optional(), orderBy: z.union([ContributorOrderByWithAggregationInputObjectSchema, ContributorOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ContributorScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ContributorScalarFieldEnumSchema), _count: z.union([ z.literal(true), ContributorCountAggregateInputObjectSchema ]).optional(), _min: ContributorMinAggregateInputObjectSchema.optional(), _max: ContributorMaxAggregateInputObjectSchema.optional(), _avg: ContributorAvgAggregateInputObjectSchema.optional(), _sum: ContributorSumAggregateInputObjectSchema.optional() }).strict();

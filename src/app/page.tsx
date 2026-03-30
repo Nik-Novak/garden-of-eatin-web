@@ -23,8 +23,12 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import { Footer } from "@/components/Footer";
 import ContactButton from "@/components/ContactButton";
+import ContributorWall from "@/components/ContributorWall";
+import { Suspense } from "react";
+import { ContributorWallSkeleton } from "@/components/ContributorWall/ContributorWallSkeleton";
 
 export default function Home() {
+  //if I do the database call here, won't it block rendering of other components until thsi db call finishes?
   return (
     <Box sx={{ overflow: "hidden" }}>
       
@@ -162,6 +166,10 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
+
+      <Suspense fallback={<ContributorWallSkeleton />}>
+        <ContributorWall />
+      </Suspense>
 
       {/* CTA FOOTER */}
       <Box sx={{ py: 10, textAlign: 'center', bgcolor: 'primary.main', color: 'background.default' }}>

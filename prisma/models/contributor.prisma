@@ -1,0 +1,11 @@
+model Contributor {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  firstName    String
+  defaultImage String // URL path to the default bitmoji (e.g., /img/bob-default.png)
+  hoverImage   String // URL path to the alternate pose (e.g., /img/bob-hover.png)
+  order        Int?   // Optional: to keep the wall sorted a specific way
+
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  @@map("contributors")
+}

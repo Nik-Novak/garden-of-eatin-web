@@ -1,0 +1,14 @@
+
+model PlatformUsageStats {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  total_devices           Int
+  total_meal_searches     Int
+  total_meal_impressions  Int
+  total_meal_views        Int
+  total_meal_navs         Int
+
+  created_at        DateTime    @default(now())
+  updated_at        DateTime    @updatedAt
+  @@map("platform_usage_stats")
+}

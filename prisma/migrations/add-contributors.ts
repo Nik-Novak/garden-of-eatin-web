@@ -1,3 +1,4 @@
+import api from "@/lib/api";
 import { database } from "../database/database";
 import { Prisma } from "@prisma/client";
 
@@ -47,6 +48,12 @@ export default async function addContributors() {
       }
     ]
   });
+
+  await api.post(
+    '/revalidate', 
+    {path:'/'},
+    {headers:{Authorization: `Bearer ${process.env.CRON_SECRET}`}}
+  );
 
   console.log(`Successfully added ${contributors.count} contributors.`);
 }

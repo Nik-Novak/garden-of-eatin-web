@@ -117,6 +117,20 @@ export default async function ContributorWall() {
             </Box>
           ))}
         </Box>
+        
+        <Typography 
+          variant="body2" 
+          align="center" 
+          sx={{ 
+            mt: 8, 
+            color: "text.disabled", 
+            fontStyle: "italic",
+            maxWidth: "600px",
+            mx: "auto"
+          }}
+        >
+          Add at least 5 meals to the platform or contribute in other meaningful ways to become a contributor.
+        </Typography>
       </Container>
     </Box>
   );

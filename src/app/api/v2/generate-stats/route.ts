@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
   try {
     await cronGenerateStats();
-    return NextResponse.json({ success: true, message: "Cron: Occurrences generated." });
+    return NextResponse.json({ success: true, message: "Cron: Stats generated." });
   } catch (error) {
     console.error("Error in generate-occurrences cron:", error);
     return NextResponse.json({ success: false, error: "Internal Server Error" }, { status: 500 });
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
   
   try {
     await cronGenerateStats();
-    return NextResponse.json({ success: true, message: "Manual: Occurrences generated." });
+    return NextResponse.json({ success: true, message: "Manual: Stats generated." });
   } catch (error) {
     console.error("Error in generate-occurrences manual trigger:", error);
     return NextResponse.json({ success: false, error: "Internal Server Error" }, { status: 500 });

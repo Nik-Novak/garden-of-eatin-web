@@ -9,6 +9,7 @@ const platformusagestatswhereinputSchema = z.object({
   OR: z.lazy(() => PlatformUsageStatsWhereInputObjectSchema).array().optional(),
   NOT: z.union([z.lazy(() => PlatformUsageStatsWhereInputObjectSchema), z.lazy(() => PlatformUsageStatsWhereInputObjectSchema).array()]).optional(),
   id: z.union([z.lazy(() => StringFilterObjectSchema), z.string().max(24)]).optional(),
+  total_meals: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   total_devices: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   total_meal_searches: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   total_meal_impressions: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),

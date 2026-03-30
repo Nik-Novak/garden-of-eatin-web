@@ -2,12 +2,14 @@
 model PlatformUsageStats {
   id                String    @id @default(auto()) @map("_id") @db.ObjectId
 
+  total_meals             Int
+
   total_devices           Int
   total_meal_searches     Int
   total_meal_impressions  Int
   total_meal_views        Int
   total_meal_navs         Int
-  total_meal_shares         Int
+  total_meal_shares       Int
 
   created_at        DateTime    @default(now())
   updated_at        DateTime    @updatedAt

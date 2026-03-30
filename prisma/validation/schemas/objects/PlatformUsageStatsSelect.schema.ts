@@ -4,6 +4,7 @@ import type { Prisma } from '@prisma/client';
 
 const makeSchema = () => z.object({
   id: z.boolean().optional(),
+  total_meals: z.boolean().optional(),
   total_devices: z.boolean().optional(),
   total_meal_searches: z.boolean().optional(),
   total_meal_impressions: z.boolean().optional(),

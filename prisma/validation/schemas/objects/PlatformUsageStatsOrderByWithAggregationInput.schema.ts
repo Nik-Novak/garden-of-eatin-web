@@ -9,6 +9,7 @@ import { PlatformUsageStatsSumOrderByAggregateInputObjectSchema as PlatformUsage
 
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
+  total_meals: SortOrderSchema.optional(),
   total_devices: SortOrderSchema.optional(),
   total_meal_searches: SortOrderSchema.optional(),
   total_meal_impressions: SortOrderSchema.optional(),

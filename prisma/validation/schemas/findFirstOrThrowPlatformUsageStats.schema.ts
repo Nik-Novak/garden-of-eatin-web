@@ -10,6 +10,7 @@ import { PlatformUsageStatsScalarFieldEnumSchema } from './enums/PlatformUsageSt
 
 export const PlatformUsageStatsFindFirstOrThrowSelectSchema: z.ZodType<Prisma.PlatformUsageStatsSelect> = z.object({
     id: z.boolean().optional(),
+    total_meals: z.boolean().optional(),
     total_devices: z.boolean().optional(),
     total_meal_searches: z.boolean().optional(),
     total_meal_impressions: z.boolean().optional(),
@@ -22,6 +23,7 @@ export const PlatformUsageStatsFindFirstOrThrowSelectSchema: z.ZodType<Prisma.Pl
 
 export const PlatformUsageStatsFindFirstOrThrowSelectZodSchema = z.object({
     id: z.boolean().optional(),
+    total_meals: z.boolean().optional(),
     total_devices: z.boolean().optional(),
     total_meal_searches: z.boolean().optional(),
     total_meal_impressions: z.boolean().optional(),

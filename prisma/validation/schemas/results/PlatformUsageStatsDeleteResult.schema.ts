@@ -1,6 +1,7 @@
 import * as z from 'zod';
 export const PlatformUsageStatsDeleteResultSchema = z.nullable(z.object({
   id: z.string(),
+  total_meals: z.number().int(),
   total_devices: z.number().int(),
   total_meal_searches: z.number().int(),
   total_meal_impressions: z.number().int(),

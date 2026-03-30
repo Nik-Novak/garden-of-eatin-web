@@ -1,6 +1,7 @@
 import * as z from 'zod';
 export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
   id: z.string(),
+  total_meals: z.number().int(),
   total_devices: z.number().int(),
   total_meal_searches: z.number().int(),
   total_meal_impressions: z.number().int(),
@@ -11,6 +12,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
   updated_at: z.date(),
   _count: z.object({
     id: z.number(),
+    total_meals: z.number(),
     total_devices: z.number(),
     total_meal_searches: z.number(),
     total_meal_impressions: z.number(),
@@ -21,6 +23,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     updated_at: z.number()
   }).optional(),
   _sum: z.object({
+    total_meals: z.number().nullable(),
     total_devices: z.number().nullable(),
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
@@ -29,6 +32,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     total_meal_shares: z.number().nullable()
   }).nullable().optional(),
   _avg: z.object({
+    total_meals: z.number().nullable(),
     total_devices: z.number().nullable(),
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
@@ -38,6 +42,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
   }).nullable().optional(),
   _min: z.object({
     id: z.string().nullable(),
+    total_meals: z.number().int().nullable(),
     total_devices: z.number().int().nullable(),
     total_meal_searches: z.number().int().nullable(),
     total_meal_impressions: z.number().int().nullable(),
@@ -49,6 +54,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
   }).nullable().optional(),
   _max: z.object({
     id: z.string().nullable(),
+    total_meals: z.number().int().nullable(),
     total_devices: z.number().int().nullable(),
     total_meal_searches: z.number().int().nullable(),
     total_meal_impressions: z.number().int().nullable(),

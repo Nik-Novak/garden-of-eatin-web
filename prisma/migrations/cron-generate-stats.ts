@@ -7,6 +7,8 @@ export default async function cronGenerateStats() {
   let latestStats = await database.platformUsageStats.findFirst({orderBy:{created_at:'desc'}});
   const latest_total_meal_interactions = (latestStats?.total_meal_views||0) + (latestStats?.total_meal_navs||0) + (latestStats?.total_meal_shares||0);
 
+  const total_meals = await database.meal.count({where:{approved:true}});
+
   const total_devices = await database.device.count();
   const total_meal_searches = await database.mealOccurrenceSearch.count();
   const total_meal_impressions = await database.mealSearchHit.count();
@@ -18,6 +20,7 @@ export default async function cronGenerateStats() {
 
   let newStats = await database.platformUsageStats.create({
     data:{
+      total_meals,
       total_devices,
       total_meal_searches,
       total_meal_impressions,

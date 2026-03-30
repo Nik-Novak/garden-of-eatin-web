@@ -97,10 +97,6 @@ export default function Home() {
         </Container>
       </Box>
 
-      <Suspense fallback={<UsageStatsSkeleton />}>
-        <UsageStats />
-      </Suspense>
-
       {/* FOR GUESTS SECTION */}
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
         <Typography variant="h2" align="center" sx={{ mb: 2, color: "primary.main" }}>
@@ -171,6 +167,10 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
+
+      <Suspense fallback={<UsageStatsSkeleton />}>
+        <UsageStats />
+      </Suspense>
 
       <Suspense fallback={<ContributorWallSkeleton />}>
         <ContributorWall />

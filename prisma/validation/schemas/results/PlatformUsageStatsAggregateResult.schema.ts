@@ -6,6 +6,7 @@ export const PlatformUsageStatsAggregateResultSchema = z.object({  _count: z.obj
     total_meal_impressions: z.number(),
     total_meal_views: z.number(),
     total_meal_navs: z.number(),
+    total_meal_shares: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),
@@ -14,14 +15,16 @@ export const PlatformUsageStatsAggregateResultSchema = z.object({  _count: z.obj
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
     total_meal_views: z.number().nullable(),
-    total_meal_navs: z.number().nullable()
+    total_meal_navs: z.number().nullable(),
+    total_meal_shares: z.number().nullable()
   }).nullable().optional(),
   _avg: z.object({
     total_devices: z.number().nullable(),
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
     total_meal_views: z.number().nullable(),
-    total_meal_navs: z.number().nullable()
+    total_meal_navs: z.number().nullable(),
+    total_meal_shares: z.number().nullable()
   }).nullable().optional(),
   _min: z.object({
     id: z.string().nullable(),
@@ -30,6 +33,7 @@ export const PlatformUsageStatsAggregateResultSchema = z.object({  _count: z.obj
     total_meal_impressions: z.number().int().nullable(),
     total_meal_views: z.number().int().nullable(),
     total_meal_navs: z.number().int().nullable(),
+    total_meal_shares: z.number().int().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional(),
@@ -40,6 +44,7 @@ export const PlatformUsageStatsAggregateResultSchema = z.object({  _count: z.obj
     total_meal_impressions: z.number().int().nullable(),
     total_meal_views: z.number().int().nullable(),
     total_meal_navs: z.number().int().nullable(),
+    total_meal_shares: z.number().int().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional()});

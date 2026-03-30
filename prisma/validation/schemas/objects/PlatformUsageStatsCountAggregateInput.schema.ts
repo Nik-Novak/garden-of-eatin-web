@@ -9,6 +9,7 @@ const makeSchema = () => z.object({
   total_meal_impressions: z.literal(true).optional(),
   total_meal_views: z.literal(true).optional(),
   total_meal_navs: z.literal(true).optional(),
+  total_meal_shares: z.literal(true).optional(),
   created_at: z.literal(true).optional(),
   updated_at: z.literal(true).optional(),
   _all: z.literal(true).optional()

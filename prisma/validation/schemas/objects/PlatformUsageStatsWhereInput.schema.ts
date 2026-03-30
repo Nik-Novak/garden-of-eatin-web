@@ -14,6 +14,7 @@ const platformusagestatswhereinputSchema = z.object({
   total_meal_impressions: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   total_meal_views: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   total_meal_navs: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
+  total_meal_shares: z.union([z.lazy(() => IntFilterObjectSchema), z.number().int()]).optional(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional()
 }).strict();

@@ -6,6 +6,7 @@ export const PlatformUsageStatsFindFirstResultSchema = z.nullable(z.object({
   total_meal_impressions: z.number().int(),
   total_meal_views: z.number().int(),
   total_meal_navs: z.number().int(),
+  total_meal_shares: z.number().int(),
   created_at: z.date(),
   updated_at: z.date()
 }));

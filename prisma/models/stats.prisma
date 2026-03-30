@@ -7,6 +7,7 @@ model PlatformUsageStats {
   total_meal_impressions  Int
   total_meal_views        Int
   total_meal_navs         Int
+  total_meal_shares         Int
 
   created_at        DateTime    @default(now())
   updated_at        DateTime    @updatedAt

@@ -7,7 +7,8 @@ const makeSchema = () => z.object({
   total_meal_searches: SortOrderSchema.optional(),
   total_meal_impressions: SortOrderSchema.optional(),
   total_meal_views: SortOrderSchema.optional(),
-  total_meal_navs: SortOrderSchema.optional()
+  total_meal_navs: SortOrderSchema.optional(),
+  total_meal_shares: SortOrderSchema.optional()
 }).strict();
 export const PlatformUsageStatsAvgOrderByAggregateInputObjectSchema: z.ZodType<Prisma.PlatformUsageStatsAvgOrderByAggregateInput> = makeSchema() as unknown as z.ZodType<Prisma.PlatformUsageStatsAvgOrderByAggregateInput>;
 export const PlatformUsageStatsAvgOrderByAggregateInputObjectZodSchema = makeSchema();

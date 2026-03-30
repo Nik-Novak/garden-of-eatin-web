@@ -15,6 +15,7 @@ export const PlatformUsageStatsFindManySelectSchema: z.ZodType<Prisma.PlatformUs
     total_meal_impressions: z.boolean().optional(),
     total_meal_views: z.boolean().optional(),
     total_meal_navs: z.boolean().optional(),
+    total_meal_shares: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.PlatformUsageStatsSelect>;
@@ -26,6 +27,7 @@ export const PlatformUsageStatsFindManySelectZodSchema = z.object({
     total_meal_impressions: z.boolean().optional(),
     total_meal_views: z.boolean().optional(),
     total_meal_navs: z.boolean().optional(),
+    total_meal_shares: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional()
   }).strict();

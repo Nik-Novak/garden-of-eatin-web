@@ -9,6 +9,7 @@ const makeSchema = () => z.object({
   total_meal_impressions: SortOrderSchema.optional(),
   total_meal_views: SortOrderSchema.optional(),
   total_meal_navs: SortOrderSchema.optional(),
+  total_meal_shares: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional()
 }).strict();

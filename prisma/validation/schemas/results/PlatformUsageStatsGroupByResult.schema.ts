@@ -6,6 +6,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
   total_meal_impressions: z.number().int(),
   total_meal_views: z.number().int(),
   total_meal_navs: z.number().int(),
+  total_meal_shares: z.number().int(),
   created_at: z.date(),
   updated_at: z.date(),
   _count: z.object({
@@ -15,6 +16,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     total_meal_impressions: z.number(),
     total_meal_views: z.number(),
     total_meal_navs: z.number(),
+    total_meal_shares: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),
@@ -23,14 +25,16 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
     total_meal_views: z.number().nullable(),
-    total_meal_navs: z.number().nullable()
+    total_meal_navs: z.number().nullable(),
+    total_meal_shares: z.number().nullable()
   }).nullable().optional(),
   _avg: z.object({
     total_devices: z.number().nullable(),
     total_meal_searches: z.number().nullable(),
     total_meal_impressions: z.number().nullable(),
     total_meal_views: z.number().nullable(),
-    total_meal_navs: z.number().nullable()
+    total_meal_navs: z.number().nullable(),
+    total_meal_shares: z.number().nullable()
   }).nullable().optional(),
   _min: z.object({
     id: z.string().nullable(),
@@ -39,6 +43,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     total_meal_impressions: z.number().int().nullable(),
     total_meal_views: z.number().int().nullable(),
     total_meal_navs: z.number().int().nullable(),
+    total_meal_shares: z.number().int().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional(),
@@ -49,6 +54,7 @@ export const PlatformUsageStatsGroupByResultSchema = z.array(z.object({
     total_meal_impressions: z.number().int().nullable(),
     total_meal_views: z.number().int().nullable(),
     total_meal_navs: z.number().int().nullable(),
+    total_meal_shares: z.number().int().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional()

@@ -1,6 +1,7 @@
 // cron-generate-occurrences.ts
 import spacetime from "spacetime";
 import { database } from "../database";
+import api from "@/lib/api";
 
 export default async function cronGenerateStats() {
   console.log(`🕒 Generating PlatformUsageStats on ${spacetime().goto('America/Los_Angeles').format('MM/DD/YYYY')}`);
@@ -37,4 +38,11 @@ export default async function cronGenerateStats() {
   console.log(`total_meal_shares: ${total_meal_shares} ${latestStats ? `(${newStats.total_meal_shares>=latestStats.total_meal_shares?'+':'-'}${Math.abs(newStats.total_meal_shares-latestStats.total_meal_shares)})` : ''}`)
   console.log(`total_meal_interactions: ${total_meal_interactions} ${latestStats ? `(${total_meal_interactions>=latest_total_meal_interactions?'+':'-'}${Math.abs(total_meal_interactions-latest_total_meal_interactions)})` : ''}`)
   console.log(`✅ PlatformStats up-to-date.`);
+
+  await api.post(
+    '/revalidate', 
+    {path:'/'},
+    {headers:{Authorization: `Bearer ${process.env.CRON_SECRET}`}}
+  );
+  console.log(`Cache for path="/" busted!`)
 }

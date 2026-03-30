@@ -26,6 +26,7 @@ import ContactButton from "@/components/ContactButton";
 import ContributorWall from "@/components/ContributorWall";
 import { Suspense } from "react";
 import { ContributorWallSkeleton } from "@/components/ContributorWall/ContributorWallSkeleton";
+import UsageStats, { UsageStatsSkeleton } from "@/components/UsageStats";
 
 export default function Home() {
   //if I do the database call here, won't it block rendering of other components until thsi db call finishes?
@@ -95,6 +96,10 @@ export default function Home() {
           </Typography>
         </Container>
       </Box>
+
+      <Suspense fallback={<UsageStatsSkeleton />}>
+        <UsageStats />
+      </Suspense>
 
       {/* FOR GUESTS SECTION */}
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>

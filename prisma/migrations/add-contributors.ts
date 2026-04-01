@@ -17,34 +17,10 @@ export default async function addContributors() {
         order: 1
       },
       {
-        firstName: 'Alice',
-        defaultImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Alice',
-        hoverImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Alice&hand=raised',
-        order: 2
-      },
-      {
-        firstName: 'Charlie',
-        defaultImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Charlie',
-        hoverImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Charlie&hand=raised',
-        order: 3
-      },
-      {
-        firstName: 'Diana',
-        defaultImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Diana',
-        hoverImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Diana&hand=raised',
-        order: 4
-      },
-      {
-        firstName: 'Evan',
-        defaultImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Evan',
-        hoverImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Evan&hand=raised',
-        order: 5
-      },
-      {
-        firstName: 'Fiona',
-        defaultImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Fiona',
-        hoverImage: 'https://api.dicebear.com/8.x/notionists/svg?seed=Fiona&hand=raised',
-        order: 6
+        firstName: 'Will',
+        defaultImage: '/img/people/will-1.png',
+        hoverImage: '/img/people/will-2.png',
+        order: 1
       }
     ]
   });

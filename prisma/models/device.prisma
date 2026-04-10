@@ -5,6 +5,7 @@ enum TravelMode {
 }
 type DeviceSettings {
   travel_mode                   TravelMode?
+  meal_provider_mode            Boolean?
 }
 
 enum DeviceType {

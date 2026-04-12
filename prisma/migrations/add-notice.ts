@@ -3,6 +3,7 @@ import { database } from "../database/database";
 import { Prisma } from "@prisma/client";
 
 export default async function addNotice(){
+  await database.notice.deleteMany();
 //   const notice = await database.notice.create({data:{
 //     level: 'Warning',
 //     content_md: `### ⚠️ Temporary Service Disruptions
@@ -24,23 +25,44 @@ export default async function addNotice(){
 // We truly appreciate your patience as we improve the platform 💛  
 // Thank you for being here with us!`
 //   }});
-  const notice = await database.notice.create({data:{
+
+//   const notice = await database.notice.create({data:{
+//     level: 'Warning',
+//     content_md: `### ⚠️ Please update your app
+
+// As we launch the app, we've introduced **major underlying changes** that could break the app.
+
+// Because of this, you may experience:
+// - No meals found
+// - Other errors
+
+// **🛠️ How to fix**
+// Please ensure you are on the latest version by pressing the blue update button here: [AppStore](itms-apps://apps.apple.com/app/id6759996982).
+
+// ---
+
+// We truly appreciate your patience as we improve the platform 💛  
+// Thank you for being here with us!`
+//   }});
+
+  const notice = await database.notice.create({
+  data: {
     level: 'Warning',
-    content_md: `### ⚠️ Please update your app
+    content_md: `### 🛠️ Update Required
 
-As we launch the app, we've introduced **major underlying changes** that could break the app.
+We identified an issue affecting the ability to add meals which requires an app update. 
 
-Because of this, you may experience:
-- No meals found
-- Other errors
+**If you previously tried to add a meal and couldn't, this update will resolve the issue.**
 
-**🛠️ How to fix**
-Please ensure you are on the latest version by pressing the blue update button here: [AppStore](itms-apps://apps.apple.com/app/id6759996982).
-
+**How to fix:**
+Please ensure you are on the latest version by tapping the update button here: 
+[AppStore](itms-apps://apps.apple.com/app/id6759996982)
+[![Download on the AppStore](${process.env.AUTH_URL}/svg/AppStoreBadge.svg)](itms-apps://apps.apple.com/app/id6759996982)
 ---
 
-We truly appreciate your patience as we improve the platform 💛  
-Thank you for being here with us!`
-  }});
+We truly appreciate your patience as we improve the platform 💛`
+  }
+});
+
   console.log(`Successfully added notice with ID: ${notice.id}`);
 }

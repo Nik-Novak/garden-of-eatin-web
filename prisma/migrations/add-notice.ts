@@ -56,8 +56,9 @@ We identified an issue affecting the ability to add meals which requires an app 
 
 **How to fix:**
 Please ensure you are on the latest version by tapping the update button here: 
-[AppStore](itms-apps://apps.apple.com/app/id6759996982)
-[![Download on the AppStore](${process.env.AUTH_URL}/svg/AppStoreBadge.svg)](itms-apps://apps.apple.com/app/id6759996982)
+
+[![Download on the AppStore](${process.env.AUTH_URL}/img/AppStoreBadge-240.png)](itms-apps://apps.apple.com/app/id6759996982)
+
 ---
 
 We truly appreciate your patience as we improve the platform 💛`

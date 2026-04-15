@@ -9,10 +9,13 @@ import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOp
 import { DeviceAgreementUpdateManyWithoutDeviceNestedInputObjectSchema as DeviceAgreementUpdateManyWithoutDeviceNestedInputObjectSchema } from './DeviceAgreementUpdateManyWithoutDeviceNestedInput.schema';
 import { UserUpdateOneWithoutDevicesNestedInputObjectSchema as UserUpdateOneWithoutDevicesNestedInputObjectSchema } from './UserUpdateOneWithoutDevicesNestedInput.schema';
 import { MealInteractionUpdateManyWithoutDeviceNestedInputObjectSchema as MealInteractionUpdateManyWithoutDeviceNestedInputObjectSchema } from './MealInteractionUpdateManyWithoutDeviceNestedInput.schema';
+import { ResourceInteractionUpdateManyWithoutDeviceNestedInputObjectSchema as ResourceInteractionUpdateManyWithoutDeviceNestedInputObjectSchema } from './ResourceInteractionUpdateManyWithoutDeviceNestedInput.schema';
 import { BugUpdateManyWithoutDeviceNestedInputObjectSchema as BugUpdateManyWithoutDeviceNestedInputObjectSchema } from './BugUpdateManyWithoutDeviceNestedInput.schema';
 import { ContactRequestUpdateManyWithoutDeviceNestedInputObjectSchema as ContactRequestUpdateManyWithoutDeviceNestedInputObjectSchema } from './ContactRequestUpdateManyWithoutDeviceNestedInput.schema';
 import { ReviewUpdateManyWithoutDeviceNestedInputObjectSchema as ReviewUpdateManyWithoutDeviceNestedInputObjectSchema } from './ReviewUpdateManyWithoutDeviceNestedInput.schema';
-import { MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema as MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema } from './MealOccurrenceSearchUpdateManyWithoutDeviceNestedInput.schema'
+import { MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema as MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema } from './MealOccurrenceSearchUpdateManyWithoutDeviceNestedInput.schema';
+import { ResourceUpdateManyWithoutSubmitterNestedInputObjectSchema as ResourceUpdateManyWithoutSubmitterNestedInputObjectSchema } from './ResourceUpdateManyWithoutSubmitterNestedInput.schema';
+import { ResourceOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema as ResourceOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema } from './ResourceOccurrenceSearchUpdateManyWithoutDeviceNestedInput.schema'
 
 const makeSchema = () => z.object({
   uuid: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -23,10 +26,13 @@ const makeSchema = () => z.object({
   device_agreements: z.lazy(() => DeviceAgreementUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
   user: z.lazy(() => UserUpdateOneWithoutDevicesNestedInputObjectSchema).optional(),
   meal_interactions: z.lazy(() => MealInteractionUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
   bugs: z.lazy(() => BugUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
   reviews: z.lazy(() => ReviewUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
-  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema).optional()
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema).optional(),
+  submitted_resources: z.lazy(() => ResourceUpdateManyWithoutSubmitterNestedInputObjectSchema).optional(),
+  resource_occurrence_searches: z.lazy(() => ResourceOccurrenceSearchUpdateManyWithoutDeviceNestedInputObjectSchema).optional()
 }).strict();
 export const DeviceUpdateWithoutSubmitted_mealsInputObjectSchema: z.ZodType<Prisma.DeviceUpdateWithoutSubmitted_mealsInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceUpdateWithoutSubmitted_mealsInput>;
 export const DeviceUpdateWithoutSubmitted_mealsInputObjectZodSchema = makeSchema();

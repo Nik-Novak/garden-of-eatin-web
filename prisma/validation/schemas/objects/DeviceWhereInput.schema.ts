@@ -11,11 +11,14 @@ import { DeviceAgreementListRelationFilterObjectSchema as DeviceAgreementListRel
 import { UserNullableScalarRelationFilterObjectSchema as UserNullableScalarRelationFilterObjectSchema } from './UserNullableScalarRelationFilter.schema';
 import { UserWhereInputObjectSchema as UserWhereInputObjectSchema } from './UserWhereInput.schema';
 import { MealInteractionListRelationFilterObjectSchema as MealInteractionListRelationFilterObjectSchema } from './MealInteractionListRelationFilter.schema';
+import { ResourceInteractionListRelationFilterObjectSchema as ResourceInteractionListRelationFilterObjectSchema } from './ResourceInteractionListRelationFilter.schema';
 import { BugListRelationFilterObjectSchema as BugListRelationFilterObjectSchema } from './BugListRelationFilter.schema';
 import { ContactRequestListRelationFilterObjectSchema as ContactRequestListRelationFilterObjectSchema } from './ContactRequestListRelationFilter.schema';
 import { ReviewListRelationFilterObjectSchema as ReviewListRelationFilterObjectSchema } from './ReviewListRelationFilter.schema';
 import { MealListRelationFilterObjectSchema as MealListRelationFilterObjectSchema } from './MealListRelationFilter.schema';
-import { MealOccurrenceSearchListRelationFilterObjectSchema as MealOccurrenceSearchListRelationFilterObjectSchema } from './MealOccurrenceSearchListRelationFilter.schema'
+import { MealOccurrenceSearchListRelationFilterObjectSchema as MealOccurrenceSearchListRelationFilterObjectSchema } from './MealOccurrenceSearchListRelationFilter.schema';
+import { ResourceListRelationFilterObjectSchema as ResourceListRelationFilterObjectSchema } from './ResourceListRelationFilter.schema';
+import { ResourceOccurrenceSearchListRelationFilterObjectSchema as ResourceOccurrenceSearchListRelationFilterObjectSchema } from './ResourceOccurrenceSearchListRelationFilter.schema'
 
 const devicewhereinputSchema = z.object({
   AND: z.union([z.lazy(() => DeviceWhereInputObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema).array()]).optional(),
@@ -31,11 +34,14 @@ const devicewhereinputSchema = z.object({
   device_agreements: z.lazy(() => DeviceAgreementListRelationFilterObjectSchema).optional(),
   user: z.union([z.lazy(() => UserNullableScalarRelationFilterObjectSchema), z.lazy(() => UserWhereInputObjectSchema)]).optional(),
   meal_interactions: z.lazy(() => MealInteractionListRelationFilterObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionListRelationFilterObjectSchema).optional(),
   bugs: z.lazy(() => BugListRelationFilterObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestListRelationFilterObjectSchema).optional(),
   reviews: z.lazy(() => ReviewListRelationFilterObjectSchema).optional(),
   submitted_meals: z.lazy(() => MealListRelationFilterObjectSchema).optional(),
-  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchListRelationFilterObjectSchema).optional()
+  meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchListRelationFilterObjectSchema).optional(),
+  submitted_resources: z.lazy(() => ResourceListRelationFilterObjectSchema).optional(),
+  resource_occurrence_searches: z.lazy(() => ResourceOccurrenceSearchListRelationFilterObjectSchema).optional()
 }).strict();
 export const DeviceWhereInputObjectSchema: z.ZodType<Prisma.DeviceWhereInput> = devicewhereinputSchema as unknown as z.ZodType<Prisma.DeviceWhereInput>;
 export const DeviceWhereInputObjectZodSchema = devicewhereinputSchema;

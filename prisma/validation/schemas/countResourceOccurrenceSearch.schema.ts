@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema as ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema } from './objects/ResourceOccurrenceSearchOrderByWithRelationInput.schema';
+import { ResourceOccurrenceSearchWhereInputObjectSchema as ResourceOccurrenceSearchWhereInputObjectSchema } from './objects/ResourceOccurrenceSearchWhereInput.schema';
+import { ResourceOccurrenceSearchWhereUniqueInputObjectSchema as ResourceOccurrenceSearchWhereUniqueInputObjectSchema } from './objects/ResourceOccurrenceSearchWhereUniqueInput.schema';
+import { ResourceOccurrenceSearchCountAggregateInputObjectSchema as ResourceOccurrenceSearchCountAggregateInputObjectSchema } from './objects/ResourceOccurrenceSearchCountAggregateInput.schema';
+
+export const ResourceOccurrenceSearchCountSchema: z.ZodType<Prisma.ResourceOccurrenceSearchCountArgs> = z.object({ orderBy: z.union([ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema, ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceOccurrenceSearchWhereInputObjectSchema.optional(), cursor: ResourceOccurrenceSearchWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ResourceOccurrenceSearchCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.ResourceOccurrenceSearchCountArgs>;
+
+export const ResourceOccurrenceSearchCountZodSchema = z.object({ orderBy: z.union([ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema, ResourceOccurrenceSearchOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceOccurrenceSearchWhereInputObjectSchema.optional(), cursor: ResourceOccurrenceSearchWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ResourceOccurrenceSearchCountAggregateInputObjectSchema ]).optional() }).strict();

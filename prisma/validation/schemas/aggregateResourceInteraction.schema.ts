@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceInteractionOrderByWithRelationInputObjectSchema as ResourceInteractionOrderByWithRelationInputObjectSchema } from './objects/ResourceInteractionOrderByWithRelationInput.schema';
+import { ResourceInteractionWhereInputObjectSchema as ResourceInteractionWhereInputObjectSchema } from './objects/ResourceInteractionWhereInput.schema';
+import { ResourceInteractionWhereUniqueInputObjectSchema as ResourceInteractionWhereUniqueInputObjectSchema } from './objects/ResourceInteractionWhereUniqueInput.schema';
+import { ResourceInteractionCountAggregateInputObjectSchema as ResourceInteractionCountAggregateInputObjectSchema } from './objects/ResourceInteractionCountAggregateInput.schema';
+import { ResourceInteractionMinAggregateInputObjectSchema as ResourceInteractionMinAggregateInputObjectSchema } from './objects/ResourceInteractionMinAggregateInput.schema';
+import { ResourceInteractionMaxAggregateInputObjectSchema as ResourceInteractionMaxAggregateInputObjectSchema } from './objects/ResourceInteractionMaxAggregateInput.schema';
+
+export const ResourceInteractionAggregateSchema: z.ZodType<Prisma.ResourceInteractionAggregateArgs> = z.object({ orderBy: z.union([ResourceInteractionOrderByWithRelationInputObjectSchema, ResourceInteractionOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceInteractionWhereInputObjectSchema.optional(), cursor: ResourceInteractionWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceInteractionCountAggregateInputObjectSchema ]).optional(), _min: ResourceInteractionMinAggregateInputObjectSchema.optional(), _max: ResourceInteractionMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ResourceInteractionAggregateArgs>;
+
+export const ResourceInteractionAggregateZodSchema = z.object({ orderBy: z.union([ResourceInteractionOrderByWithRelationInputObjectSchema, ResourceInteractionOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceInteractionWhereInputObjectSchema.optional(), cursor: ResourceInteractionWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceInteractionCountAggregateInputObjectSchema ]).optional(), _min: ResourceInteractionMinAggregateInputObjectSchema.optional(), _max: ResourceInteractionMaxAggregateInputObjectSchema.optional() }).strict();

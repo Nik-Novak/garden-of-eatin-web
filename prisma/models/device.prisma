@@ -39,17 +39,20 @@ model Device {
   settings                  DeviceSettings
   device_agreements         DeviceAgreement[]
 
-  user                      User?              @relation(fields: [user_id], references: [id])
-  user_id                   String?            @db.ObjectId
+  user                      User?                 @relation(fields: [user_id], references: [id])
+  user_id                   String?               @db.ObjectId
 
-  meal_interactions         MealInteraction[] @relation(fields: [], references: [])
+  meal_interactions         MealInteraction[]     @relation(fields: [], references: [])
+  resource_interactions     ResourceInteraction[] @relation(fields: [], references: [])
 
   bugs                      Bug[]
   contact_requests          ContactRequest[]
   reviews                   Review[]
 
-  submitted_meals           Meal[]
-  meal_occurrence_searches  MealOccurrenceSearch[]
+  submitted_meals               Meal[]
+  meal_occurrence_searches      MealOccurrenceSearch[]
+  submitted_resources           Resource[]
+  resource_occurrence_searches  ResourceOccurrenceSearch[]
   
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt

@@ -7,10 +7,13 @@ import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjec
 import { DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema as DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema } from './DeviceAgreementCreateNestedManyWithoutDeviceInput.schema';
 import { UserCreateNestedOneWithoutDevicesInputObjectSchema as UserCreateNestedOneWithoutDevicesInputObjectSchema } from './UserCreateNestedOneWithoutDevicesInput.schema';
 import { MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema as MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema } from './MealInteractionCreateNestedManyWithoutDeviceInput.schema';
+import { ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema as ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceInteractionCreateNestedManyWithoutDeviceInput.schema';
 import { BugCreateNestedManyWithoutDeviceInputObjectSchema as BugCreateNestedManyWithoutDeviceInputObjectSchema } from './BugCreateNestedManyWithoutDeviceInput.schema';
 import { ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema as ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema } from './ContactRequestCreateNestedManyWithoutDeviceInput.schema';
 import { ReviewCreateNestedManyWithoutDeviceInputObjectSchema as ReviewCreateNestedManyWithoutDeviceInputObjectSchema } from './ReviewCreateNestedManyWithoutDeviceInput.schema';
-import { MealCreateNestedManyWithoutSubmitterInputObjectSchema as MealCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealCreateNestedManyWithoutSubmitterInput.schema'
+import { MealCreateNestedManyWithoutSubmitterInputObjectSchema as MealCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealCreateNestedManyWithoutSubmitterInput.schema';
+import { ResourceCreateNestedManyWithoutSubmitterInputObjectSchema as ResourceCreateNestedManyWithoutSubmitterInputObjectSchema } from './ResourceCreateNestedManyWithoutSubmitterInput.schema';
+import { ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema as ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -22,10 +25,13 @@ const makeSchema = () => z.object({
   device_agreements: z.lazy(() => DeviceAgreementCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   user: z.lazy(() => UserCreateNestedOneWithoutDevicesInputObjectSchema).optional(),
   meal_interactions: z.lazy(() => MealInteractionCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   bugs: z.lazy(() => BugCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   reviews: z.lazy(() => ReviewCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
-  submitted_meals: z.lazy(() => MealCreateNestedManyWithoutSubmitterInputObjectSchema).optional()
+  submitted_meals: z.lazy(() => MealCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
+  submitted_resources: z.lazy(() => ResourceCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
+  resource_occurrence_searches: z.lazy(() => ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema).optional()
 }).strict();
 export const DeviceCreateWithoutMeal_occurrence_searchesInputObjectSchema: z.ZodType<Prisma.DeviceCreateWithoutMeal_occurrence_searchesInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceCreateWithoutMeal_occurrence_searchesInput>;
 export const DeviceCreateWithoutMeal_occurrence_searchesInputObjectZodSchema = makeSchema();

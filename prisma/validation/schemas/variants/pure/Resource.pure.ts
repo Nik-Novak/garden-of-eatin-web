@@ -15,7 +15,7 @@ export const ResourceModelSchema = z.object({
     location: z.unknown(),
     schedule: z.unknown(),
     timezone: z.string(),
-    resource_type: ResourceTypeSchema,
+    resource_type: ResourceTypeSchema.array(),
     selection_type: SelectionTypeSchema,
     packaging_type: ResourcePackagingTypeSchema.array(),
     loading_policy: LoadingPolicySchema,

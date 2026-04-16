@@ -1,8 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFilter.schema';
-import { EnumResourceTypeFilterObjectSchema as EnumResourceTypeFilterObjectSchema } from './EnumResourceTypeFilter.schema';
-import { ResourceTypeSchema } from '../enums/ResourceType.schema';
+import { EnumResourceTypeNullableListFilterObjectSchema as EnumResourceTypeNullableListFilterObjectSchema } from './EnumResourceTypeNullableListFilter.schema';
 import { EnumSelectionTypeFilterObjectSchema as EnumSelectionTypeFilterObjectSchema } from './EnumSelectionTypeFilter.schema';
 import { SelectionTypeSchema } from '../enums/SelectionType.schema';
 import { EnumResourcePackagingTypeNullableListFilterObjectSchema as EnumResourcePackagingTypeNullableListFilterObjectSchema } from './EnumResourcePackagingTypeNullableListFilter.schema';
@@ -27,7 +26,7 @@ const resourcescalarwhereinputSchema = z.object({
   id: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   name: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
-  resource_type: z.union([z.lazy(() => EnumResourceTypeFilterObjectSchema), ResourceTypeSchema]).optional(),
+  resource_type: z.lazy(() => EnumResourceTypeNullableListFilterObjectSchema).optional(),
   selection_type: z.union([z.lazy(() => EnumSelectionTypeFilterObjectSchema), SelectionTypeSchema]).optional(),
   packaging_type: z.lazy(() => EnumResourcePackagingTypeNullableListFilterObjectSchema).optional(),
   loading_policy: z.union([z.lazy(() => EnumLoadingPolicyFilterObjectSchema), LoadingPolicySchema]).optional(),

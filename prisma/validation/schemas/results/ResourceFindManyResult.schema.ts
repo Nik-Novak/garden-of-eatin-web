@@ -7,7 +7,7 @@ export const ResourceFindManyResultSchema = z.object({
   location: z.unknown(),
   schedule: z.unknown(),
   timezone: z.string(),
-  resource_type: z.unknown(),
+  resource_type: z.array(z.unknown()),
   selection_type: z.unknown(),
   packaging_type: z.array(z.unknown()),
   loading_policy: z.unknown(),

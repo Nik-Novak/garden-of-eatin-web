@@ -6,7 +6,6 @@ const makeSchema = () => z.object({
   id: z.literal(true).optional(),
   name: z.literal(true).optional(),
   timezone: z.literal(true).optional(),
-  resource_type: z.literal(true).optional(),
   selection_type: z.literal(true).optional(),
   loading_policy: z.literal(true).optional(),
   max_height_clearance_m: z.literal(true).optional(),

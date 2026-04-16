@@ -6,7 +6,6 @@ const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
   name: SortOrderSchema.optional(),
   timezone: SortOrderSchema.optional(),
-  resource_type: SortOrderSchema.optional(),
   selection_type: SortOrderSchema.optional(),
   loading_policy: SortOrderSchema.optional(),
   max_height_clearance_m: SortOrderSchema.optional(),

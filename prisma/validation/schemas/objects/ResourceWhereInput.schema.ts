@@ -7,8 +7,7 @@ import { PointCompositeFilterObjectSchema as PointCompositeFilterObjectSchema } 
 import { PointObjectEqualityInputObjectSchema as PointObjectEqualityInputObjectSchema } from './PointObjectEqualityInput.schema';
 import { ScheduleCompositeFilterObjectSchema as ScheduleCompositeFilterObjectSchema } from './ScheduleCompositeFilter.schema';
 import { ScheduleObjectEqualityInputObjectSchema as ScheduleObjectEqualityInputObjectSchema } from './ScheduleObjectEqualityInput.schema';
-import { EnumResourceTypeFilterObjectSchema as EnumResourceTypeFilterObjectSchema } from './EnumResourceTypeFilter.schema';
-import { ResourceTypeSchema } from '../enums/ResourceType.schema';
+import { EnumResourceTypeNullableListFilterObjectSchema as EnumResourceTypeNullableListFilterObjectSchema } from './EnumResourceTypeNullableListFilter.schema';
 import { EnumSelectionTypeFilterObjectSchema as EnumSelectionTypeFilterObjectSchema } from './EnumSelectionTypeFilter.schema';
 import { SelectionTypeSchema } from '../enums/SelectionType.schema';
 import { EnumResourcePackagingTypeNullableListFilterObjectSchema as EnumResourcePackagingTypeNullableListFilterObjectSchema } from './EnumResourcePackagingTypeNullableListFilter.schema';
@@ -41,7 +40,7 @@ const resourcewhereinputSchema = z.object({
   location: z.union([z.lazy(() => PointCompositeFilterObjectSchema), z.lazy(() => PointObjectEqualityInputObjectSchema)]).optional(),
   schedule: z.union([z.lazy(() => ScheduleCompositeFilterObjectSchema), z.lazy(() => ScheduleObjectEqualityInputObjectSchema)]).optional(),
   timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
-  resource_type: z.union([z.lazy(() => EnumResourceTypeFilterObjectSchema), ResourceTypeSchema]).optional(),
+  resource_type: z.lazy(() => EnumResourceTypeNullableListFilterObjectSchema).optional(),
   selection_type: z.union([z.lazy(() => EnumSelectionTypeFilterObjectSchema), SelectionTypeSchema]).optional(),
   packaging_type: z.lazy(() => EnumResourcePackagingTypeNullableListFilterObjectSchema).optional(),
   loading_policy: z.union([z.lazy(() => EnumLoadingPolicyFilterObjectSchema), LoadingPolicySchema]).optional(),

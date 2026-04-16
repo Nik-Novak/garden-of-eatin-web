@@ -80,7 +80,7 @@ model Resource {
 
   timezone                    String   // "America/Los_Angeles"
 
-  resource_type               ResourceType
+  resource_type               ResourceType[]
 
   selection_type              SelectionType
   packaging_type              ResourcePackagingType[]

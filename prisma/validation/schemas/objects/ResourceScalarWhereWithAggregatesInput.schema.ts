@@ -1,8 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringWithAggregatesFilterObjectSchema as StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
-import { EnumResourceTypeWithAggregatesFilterObjectSchema as EnumResourceTypeWithAggregatesFilterObjectSchema } from './EnumResourceTypeWithAggregatesFilter.schema';
-import { ResourceTypeSchema } from '../enums/ResourceType.schema';
+import { EnumResourceTypeNullableListFilterObjectSchema as EnumResourceTypeNullableListFilterObjectSchema } from './EnumResourceTypeNullableListFilter.schema';
 import { EnumSelectionTypeWithAggregatesFilterObjectSchema as EnumSelectionTypeWithAggregatesFilterObjectSchema } from './EnumSelectionTypeWithAggregatesFilter.schema';
 import { SelectionTypeSchema } from '../enums/SelectionType.schema';
 import { EnumResourcePackagingTypeNullableListFilterObjectSchema as EnumResourcePackagingTypeNullableListFilterObjectSchema } from './EnumResourcePackagingTypeNullableListFilter.schema';
@@ -27,7 +26,7 @@ const resourcescalarwherewithaggregatesinputSchema = z.object({
   id: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string().max(24)]).optional(),
   name: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional(),
   timezone: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional(),
-  resource_type: z.union([z.lazy(() => EnumResourceTypeWithAggregatesFilterObjectSchema), ResourceTypeSchema]).optional(),
+  resource_type: z.lazy(() => EnumResourceTypeNullableListFilterObjectSchema).optional(),
   selection_type: z.union([z.lazy(() => EnumSelectionTypeWithAggregatesFilterObjectSchema), SelectionTypeSchema]).optional(),
   packaging_type: z.lazy(() => EnumResourcePackagingTypeNullableListFilterObjectSchema).optional(),
   loading_policy: z.union([z.lazy(() => EnumLoadingPolicyWithAggregatesFilterObjectSchema), LoadingPolicySchema]).optional(),

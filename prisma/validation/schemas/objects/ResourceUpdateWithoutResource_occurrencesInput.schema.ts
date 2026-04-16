@@ -7,8 +7,8 @@ import { PointUpdateEnvelopeInputObjectSchema as PointUpdateEnvelopeInputObjectS
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
 import { ScheduleUpdateEnvelopeInputObjectSchema as ScheduleUpdateEnvelopeInputObjectSchema } from './ScheduleUpdateEnvelopeInput.schema';
 import { ScheduleCreateInputObjectSchema as ScheduleCreateInputObjectSchema } from './ScheduleCreateInput.schema';
+import { ResourceUpdateresource_typeInputObjectSchema as ResourceUpdateresource_typeInputObjectSchema } from './ResourceUpdateresource_typeInput.schema';
 import { ResourceTypeSchema } from '../enums/ResourceType.schema';
-import { EnumResourceTypeFieldUpdateOperationsInputObjectSchema as EnumResourceTypeFieldUpdateOperationsInputObjectSchema } from './EnumResourceTypeFieldUpdateOperationsInput.schema';
 import { SelectionTypeSchema } from '../enums/SelectionType.schema';
 import { EnumSelectionTypeFieldUpdateOperationsInputObjectSchema as EnumSelectionTypeFieldUpdateOperationsInputObjectSchema } from './EnumSelectionTypeFieldUpdateOperationsInput.schema';
 import { ResourceUpdatepackaging_typeInputObjectSchema as ResourceUpdatepackaging_typeInputObjectSchema } from './ResourceUpdatepackaging_typeInput.schema';
@@ -41,7 +41,7 @@ const makeSchema = () => z.object({
   location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
   schedule: z.union([z.lazy(() => ScheduleUpdateEnvelopeInputObjectSchema), z.lazy(() => ScheduleCreateInputObjectSchema)]).optional(),
   timezone: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
-  resource_type: z.union([ResourceTypeSchema, z.lazy(() => EnumResourceTypeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  resource_type: z.union([z.lazy(() => ResourceUpdateresource_typeInputObjectSchema), ResourceTypeSchema.array()]).optional(),
   selection_type: z.union([SelectionTypeSchema, z.lazy(() => EnumSelectionTypeFieldUpdateOperationsInputObjectSchema)]).optional(),
   packaging_type: z.union([z.lazy(() => ResourceUpdatepackaging_typeInputObjectSchema), ResourcePackagingTypeSchema.array()]).optional(),
   loading_policy: z.union([LoadingPolicySchema, z.lazy(() => EnumLoadingPolicyFieldUpdateOperationsInputObjectSchema)]).optional(),

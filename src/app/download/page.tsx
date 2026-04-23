@@ -66,25 +66,20 @@ export default function DownloadPage() {
 
                 {/* Disabled Android Button */}
                 <Button 
-                  variant="outlined" 
+                  variant="contained" 
                   color="primary" 
                   size="large" 
-                  disabled
+                  href="https://play.google.com/store/apps/details?id=org.softwareforpeople.gardenofeatin"
                   startIcon={<AndroidIcon />}
                   sx={{ 
                     px: 4, 
                     py: 1.5, 
                     fontSize: '1.1rem', 
                     borderRadius: 50,
-                    borderWidth: 2,
-                    '&.Mui-disabled': { 
-                      borderColor: 'text.secondary', 
-                      color: 'text.secondary',
-                      opacity: 0.7
-                    }
+                    boxShadow: 3
                   }}
                 >
-                  Android Coming Soon
+                  Download for Android
                 </Button>
               </Stack>
             </Grid>

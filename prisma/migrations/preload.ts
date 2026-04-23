@@ -448,7 +448,7 @@ export default async function preloadDatabase(){
     },
     {
       approved: true,
-      name: "Saturday Grill n Giftcards",
+      name: "Saturday Monthly BBQ",
       place:{
         address: '3209 Gleason Rd, San Diego, CA 92109',
         location: { type:'Point', coordinates:[-117.2468395, 32.7700926] },

@@ -51,7 +51,6 @@ export default function DownloadPage() {
                   size="large" 
                   href="https://apps.apple.com/us/app/garden-of-eatin/id6759996982"
                   target="_blank"
-                  rel="noopener noreferrer"
                   startIcon={<AppleIcon />}
                   sx={{ 
                     px: 4, 
@@ -70,6 +69,7 @@ export default function DownloadPage() {
                   color="primary" 
                   size="large" 
                   href="https://play.google.com/store/apps/details?id=org.softwareforpeople.gardenofeatin"
+                  target="_blank"
                   startIcon={<AndroidIcon />}
                   sx={{ 
                     px: 4, 

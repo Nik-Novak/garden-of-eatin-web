@@ -8,6 +8,7 @@ import theme from '@/features/theme';
 import { NotificationProvider } from "@/components/NotificationQueue";
 import FloatingNav from "@/components/FloatingNav";
 import { CssBaseline } from "@mui/material";
+import { SmartBanner } from "@/components/SmartButton";
 
 // Initialize Lora for Headings
 const lora = Lora({
@@ -47,6 +48,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <NotificationProvider>
+              <SmartBanner />
               <FloatingNav />
               {children}
             </NotificationProvider>

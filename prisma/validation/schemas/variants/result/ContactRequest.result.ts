@@ -7,6 +7,8 @@ export const ContactRequestResultSchema = z.object({
     email: z.string(),
     device: z.unknown().nullable(),
     device_id: z.string().nullable(),
+    web_device: z.unknown().nullable(),
+    web_device_id: z.string().nullable(),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

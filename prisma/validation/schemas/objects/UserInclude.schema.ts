@@ -2,6 +2,7 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { AccountFindManySchema as AccountFindManySchema } from '../findManyAccount.schema';
 import { DeviceFindManySchema as DeviceFindManySchema } from '../findManyDevice.schema';
+import { WebDeviceFindManySchema as WebDeviceFindManySchema } from '../findManyWebDevice.schema';
 import { SessionFindManySchema as SessionFindManySchema } from '../findManySession.schema';
 import { InviteFindManySchema as InviteFindManySchema } from '../findManyInvite.schema';
 import { InviteArgsObjectSchema as InviteArgsObjectSchema } from './InviteArgs.schema';
@@ -11,6 +12,7 @@ import { UserCountOutputTypeArgsObjectSchema as UserCountOutputTypeArgsObjectSch
 const makeSchema = () => z.object({
   accounts: z.union([z.boolean(), z.lazy(() => AccountFindManySchema)]).optional(),
   devices: z.union([z.boolean(), z.lazy(() => DeviceFindManySchema)]).optional(),
+  web_devices: z.union([z.boolean(), z.lazy(() => WebDeviceFindManySchema)]).optional(),
   sessions: z.union([z.boolean(), z.lazy(() => SessionFindManySchema)]).optional(),
   invites_sent: z.union([z.boolean(), z.lazy(() => InviteFindManySchema)]).optional(),
   invite_used: z.union([z.boolean(), z.lazy(() => InviteArgsObjectSchema)]).optional(),

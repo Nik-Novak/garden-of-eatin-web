@@ -4,7 +4,9 @@ import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFi
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { DeviceNullableScalarRelationFilterObjectSchema as DeviceNullableScalarRelationFilterObjectSchema } from './DeviceNullableScalarRelationFilter.schema';
-import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema'
+import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema';
+import { WebDeviceNullableScalarRelationFilterObjectSchema as WebDeviceNullableScalarRelationFilterObjectSchema } from './WebDeviceNullableScalarRelationFilter.schema';
+import { WebDeviceWhereInputObjectSchema as WebDeviceWhereInputObjectSchema } from './WebDeviceWhereInput.schema'
 
 const contactrequestwhereinputSchema = z.object({
   AND: z.union([z.lazy(() => ContactRequestWhereInputObjectSchema), z.lazy(() => ContactRequestWhereInputObjectSchema).array()]).optional(),
@@ -15,9 +17,11 @@ const contactrequestwhereinputSchema = z.object({
   phone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   email: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   device_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
+  web_device_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
-  device: z.union([z.lazy(() => DeviceNullableScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional()
+  device: z.union([z.lazy(() => DeviceNullableScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional(),
+  web_device: z.union([z.lazy(() => WebDeviceNullableScalarRelationFilterObjectSchema), z.lazy(() => WebDeviceWhereInputObjectSchema)]).optional()
 }).strict();
 export const ContactRequestWhereInputObjectSchema: z.ZodType<Prisma.ContactRequestWhereInput> = contactrequestwhereinputSchema as unknown as z.ZodType<Prisma.ContactRequestWhereInput>;
 export const ContactRequestWhereInputObjectZodSchema = contactrequestwhereinputSchema;

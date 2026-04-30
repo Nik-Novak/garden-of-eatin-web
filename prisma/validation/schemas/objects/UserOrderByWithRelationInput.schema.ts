@@ -4,6 +4,7 @@ import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { DeviceSettingsOrderByInputObjectSchema as DeviceSettingsOrderByInputObjectSchema } from './DeviceSettingsOrderByInput.schema';
 import { AccountOrderByRelationAggregateInputObjectSchema as AccountOrderByRelationAggregateInputObjectSchema } from './AccountOrderByRelationAggregateInput.schema';
 import { DeviceOrderByRelationAggregateInputObjectSchema as DeviceOrderByRelationAggregateInputObjectSchema } from './DeviceOrderByRelationAggregateInput.schema';
+import { WebDeviceOrderByRelationAggregateInputObjectSchema as WebDeviceOrderByRelationAggregateInputObjectSchema } from './WebDeviceOrderByRelationAggregateInput.schema';
 import { SessionOrderByRelationAggregateInputObjectSchema as SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
 import { InviteOrderByRelationAggregateInputObjectSchema as InviteOrderByRelationAggregateInputObjectSchema } from './InviteOrderByRelationAggregateInput.schema';
 import { InviteOrderByWithRelationInputObjectSchema as InviteOrderByWithRelationInputObjectSchema } from './InviteOrderByWithRelationInput.schema';
@@ -20,6 +21,7 @@ const makeSchema = () => z.object({
   updated_at: SortOrderSchema.optional(),
   accounts: z.lazy(() => AccountOrderByRelationAggregateInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceOrderByRelationAggregateInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceOrderByRelationAggregateInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionOrderByRelationAggregateInputObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteOrderByRelationAggregateInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteOrderByWithRelationInputObjectSchema).optional(),

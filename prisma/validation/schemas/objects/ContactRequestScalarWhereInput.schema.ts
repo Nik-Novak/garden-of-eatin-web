@@ -13,6 +13,7 @@ const contactrequestscalarwhereinputSchema = z.object({
   phone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   email: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   device_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
+  web_device_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional()
 }).strict();

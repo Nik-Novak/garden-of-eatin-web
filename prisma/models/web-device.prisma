@@ -1,0 +1,57 @@
+type WebDeviceMetadata {
+  // App Context
+  app_version      String?
+  app_build        String?
+  
+  // Hardware & OS
+  brand            String?    // e.g., "Google Chrome", "Edge"
+  manufacturer     String?    // e.g., "Apple", "Samsung"
+  model_name       String?    // e.g., "iPhone", "Pixel 8"
+  os_name          String?    // e.g., "Android", "iOS", "Windows"
+  os_version       String?
+  device_type      DeviceType?
+  
+  // Hardware Specs (Debugging)
+  total_memory     Int?       // GiB (approximate)
+  cpu_cores        Int?       // Logical processors
+  gpu_renderer     String?    // e.g., "Apple M2", "NVIDIA RTX 4080"
+  touch_points     Int?       // >0 indicates touch screen
+  
+  // Display & Network
+  viewport_width   Int?
+  viewport_height  Int?
+  pixel_ratio      Float?
+  language         String?
+  connection_type  String?    // e.g., "4g", "wifi"
+  
+  // Security/Bot Detection
+  is_device        Boolean?   // False if automated (webdriver)
+
+  ip_addresses     String[] @default([])
+}
+
+type WebDeviceSettings {
+  dark_mode            Boolean?
+}
+
+model WebDevice {
+  id        String          @id @default(auto()) @map("_id") @db.ObjectId
+  uuid                      String               @unique
+
+  device                    Device? @relation(fields: [device_id], references: [id])
+  device_id                 String?  @db.ObjectId
+
+  metadata                  WebDeviceMetadata?
+
+  settings                  DeviceSettings
+
+  user                      User?              @relation(fields: [user_id], references: [id])
+  user_id                   String?            @db.ObjectId
+
+  contact_requests          ContactRequest[]
+  qr_scans                  QRScan[]
+  
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  @@map("web_devices")
+}

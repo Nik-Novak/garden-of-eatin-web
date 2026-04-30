@@ -7,6 +7,8 @@ export const ContactRequestInputSchema = z.object({
     email: z.string(),
     device: z.unknown().optional().nullable(),
     device_id: z.string().optional().nullable(),
+    web_device: z.unknown().optional().nullable(),
+    web_device_id: z.string().optional().nullable(),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

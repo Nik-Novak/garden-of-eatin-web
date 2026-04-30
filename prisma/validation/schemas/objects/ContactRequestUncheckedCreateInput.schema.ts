@@ -8,6 +8,7 @@ const makeSchema = () => z.object({
   phone: z.string(),
   email: z.string(),
   device_id: z.string().max(24).optional().nullable(),
+  web_device_id: z.string().max(24).optional().nullable(),
   created_at: z.coerce.date().optional()
 }).strict();
 export const ContactRequestUncheckedCreateInputObjectSchema: z.ZodType<Prisma.ContactRequestUncheckedCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.ContactRequestUncheckedCreateInput>;

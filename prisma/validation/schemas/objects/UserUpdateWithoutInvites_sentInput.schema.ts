@@ -7,6 +7,7 @@ import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjec
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { AccountUpdateManyWithoutUserNestedInputObjectSchema as AccountUpdateManyWithoutUserNestedInputObjectSchema } from './AccountUpdateManyWithoutUserNestedInput.schema';
 import { DeviceUpdateManyWithoutUserNestedInputObjectSchema as DeviceUpdateManyWithoutUserNestedInputObjectSchema } from './DeviceUpdateManyWithoutUserNestedInput.schema';
+import { WebDeviceUpdateManyWithoutUserNestedInputObjectSchema as WebDeviceUpdateManyWithoutUserNestedInputObjectSchema } from './WebDeviceUpdateManyWithoutUserNestedInput.schema';
 import { SessionUpdateManyWithoutUserNestedInputObjectSchema as SessionUpdateManyWithoutUserNestedInputObjectSchema } from './SessionUpdateManyWithoutUserNestedInput.schema';
 import { InviteUpdateOneWithoutUserNestedInputObjectSchema as InviteUpdateOneWithoutUserNestedInputObjectSchema } from './InviteUpdateOneWithoutUserNestedInput.schema';
 import { OpportunityApplicationUpdateManyWithoutUserNestedInputObjectSchema as OpportunityApplicationUpdateManyWithoutUserNestedInputObjectSchema } from './OpportunityApplicationUpdateManyWithoutUserNestedInput.schema'
@@ -21,6 +22,7 @@ const makeSchema = () => z.object({
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   accounts: z.lazy(() => AccountUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceUpdateManyWithoutUserNestedInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteUpdateOneWithoutUserNestedInputObjectSchema).optional(),
   opportunity_applications: z.lazy(() => OpportunityApplicationUpdateManyWithoutUserNestedInputObjectSchema).optional()

@@ -5,6 +5,7 @@ export const ContactRequestGroupByResultSchema = z.array(z.object({
   phone: z.string(),
   email: z.string(),
   device_id: z.string(),
+  web_device_id: z.string(),
   created_at: z.date(),
   updated_at: z.date(),
   _count: z.object({
@@ -14,6 +15,8 @@ export const ContactRequestGroupByResultSchema = z.array(z.object({
     email: z.number(),
     device: z.number(),
     device_id: z.number(),
+    web_device: z.number(),
+    web_device_id: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),
@@ -23,6 +26,7 @@ export const ContactRequestGroupByResultSchema = z.array(z.object({
     phone: z.string().nullable(),
     email: z.string().nullable(),
     device_id: z.string().nullable(),
+    web_device_id: z.string().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional(),
@@ -32,6 +36,7 @@ export const ContactRequestGroupByResultSchema = z.array(z.object({
     phone: z.string().nullable(),
     email: z.string().nullable(),
     device_id: z.string().nullable(),
+    web_device_id: z.string().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional()

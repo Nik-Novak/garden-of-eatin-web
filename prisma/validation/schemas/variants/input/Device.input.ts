@@ -3,6 +3,7 @@ import * as z from 'zod';
 export const DeviceInputSchema = z.object({
     id: z.string(),
     uuid: z.string(),
+    web_devices: z.array(z.unknown()),
     metadata: z.unknown().optional().nullable(),
     settings: z.unknown(),
     device_agreements: z.array(z.unknown()),
@@ -11,9 +12,11 @@ export const DeviceInputSchema = z.object({
     meal_interactions: z.array(z.unknown()),
     bugs: z.array(z.unknown()),
     contact_requests: z.array(z.unknown()),
+    qr_scans: z.array(z.unknown()),
     reviews: z.array(z.unknown()),
     submitted_meals: z.array(z.unknown()),
     meal_occurrence_searches: z.array(z.unknown()),
+    scannable_documents: z.array(z.unknown()),
     created_at: z.date(),
     updated_at: z.date()
 }).strict();

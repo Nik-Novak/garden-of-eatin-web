@@ -8,6 +8,7 @@ import { DeviceSettingsObjectEqualityInputObjectSchema as DeviceSettingsObjectEq
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { AccountListRelationFilterObjectSchema as AccountListRelationFilterObjectSchema } from './AccountListRelationFilter.schema';
 import { DeviceListRelationFilterObjectSchema as DeviceListRelationFilterObjectSchema } from './DeviceListRelationFilter.schema';
+import { WebDeviceListRelationFilterObjectSchema as WebDeviceListRelationFilterObjectSchema } from './WebDeviceListRelationFilter.schema';
 import { SessionListRelationFilterObjectSchema as SessionListRelationFilterObjectSchema } from './SessionListRelationFilter.schema';
 import { InviteListRelationFilterObjectSchema as InviteListRelationFilterObjectSchema } from './InviteListRelationFilter.schema';
 import { InviteNullableScalarRelationFilterObjectSchema as InviteNullableScalarRelationFilterObjectSchema } from './InviteNullableScalarRelationFilter.schema';
@@ -28,6 +29,7 @@ const userwhereinputSchema = z.object({
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   accounts: z.lazy(() => AccountListRelationFilterObjectSchema).optional(),
   devices: z.lazy(() => DeviceListRelationFilterObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceListRelationFilterObjectSchema).optional(),
   sessions: z.lazy(() => SessionListRelationFilterObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteListRelationFilterObjectSchema).optional(),
   invite_used: z.union([z.lazy(() => InviteNullableScalarRelationFilterObjectSchema), z.lazy(() => InviteWhereInputObjectSchema)]).optional(),

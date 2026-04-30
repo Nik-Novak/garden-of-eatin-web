@@ -2,7 +2,8 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
-import { DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema as DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema } from './DeviceUpdateOneWithoutContact_requestsNestedInput.schema'
+import { DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema as DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema } from './DeviceUpdateOneWithoutContact_requestsNestedInput.schema';
+import { WebDeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema as WebDeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema } from './WebDeviceUpdateOneWithoutContact_requestsNestedInput.schema'
 
 const makeSchema = () => z.object({
   name: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -10,7 +11,8 @@ const makeSchema = () => z.object({
   email: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  device: z.lazy(() => DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema).optional()
+  device: z.lazy(() => DeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema).optional(),
+  web_device: z.lazy(() => WebDeviceUpdateOneWithoutContact_requestsNestedInputObjectSchema).optional()
 }).strict();
 export const ContactRequestUpdateInputObjectSchema: z.ZodType<Prisma.ContactRequestUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.ContactRequestUpdateInput>;
 export const ContactRequestUpdateInputObjectZodSchema = makeSchema();

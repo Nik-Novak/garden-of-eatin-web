@@ -9,6 +9,7 @@ export const UserResultSchema = z.object({
     settings: z.unknown().nullable(),
     accounts: z.array(z.unknown()),
     devices: z.array(z.unknown()),
+    web_devices: z.array(z.unknown()),
     sessions: z.array(z.unknown()),
     invites_sent: z.array(z.unknown()),
     invite_used: z.unknown().nullable(),

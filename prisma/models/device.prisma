@@ -33,6 +33,8 @@ model Device {
   id        String          @id @default(auto()) @map("_id") @db.ObjectId
   uuid                      String              @unique
 
+  web_devices               WebDevice[]
+
   metadata                  DeviceMetadata?
 
   settings                  DeviceSettings
@@ -45,10 +47,12 @@ model Device {
 
   bugs                      Bug[]
   contact_requests          ContactRequest[]
+  qr_scans                  QRScan[]
   reviews                   Review[]
 
   submitted_meals           Meal[]
   meal_occurrence_searches  MealOccurrenceSearch[]
+  scannable_documents       ScannableDocument[]
   
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt

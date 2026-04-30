@@ -10,6 +10,7 @@ model User {
   accounts          Account[]
 
   devices           Device[]
+  web_devices       WebDevice[]
   
   sessions          Session[]
   invites_sent      Invite[]  @relation(name: "invites_sent")

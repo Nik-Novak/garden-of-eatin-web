@@ -12,6 +12,7 @@ import { DeviceScalarFieldEnumSchema } from './enums/DeviceScalarFieldEnum.schem
 export const DeviceFindManySelectSchema: z.ZodType<Prisma.DeviceSelect> = z.object({
     id: z.boolean().optional(),
     uuid: z.boolean().optional(),
+    web_devices: z.boolean().optional(),
     metadata: z.boolean().optional(),
     settings: z.boolean().optional(),
     device_agreements: z.boolean().optional(),
@@ -20,9 +21,11 @@ export const DeviceFindManySelectSchema: z.ZodType<Prisma.DeviceSelect> = z.obje
     meal_interactions: z.boolean().optional(),
     bugs: z.boolean().optional(),
     contact_requests: z.boolean().optional(),
+    qr_scans: z.boolean().optional(),
     reviews: z.boolean().optional(),
     submitted_meals: z.boolean().optional(),
     meal_occurrence_searches: z.boolean().optional(),
+    scannable_documents: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional(),
     _count: z.boolean().optional()
@@ -31,6 +34,7 @@ export const DeviceFindManySelectSchema: z.ZodType<Prisma.DeviceSelect> = z.obje
 export const DeviceFindManySelectZodSchema = z.object({
     id: z.boolean().optional(),
     uuid: z.boolean().optional(),
+    web_devices: z.boolean().optional(),
     metadata: z.boolean().optional(),
     settings: z.boolean().optional(),
     device_agreements: z.boolean().optional(),
@@ -39,9 +43,11 @@ export const DeviceFindManySelectZodSchema = z.object({
     meal_interactions: z.boolean().optional(),
     bugs: z.boolean().optional(),
     contact_requests: z.boolean().optional(),
+    qr_scans: z.boolean().optional(),
     reviews: z.boolean().optional(),
     submitted_meals: z.boolean().optional(),
     meal_occurrence_searches: z.boolean().optional(),
+    scannable_documents: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional(),
     _count: z.boolean().optional()

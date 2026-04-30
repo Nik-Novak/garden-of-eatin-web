@@ -7,6 +7,7 @@ const makeSchema = () => z.object({
   name: z.string(),
   phone: z.string(),
   email: z.string(),
+  web_device_id: z.string().max(24).optional().nullable(),
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional()
 }).strict();

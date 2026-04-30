@@ -16,6 +16,7 @@ export const UserGroupByResultSchema = z.array(z.object({
     settings: z.number(),
     accounts: z.number(),
     devices: z.number(),
+    web_devices: z.number(),
     sessions: z.number(),
     invites_sent: z.number(),
     invite_used: z.number(),

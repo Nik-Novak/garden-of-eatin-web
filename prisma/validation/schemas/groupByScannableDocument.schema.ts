@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ScannableDocumentWhereInputObjectSchema as ScannableDocumentWhereInputObjectSchema } from './objects/ScannableDocumentWhereInput.schema';
+import { ScannableDocumentOrderByWithAggregationInputObjectSchema as ScannableDocumentOrderByWithAggregationInputObjectSchema } from './objects/ScannableDocumentOrderByWithAggregationInput.schema';
+import { ScannableDocumentScalarWhereWithAggregatesInputObjectSchema as ScannableDocumentScalarWhereWithAggregatesInputObjectSchema } from './objects/ScannableDocumentScalarWhereWithAggregatesInput.schema';
+import { ScannableDocumentScalarFieldEnumSchema } from './enums/ScannableDocumentScalarFieldEnum.schema';
+import { ScannableDocumentCountAggregateInputObjectSchema as ScannableDocumentCountAggregateInputObjectSchema } from './objects/ScannableDocumentCountAggregateInput.schema';
+import { ScannableDocumentMinAggregateInputObjectSchema as ScannableDocumentMinAggregateInputObjectSchema } from './objects/ScannableDocumentMinAggregateInput.schema';
+import { ScannableDocumentMaxAggregateInputObjectSchema as ScannableDocumentMaxAggregateInputObjectSchema } from './objects/ScannableDocumentMaxAggregateInput.schema';
+
+export const ScannableDocumentGroupBySchema: z.ZodType<Prisma.ScannableDocumentGroupByArgs> = z.object({ where: ScannableDocumentWhereInputObjectSchema.optional(), orderBy: z.union([ScannableDocumentOrderByWithAggregationInputObjectSchema, ScannableDocumentOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ScannableDocumentScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ScannableDocumentScalarFieldEnumSchema), _count: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional(), _min: ScannableDocumentMinAggregateInputObjectSchema.optional(), _max: ScannableDocumentMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ScannableDocumentGroupByArgs>;
+
+export const ScannableDocumentGroupByZodSchema = z.object({ where: ScannableDocumentWhereInputObjectSchema.optional(), orderBy: z.union([ScannableDocumentOrderByWithAggregationInputObjectSchema, ScannableDocumentOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ScannableDocumentScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ScannableDocumentScalarFieldEnumSchema), _count: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional(), _min: ScannableDocumentMinAggregateInputObjectSchema.optional(), _max: ScannableDocumentMaxAggregateInputObjectSchema.optional() }).strict();

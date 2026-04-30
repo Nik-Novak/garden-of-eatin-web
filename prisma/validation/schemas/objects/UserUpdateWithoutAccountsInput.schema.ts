@@ -6,6 +6,7 @@ import { DeviceSettingsNullableUpdateEnvelopeInputObjectSchema as DeviceSettings
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { DeviceUpdateManyWithoutUserNestedInputObjectSchema as DeviceUpdateManyWithoutUserNestedInputObjectSchema } from './DeviceUpdateManyWithoutUserNestedInput.schema';
+import { WebDeviceUpdateManyWithoutUserNestedInputObjectSchema as WebDeviceUpdateManyWithoutUserNestedInputObjectSchema } from './WebDeviceUpdateManyWithoutUserNestedInput.schema';
 import { SessionUpdateManyWithoutUserNestedInputObjectSchema as SessionUpdateManyWithoutUserNestedInputObjectSchema } from './SessionUpdateManyWithoutUserNestedInput.schema';
 import { InviteUpdateManyWithoutInviterNestedInputObjectSchema as InviteUpdateManyWithoutInviterNestedInputObjectSchema } from './InviteUpdateManyWithoutInviterNestedInput.schema';
 import { InviteUpdateOneWithoutUserNestedInputObjectSchema as InviteUpdateOneWithoutUserNestedInputObjectSchema } from './InviteUpdateOneWithoutUserNestedInput.schema';
@@ -20,6 +21,7 @@ const makeSchema = () => z.object({
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   devices: z.lazy(() => DeviceUpdateManyWithoutUserNestedInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteUpdateManyWithoutInviterNestedInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteUpdateOneWithoutUserNestedInputObjectSchema).optional(),

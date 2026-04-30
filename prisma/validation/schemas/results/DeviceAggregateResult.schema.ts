@@ -2,6 +2,7 @@ import * as z from 'zod';
 export const DeviceAggregateResultSchema = z.object({  _count: z.object({
     id: z.number(),
     uuid: z.number(),
+    web_devices: z.number(),
     metadata: z.number(),
     settings: z.number(),
     device_agreements: z.number(),
@@ -10,9 +11,11 @@ export const DeviceAggregateResultSchema = z.object({  _count: z.object({
     meal_interactions: z.number(),
     bugs: z.number(),
     contact_requests: z.number(),
+    qr_scans: z.number(),
     reviews: z.number(),
     submitted_meals: z.number(),
     meal_occurrence_searches: z.number(),
+    scannable_documents: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),

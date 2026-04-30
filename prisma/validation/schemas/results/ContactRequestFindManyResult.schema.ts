@@ -7,6 +7,8 @@ export const ContactRequestFindManyResultSchema = z.object({
   email: z.string(),
   device: z.unknown().optional(),
   device_id: z.string().optional(),
+  web_device: z.unknown().optional(),
+  web_device_id: z.string().optional(),
   created_at: z.date(),
   updated_at: z.date()
 })),

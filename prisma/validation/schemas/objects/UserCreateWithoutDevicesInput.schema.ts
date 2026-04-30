@@ -3,6 +3,7 @@ import type { Prisma } from '@prisma/client';
 import { DeviceSettingsNullableCreateEnvelopeInputObjectSchema as DeviceSettingsNullableCreateEnvelopeInputObjectSchema } from './DeviceSettingsNullableCreateEnvelopeInput.schema';
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { AccountCreateNestedManyWithoutUserInputObjectSchema as AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema';
+import { WebDeviceCreateNestedManyWithoutUserInputObjectSchema as WebDeviceCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceCreateNestedManyWithoutUserInput.schema';
 import { SessionCreateNestedManyWithoutUserInputObjectSchema as SessionCreateNestedManyWithoutUserInputObjectSchema } from './SessionCreateNestedManyWithoutUserInput.schema';
 import { InviteCreateNestedManyWithoutInviterInputObjectSchema as InviteCreateNestedManyWithoutInviterInputObjectSchema } from './InviteCreateNestedManyWithoutInviterInput.schema';
 import { InviteCreateNestedOneWithoutUserInputObjectSchema as InviteCreateNestedOneWithoutUserInputObjectSchema } from './InviteCreateNestedOneWithoutUserInput.schema';
@@ -18,6 +19,7 @@ const makeSchema = () => z.object({
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional(),
   accounts: z.lazy(() => AccountCreateNestedManyWithoutUserInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceCreateNestedManyWithoutUserInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionCreateNestedManyWithoutUserInputObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteCreateNestedManyWithoutInviterInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteCreateNestedOneWithoutUserInputObjectSchema).optional(),

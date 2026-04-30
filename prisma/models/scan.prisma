@@ -1,0 +1,104 @@
+enum QRActionType {
+  URL_REDIRECT    // Standard website
+  APP_DEEP_LINK   // Opens specific app screens
+  FILE_DOWNLOAD   // PDF, Image, etc.
+  TEXT_DISPLAY    // Shows a message/coupon code on a landing page
+  WIFI_CONNECT    // Generates a WiFi config on the fly
+}
+
+type QRAction {
+  type      QRActionType
+  label     String?
+  // The magic field: can be a string OR a complex object
+  payload   Json       
+}
+
+enum ScannableDocumentType {
+  Flyer
+  Brochure
+  Menu
+  QRCode
+}
+
+type FlyerPrintSettings {
+  dark_mode         Boolean
+  max_meal_radius_mi   Float
+  max_meals_per_day Int
+}
+type BrochurePrintSettings {
+  max_meal_radius_mi   Float
+  max_meals_per_day Int
+}
+type MenuPrintSettings {
+  dark_mode   Boolean 
+}
+type QRCodePrintSettings {
+  dark_mode   Boolean
+}
+
+type PrintSettings {
+  Flyer       FlyerPrintSettings?
+  Brochure    BrochurePrintSettings?
+  Menu        MenuPrintSettings?
+  QRCode      QRCodePrintSettings?
+}
+
+model ScannableDocument {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  
+  type        ScannableDocumentType
+  name        String //e.g. Front Lobby
+
+  place       Place
+  location    Point
+  timezone    String   // "America/Los_Angeles"
+
+  print_settings  PrintSettings
+
+  qr_codes    QRCode[] //all qr codes embedded in the document
+
+  file_url    String? //optional in case storage bin fills up
+
+  submitter     Device    @relation(fields: [submitter_id], references: [id])
+  submitter_id  String    @db.ObjectId
+
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  // @@unique([name, place.address])
+  @@map("scannable_documents")
+}
+
+model QRCode {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  name                    String
+
+  action                  QRAction
+
+  scannable_document      ScannableDocument   @relation(fields: [scannable_document_id], references: [id])
+  scannable_document_id   String              @db.ObjectId
+  qr_scans                QRScan[]
+
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  @@map("qr_codes")
+}
+
+model QRScan {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  qr_code       QRCode     @relation(fields: [qr_code_id], references: [id])
+  qr_code_id    String     @db.ObjectId
+
+  qr_action     QRAction   //snapshot of qr action when scanned
+
+  web_device    WebDevice?    @relation(fields: [web_device_id], references: [id])  
+  web_device_id String?       @db.ObjectId
+  device        Device?       @relation(fields: [device_id], references: [id])
+  device_id     String?       @db.ObjectId
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  @@index([qr_code_id])
+  @@map("qr_scans")
+}

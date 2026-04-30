@@ -4,6 +4,7 @@ import { DeviceSettingsNullableCreateEnvelopeInputObjectSchema as DeviceSettings
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema as AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './AccountUncheckedCreateNestedManyWithoutUserInput.schema';
 import { DeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema as DeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './DeviceUncheckedCreateNestedManyWithoutUserInput.schema';
+import { WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema as WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceUncheckedCreateNestedManyWithoutUserInput.schema';
 import { SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema as SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './SessionUncheckedCreateNestedManyWithoutUserInput.schema';
 import { InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema as InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema } from './InviteUncheckedCreateNestedManyWithoutInviterInput.schema';
 import { OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema as OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './OpportunityApplicationUncheckedCreateNestedManyWithoutUserInput.schema'
@@ -19,6 +20,7 @@ const makeSchema = () => z.object({
   updated_at: z.coerce.date().optional(),
   accounts: z.lazy(() => AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema).optional(),
   opportunity_applications: z.lazy(() => OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional()

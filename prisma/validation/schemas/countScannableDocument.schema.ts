@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ScannableDocumentOrderByWithRelationInputObjectSchema as ScannableDocumentOrderByWithRelationInputObjectSchema } from './objects/ScannableDocumentOrderByWithRelationInput.schema';
+import { ScannableDocumentWhereInputObjectSchema as ScannableDocumentWhereInputObjectSchema } from './objects/ScannableDocumentWhereInput.schema';
+import { ScannableDocumentWhereUniqueInputObjectSchema as ScannableDocumentWhereUniqueInputObjectSchema } from './objects/ScannableDocumentWhereUniqueInput.schema';
+import { ScannableDocumentCountAggregateInputObjectSchema as ScannableDocumentCountAggregateInputObjectSchema } from './objects/ScannableDocumentCountAggregateInput.schema';
+
+export const ScannableDocumentCountSchema: z.ZodType<Prisma.ScannableDocumentCountArgs> = z.object({ orderBy: z.union([ScannableDocumentOrderByWithRelationInputObjectSchema, ScannableDocumentOrderByWithRelationInputObjectSchema.array()]).optional(), where: ScannableDocumentWhereInputObjectSchema.optional(), cursor: ScannableDocumentWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.ScannableDocumentCountArgs>;
+
+export const ScannableDocumentCountZodSchema = z.object({ orderBy: z.union([ScannableDocumentOrderByWithRelationInputObjectSchema, ScannableDocumentOrderByWithRelationInputObjectSchema.array()]).optional(), where: ScannableDocumentWhereInputObjectSchema.optional(), cursor: ScannableDocumentWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional() }).strict();

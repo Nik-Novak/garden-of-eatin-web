@@ -6,6 +6,8 @@ export const ContactRequestAggregateResultSchema = z.object({  _count: z.object(
     email: z.number(),
     device: z.number(),
     device_id: z.number(),
+    web_device: z.number(),
+    web_device_id: z.number(),
     created_at: z.number(),
     updated_at: z.number()
   }).optional(),
@@ -15,6 +17,7 @@ export const ContactRequestAggregateResultSchema = z.object({  _count: z.object(
     phone: z.string().nullable(),
     email: z.string().nullable(),
     device_id: z.string().nullable(),
+    web_device_id: z.string().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional(),
@@ -24,6 +27,7 @@ export const ContactRequestAggregateResultSchema = z.object({  _count: z.object(
     phone: z.string().nullable(),
     email: z.string().nullable(),
     device_id: z.string().nullable(),
+    web_device_id: z.string().nullable(),
     created_at: z.date().nullable(),
     updated_at: z.date().nullable()
   }).nullable().optional()});

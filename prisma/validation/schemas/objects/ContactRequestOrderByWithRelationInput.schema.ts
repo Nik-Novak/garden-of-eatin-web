@@ -1,7 +1,8 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
-import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema'
+import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema';
+import { WebDeviceOrderByWithRelationInputObjectSchema as WebDeviceOrderByWithRelationInputObjectSchema } from './WebDeviceOrderByWithRelationInput.schema'
 
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
@@ -9,9 +10,11 @@ const makeSchema = () => z.object({
   phone: SortOrderSchema.optional(),
   email: SortOrderSchema.optional(),
   device_id: SortOrderSchema.optional(),
+  web_device_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional(),
-  device: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional()
+  device: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional(),
+  web_device: z.lazy(() => WebDeviceOrderByWithRelationInputObjectSchema).optional()
 }).strict();
 export const ContactRequestOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.ContactRequestOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.ContactRequestOrderByWithRelationInput>;
 export const ContactRequestOrderByWithRelationInputObjectZodSchema = makeSchema();

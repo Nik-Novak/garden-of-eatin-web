@@ -7,6 +7,7 @@ import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjec
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { AccountUncheckedUpdateManyWithoutUserNestedInputObjectSchema as AccountUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './AccountUncheckedUpdateManyWithoutUserNestedInput.schema';
 import { DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './DeviceUncheckedUpdateManyWithoutUserNestedInput.schema';
+import { WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './WebDeviceUncheckedUpdateManyWithoutUserNestedInput.schema';
 import { InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema as InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema } from './InviteUncheckedUpdateManyWithoutInviterNestedInput.schema';
 import { InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema as InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema } from './InviteUncheckedUpdateOneWithoutUserNestedInput.schema';
 import { OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema as OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInput.schema'
@@ -21,6 +22,7 @@ const makeSchema = () => z.object({
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   accounts: z.lazy(() => AccountUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
   invites_sent: z.lazy(() => InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema).optional(),
   opportunity_applications: z.lazy(() => OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional()

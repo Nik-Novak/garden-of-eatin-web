@@ -106,6 +106,7 @@ enum SearchType {
   Button
   Explore
   Refresh
+  ScannableDocument
 }
 model MealOccurrenceSearch {
   id                String      @id @default(auto()) @map("_id") @db.ObjectId

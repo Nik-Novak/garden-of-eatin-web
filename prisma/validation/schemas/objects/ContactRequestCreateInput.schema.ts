@@ -1,6 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
-import { DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema as DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema } from './DeviceCreateNestedOneWithoutContact_requestsInput.schema'
+import { DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema as DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema } from './DeviceCreateNestedOneWithoutContact_requestsInput.schema';
+import { WebDeviceCreateNestedOneWithoutContact_requestsInputObjectSchema as WebDeviceCreateNestedOneWithoutContact_requestsInputObjectSchema } from './WebDeviceCreateNestedOneWithoutContact_requestsInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -8,7 +9,8 @@ const makeSchema = () => z.object({
   phone: z.string(),
   email: z.string(),
   created_at: z.coerce.date().optional(),
-  device: z.lazy(() => DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema).optional()
+  device: z.lazy(() => DeviceCreateNestedOneWithoutContact_requestsInputObjectSchema).optional(),
+  web_device: z.lazy(() => WebDeviceCreateNestedOneWithoutContact_requestsInputObjectSchema).optional()
 }).strict();
 export const ContactRequestCreateInputObjectSchema: z.ZodType<Prisma.ContactRequestCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.ContactRequestCreateInput>;
 export const ContactRequestCreateInputObjectZodSchema = makeSchema();

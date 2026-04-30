@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { WebDeviceWhereInputObjectSchema as WebDeviceWhereInputObjectSchema } from './objects/WebDeviceWhereInput.schema';
+import { WebDeviceOrderByWithAggregationInputObjectSchema as WebDeviceOrderByWithAggregationInputObjectSchema } from './objects/WebDeviceOrderByWithAggregationInput.schema';
+import { WebDeviceScalarWhereWithAggregatesInputObjectSchema as WebDeviceScalarWhereWithAggregatesInputObjectSchema } from './objects/WebDeviceScalarWhereWithAggregatesInput.schema';
+import { WebDeviceScalarFieldEnumSchema } from './enums/WebDeviceScalarFieldEnum.schema';
+import { WebDeviceCountAggregateInputObjectSchema as WebDeviceCountAggregateInputObjectSchema } from './objects/WebDeviceCountAggregateInput.schema';
+import { WebDeviceMinAggregateInputObjectSchema as WebDeviceMinAggregateInputObjectSchema } from './objects/WebDeviceMinAggregateInput.schema';
+import { WebDeviceMaxAggregateInputObjectSchema as WebDeviceMaxAggregateInputObjectSchema } from './objects/WebDeviceMaxAggregateInput.schema';
+
+export const WebDeviceGroupBySchema: z.ZodType<Prisma.WebDeviceGroupByArgs> = z.object({ where: WebDeviceWhereInputObjectSchema.optional(), orderBy: z.union([WebDeviceOrderByWithAggregationInputObjectSchema, WebDeviceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: WebDeviceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(WebDeviceScalarFieldEnumSchema), _count: z.union([ z.literal(true), WebDeviceCountAggregateInputObjectSchema ]).optional(), _min: WebDeviceMinAggregateInputObjectSchema.optional(), _max: WebDeviceMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.WebDeviceGroupByArgs>;
+
+export const WebDeviceGroupByZodSchema = z.object({ where: WebDeviceWhereInputObjectSchema.optional(), orderBy: z.union([WebDeviceOrderByWithAggregationInputObjectSchema, WebDeviceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: WebDeviceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(WebDeviceScalarFieldEnumSchema), _count: z.union([ z.literal(true), WebDeviceCountAggregateInputObjectSchema ]).optional(), _min: WebDeviceMinAggregateInputObjectSchema.optional(), _max: WebDeviceMaxAggregateInputObjectSchema.optional() }).strict();

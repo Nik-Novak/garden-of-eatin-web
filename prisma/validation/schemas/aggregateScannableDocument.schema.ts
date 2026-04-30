@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ScannableDocumentOrderByWithRelationInputObjectSchema as ScannableDocumentOrderByWithRelationInputObjectSchema } from './objects/ScannableDocumentOrderByWithRelationInput.schema';
+import { ScannableDocumentWhereInputObjectSchema as ScannableDocumentWhereInputObjectSchema } from './objects/ScannableDocumentWhereInput.schema';
+import { ScannableDocumentWhereUniqueInputObjectSchema as ScannableDocumentWhereUniqueInputObjectSchema } from './objects/ScannableDocumentWhereUniqueInput.schema';
+import { ScannableDocumentCountAggregateInputObjectSchema as ScannableDocumentCountAggregateInputObjectSchema } from './objects/ScannableDocumentCountAggregateInput.schema';
+import { ScannableDocumentMinAggregateInputObjectSchema as ScannableDocumentMinAggregateInputObjectSchema } from './objects/ScannableDocumentMinAggregateInput.schema';
+import { ScannableDocumentMaxAggregateInputObjectSchema as ScannableDocumentMaxAggregateInputObjectSchema } from './objects/ScannableDocumentMaxAggregateInput.schema';
+
+export const ScannableDocumentAggregateSchema: z.ZodType<Prisma.ScannableDocumentAggregateArgs> = z.object({ orderBy: z.union([ScannableDocumentOrderByWithRelationInputObjectSchema, ScannableDocumentOrderByWithRelationInputObjectSchema.array()]).optional(), where: ScannableDocumentWhereInputObjectSchema.optional(), cursor: ScannableDocumentWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional(), _min: ScannableDocumentMinAggregateInputObjectSchema.optional(), _max: ScannableDocumentMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ScannableDocumentAggregateArgs>;
+
+export const ScannableDocumentAggregateZodSchema = z.object({ orderBy: z.union([ScannableDocumentOrderByWithRelationInputObjectSchema, ScannableDocumentOrderByWithRelationInputObjectSchema.array()]).optional(), where: ScannableDocumentWhereInputObjectSchema.optional(), cursor: ScannableDocumentWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ScannableDocumentCountAggregateInputObjectSchema ]).optional(), _min: ScannableDocumentMinAggregateInputObjectSchema.optional(), _max: ScannableDocumentMaxAggregateInputObjectSchema.optional() }).strict();

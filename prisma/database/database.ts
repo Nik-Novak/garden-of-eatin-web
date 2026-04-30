@@ -205,28 +205,55 @@ const prismaClientSingleton= ()=>{
           return polishedData;
         },
         async validate<T>(
-        this: T,
-        data: unknown
-      ): Promise<Prisma.Args<T, 'create'>['data']> {
-      // ): asserts data is Prisma.Args<T, 'create'>['data'] {
-        // throw "Reimport Zod schemas at top of file. Commented out to improve performance.";
-        const ZodSchemas = await import('../validation/schemas');
-        const modelName = Prisma.getExtensionContext(this).$name;
-        // const schemaKey = `${modelName}CreateSchema` as keyof typeof ZodSchemas;
-        const schemaKey = `${modelName}CreateOneSchema` as keyof typeof ZodSchemas;
-        const schema = (ZodSchemas as Record<string, ZodTypeAny>)[schemaKey];
-        console.log('SCHEMA', schema);
+          this: T,
+          data: unknown
+        ): Promise<Prisma.Args<T, 'create'>['data']> {
+        // ): asserts data is Prisma.Args<T, 'create'>['data'] {
+          // throw "Reimport Zod schemas at top of file. Commented out to improve performance.";
+          const ZodSchemas = await import('../validation/schemas');
+          const modelName = Prisma.getExtensionContext(this).$name;
+          // const schemaKey = `${modelName}CreateSchema` as keyof typeof ZodSchemas;
+          const schemaKey = `${modelName}CreateOneSchema` as keyof typeof ZodSchemas;
+          const schema = (ZodSchemas as Record<string, ZodTypeAny>)[schemaKey];
+          console.log('SCHEMA', schema);
 
-        if (!schema || typeof schema !== 'object') {
-          throw new Error(`Zod schema not found for model: ${modelName}`);
+          if (!schema || typeof schema !== 'object') {
+            throw new Error(`Zod schema not found for model: ${modelName}`);
+          }
+          
+          const parsed = (schema as z.ZodSchema).safeParse({data});
+          if (!parsed.success) {
+            throw parsed.error;
+          }
+          return (parsed.data as { data: Prisma.Args<T, 'create'>['data'] }).data;
+        },
+        async validateMany<T>(
+          this: T,
+          data: unknown
+        ): Promise<Prisma.Args<T, 'createMany'>['data']> {
+          const ZodSchemas = await import('../validation/schemas');
+          const modelName = Prisma.getExtensionContext(this).$name;
+
+          // We target the "CreateMany" schema which expects flat scalar IDs
+          const schemaKey = `${modelName}CreateManySchema` as keyof typeof ZodSchemas;
+          const schema = (ZodSchemas as Record<string, ZodTypeAny>)[schemaKey];
+
+          if (!schema || typeof schema !== 'object') {
+            throw new Error(`Batch Zod schema not found for model: ${modelName}`);
+          }
+
+          // Validating the entire array
+          const parsed = (schema as z.ZodSchema).safeParse(data);
+          
+          if (!parsed.success) {
+            throw parsed.error;
+          }
+
+          // Return the validated array. 
+          // Note: If your Zod schema wraps the array in a { data: [] } object, 
+          // use: return (parsed.data as any).data;
+          return parsed.data as Prisma.Args<T, 'createMany'>['data'];
         }
-        
-        const parsed = (schema as z.ZodSchema).safeParse({data});
-        if (!parsed.success) {
-          throw parsed.error;
-        }
-        return (parsed.data as { data: Prisma.Args<T, 'create'>['data'] }).data;
-      }
       },
     },
   })

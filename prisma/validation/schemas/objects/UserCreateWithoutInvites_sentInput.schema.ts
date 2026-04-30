@@ -4,6 +4,7 @@ import { DeviceSettingsNullableCreateEnvelopeInputObjectSchema as DeviceSettings
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { AccountCreateNestedManyWithoutUserInputObjectSchema as AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema';
 import { DeviceCreateNestedManyWithoutUserInputObjectSchema as DeviceCreateNestedManyWithoutUserInputObjectSchema } from './DeviceCreateNestedManyWithoutUserInput.schema';
+import { WebDeviceCreateNestedManyWithoutUserInputObjectSchema as WebDeviceCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceCreateNestedManyWithoutUserInput.schema';
 import { SessionCreateNestedManyWithoutUserInputObjectSchema as SessionCreateNestedManyWithoutUserInputObjectSchema } from './SessionCreateNestedManyWithoutUserInput.schema';
 import { InviteCreateNestedOneWithoutUserInputObjectSchema as InviteCreateNestedOneWithoutUserInputObjectSchema } from './InviteCreateNestedOneWithoutUserInput.schema';
 import { OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema as OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema } from './OpportunityApplicationCreateNestedManyWithoutUserInput.schema'
@@ -19,6 +20,7 @@ const makeSchema = () => z.object({
   updated_at: z.coerce.date().optional(),
   accounts: z.lazy(() => AccountCreateNestedManyWithoutUserInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceCreateNestedManyWithoutUserInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceCreateNestedManyWithoutUserInputObjectSchema).optional(),
   sessions: z.lazy(() => SessionCreateNestedManyWithoutUserInputObjectSchema).optional(),
   invite_used: z.lazy(() => InviteCreateNestedOneWithoutUserInputObjectSchema).optional(),
   opportunity_applications: z.lazy(() => OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema).optional()

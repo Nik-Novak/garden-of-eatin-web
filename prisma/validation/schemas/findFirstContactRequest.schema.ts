@@ -16,6 +16,8 @@ export const ContactRequestFindFirstSelectSchema: z.ZodType<Prisma.ContactReques
     email: z.boolean().optional(),
     device: z.boolean().optional(),
     device_id: z.boolean().optional(),
+    web_device: z.boolean().optional(),
+    web_device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.ContactRequestSelect>;
@@ -27,6 +29,8 @@ export const ContactRequestFindFirstSelectZodSchema = z.object({
     email: z.boolean().optional(),
     device: z.boolean().optional(),
     device_id: z.boolean().optional(),
+    web_device: z.boolean().optional(),
+    web_device_id: z.boolean().optional(),
     created_at: z.boolean().optional(),
     updated_at: z.boolean().optional()
   }).strict();

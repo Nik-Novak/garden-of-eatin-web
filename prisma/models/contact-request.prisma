@@ -7,8 +7,10 @@ model ContactRequest {
 
   device      Device?     @relation(fields: [device_id], references: [id])
   device_id   String?     @db.ObjectId
+  web_device  WebDevice?  @relation(fields: [web_device_id], references: [id])
+  web_device_id   String?     @db.ObjectId
 
   created_at  DateTime    @default(now())
   updated_at  DateTime    @updatedAt
-  @@map("contactrequests")
+  @@map("contact_requests")
 }

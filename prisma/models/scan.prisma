@@ -24,6 +24,7 @@ type PrintSettings {
   dark_mode             Boolean?
   max_meal_radius_mi    Float?
   max_meals_per_day     Int?
+  show_duplicate_days   Boolean?
 }
 
 model ScannableDocument {

@@ -24,6 +24,7 @@ export { OpportunityApplicationModelSchema } from './OpportunityApplication.pure
 export { PostModelSchema } from './Post.pure';
 export { ReviewModelSchema } from './Review.pure';
 export { ScannableDocumentModelSchema } from './ScannableDocument.pure';
+export { ScannableDocumentMealHitModelSchema } from './ScannableDocumentMealHit.pure';
 export { QRCodeModelSchema } from './QRCode.pure';
 export { QRScanModelSchema } from './QRScan.pure';
 export { PlatformUsageStatsModelSchema } from './PlatformUsageStats.pure';

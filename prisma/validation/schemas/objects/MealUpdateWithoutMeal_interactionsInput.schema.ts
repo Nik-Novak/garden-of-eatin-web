@@ -21,6 +21,7 @@ import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOp
 import { ReviewUpdateManyWithoutMealNestedInputObjectSchema as ReviewUpdateManyWithoutMealNestedInputObjectSchema } from './ReviewUpdateManyWithoutMealNestedInput.schema';
 import { MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema as MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema } from './MealOccurrenceUpdateManyWithoutMealNestedInput.schema';
 import { MealSearchHitUpdateManyWithoutMealNestedInputObjectSchema as MealSearchHitUpdateManyWithoutMealNestedInputObjectSchema } from './MealSearchHitUpdateManyWithoutMealNestedInput.schema';
+import { ScannableDocumentMealHitUpdateManyWithoutMealNestedInputObjectSchema as ScannableDocumentMealHitUpdateManyWithoutMealNestedInputObjectSchema } from './ScannableDocumentMealHitUpdateManyWithoutMealNestedInput.schema';
 import { DeviceUpdateOneWithoutSubmitted_mealsNestedInputObjectSchema as DeviceUpdateOneWithoutSubmitted_mealsNestedInputObjectSchema } from './DeviceUpdateOneWithoutSubmitted_mealsNestedInput.schema'
 
 const makeSchema = () => z.object({
@@ -41,6 +42,7 @@ const makeSchema = () => z.object({
   reviews: z.lazy(() => ReviewUpdateManyWithoutMealNestedInputObjectSchema).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceUpdateManyWithoutMealNestedInputObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitUpdateManyWithoutMealNestedInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitUpdateManyWithoutMealNestedInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceUpdateOneWithoutSubmitted_mealsNestedInputObjectSchema).optional()
 }).strict();
 export const MealUpdateWithoutMeal_interactionsInputObjectSchema: z.ZodType<Prisma.MealUpdateWithoutMeal_interactionsInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUpdateWithoutMeal_interactionsInput>;

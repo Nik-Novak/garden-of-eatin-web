@@ -5,6 +5,7 @@ import { PlaceOrderByInputObjectSchema as PlaceOrderByInputObjectSchema } from '
 import { PointOrderByInputObjectSchema as PointOrderByInputObjectSchema } from './PointOrderByInput.schema';
 import { PrintSettingsOrderByInputObjectSchema as PrintSettingsOrderByInputObjectSchema } from './PrintSettingsOrderByInput.schema';
 import { QRCodeOrderByRelationAggregateInputObjectSchema as QRCodeOrderByRelationAggregateInputObjectSchema } from './QRCodeOrderByRelationAggregateInput.schema';
+import { ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema as ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema } from './ScannableDocumentMealHitOrderByRelationAggregateInput.schema';
 import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema'
 
 const makeSchema = () => z.object({
@@ -20,6 +21,7 @@ const makeSchema = () => z.object({
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional(),
   qr_codes: z.lazy(() => QRCodeOrderByRelationAggregateInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional()
 }).strict();
 export const ScannableDocumentOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.ScannableDocumentOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.ScannableDocumentOrderByWithRelationInput>;

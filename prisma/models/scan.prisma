@@ -20,27 +20,10 @@ enum ScannableDocumentType {
   QRCode
 }
 
-type FlyerPrintSettings {
-  dark_mode         Boolean
-  max_meal_radius_mi   Float
-  max_meals_per_day Int
-}
-type BrochurePrintSettings {
-  max_meal_radius_mi   Float
-  max_meals_per_day Int
-}
-type MenuPrintSettings {
-  dark_mode   Boolean 
-}
-type QRCodePrintSettings {
-  dark_mode   Boolean
-}
-
 type PrintSettings {
-  Flyer       FlyerPrintSettings?
-  Brochure    BrochurePrintSettings?
-  Menu        MenuPrintSettings?
-  QRCode      QRCodePrintSettings?
+  dark_mode             Boolean?
+  max_meal_radius_mi    Float?
+  max_meals_per_day     Int?
 }
 
 model ScannableDocument {
@@ -59,6 +42,8 @@ model ScannableDocument {
 
   file_url    String? //optional in case storage bin fills up
 
+  scannable_document_meal_hits  ScannableDocumentMealHit[]
+
   submitter     Device    @relation(fields: [submitter_id], references: [id])
   submitter_id  String    @db.ObjectId
 
@@ -66,6 +51,22 @@ model ScannableDocument {
   updated_at  DateTime    @updatedAt
   // @@unique([name, place.address])
   @@map("scannable_documents")
+}
+
+model ScannableDocumentMealHit {
+  id                String               @id @default(auto()) @map("_id") @db.ObjectId
+  
+  scannable_document            ScannableDocument     @relation(fields: [scannable_document_id], references: [id], onDelete: Cascade)
+  scannable_document_id         String                @db.ObjectId
+
+  meal              Meal                 @relation(fields: [meal_id], references: [id])
+  meal_id           String               @db.ObjectId
+
+  created_at        DateTime             @default(now())
+
+  @@index([scannable_document_id])
+  @@index([meal_id])
+  @@map("scannable_document_meal_hits")
 }
 
 model QRCode {

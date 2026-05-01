@@ -24,6 +24,7 @@ export const MealGroupByResultSchema = z.array(z.object({
     meal_occurrences: z.number(),
     meal_search_hits: z.number(),
     meal_interactions: z.number(),
+    scannable_document_meal_hits: z.number(),
     approved: z.number(),
     rejection_reason: z.number(),
     submitter: z.number(),

@@ -10,7 +10,8 @@ import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './
 import { PrintSettingsUpdateEnvelopeInputObjectSchema as PrintSettingsUpdateEnvelopeInputObjectSchema } from './PrintSettingsUpdateEnvelopeInput.schema';
 import { PrintSettingsCreateInputObjectSchema as PrintSettingsCreateInputObjectSchema } from './PrintSettingsCreateInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
-import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema'
+import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
+import { ScannableDocumentMealHitUncheckedUpdateManyWithoutScannable_documentNestedInputObjectSchema as ScannableDocumentMealHitUncheckedUpdateManyWithoutScannable_documentNestedInputObjectSchema } from './ScannableDocumentMealHitUncheckedUpdateManyWithoutScannable_documentNestedInput.schema'
 
 const makeSchema = () => z.object({
   type: z.union([ScannableDocumentTypeSchema, z.lazy(() => EnumScannableDocumentTypeFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -22,7 +23,8 @@ const makeSchema = () => z.object({
   file_url: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   submitter_id: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
   created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional()
+  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitUncheckedUpdateManyWithoutScannable_documentNestedInputObjectSchema).optional()
 }).strict();
 export const ScannableDocumentUncheckedUpdateWithoutQr_codesInputObjectSchema: z.ZodType<Prisma.ScannableDocumentUncheckedUpdateWithoutQr_codesInput> = makeSchema() as unknown as z.ZodType<Prisma.ScannableDocumentUncheckedUpdateWithoutQr_codesInput>;
 export const ScannableDocumentUncheckedUpdateWithoutQr_codesInputObjectZodSchema = makeSchema();

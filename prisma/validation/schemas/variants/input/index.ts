@@ -24,6 +24,7 @@ export { OpportunityApplicationInputSchema } from './OpportunityApplication.inpu
 export { PostInputSchema } from './Post.input';
 export { ReviewInputSchema } from './Review.input';
 export { ScannableDocumentInputSchema } from './ScannableDocument.input';
+export { ScannableDocumentMealHitInputSchema } from './ScannableDocumentMealHit.input';
 export { QRCodeInputSchema } from './QRCode.input';
 export { QRScanInputSchema } from './QRScan.input';
 export { PlatformUsageStatsInputSchema } from './PlatformUsageStats.input';

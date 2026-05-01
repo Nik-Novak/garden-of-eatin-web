@@ -19,6 +19,7 @@ export const MealModelSchema = z.object({
     meal_occurrences: z.array(z.unknown()),
     meal_search_hits: z.array(z.unknown()),
     meal_interactions: z.array(z.unknown()),
+    scannable_document_meal_hits: z.array(z.unknown()),
     approved: z.boolean().nullable(),
     rejection_reason: z.string().nullable(),
     submitter: z.unknown().nullable(),

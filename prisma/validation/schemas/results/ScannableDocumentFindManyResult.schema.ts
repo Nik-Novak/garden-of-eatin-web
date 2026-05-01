@@ -10,6 +10,7 @@ export const ScannableDocumentFindManyResultSchema = z.object({
   print_settings: z.unknown(),
   qr_codes: z.array(z.unknown()),
   file_url: z.string().optional(),
+  scannable_document_meal_hits: z.array(z.unknown()),
   submitter: z.unknown(),
   submitter_id: z.string(),
   created_at: z.date(),

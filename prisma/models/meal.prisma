@@ -66,6 +66,7 @@ model Meal {
 
   meal_search_hits            MealSearchHit[] 
   meal_interactions           MealInteraction[]
+  scannable_document_meal_hits  ScannableDocumentMealHit[]
 
   approved                    Boolean?
   rejection_reason            String?
@@ -106,7 +107,7 @@ enum SearchType {
   Button
   Explore
   Refresh
-  ScannableDocument
+  Preview
 }
 model MealOccurrenceSearch {
   id                String      @id @default(auto()) @map("_id") @db.ObjectId

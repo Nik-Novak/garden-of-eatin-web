@@ -1,4 +1,5 @@
-import { DeviceMetadata } from "@/generated/prisma/client";
+
+import { DeviceMetadata } from '@prisma/client';
 import { version, build } from '../../../package.json';
 
 export const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;

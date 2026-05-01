@@ -139,34 +139,22 @@ export async function GET(request: NextRequest) {
       o => database.mealOccurrence.convertRawJson(o) as GeoMealOccurrence
     );
 
-    // // ### QUERY Meal.interactionStats ###
-    // for (let mealOcc of formattedResults){
-    //   const interactionStats = await database.mealInteraction.groupBy({
-    //     by: ['interaction_type'],
-    //     where: {
-    //       meal_id:mealOcc.id
-    //     },
-    //     _count: {
-    //       _all: true
-    //     }
-    //   });
-    //   mealOcc.meal.interactionStats = interactionStats;
-    // }
-
-    let mealOccurrenceSearch = await database.mealOccurrenceSearch.create({data:{
-      search_type,
-      start: start_date,
-      end: end_date,
-      radius_mi,
-      user_location: {type:'Point', coordinates:[user_lng, user_lat]},
-      device_id
-    }})
-
-    let mealHits = formattedResults.length ? 
-      await database.mealSearchHit.createMany({
-        data:formattedResults.map(mo=>({meal_id: mo.meal_id, search_id: mealOccurrenceSearch.id}))
-      },)
-      : [];
+    if(search_type !== 'Preview'){ //use cases that preview data don't count
+      let mealOccurrenceSearch = await database.mealOccurrenceSearch.create({data:{
+        search_type,
+        start: start_date,
+        end: end_date,
+        radius_mi,
+        user_location: {type:'Point', coordinates:[user_lng, user_lat]},
+        device_id
+      }})
+  
+      let mealHits = formattedResults.length ? 
+        await database.mealSearchHit.createMany({
+          data:formattedResults.map(mo=>({meal_id: mo.meal_id, search_id: mealOccurrenceSearch.id}))
+        },)
+        : [];
+    }
 
     return NextResponse.json(formattedResults);
     

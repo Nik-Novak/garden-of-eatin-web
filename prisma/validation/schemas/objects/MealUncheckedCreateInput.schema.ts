@@ -15,7 +15,8 @@ import { FeatureSchema } from '../enums/Feature.schema';
 import { ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema as ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './ReviewUncheckedCreateNestedManyWithoutMealInput.schema';
 import { MealOccurrenceUncheckedCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceUncheckedCreateNestedManyWithoutMealInput.schema';
 import { MealSearchHitUncheckedCreateNestedManyWithoutMealInputObjectSchema as MealSearchHitUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './MealSearchHitUncheckedCreateNestedManyWithoutMealInput.schema';
-import { MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema as MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './MealInteractionUncheckedCreateNestedManyWithoutMealInput.schema'
+import { MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema as MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './MealInteractionUncheckedCreateNestedManyWithoutMealInput.schema';
+import { ScannableDocumentMealHitUncheckedCreateNestedManyWithoutMealInputObjectSchema as ScannableDocumentMealHitUncheckedCreateNestedManyWithoutMealInputObjectSchema } from './ScannableDocumentMealHitUncheckedCreateNestedManyWithoutMealInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
@@ -36,7 +37,8 @@ const makeSchema = () => z.object({
   reviews: z.lazy(() => ReviewUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional(),
-  meal_interactions: z.lazy(() => MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional()
+  meal_interactions: z.lazy(() => MealInteractionUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitUncheckedCreateNestedManyWithoutMealInputObjectSchema).optional()
 }).strict();
 export const MealUncheckedCreateInputObjectSchema: z.ZodType<Prisma.MealUncheckedCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUncheckedCreateInput>;
 export const MealUncheckedCreateInputObjectZodSchema = makeSchema();

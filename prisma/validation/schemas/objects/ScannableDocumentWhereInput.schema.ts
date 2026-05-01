@@ -12,6 +12,7 @@ import { PrintSettingsObjectEqualityInputObjectSchema as PrintSettingsObjectEqua
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { QRCodeListRelationFilterObjectSchema as QRCodeListRelationFilterObjectSchema } from './QRCodeListRelationFilter.schema';
+import { ScannableDocumentMealHitListRelationFilterObjectSchema as ScannableDocumentMealHitListRelationFilterObjectSchema } from './ScannableDocumentMealHitListRelationFilter.schema';
 import { DeviceScalarRelationFilterObjectSchema as DeviceScalarRelationFilterObjectSchema } from './DeviceScalarRelationFilter.schema';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema'
 
@@ -31,6 +32,7 @@ const scannabledocumentwhereinputSchema = z.object({
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   qr_codes: z.lazy(() => QRCodeListRelationFilterObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitListRelationFilterObjectSchema).optional(),
   submitter: z.union([z.lazy(() => DeviceScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional()
 }).strict();
 export const ScannableDocumentWhereInputObjectSchema: z.ZodType<Prisma.ScannableDocumentWhereInput> = scannabledocumentwhereinputSchema as unknown as z.ZodType<Prisma.ScannableDocumentWhereInput>;

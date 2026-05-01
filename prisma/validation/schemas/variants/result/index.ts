@@ -24,6 +24,7 @@ export { OpportunityApplicationResultSchema } from './OpportunityApplication.res
 export { PostResultSchema } from './Post.result';
 export { ReviewResultSchema } from './Review.result';
 export { ScannableDocumentResultSchema } from './ScannableDocument.result';
+export { ScannableDocumentMealHitResultSchema } from './ScannableDocumentMealHit.result';
 export { QRCodeResultSchema } from './QRCode.result';
 export { QRScanResultSchema } from './QRScan.result';
 export { PlatformUsageStatsResultSchema } from './PlatformUsageStats.result';

@@ -20,7 +20,8 @@ import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringF
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealOccurrenceUncheckedUpdateManyWithoutMealNestedInput.schema';
 import { MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealSearchHitUncheckedUpdateManyWithoutMealNestedInput.schema';
-import { MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealInteractionUncheckedUpdateManyWithoutMealNestedInput.schema'
+import { MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema as MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './MealInteractionUncheckedUpdateManyWithoutMealNestedInput.schema';
+import { ScannableDocumentMealHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema as ScannableDocumentMealHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema } from './ScannableDocumentMealHitUncheckedUpdateManyWithoutMealNestedInput.schema'
 
 const makeSchema = () => z.object({
   name: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
@@ -40,7 +41,8 @@ const makeSchema = () => z.object({
   updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   meal_occurrences: z.lazy(() => MealOccurrenceUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
-  meal_interactions: z.lazy(() => MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional()
+  meal_interactions: z.lazy(() => MealInteractionUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitUncheckedUpdateManyWithoutMealNestedInputObjectSchema).optional()
 }).strict();
 export const MealUncheckedUpdateWithoutReviewsInputObjectSchema: z.ZodType<Prisma.MealUncheckedUpdateWithoutReviewsInput> = makeSchema() as unknown as z.ZodType<Prisma.MealUncheckedUpdateWithoutReviewsInput>;
 export const MealUncheckedUpdateWithoutReviewsInputObjectZodSchema = makeSchema();

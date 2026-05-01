@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ScannableDocumentMealHitSelectObjectSchema as ScannableDocumentMealHitSelectObjectSchema } from './objects/ScannableDocumentMealHitSelect.schema';
+import { ScannableDocumentMealHitIncludeObjectSchema as ScannableDocumentMealHitIncludeObjectSchema } from './objects/ScannableDocumentMealHitInclude.schema';
+import { ScannableDocumentMealHitWhereUniqueInputObjectSchema as ScannableDocumentMealHitWhereUniqueInputObjectSchema } from './objects/ScannableDocumentMealHitWhereUniqueInput.schema';
+import { ScannableDocumentMealHitCreateInputObjectSchema as ScannableDocumentMealHitCreateInputObjectSchema } from './objects/ScannableDocumentMealHitCreateInput.schema';
+import { ScannableDocumentMealHitUncheckedCreateInputObjectSchema as ScannableDocumentMealHitUncheckedCreateInputObjectSchema } from './objects/ScannableDocumentMealHitUncheckedCreateInput.schema';
+import { ScannableDocumentMealHitUpdateInputObjectSchema as ScannableDocumentMealHitUpdateInputObjectSchema } from './objects/ScannableDocumentMealHitUpdateInput.schema';
+import { ScannableDocumentMealHitUncheckedUpdateInputObjectSchema as ScannableDocumentMealHitUncheckedUpdateInputObjectSchema } from './objects/ScannableDocumentMealHitUncheckedUpdateInput.schema';
+
+export const ScannableDocumentMealHitUpsertOneSchema: z.ZodType<Prisma.ScannableDocumentMealHitUpsertArgs> = z.object({ select: ScannableDocumentMealHitSelectObjectSchema.optional(), include: ScannableDocumentMealHitIncludeObjectSchema.optional(), where: ScannableDocumentMealHitWhereUniqueInputObjectSchema, create: z.union([ ScannableDocumentMealHitCreateInputObjectSchema, ScannableDocumentMealHitUncheckedCreateInputObjectSchema ]), update: z.union([ ScannableDocumentMealHitUpdateInputObjectSchema, ScannableDocumentMealHitUncheckedUpdateInputObjectSchema ]) }).strict() as unknown as z.ZodType<Prisma.ScannableDocumentMealHitUpsertArgs>;
+
+export const ScannableDocumentMealHitUpsertOneZodSchema = z.object({ select: ScannableDocumentMealHitSelectObjectSchema.optional(), include: ScannableDocumentMealHitIncludeObjectSchema.optional(), where: ScannableDocumentMealHitWhereUniqueInputObjectSchema, create: z.union([ ScannableDocumentMealHitCreateInputObjectSchema, ScannableDocumentMealHitUncheckedCreateInputObjectSchema ]), update: z.union([ ScannableDocumentMealHitUpdateInputObjectSchema, ScannableDocumentMealHitUncheckedUpdateInputObjectSchema ]) }).strict();

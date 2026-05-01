@@ -20,6 +20,7 @@ import { ReviewListRelationFilterObjectSchema as ReviewListRelationFilterObjectS
 import { MealOccurrenceListRelationFilterObjectSchema as MealOccurrenceListRelationFilterObjectSchema } from './MealOccurrenceListRelationFilter.schema';
 import { MealSearchHitListRelationFilterObjectSchema as MealSearchHitListRelationFilterObjectSchema } from './MealSearchHitListRelationFilter.schema';
 import { MealInteractionListRelationFilterObjectSchema as MealInteractionListRelationFilterObjectSchema } from './MealInteractionListRelationFilter.schema';
+import { ScannableDocumentMealHitListRelationFilterObjectSchema as ScannableDocumentMealHitListRelationFilterObjectSchema } from './ScannableDocumentMealHitListRelationFilter.schema';
 import { DeviceNullableScalarRelationFilterObjectSchema as DeviceNullableScalarRelationFilterObjectSchema } from './DeviceNullableScalarRelationFilter.schema';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema'
 
@@ -47,6 +48,7 @@ const mealwhereinputSchema = z.object({
   meal_occurrences: z.lazy(() => MealOccurrenceListRelationFilterObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitListRelationFilterObjectSchema).optional(),
   meal_interactions: z.lazy(() => MealInteractionListRelationFilterObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitListRelationFilterObjectSchema).optional(),
   submitter: z.union([z.lazy(() => DeviceNullableScalarRelationFilterObjectSchema), z.lazy(() => DeviceWhereInputObjectSchema)]).optional()
 }).strict();
 export const MealWhereInputObjectSchema: z.ZodType<Prisma.MealWhereInput> = mealwhereinputSchema as unknown as z.ZodType<Prisma.MealWhereInput>;

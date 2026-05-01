@@ -17,6 +17,7 @@ export const ScannableDocumentGroupByResultSchema = z.array(z.object({
     print_settings: z.number(),
     qr_codes: z.number(),
     file_url: z.number(),
+    scannable_document_meal_hits: z.number(),
     submitter: z.number(),
     submitter_id: z.number(),
     created_at: z.number(),

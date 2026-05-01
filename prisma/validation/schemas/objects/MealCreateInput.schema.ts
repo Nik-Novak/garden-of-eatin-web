@@ -16,6 +16,7 @@ import { ReviewCreateNestedManyWithoutMealInputObjectSchema as ReviewCreateNeste
 import { MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema as MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema } from './MealOccurrenceCreateNestedManyWithoutMealInput.schema';
 import { MealSearchHitCreateNestedManyWithoutMealInputObjectSchema as MealSearchHitCreateNestedManyWithoutMealInputObjectSchema } from './MealSearchHitCreateNestedManyWithoutMealInput.schema';
 import { MealInteractionCreateNestedManyWithoutMealInputObjectSchema as MealInteractionCreateNestedManyWithoutMealInputObjectSchema } from './MealInteractionCreateNestedManyWithoutMealInput.schema';
+import { ScannableDocumentMealHitCreateNestedManyWithoutMealInputObjectSchema as ScannableDocumentMealHitCreateNestedManyWithoutMealInputObjectSchema } from './ScannableDocumentMealHitCreateNestedManyWithoutMealInput.schema';
 import { DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema as DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema } from './DeviceCreateNestedOneWithoutSubmitted_mealsInput.schema'
 
 const makeSchema = () => z.object({
@@ -37,6 +38,7 @@ const makeSchema = () => z.object({
   meal_occurrences: z.lazy(() => MealOccurrenceCreateNestedManyWithoutMealInputObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitCreateNestedManyWithoutMealInputObjectSchema).optional(),
   meal_interactions: z.lazy(() => MealInteractionCreateNestedManyWithoutMealInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitCreateNestedManyWithoutMealInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceCreateNestedOneWithoutSubmitted_mealsInputObjectSchema).optional()
 }).strict();
 export const MealCreateInputObjectSchema: z.ZodType<Prisma.MealCreateInput> = makeSchema() as unknown as z.ZodType<Prisma.MealCreateInput>;

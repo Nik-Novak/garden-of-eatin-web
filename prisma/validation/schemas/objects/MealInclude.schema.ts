@@ -4,6 +4,7 @@ import { ReviewFindManySchema as ReviewFindManySchema } from '../findManyReview.
 import { MealOccurrenceFindManySchema as MealOccurrenceFindManySchema } from '../findManyMealOccurrence.schema';
 import { MealSearchHitFindManySchema as MealSearchHitFindManySchema } from '../findManyMealSearchHit.schema';
 import { MealInteractionFindManySchema as MealInteractionFindManySchema } from '../findManyMealInteraction.schema';
+import { ScannableDocumentMealHitFindManySchema as ScannableDocumentMealHitFindManySchema } from '../findManyScannableDocumentMealHit.schema';
 import { DeviceArgsObjectSchema as DeviceArgsObjectSchema } from './DeviceArgs.schema';
 import { MealCountOutputTypeArgsObjectSchema as MealCountOutputTypeArgsObjectSchema } from './MealCountOutputTypeArgs.schema'
 
@@ -12,6 +13,7 @@ const makeSchema = () => z.object({
   meal_occurrences: z.union([z.boolean(), z.lazy(() => MealOccurrenceFindManySchema)]).optional(),
   meal_search_hits: z.union([z.boolean(), z.lazy(() => MealSearchHitFindManySchema)]).optional(),
   meal_interactions: z.union([z.boolean(), z.lazy(() => MealInteractionFindManySchema)]).optional(),
+  scannable_document_meal_hits: z.union([z.boolean(), z.lazy(() => ScannableDocumentMealHitFindManySchema)]).optional(),
   submitter: z.union([z.boolean(), z.lazy(() => DeviceArgsObjectSchema)]).optional(),
   _count: z.union([z.boolean(), z.lazy(() => MealCountOutputTypeArgsObjectSchema)]).optional()
 }).strict();

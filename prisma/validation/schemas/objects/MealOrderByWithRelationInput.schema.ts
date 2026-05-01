@@ -8,6 +8,7 @@ import { ReviewOrderByRelationAggregateInputObjectSchema as ReviewOrderByRelatio
 import { MealOccurrenceOrderByRelationAggregateInputObjectSchema as MealOccurrenceOrderByRelationAggregateInputObjectSchema } from './MealOccurrenceOrderByRelationAggregateInput.schema';
 import { MealSearchHitOrderByRelationAggregateInputObjectSchema as MealSearchHitOrderByRelationAggregateInputObjectSchema } from './MealSearchHitOrderByRelationAggregateInput.schema';
 import { MealInteractionOrderByRelationAggregateInputObjectSchema as MealInteractionOrderByRelationAggregateInputObjectSchema } from './MealInteractionOrderByRelationAggregateInput.schema';
+import { ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema as ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema } from './ScannableDocumentMealHitOrderByRelationAggregateInput.schema';
 import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema'
 
 const makeSchema = () => z.object({
@@ -31,6 +32,7 @@ const makeSchema = () => z.object({
   meal_occurrences: z.lazy(() => MealOccurrenceOrderByRelationAggregateInputObjectSchema).optional(),
   meal_search_hits: z.lazy(() => MealSearchHitOrderByRelationAggregateInputObjectSchema).optional(),
   meal_interactions: z.lazy(() => MealInteractionOrderByRelationAggregateInputObjectSchema).optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitOrderByRelationAggregateInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional()
 }).strict();
 export const MealOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.MealOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.MealOrderByWithRelationInput>;

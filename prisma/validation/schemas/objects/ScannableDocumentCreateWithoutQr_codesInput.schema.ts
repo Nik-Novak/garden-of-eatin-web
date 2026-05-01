@@ -7,6 +7,7 @@ import { PointCreateEnvelopeInputObjectSchema as PointCreateEnvelopeInputObjectS
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
 import { PrintSettingsCreateEnvelopeInputObjectSchema as PrintSettingsCreateEnvelopeInputObjectSchema } from './PrintSettingsCreateEnvelopeInput.schema';
 import { PrintSettingsCreateInputObjectSchema as PrintSettingsCreateInputObjectSchema } from './PrintSettingsCreateInput.schema';
+import { ScannableDocumentMealHitCreateNestedManyWithoutScannable_documentInputObjectSchema as ScannableDocumentMealHitCreateNestedManyWithoutScannable_documentInputObjectSchema } from './ScannableDocumentMealHitCreateNestedManyWithoutScannable_documentInput.schema';
 import { DeviceCreateNestedOneWithoutScannable_documentsInputObjectSchema as DeviceCreateNestedOneWithoutScannable_documentsInputObjectSchema } from './DeviceCreateNestedOneWithoutScannable_documentsInput.schema'
 
 const makeSchema = () => z.object({
@@ -20,6 +21,7 @@ const makeSchema = () => z.object({
   file_url: z.string().optional().nullable(),
   created_at: z.coerce.date().optional(),
   updated_at: z.coerce.date().optional(),
+  scannable_document_meal_hits: z.lazy(() => ScannableDocumentMealHitCreateNestedManyWithoutScannable_documentInputObjectSchema).optional(),
   submitter: z.lazy(() => DeviceCreateNestedOneWithoutScannable_documentsInputObjectSchema)
 }).strict();
 export const ScannableDocumentCreateWithoutQr_codesInputObjectSchema: z.ZodType<Prisma.ScannableDocumentCreateWithoutQr_codesInput> = makeSchema() as unknown as z.ZodType<Prisma.ScannableDocumentCreateWithoutQr_codesInput>;

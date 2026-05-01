@@ -14,6 +14,7 @@ export const MealDeleteResultSchema = z.nullable(z.object({
   meal_occurrences: z.array(z.unknown()),
   meal_search_hits: z.array(z.unknown()),
   meal_interactions: z.array(z.unknown()),
+  scannable_document_meal_hits: z.array(z.unknown()),
   approved: z.boolean().optional(),
   rejection_reason: z.string().optional(),
   submitter: z.unknown().optional(),

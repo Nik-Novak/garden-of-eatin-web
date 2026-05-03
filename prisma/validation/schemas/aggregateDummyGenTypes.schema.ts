@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { DummyGenTypesOrderByWithRelationInputObjectSchema as DummyGenTypesOrderByWithRelationInputObjectSchema } from './objects/DummyGenTypesOrderByWithRelationInput.schema';
+import { DummyGenTypesWhereInputObjectSchema as DummyGenTypesWhereInputObjectSchema } from './objects/DummyGenTypesWhereInput.schema';
+import { DummyGenTypesWhereUniqueInputObjectSchema as DummyGenTypesWhereUniqueInputObjectSchema } from './objects/DummyGenTypesWhereUniqueInput.schema';
+import { DummyGenTypesCountAggregateInputObjectSchema as DummyGenTypesCountAggregateInputObjectSchema } from './objects/DummyGenTypesCountAggregateInput.schema';
+import { DummyGenTypesMinAggregateInputObjectSchema as DummyGenTypesMinAggregateInputObjectSchema } from './objects/DummyGenTypesMinAggregateInput.schema';
+import { DummyGenTypesMaxAggregateInputObjectSchema as DummyGenTypesMaxAggregateInputObjectSchema } from './objects/DummyGenTypesMaxAggregateInput.schema';
+
+export const DummyGenTypesAggregateSchema: z.ZodType<Prisma.DummyGenTypesAggregateArgs> = z.object({ orderBy: z.union([DummyGenTypesOrderByWithRelationInputObjectSchema, DummyGenTypesOrderByWithRelationInputObjectSchema.array()]).optional(), where: DummyGenTypesWhereInputObjectSchema.optional(), cursor: DummyGenTypesWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), DummyGenTypesCountAggregateInputObjectSchema ]).optional(), _min: DummyGenTypesMinAggregateInputObjectSchema.optional(), _max: DummyGenTypesMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.DummyGenTypesAggregateArgs>;
+
+export const DummyGenTypesAggregateZodSchema = z.object({ orderBy: z.union([DummyGenTypesOrderByWithRelationInputObjectSchema, DummyGenTypesOrderByWithRelationInputObjectSchema.array()]).optional(), where: DummyGenTypesWhereInputObjectSchema.optional(), cursor: DummyGenTypesWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), DummyGenTypesCountAggregateInputObjectSchema ]).optional(), _min: DummyGenTypesMinAggregateInputObjectSchema.optional(), _max: DummyGenTypesMaxAggregateInputObjectSchema.optional() }).strict();

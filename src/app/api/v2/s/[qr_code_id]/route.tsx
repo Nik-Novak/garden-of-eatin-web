@@ -1,5 +1,6 @@
+import { registerQRScan } from "@/actions/qr";
 import { database } from "@/prisma/database";
-import { Prisma, QRAction } from "@prisma/client";
+import { Prisma, QRAction, QRActionUrlRedirectPayload } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
 
@@ -14,10 +15,14 @@ const QuerySchema = z.object({
   web_device_id: z.string({
     error: (issue) => "web_device_id must be a valid string.",
   }).optional(),
+
+  web_device_uuid: z.string({
+    error: (issue) => "web_device_uuid must be a valid string.",
+  }).optional(),
 })
 .superRefine((data, ctx) => {
   // Logic: If both are missing, add custom "required" errors to the paths
-  if (data.device_id === undefined && data.web_device_id === undefined) {
+  if (data.device_id === undefined && data.web_device_id === undefined && data.web_device_uuid === undefined) {
     ctx.addIssue({
       code: 'custom',
       message: "device_id is required.",
@@ -27,6 +32,11 @@ const QuerySchema = z.object({
       code: 'custom',
       message: "web_device_id is required.",
       path: ["web_device_id"],
+    });
+    ctx.addIssue({
+      code: 'custom',
+      message: "web_device_uuid is required.",
+      path: ["web_device_uuid"],
     });
   }
 });
@@ -52,16 +62,17 @@ export async function GET(request: NextRequest, { params }: RouteContext) {
       { status: 400 }
     );
   }
-  const { device_id, web_device_id } = validation.data;
+  const { device_id, web_device_id, web_device_uuid } = validation.data;
 
-  let qr = await database.qRCode.findById(qr_code_id);
-  
-  let qrScan = await database.qRScan.create({data:{
-    qr_action: qr.action as Prisma.QRActionCreateInput,
-    device_id,
-    web_device_id,
-    qr_code_id,
-  }});
+  let action = await registerQRScan({qr_code_id, device_id, web_device_id, web_device_uuid});
 
-  return NextResponse.json(qrScan, {status:201});
+  switch(action.type){
+    case 'URL_REDIRECT':{
+      let {url} = action.payload as QRActionUrlRedirectPayload;
+      return NextResponse.redirect(url);
+    }
+    default :{
+      throw Error(`QRCode with action type: ${action.type} is unsupported at this time.`);
+    }
+  }
 }

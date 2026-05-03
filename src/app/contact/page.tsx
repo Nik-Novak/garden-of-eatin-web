@@ -14,8 +14,8 @@ import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
 import { submitForm } from '@/actions/contact';
 import constants from "@/constants";
-import { useNotificationQueue } from "@/components/NotificationQueue";
-import Notification from "@/components/Notification";
+import { useNotificationQueue } from "@/components/ui/NotificationQueue";
+import Notification from "@/components/ui/Notification";
 
 export default function ContactPage() {
   const {pushNotification} = useNotificationQueue();

@@ -1,18 +1,3 @@
-enum QRActionType {
-  URL_REDIRECT    // Standard website
-  APP_DEEP_LINK   // Opens specific app screens
-  FILE_DOWNLOAD   // PDF, Image, etc.
-  TEXT_DISPLAY    // Shows a message/coupon code on a landing page
-  WIFI_CONNECT    // Generates a WiFi config on the fly
-}
-
-type QRAction {
-  type      QRActionType
-  label     String?
-  // The magic field: can be a string OR a complex object
-  payload   Json       
-}
-
 enum ScannableDocumentType {
   Flyer
   Brochure
@@ -68,6 +53,25 @@ model ScannableDocumentMealHit {
   @@index([scannable_document_id])
   @@index([meal_id])
   @@map("scannable_document_meal_hits")
+}
+
+enum QRActionType {
+  URL_REDIRECT    // Standard website
+  APP_DEEP_LINK   // Opens specific app screens
+  FILE_DOWNLOAD   // PDF, Image, etc.
+  TEXT_DISPLAY    // Shows a message/coupon code on a landing page
+  WIFI_CONNECT    // Generates a WiFi config on the fly
+}
+
+type QRActionUrlRedirectPayload {
+  url String
+}
+
+type QRAction {
+  type      QRActionType
+  label     String?
+  // The magic field: can be a string OR a complex object
+  payload   Json       
 }
 
 model QRCode {

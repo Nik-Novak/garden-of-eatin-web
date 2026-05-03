@@ -2,7 +2,7 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { WebDeviceMetadataOrderByInputObjectSchema as WebDeviceMetadataOrderByInputObjectSchema } from './WebDeviceMetadataOrderByInput.schema';
-import { DeviceSettingsOrderByInputObjectSchema as DeviceSettingsOrderByInputObjectSchema } from './DeviceSettingsOrderByInput.schema';
+import { WebDeviceSettingsOrderByInputObjectSchema as WebDeviceSettingsOrderByInputObjectSchema } from './WebDeviceSettingsOrderByInput.schema';
 import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema';
 import { UserOrderByWithRelationInputObjectSchema as UserOrderByWithRelationInputObjectSchema } from './UserOrderByWithRelationInput.schema';
 import { ContactRequestOrderByRelationAggregateInputObjectSchema as ContactRequestOrderByRelationAggregateInputObjectSchema } from './ContactRequestOrderByRelationAggregateInput.schema';
@@ -13,7 +13,7 @@ const makeSchema = () => z.object({
   uuid: SortOrderSchema.optional(),
   device_id: SortOrderSchema.optional(),
   metadata: z.lazy(() => WebDeviceMetadataOrderByInputObjectSchema).optional(),
-  settings: z.lazy(() => DeviceSettingsOrderByInputObjectSchema).optional(),
+  settings: z.lazy(() => WebDeviceSettingsOrderByInputObjectSchema).optional(),
   user_id: SortOrderSchema.optional(),
   created_at: SortOrderSchema.optional(),
   updated_at: SortOrderSchema.optional(),

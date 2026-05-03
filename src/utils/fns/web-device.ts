@@ -1,19 +1,19 @@
 
-import { DeviceMetadata } from '@prisma/client';
-import { version, build } from '../../../package.json';
+import { DeviceMetadata, WebDeviceMetadata } from '@prisma/client';
+import { version } from '../../../package.json';
 
 export const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-export async function getDeviceMetadata() {
+export async function getWebDeviceMetadata() {
   if (typeof window === 'undefined') return null;
 
   const nav = window.navigator as any;
-  const uaData = nav.userAgentData;
+  const uaData = nav.userAgentData as any;
 
   // 1. Basic Information (Synchronous)
-  const metadata: DeviceMetadata = {
+  const metadata: WebDeviceMetadata = {
     app_version: version,
-    app_build: build.toString(),
+    app_build: null,
     language: nav.language,
     cpu_cores: nav.hardwareConcurrency || null,
     total_memory: nav.deviceMemory || null,
@@ -31,7 +31,9 @@ export async function getDeviceMetadata() {
     manufacturer: null,
     model_name: null,
     os_name: null,
-    os_version: null
+    os_version: null,
+
+    ip_addresses: []
   };
 
   // 2. GPU Extraction (Crucial for UI/Performance Debugging)
@@ -41,7 +43,7 @@ export async function getDeviceMetadata() {
     if (gl) {
       const debugInfo = (gl as WebGLRenderingContext).getExtension('WEBGL_debug_renderer_info');
       metadata.gpu_renderer = debugInfo 
-        ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) 
+        ? (gl as WebGLRenderingContext).getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) 
         : 'Software';
     }
   } catch (e) {

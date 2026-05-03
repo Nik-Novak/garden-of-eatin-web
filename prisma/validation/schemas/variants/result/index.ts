@@ -10,6 +10,7 @@ export { BugResultSchema } from './Bug.result';
 export { ContactRequestResultSchema } from './ContactRequest.result';
 export { ContributorResultSchema } from './Contributor.result';
 export { DeviceResultSchema } from './Device.result';
+export { DummyGenTypesResultSchema } from './DummyGenTypes.result';
 export { InviteResultSchema } from './Invite.result';
 export { AgreementResultSchema } from './Agreement.result';
 export { DeviceAgreementResultSchema } from './DeviceAgreement.result';

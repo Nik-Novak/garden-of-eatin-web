@@ -17,7 +17,7 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/ui/Footer";
 
 export default function DownloadPage() {
   return (

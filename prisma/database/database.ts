@@ -132,17 +132,28 @@ const prismaClientSingleton= ()=>{
         },
         async createOrFind<T, A extends Prisma.Args<T, 'create'>>(
           this: T,
-          createArgs: A,
-          queryArgs?: Prisma.Args<T, 'findFirst'>,
-        ):Promise< { created:boolean, document:Awaited<Prisma.Result<T, A, 'create'>> } >{  //let t = await prisma.mindnightSession.create({  }); let q = prisma.mindnightSession.findFirst({})
+          createArgs: Prisma.Exact<A, Prisma.Args<T, 'create'>>,
+          // Force queryArgs to share the same 'select' and 'include' as createArgs
+          queryArgs?: Omit<Prisma.Args<T, 'findFirst'>, 'select' | 'include'> & {
+            select?: A['select'];
+            include?: A['include'];
+          },
+        ): Promise<{ created: boolean; document: Prisma.Result<T, A, 'create'> }> {
+          
           const ctx = Prisma.getExtensionContext<T>(this);
           let created = false;
+          
           let document = queryArgs ? 
                         await (ctx as any).findFirst(queryArgs) : 
-                        await (ctx as any).findFirst({where:replaceArraysWithEquals(createArgs.data), include:createArgs.include, select:createArgs.select });
+                        await (ctx as any).findFirst({
+                            where: replaceArraysWithEquals((createArgs as any).data), 
+                            include: (createArgs as any).include, 
+                            select: (createArgs as any).select 
+                        });
+                        
           if(!document){
             document = await (ctx as any).create(createArgs);
-            created=true;
+            created = true;
           }
           return {created, document};
         },

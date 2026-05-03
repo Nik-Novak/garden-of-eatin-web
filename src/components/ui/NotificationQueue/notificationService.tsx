@@ -1,4 +1,4 @@
-import Notification, { NotificationProps } from "@/components/Notification";
+import Notification, { NotificationProps } from "@/components/ui/Notification";
 
 type pushNotificationFunc = (notification: React.ReactElement<NotificationProps>) => void;
 

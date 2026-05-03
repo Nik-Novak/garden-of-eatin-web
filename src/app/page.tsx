@@ -21,12 +21,12 @@ import StarIcon from '@mui/icons-material/Star';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import CampaignIcon from '@mui/icons-material/Campaign';
-import { Footer } from "@/components/Footer";
-import ContactButton from "@/components/ContactButton";
-import ContributorWall from "@/components/ContributorWall";
+import { Footer } from "@/components/ui/Footer";
+import ContactButton from "@/components/ui/ContactButton";
+import ContributorWall from "@/components/ui/ContributorWall";
 import { Suspense } from "react";
-import { ContributorWallSkeleton } from "@/components/ContributorWall/ContributorWallSkeleton";
-import UsageStats, { UsageStatsSkeleton } from "@/components/UsageStats";
+import { ContributorWallSkeleton } from "@/components/ui/ContributorWall/ContributorWallSkeleton";
+import UsageStats, { UsageStatsSkeleton } from "@/components/ui/UsageStats";
 
 export default function Home() {
   //if I do the database call here, won't it block rendering of other components until thsi db call finishes?

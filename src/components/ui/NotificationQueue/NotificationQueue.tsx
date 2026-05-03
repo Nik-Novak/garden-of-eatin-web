@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useContext, useState, useCallback, useEffect, PropsWithChildren } from "react";
-import Notification, { NotificationProps } from "@/components/Notification";
+import Notification, { NotificationProps } from "@/components/ui/Notification";
 import { setNotify } from "./notificationService";
 import { Button } from "@mui/material";
 

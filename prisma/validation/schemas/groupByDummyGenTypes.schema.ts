@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { DummyGenTypesWhereInputObjectSchema as DummyGenTypesWhereInputObjectSchema } from './objects/DummyGenTypesWhereInput.schema';
+import { DummyGenTypesOrderByWithAggregationInputObjectSchema as DummyGenTypesOrderByWithAggregationInputObjectSchema } from './objects/DummyGenTypesOrderByWithAggregationInput.schema';
+import { DummyGenTypesScalarWhereWithAggregatesInputObjectSchema as DummyGenTypesScalarWhereWithAggregatesInputObjectSchema } from './objects/DummyGenTypesScalarWhereWithAggregatesInput.schema';
+import { DummyGenTypesScalarFieldEnumSchema } from './enums/DummyGenTypesScalarFieldEnum.schema';
+import { DummyGenTypesCountAggregateInputObjectSchema as DummyGenTypesCountAggregateInputObjectSchema } from './objects/DummyGenTypesCountAggregateInput.schema';
+import { DummyGenTypesMinAggregateInputObjectSchema as DummyGenTypesMinAggregateInputObjectSchema } from './objects/DummyGenTypesMinAggregateInput.schema';
+import { DummyGenTypesMaxAggregateInputObjectSchema as DummyGenTypesMaxAggregateInputObjectSchema } from './objects/DummyGenTypesMaxAggregateInput.schema';
+
+export const DummyGenTypesGroupBySchema: z.ZodType<Prisma.DummyGenTypesGroupByArgs> = z.object({ where: DummyGenTypesWhereInputObjectSchema.optional(), orderBy: z.union([DummyGenTypesOrderByWithAggregationInputObjectSchema, DummyGenTypesOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DummyGenTypesScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DummyGenTypesScalarFieldEnumSchema), _count: z.union([ z.literal(true), DummyGenTypesCountAggregateInputObjectSchema ]).optional(), _min: DummyGenTypesMinAggregateInputObjectSchema.optional(), _max: DummyGenTypesMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.DummyGenTypesGroupByArgs>;
+
+export const DummyGenTypesGroupByZodSchema = z.object({ where: DummyGenTypesWhereInputObjectSchema.optional(), orderBy: z.union([DummyGenTypesOrderByWithAggregationInputObjectSchema, DummyGenTypesOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DummyGenTypesScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DummyGenTypesScalarFieldEnumSchema), _count: z.union([ z.literal(true), DummyGenTypesCountAggregateInputObjectSchema ]).optional(), _min: DummyGenTypesMinAggregateInputObjectSchema.optional(), _max: DummyGenTypesMaxAggregateInputObjectSchema.optional() }).strict();

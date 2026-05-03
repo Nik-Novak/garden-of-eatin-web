@@ -5,7 +5,7 @@ import { useNotificationQueue } from "./NotificationQueue";
 import Notification from "./Notification";
 import InputDialog from "./InputDialog";
 import { createContactRequest } from "@/actions/contact";
-import { getDeviceUUID } from "@/utils/fns/uuid";
+import { getWebDeviceUUID } from "@/utils/fns/uuid";
 
 export default function ContactButton(props:ButtonProps){
   const [open, setOpen] = useState(false);
@@ -56,7 +56,7 @@ export default function ContactButton(props:ButtonProps){
         submitText={"Start Chat"}
         onClose={()=>setOpen(false)}
         onSubmit={(formData)=>{
-          return createContactRequest(formData.get('name')!.toString(), formData.get('phone')!.toString(), formData.get('email')!.toString(), getDeviceUUID())
+          return createContactRequest(formData.get('name')!.toString(), formData.get('phone')!.toString(), formData.get('email')!.toString(), getWebDeviceUUID())
         }}
         onComplete={()=>{
           setOpen(false);

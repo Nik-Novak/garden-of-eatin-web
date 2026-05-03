@@ -10,6 +10,7 @@ export { BugInputSchema } from './Bug.input';
 export { ContactRequestInputSchema } from './ContactRequest.input';
 export { ContributorInputSchema } from './Contributor.input';
 export { DeviceInputSchema } from './Device.input';
+export { DummyGenTypesInputSchema } from './DummyGenTypes.input';
 export { InviteInputSchema } from './Invite.input';
 export { AgreementInputSchema } from './Agreement.input';
 export { DeviceAgreementInputSchema } from './DeviceAgreement.input';

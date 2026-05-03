@@ -4,8 +4,8 @@ import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFi
 import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { WebDeviceMetadataNullableCompositeFilterObjectSchema as WebDeviceMetadataNullableCompositeFilterObjectSchema } from './WebDeviceMetadataNullableCompositeFilter.schema';
 import { WebDeviceMetadataObjectEqualityInputObjectSchema as WebDeviceMetadataObjectEqualityInputObjectSchema } from './WebDeviceMetadataObjectEqualityInput.schema';
-import { DeviceSettingsCompositeFilterObjectSchema as DeviceSettingsCompositeFilterObjectSchema } from './DeviceSettingsCompositeFilter.schema';
-import { DeviceSettingsObjectEqualityInputObjectSchema as DeviceSettingsObjectEqualityInputObjectSchema } from './DeviceSettingsObjectEqualityInput.schema';
+import { WebDeviceSettingsCompositeFilterObjectSchema as WebDeviceSettingsCompositeFilterObjectSchema } from './WebDeviceSettingsCompositeFilter.schema';
+import { WebDeviceSettingsObjectEqualityInputObjectSchema as WebDeviceSettingsObjectEqualityInputObjectSchema } from './WebDeviceSettingsObjectEqualityInput.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { DeviceNullableScalarRelationFilterObjectSchema as DeviceNullableScalarRelationFilterObjectSchema } from './DeviceNullableScalarRelationFilter.schema';
 import { DeviceWhereInputObjectSchema as DeviceWhereInputObjectSchema } from './DeviceWhereInput.schema';
@@ -22,7 +22,7 @@ const webdevicewhereinputSchema = z.object({
   uuid: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   device_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   metadata: z.union([z.lazy(() => WebDeviceMetadataNullableCompositeFilterObjectSchema), z.lazy(() => WebDeviceMetadataObjectEqualityInputObjectSchema)]).optional().nullable(),
-  settings: z.union([z.lazy(() => DeviceSettingsCompositeFilterObjectSchema), z.lazy(() => DeviceSettingsObjectEqualityInputObjectSchema)]).optional(),
+  settings: z.union([z.lazy(() => WebDeviceSettingsCompositeFilterObjectSchema), z.lazy(() => WebDeviceSettingsObjectEqualityInputObjectSchema)]).optional(),
   user_id: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string().max(24)]).optional().nullable(),
   created_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),
   updated_at: z.union([z.lazy(() => DateTimeFilterObjectSchema), z.coerce.date()]).optional(),

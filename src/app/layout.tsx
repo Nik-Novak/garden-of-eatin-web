@@ -5,10 +5,10 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Roboto, Lora } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/features/theme';
-import { NotificationProvider } from "@/components/NotificationQueue";
-import FloatingNav from "@/components/FloatingNav";
+import { NotificationProvider } from "@/components/ui/NotificationQueue";
+import FloatingNav from "@/components/ui/FloatingNav";
 import { CssBaseline } from "@mui/material";
-import { SmartBanner } from "@/components/SmartButton";
+import { SmartBanner } from "@/components/ui/SmartButton";
 
 // Initialize Lora for Headings
 const lora = Lora({

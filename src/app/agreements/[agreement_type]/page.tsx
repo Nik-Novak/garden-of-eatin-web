@@ -1,5 +1,5 @@
 import React, { Suspense, use } from 'react';
-import LoadAgreement from '@/components/LoadAgreement';
+import LoadAgreement from '@/components/ui/LoadAgreement';
 import { AgreementType } from '@prisma/client';
 
 type RouteContext = {

@@ -54,7 +54,7 @@ const getInputs = (inputs:FormInput[]) => {
 
 export default function InputDialog<T extends any>({ open, title, text, inputs=[], submitText='Submit', disableCloseOnComplete, onSubmit=()=>{return undefined as any}, onComplete=()=>{}, onClose=()=>{}, PaperProps }:InputDialogProps<T>){
   return (
-    <Dialog PaperProps={PaperProps} open={open} onClose={onClose} TransitionComponent={SlideTransition}>
+    <Dialog slotProps={{paper:PaperProps}} open={open} onClose={onClose} slots={{transition:SlideTransition}}>
       <form action={async (formData)=>{
         let returnValue = await onSubmit(formData);
         onComplete(returnValue);
@@ -72,11 +72,11 @@ export default function InputDialog<T extends any>({ open, title, text, inputs=[
           ))} */}
       </DialogContent>
       <DialogActions >
-        <Stack width='100%' direction='row' justifyContent={'space-between'}>
-          <Stack direction='row' alignItems='center' spacing={2}>
+        <Stack direction='row' sx={{width:'100%', justifyContent:'space-between'}}>
+          <Stack direction='row' spacing={2} sx={{alignItems:'center'}}>
             {/* <Link href={`tel:${constants.contactPhone}`} target="_blank"><IconButton size="large"><CallIcon /></IconButton></Link> */}
           </Stack>
-          <Stack direction='row' alignItems='center' spacing={2}>
+          <Stack direction='row' spacing={2} sx={{alignItems:'center'}}>
             <Button
               sx={{mt:0}}
               aria-label="cancel"

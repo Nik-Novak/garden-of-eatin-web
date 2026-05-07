@@ -74,7 +74,7 @@ export default function ApproveMealPage({
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Typography variant="h5" component="h1" gutterBottom fontWeight="bold" color="success.main">
+        <Typography variant="h5" component="h1" gutterBottom color="success.main" sx={{fontWeight:"bold"}}>
           Approve Meal
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>

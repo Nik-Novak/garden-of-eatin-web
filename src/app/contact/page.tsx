@@ -22,7 +22,7 @@ export default function ContactPage() {
   return (
     <Box sx={{ bgcolor: "background.default", minHeight: "100vh", py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
-        <Grid container spacing={6} alignItems="center">
+        <Grid container spacing={6} sx={{alignItems:'center'}}>
           
           {/* Left Side: Friendly Copy */}
           <Grid size={{ xs: 12, md: 5 }}>

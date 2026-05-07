@@ -73,7 +73,7 @@ export default function RejectMealPage({
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Typography variant="h5" component="h1" gutterBottom fontWeight="bold" color="error">
+        <Typography variant="h5" component="h1" gutterBottom color="error" sx={{fontWeight:"bold"}}>
           Reject Meal
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>

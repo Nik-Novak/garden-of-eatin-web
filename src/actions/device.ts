@@ -105,3 +105,22 @@ export async function getAccount(){
   if(!session) return undefined;
   return database.account.findFirst({where:{userId: session.user.id}});
 }
+
+
+export async function fetchDashboardDevices() {
+  const devices = await database.device.findMany({
+    include: {
+      meal_occurrence_searches: true,
+      _count: {
+        select: {
+          device_agreements: true,
+          meal_interactions: true,
+          meal_occurrence_searches: true,
+          submitted_meals: true,
+        },
+      },
+    },
+  });
+  
+  return devices;
+}

@@ -33,7 +33,7 @@ export default function DownloadPage() {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={6} sx={{alignItems:'center'}}>
             
             <Grid size={{xs:12, md:6}}>
               <Typography variant="h1" sx={{ fontSize: { xs: '3rem', md: '4.5rem' }, mb: 2, color: 'primary.main' }}>
@@ -122,7 +122,7 @@ export default function DownloadPage() {
       {/* QUICK BENEFITS SECTION (Optional but recommended to fill out the page) */}
       <Box sx={{ bgcolor: "primary.main", color: "#fcf9f2", py: 8 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={4} sx={{justifyContent:"center"}}>
             {[
               { title: "Location Based", desc: "Instantly route to the closest available meals.", icon: <LocationOnIcon fontSize="large" sx={{ color: "secondary.main" }} /> },
               { title: "Live Alerts", desc: "Get notified about menu changes or schedule updates.", icon: <NotificationsActiveIcon fontSize="large" sx={{ color: "secondary.main" }} /> },

@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.default', py: 6, borderTop: '1px solid', borderColor: 'divider' }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4} justifyContent="space-between" alignItems="center">
+        <Grid container spacing={4} sx={{justifyContent:"space-between", alignItems:"center"}}>
           
           {/* Brand/Logo Area */}
           <Grid size={{xs:12, md:4}}>
@@ -25,7 +25,7 @@ export function Footer() {
             <Stack 
               direction={{ xs: 'column', sm: 'row' }} 
               spacing={{ xs: 1, sm: 3 }} 
-              justifyContent={{ md: 'center' }}
+              sx={{justifyContent:{ md: 'center' }}}
             >
               <Link href="/agreements/release_of_liability" style={{ textDecoration: 'none' }}>
                 <Typography variant="body2" color="text.secondary" sx={{ '&:hover': { color: 'secondary.main' } }}>

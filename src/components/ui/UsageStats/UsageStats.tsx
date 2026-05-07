@@ -51,11 +51,11 @@ export default async function UsageStats() {
           Real-time metrics from the Garden of Eatin' community
         </Typography>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4} sx={{justifyContent:'center'}}>
           
           {/* Stat 1: Devices */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Stack alignItems="center" textAlign="center" spacing={1}>
+            <Stack spacing={1} sx={{alignItems:"center", textAlign:"center" }}>
               <Box sx={{ p: 2, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.1)', mb: 1 }}>
                 <DevicesIcon sx={{ fontSize: 40, color: 'secondary.main' }} />
               </Box>
@@ -70,7 +70,7 @@ export default async function UsageStats() {
 
           {/* Stat 2: Searches */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Stack alignItems="center" textAlign="center" spacing={1}>
+            <Stack spacing={1} sx={{alignItems:"center", textAlign:"center" }}>
               <Box sx={{ p: 2, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.1)', mb: 1 }}>
                 <SearchIcon sx={{ fontSize: 40, color: 'secondary.main' }} />
               </Box>
@@ -85,7 +85,7 @@ export default async function UsageStats() {
 
           {/* Stat 3: Impressions */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Stack alignItems="center" textAlign="center" spacing={1}>
+            <Stack spacing={1} sx={{alignItems:"center", textAlign:"center" }}>
               <Box sx={{ p: 2, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.1)', mb: 1 }}>
                 <DinnerDiningIcon sx={{ fontSize: 40, color: 'secondary.main' }} />
               </Box>

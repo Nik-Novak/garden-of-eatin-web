@@ -60,7 +60,7 @@ export const NotificationProvider = ({ children }:PropsWithChildren<Notification
         className={`notification ${notification.props.className}`}
         key={key}
         onClose={(evt) => handleNotificationClose(key)}
-        ClickAwayListenerProps={{
+        slotProps={{clickAwayListener:{
           onClickAway: (evt) => {
             evt.stopPropagation();
             evt.stopImmediatePropagation();
@@ -72,7 +72,7 @@ export const NotificationProvider = ({ children }:PropsWithChildren<Notification
             }
             return false;
           },
-        }}
+        }}}
       >
         {notification.props.children} 
         {/* {bugReportOnError && notification.props.severity==='error' ? <Button onClick={()=>openBugDialog()}>Report</Button> : null} */}

@@ -42,7 +42,7 @@ export default function Home() {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={6} sx={{alignItems:'center'}}>
             {/* Grid v2: removed "item", added sizes directly */}
             <Grid size={{xs:12, md:6}}>
               <Typography variant="h1" sx={{ fontSize: { xs: '3rem', md: '4.5rem' }, mb: 2, color: 'primary.main' }}>
@@ -142,7 +142,7 @@ export default function Home() {
             You do so much for the community; let the community help you back.
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={4} sx={{justifyContent:"center"}}>
             {[
               { title: "Feel the Support", desc: "Tap into donation and volunteer networks directly through the app to support your mission.", icon: <VolunteerActivismIcon fontSize="large" color="primary" /> },
               { title: "Understand Your Impact", desc: "Gain valuable insights into views, navigation, attendance, and how people discover your meals.", icon: <QueryStatsIcon fontSize="large" color="primary" /> },

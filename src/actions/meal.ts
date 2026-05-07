@@ -110,3 +110,18 @@ export async function approveMeal(mealId: string, token: string) {
 
   return updatedMeal;
 }
+
+export async function fetchDashboardMeals() {
+  const meals = await database.meal.findMany({
+    include: {
+      _count:{
+        select:{
+          meal_interactions:true, 
+          meal_search_hits:true, 
+          scannable_document_meal_hits:true
+        }
+      }
+    },
+  });
+  return meals;
+}

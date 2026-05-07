@@ -7,11 +7,11 @@ function SlideTransition(props: SlideProps) {
 
 export type NotificationProps = {children:ReactNode} & Omit<AlertProps, 'children'> & Omit<SnackbarProps, 'children'>;
 
-export default function Notification({children, onClose, anchorOrigin={ vertical: 'bottom', horizontal: 'center' } , autoHideDuration, ClickAwayListenerProps, ...props}:NotificationProps){
+export default function Notification({children, onClose, anchorOrigin={ vertical: 'bottom', horizontal: 'center' } , autoHideDuration, slotProps, ...props}:NotificationProps){
   return (
-    <Snackbar {...props} anchorOrigin={anchorOrigin} autoHideDuration={autoHideDuration} ClickAwayListenerProps={ClickAwayListenerProps} TransitionComponent={SlideTransition} onClose={onClose}>
+    <Snackbar {...props} anchorOrigin={anchorOrigin} autoHideDuration={autoHideDuration} slotProps={slotProps} slots={{transition:SlideTransition}} onClose={onClose}>
       <Alert {...props} style={{alignItems:'center'}} onClose={onClose}>
-        <Stack flexDirection={'row'} alignItems={'center'}>
+        <Stack sx={{flexDirection:'row', alignItems:'center'}}>
           {children}
         </Stack>
       </Alert>

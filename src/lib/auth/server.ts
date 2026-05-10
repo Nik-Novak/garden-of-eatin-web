@@ -20,7 +20,17 @@ export const auth = betterAuth({
     database: prismaAdapter(database, {
         provider: "mongodb",
     }),
-    advanced:{database:{generateId:()=>new ObjectId().toHexString()}},
+    advanced:{
+        database:{generateId:()=>new ObjectId().toHexString()},
+        cookies: {
+            state: {
+                attributes: {
+                    sameSite: "lax", // Required for cross-site callbacks
+                    secure: true,
+                }
+            }
+        }
+    },
     baseURL: process.env.BETTER_AUTH_URL,
     trustedOrigins: ["https://appleid.apple.com"],
     socialProviders: {

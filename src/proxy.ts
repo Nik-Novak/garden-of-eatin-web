@@ -7,16 +7,18 @@ export async function proxy(request: NextRequest) {
     //     headers: await headers()
     // });
 
-    const {success} = await auth.api.userHasPermission({ 
-      headers: await headers(), 
-      body:{
-        permissions: {admin_dashboard:["view"]}
-      }
-    });
+    // const {success} = await auth.api.userHasPermission({ 
+    //   headers: await headers(), 
+    //   body:{
+    //     permissions: {admin_dashboard:["view"]}
+    //   }
+    // });
 
-    if(!success) {
-        return NextResponse.redirect(new URL("/sign-in", request.url));
-    }
+    // if(!success) {
+    //     return NextResponse.redirect(new URL("/sign-in", request.url));
+    // }
+
+    console.log('PROXY ENV', JSON.stringify(process.env, null, 2));
 
     return NextResponse.next();
 }

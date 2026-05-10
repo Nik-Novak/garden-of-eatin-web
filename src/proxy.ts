@@ -1,7 +1,10 @@
+import '@/lib/env-init';
 // STRICT auth check below:
 import { NextRequest, NextResponse, ProxyConfig } from "next/server";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
+console.log('PROXY TOP');
+
 export async function proxy(request: NextRequest) {
     // const session = await auth.api.getSession({
     //     headers: await headers()

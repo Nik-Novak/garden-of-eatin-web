@@ -1,5 +1,5 @@
 // STRICT auth check below:
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, ProxyConfig } from "next/server";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 export async function proxy(request: NextRequest) {
@@ -21,7 +21,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
 }
 
-export const config = {
+export const config:ProxyConfig = {
   matcher: ["/admin/:path*"], // Specify the routes the middleware applies to
 };
 

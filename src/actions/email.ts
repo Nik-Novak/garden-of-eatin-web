@@ -5,8 +5,7 @@ import { render } from '@react-email/components';
 
 // console.log('HERE');
 // console.log(process.env);
-if(!process.env.EMAIL_HOST || !process.env.EMAIL_PORT || !process.env.EMAIL_USER || !process.env.EMAIL_PASS)
-  throw Error("Must provide ALL Email env" + "\n" + JSON.stringify(process.env));
+
 const transportOptions:SMTPTransport['options'] = {
   host: process.env.EMAIL_HOST!,
   port: parseInt(process.env.EMAIL_PORT!),
@@ -37,6 +36,8 @@ type EmailSendOptions = EmailContentOptions & {
 };
 
 export async function send(recipients:string[]|string, options:EmailSendOptions){
+  if(!process.env.EMAIL_HOST || !process.env.EMAIL_PORT || !process.env.EMAIL_USER || !process.env.EMAIL_PASS)
+    throw Error("Must provide ALL Email env" + "\n" + JSON.stringify(process.env));
   console.log(options.template);
   let templateContent:string|undefined = options.template ? await render(options.template) : undefined;
   

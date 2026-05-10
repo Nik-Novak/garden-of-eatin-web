@@ -25,11 +25,12 @@ export const auth = betterAuth({
         cookies: {
             state: {
                 attributes: {
-                    sameSite: "lax", // Required for cross-site callbacks
+                    sameSite: "lax",
                     secure: true,
                 }
             }
-        }
+        },
+        useSecureCookies: true,
     },
     baseURL: process.env.BETTER_AUTH_URL,
     trustedOrigins: ["https://appleid.apple.com"],

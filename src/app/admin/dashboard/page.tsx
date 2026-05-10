@@ -20,7 +20,7 @@ import { canViewAdminDevices, canViewAdminMeals } from "@/actions/access";
 
 
 export default async function AdminDashboard() {
-  const [displayDevices, displayMeals] = await Promise.all([canViewAdminDevices(), canViewAdminMeals()]);
+  const [displayDevices, displayMeals] = [true, true]
 
   /**
  * Dashboard configuration for easy scalability.

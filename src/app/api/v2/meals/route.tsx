@@ -24,12 +24,12 @@ export async function POST(request: NextRequest) {
   let meal = await database.meal.create({ data });
   
   try {
-    let frontendWeb = process.env.AUTH_URL;
+    let frontendWeb = process.env.BETTER_AUTH_URL;
     let cronSecret = process.env.CRON_SECRET;
 
     // Moved this check up so we guarantee cronSecret exists before deriving the token
     if (!frontendWeb || !cronSecret) {
-      throw Error("Must define AUTH_URL and CRON_SECRET, or else generate-occurrences will have to wait until next cron window");
+      throw Error("Must define BETTER_AUTH_URL and CRON_SECRET, or else generate-occurrences will have to wait until next cron window");
     }
 
     // 1. Generate a random string
@@ -44,11 +44,11 @@ export async function POST(request: NextRequest) {
     // 3. Combine them so the verifier has the raw data to check against
     const verifiableToken = `${rawString}.${signature}`;
 
-    const verificationToken = await database.verificationToken.create({
+    const verificationToken = await database.verification.create({
       data: {
-        expires: spacetime().add(24, 'hours').toNativeDate(),
+        expiresAt: spacetime().add(24, 'hours').toNativeDate(),
         identifier: `meal-${meal.id}`,
-        token: verifiableToken, 
+        value: verifiableToken, 
       }
     });
     
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
         title,
         meal,
         frontendWeb,
-        token: verificationToken.token
+        token: verificationToken.value
       }
       let template = React.createElement(NewMealTemplate, templateProps);
       await sendAdmin({ subject, template });

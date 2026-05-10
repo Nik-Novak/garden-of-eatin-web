@@ -2,28 +2,26 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { DeviceSettingsNullableCreateEnvelopeInputObjectSchema as DeviceSettingsNullableCreateEnvelopeInputObjectSchema } from './DeviceSettingsNullableCreateEnvelopeInput.schema';
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
-import { AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema as AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './AccountUncheckedCreateNestedManyWithoutUserInput.schema';
-import { WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema as WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceUncheckedCreateNestedManyWithoutUserInput.schema';
 import { SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema as SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './SessionUncheckedCreateNestedManyWithoutUserInput.schema';
-import { InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema as InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema } from './InviteUncheckedCreateNestedManyWithoutInviterInput.schema';
-import { InviteUncheckedCreateNestedOneWithoutUserInputObjectSchema as InviteUncheckedCreateNestedOneWithoutUserInputObjectSchema } from './InviteUncheckedCreateNestedOneWithoutUserInput.schema';
-import { OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema as OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './OpportunityApplicationUncheckedCreateNestedManyWithoutUserInput.schema'
+import { AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema as AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './AccountUncheckedCreateNestedManyWithoutUserInput.schema';
+import { WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema as WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceUncheckedCreateNestedManyWithoutUserInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().optional(),
-  name: z.string().optional().nullable(),
-  email: z.string().optional().nullable(),
-  emailVerified: z.coerce.date().optional().nullable(),
+  name: z.string(),
+  email: z.string(),
+  emailVerified: z.boolean().optional(),
   image: z.string().optional().nullable(),
+  role: z.string().optional().nullable(),
+  banned: z.boolean().optional().nullable(),
+  banReason: z.string().optional().nullable(),
+  banExpires: z.coerce.date().optional().nullable(),
   settings: z.union([z.lazy(() => DeviceSettingsNullableCreateEnvelopeInputObjectSchema), z.lazy(() => DeviceSettingsCreateInputObjectSchema)]).optional().nullable(),
-  created_at: z.coerce.date().optional(),
-  updated_at: z.coerce.date().optional(),
-  accounts: z.lazy(() => AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
-  web_devices: z.lazy(() => WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
+  createdAt: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional(),
   sessions: z.lazy(() => SessionUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
-  invites_sent: z.lazy(() => InviteUncheckedCreateNestedManyWithoutInviterInputObjectSchema).optional(),
-  invite_used: z.lazy(() => InviteUncheckedCreateNestedOneWithoutUserInputObjectSchema).optional(),
-  opportunity_applications: z.lazy(() => OpportunityApplicationUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional()
+  accounts: z.lazy(() => AccountUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUncheckedCreateNestedManyWithoutUserInputObjectSchema).optional()
 }).strict();
 export const UserUncheckedCreateWithoutDevicesInputObjectSchema: z.ZodType<Prisma.UserUncheckedCreateWithoutDevicesInput> = makeSchema() as unknown as z.ZodType<Prisma.UserUncheckedCreateWithoutDevicesInput>;
 export const UserUncheckedCreateWithoutDevicesInputObjectZodSchema = makeSchema();

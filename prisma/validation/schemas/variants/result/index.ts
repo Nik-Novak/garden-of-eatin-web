@@ -5,13 +5,12 @@
 
 export { AccountResultSchema } from './Account.result';
 export { SessionResultSchema } from './Session.result';
-export { VerificationTokenResultSchema } from './VerificationToken.result';
+export { VerificationResultSchema } from './Verification.result';
 export { BugResultSchema } from './Bug.result';
 export { ContactRequestResultSchema } from './ContactRequest.result';
 export { ContributorResultSchema } from './Contributor.result';
 export { DeviceResultSchema } from './Device.result';
 export { DummyGenTypesResultSchema } from './DummyGenTypes.result';
-export { InviteResultSchema } from './Invite.result';
 export { AgreementResultSchema } from './Agreement.result';
 export { DeviceAgreementResultSchema } from './DeviceAgreement.result';
 export { MealResultSchema } from './Meal.result';
@@ -20,8 +19,6 @@ export { MealOccurrenceSearchResultSchema } from './MealOccurrenceSearch.result'
 export { MealSearchHitResultSchema } from './MealSearchHit.result';
 export { MealInteractionResultSchema } from './MealInteraction.result';
 export { NoticeResultSchema } from './Notice.result';
-export { OpportunityResultSchema } from './Opportunity.result';
-export { OpportunityApplicationResultSchema } from './OpportunityApplication.result';
 export { PostResultSchema } from './Post.result';
 export { ReviewResultSchema } from './Review.result';
 export { ScannableDocumentResultSchema } from './ScannableDocument.result';

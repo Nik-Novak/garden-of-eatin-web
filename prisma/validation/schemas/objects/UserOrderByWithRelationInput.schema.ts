@@ -2,13 +2,10 @@ import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 import { DeviceSettingsOrderByInputObjectSchema as DeviceSettingsOrderByInputObjectSchema } from './DeviceSettingsOrderByInput.schema';
+import { SessionOrderByRelationAggregateInputObjectSchema as SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
 import { AccountOrderByRelationAggregateInputObjectSchema as AccountOrderByRelationAggregateInputObjectSchema } from './AccountOrderByRelationAggregateInput.schema';
 import { DeviceOrderByRelationAggregateInputObjectSchema as DeviceOrderByRelationAggregateInputObjectSchema } from './DeviceOrderByRelationAggregateInput.schema';
-import { WebDeviceOrderByRelationAggregateInputObjectSchema as WebDeviceOrderByRelationAggregateInputObjectSchema } from './WebDeviceOrderByRelationAggregateInput.schema';
-import { SessionOrderByRelationAggregateInputObjectSchema as SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
-import { InviteOrderByRelationAggregateInputObjectSchema as InviteOrderByRelationAggregateInputObjectSchema } from './InviteOrderByRelationAggregateInput.schema';
-import { InviteOrderByWithRelationInputObjectSchema as InviteOrderByWithRelationInputObjectSchema } from './InviteOrderByWithRelationInput.schema';
-import { OpportunityApplicationOrderByRelationAggregateInputObjectSchema as OpportunityApplicationOrderByRelationAggregateInputObjectSchema } from './OpportunityApplicationOrderByRelationAggregateInput.schema'
+import { WebDeviceOrderByRelationAggregateInputObjectSchema as WebDeviceOrderByRelationAggregateInputObjectSchema } from './WebDeviceOrderByRelationAggregateInput.schema'
 
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
@@ -16,16 +13,17 @@ const makeSchema = () => z.object({
   email: SortOrderSchema.optional(),
   emailVerified: SortOrderSchema.optional(),
   image: SortOrderSchema.optional(),
+  role: SortOrderSchema.optional(),
+  banned: SortOrderSchema.optional(),
+  banReason: SortOrderSchema.optional(),
+  banExpires: SortOrderSchema.optional(),
   settings: z.lazy(() => DeviceSettingsOrderByInputObjectSchema).optional(),
-  created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional(),
+  createdAt: SortOrderSchema.optional(),
+  updatedAt: SortOrderSchema.optional(),
+  sessions: z.lazy(() => SessionOrderByRelationAggregateInputObjectSchema).optional(),
   accounts: z.lazy(() => AccountOrderByRelationAggregateInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceOrderByRelationAggregateInputObjectSchema).optional(),
-  web_devices: z.lazy(() => WebDeviceOrderByRelationAggregateInputObjectSchema).optional(),
-  sessions: z.lazy(() => SessionOrderByRelationAggregateInputObjectSchema).optional(),
-  invites_sent: z.lazy(() => InviteOrderByRelationAggregateInputObjectSchema).optional(),
-  invite_used: z.lazy(() => InviteOrderByWithRelationInputObjectSchema).optional(),
-  opportunity_applications: z.lazy(() => OpportunityApplicationOrderByRelationAggregateInputObjectSchema).optional()
+  web_devices: z.lazy(() => WebDeviceOrderByRelationAggregateInputObjectSchema).optional()
 }).strict();
 export const UserOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.UserOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.UserOrderByWithRelationInput>;
 export const UserOrderByWithRelationInputObjectZodSchema = makeSchema();

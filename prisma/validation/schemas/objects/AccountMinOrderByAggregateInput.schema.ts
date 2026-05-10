@@ -4,25 +4,18 @@ import { SortOrderSchema } from '../enums/SortOrder.schema'
 
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
+  accountId: SortOrderSchema.optional(),
+  providerId: SortOrderSchema.optional(),
   userId: SortOrderSchema.optional(),
-  type: SortOrderSchema.optional(),
-  provider: SortOrderSchema.optional(),
-  providerAccountId: SortOrderSchema.optional(),
-  refresh_token: SortOrderSchema.optional(),
-  access_token: SortOrderSchema.optional(),
-  expires_at: SortOrderSchema.optional(),
-  expires_in: SortOrderSchema.optional(),
-  token_type: SortOrderSchema.optional(),
+  accessToken: SortOrderSchema.optional(),
+  refreshToken: SortOrderSchema.optional(),
+  idToken: SortOrderSchema.optional(),
+  accessTokenExpiresAt: SortOrderSchema.optional(),
+  refreshTokenExpiresAt: SortOrderSchema.optional(),
   scope: SortOrderSchema.optional(),
-  id_token: SortOrderSchema.optional(),
-  session_state: SortOrderSchema.optional(),
-  api_domain: SortOrderSchema.optional(),
-  userType: SortOrderSchema.optional(),
-  locationId: SortOrderSchema.optional(),
-  company_id: SortOrderSchema.optional(),
-  planId: SortOrderSchema.optional(),
-  created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional()
+  password: SortOrderSchema.optional(),
+  createdAt: SortOrderSchema.optional(),
+  updatedAt: SortOrderSchema.optional()
 }).strict();
 export const AccountMinOrderByAggregateInputObjectSchema: z.ZodType<Prisma.AccountMinOrderByAggregateInput> = makeSchema() as unknown as z.ZodType<Prisma.AccountMinOrderByAggregateInput>;
 export const AccountMinOrderByAggregateInputObjectZodSchema = makeSchema();

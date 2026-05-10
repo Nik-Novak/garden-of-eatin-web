@@ -1,55 +1,53 @@
-// ############## AUTH JS ##################
+// ############## BETTER AUTH ##################
 
-model Account { //NEXTAUTH ONLY
-  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
-  userId              String    @map("user_id") @db.ObjectId
-  type                String
-  provider            String
-  providerAccountId   String    @map("provider_account_id")
-  refresh_token       String?
-  access_token        String?
-  expires_at          Int?
-  expires_in          Int?
-  token_type          String?
-  scope               String?
-  id_token            String?
-  session_state       String?
-  api_domain          String?
+model Account { //BETTER AUTH only
+  id                    String    @id @default(auto()) @map("_id") @db.ObjectId
+  accountId             String    @map("account_id")
+  providerId            String    @map("provider_id")
 
-  userType            String?   @map("user_type") //GHL
-  locationId          String?   @map("location_id") //GHL
-  company_id          String?   @map("company_id") //GHL
-  approvedLocations   String[]  @map("approved_locations") @default([]) //GHL
-  planId              String?   @map("plan_id") //GHL
+  userId                String    @map("user_id")
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  user                User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  created_at  DateTime    @default(now())
-  updated_at  DateTime    @updatedAt
-  @@unique([provider, providerAccountId])
+  accessToken           String?   @map("access_token")
+  refreshToken          String?   @map("refresh_token")
+  idToken               String?   @map("id_token")
+  accessTokenExpiresAt  DateTime? @map("access_token_expires_at")
+  refreshTokenExpiresAt DateTime? @map("refresh_token_expires_at")
+  scope                 String?
+  password              String?
+  
+  createdAt DateTime @default(now())  @map("created_at")
+  updatedAt DateTime @updatedAt       @map("updated_at")
+  @@index([userId])
   @@map("accounts")
 }
 
 model Session {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken  String    @map("session_token") @unique 
-  userId        String    @map("user_id") @db.ObjectId
-  expires       DateTime
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String        @id @default(auto()) @map("_id") @db.ObjectId
+  token     String
+  expiresAt DateTime      @map("expires_at")
 
-  created_at  DateTime    @default(now())
-  updated_at  DateTime    @updatedAt
+  ipAddress String?       @map("ip_address")
+  userAgent String?       @map("user_agent")
+  userId    String        @map("user_id")
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())  @map("created_at")
+  updatedAt DateTime @updatedAt       @map("updated_at")
+  @@unique([token])
+  @@index([userId])
   @@map("sessions")
 }
 
-model VerificationToken {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  identifier    String
-  token         String   @unique
-  expires       DateTime
+model Verification {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  value      String
+  expiresAt  DateTime @map("expires_at")
+  
 
-  created_at    DateTime    @default(now())
-  updated_at    DateTime    @updatedAt
-  @@unique([identifier, token])
-  @@map("verificationtokens")
+  createdAt DateTime @default(now())  @map("created_at")
+  updatedAt DateTime @updatedAt       @map("updated_at")
+  @@index([identifier])
+  @@map("verifications")
 }

@@ -8,8 +8,12 @@ const makeSchema = () => z.object({
   email: SortOrderSchema.optional(),
   emailVerified: SortOrderSchema.optional(),
   image: SortOrderSchema.optional(),
-  created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional()
+  role: SortOrderSchema.optional(),
+  banned: SortOrderSchema.optional(),
+  banReason: SortOrderSchema.optional(),
+  banExpires: SortOrderSchema.optional(),
+  createdAt: SortOrderSchema.optional(),
+  updatedAt: SortOrderSchema.optional()
 }).strict();
 export const UserMaxOrderByAggregateInputObjectSchema: z.ZodType<Prisma.UserMaxOrderByAggregateInput> = makeSchema() as unknown as z.ZodType<Prisma.UserMaxOrderByAggregateInput>;
 export const UserMaxOrderByAggregateInputObjectZodSchema = makeSchema();

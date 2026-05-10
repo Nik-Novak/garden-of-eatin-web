@@ -1,18 +1,19 @@
 import * as z from 'zod';
 export const UserFindFirstResultSchema = z.nullable(z.object({
   id: z.string(),
-  name: z.string().optional(),
-  email: z.string().optional(),
-  emailVerified: z.date().optional(),
+  name: z.string(),
+  email: z.string(),
+  emailVerified: z.boolean(),
   image: z.string().optional(),
-  settings: z.unknown().optional(),
+  role: z.string().optional(),
+  banned: z.boolean().optional(),
+  banReason: z.string().optional(),
+  banExpires: z.date().optional(),
+  sessions: z.array(z.unknown()),
   accounts: z.array(z.unknown()),
+  settings: z.unknown().optional(),
   devices: z.array(z.unknown()),
   web_devices: z.array(z.unknown()),
-  sessions: z.array(z.unknown()),
-  invites_sent: z.array(z.unknown()),
-  invite_used: z.unknown().optional(),
-  opportunity_applications: z.array(z.unknown()),
-  created_at: z.date(),
-  updated_at: z.date()
+  createdAt: z.date(),
+  updatedAt: z.date()
 }));

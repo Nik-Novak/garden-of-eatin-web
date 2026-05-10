@@ -80,7 +80,7 @@ export default function MealDashboardClient({ initialMeals }: { initialMeals: Me
               borderRadius: 2,
               border: '1px solid',
               borderColor: 'divider',
-              '& .MuiDataGrid-main': { borderRadius: 4 }
+              // '& .MuiDataGrid-main': { borderRadius: 4 }
             }}
           />
         </Box>

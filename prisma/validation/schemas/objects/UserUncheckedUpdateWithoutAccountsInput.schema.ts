@@ -1,31 +1,32 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
+import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
+import { BoolFieldUpdateOperationsInputObjectSchema as BoolFieldUpdateOperationsInputObjectSchema } from './BoolFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
+import { NullableBoolFieldUpdateOperationsInputObjectSchema as NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema';
 import { NullableDateTimeFieldUpdateOperationsInputObjectSchema as NullableDateTimeFieldUpdateOperationsInputObjectSchema } from './NullableDateTimeFieldUpdateOperationsInput.schema';
 import { DeviceSettingsNullableUpdateEnvelopeInputObjectSchema as DeviceSettingsNullableUpdateEnvelopeInputObjectSchema } from './DeviceSettingsNullableUpdateEnvelopeInput.schema';
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
-import { DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './DeviceUncheckedUpdateManyWithoutUserNestedInput.schema';
-import { WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './WebDeviceUncheckedUpdateManyWithoutUserNestedInput.schema';
 import { SessionUncheckedUpdateManyWithoutUserNestedInputObjectSchema as SessionUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './SessionUncheckedUpdateManyWithoutUserNestedInput.schema';
-import { InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema as InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema } from './InviteUncheckedUpdateManyWithoutInviterNestedInput.schema';
-import { InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema as InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema } from './InviteUncheckedUpdateOneWithoutUserNestedInput.schema';
-import { OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema as OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInput.schema'
+import { DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './DeviceUncheckedUpdateManyWithoutUserNestedInput.schema';
+import { WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema as WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from './WebDeviceUncheckedUpdateManyWithoutUserNestedInput.schema'
 
 const makeSchema = () => z.object({
-  name: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
-  email: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
-  emailVerified: z.union([z.coerce.date(), z.lazy(() => NullableDateTimeFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  name: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  email: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  emailVerified: z.union([z.boolean(), z.lazy(() => BoolFieldUpdateOperationsInputObjectSchema)]).optional(),
   image: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  role: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  banned: z.union([z.boolean(), z.lazy(() => NullableBoolFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  banReason: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  banExpires: z.union([z.coerce.date(), z.lazy(() => NullableDateTimeFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   settings: z.union([z.lazy(() => DeviceSettingsNullableUpdateEnvelopeInputObjectSchema), z.lazy(() => DeviceSettingsCreateInputObjectSchema)]).optional().nullable(),
-  created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  updated_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
-  devices: z.lazy(() => DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
-  web_devices: z.lazy(() => WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
+  createdAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  updatedAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
   sessions: z.lazy(() => SessionUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
-  invites_sent: z.lazy(() => InviteUncheckedUpdateManyWithoutInviterNestedInputObjectSchema).optional(),
-  invite_used: z.lazy(() => InviteUncheckedUpdateOneWithoutUserNestedInputObjectSchema).optional(),
-  opportunity_applications: z.lazy(() => OpportunityApplicationUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional()
+  devices: z.lazy(() => DeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional(),
+  web_devices: z.lazy(() => WebDeviceUncheckedUpdateManyWithoutUserNestedInputObjectSchema).optional()
 }).strict();
 export const UserUncheckedUpdateWithoutAccountsInputObjectSchema: z.ZodType<Prisma.UserUncheckedUpdateWithoutAccountsInput> = makeSchema() as unknown as z.ZodType<Prisma.UserUncheckedUpdateWithoutAccountsInput>;
 export const UserUncheckedUpdateWithoutAccountsInputObjectZodSchema = makeSchema();

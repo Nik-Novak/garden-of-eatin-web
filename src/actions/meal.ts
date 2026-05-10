@@ -41,12 +41,10 @@ async function validateMealToken(mealId: string, token: string) {
   }
 
   // 2. Database Verification
-  const dbToken = await database.verificationToken.findUnique({
+  const dbToken = await database.verification.findFirst({
     where: {
-      identifier_token: { 
-        identifier: `meal-${mealId}`,
-        token: token
-      }
+      identifier: `meal-${mealId}`,
+      value: token
     }
   });
 
@@ -54,7 +52,7 @@ async function validateMealToken(mealId: string, token: string) {
     throw Error("Token not found or already used");
   }
 
-  if (dbToken.expires < new Date()) {
+  if (dbToken.expiresAt < new Date()) {
     throw Error("Token has expired");
   }
 
@@ -79,7 +77,7 @@ export async function rejectMeal(mealId: string, token: string, reason: string) 
         rejection_reason: reason
       }
     }),
-    database.verificationToken.delete({
+    database.verification.delete({
       where: { id: dbToken!.id }
     })
   ]);
@@ -99,7 +97,7 @@ export async function approveMeal(mealId: string, token: string) {
         rejection_reason: null // Clear out any previous rejection reason just in case
       }
     }),
-    database.verificationToken.delete({
+    database.verification.delete({
       where: { id: dbToken!.id }
     })
   ]);

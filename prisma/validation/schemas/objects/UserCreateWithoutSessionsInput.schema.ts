@@ -4,26 +4,24 @@ import { DeviceSettingsNullableCreateEnvelopeInputObjectSchema as DeviceSettings
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { AccountCreateNestedManyWithoutUserInputObjectSchema as AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema';
 import { DeviceCreateNestedManyWithoutUserInputObjectSchema as DeviceCreateNestedManyWithoutUserInputObjectSchema } from './DeviceCreateNestedManyWithoutUserInput.schema';
-import { WebDeviceCreateNestedManyWithoutUserInputObjectSchema as WebDeviceCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceCreateNestedManyWithoutUserInput.schema';
-import { InviteCreateNestedManyWithoutInviterInputObjectSchema as InviteCreateNestedManyWithoutInviterInputObjectSchema } from './InviteCreateNestedManyWithoutInviterInput.schema';
-import { InviteCreateNestedOneWithoutUserInputObjectSchema as InviteCreateNestedOneWithoutUserInputObjectSchema } from './InviteCreateNestedOneWithoutUserInput.schema';
-import { OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema as OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema } from './OpportunityApplicationCreateNestedManyWithoutUserInput.schema'
+import { WebDeviceCreateNestedManyWithoutUserInputObjectSchema as WebDeviceCreateNestedManyWithoutUserInputObjectSchema } from './WebDeviceCreateNestedManyWithoutUserInput.schema'
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
-  name: z.string().optional().nullable(),
-  email: z.string().optional().nullable(),
-  emailVerified: z.coerce.date().optional().nullable(),
+  name: z.string(),
+  email: z.string(),
+  emailVerified: z.boolean().optional(),
   image: z.string().optional().nullable(),
+  role: z.string().optional().nullable(),
+  banned: z.boolean().optional().nullable(),
+  banReason: z.string().optional().nullable(),
+  banExpires: z.coerce.date().optional().nullable(),
   settings: z.union([z.lazy(() => DeviceSettingsNullableCreateEnvelopeInputObjectSchema), z.lazy(() => DeviceSettingsCreateInputObjectSchema)]).optional().nullable(),
-  created_at: z.coerce.date().optional(),
-  updated_at: z.coerce.date().optional(),
+  createdAt: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional(),
   accounts: z.lazy(() => AccountCreateNestedManyWithoutUserInputObjectSchema).optional(),
   devices: z.lazy(() => DeviceCreateNestedManyWithoutUserInputObjectSchema).optional(),
-  web_devices: z.lazy(() => WebDeviceCreateNestedManyWithoutUserInputObjectSchema).optional(),
-  invites_sent: z.lazy(() => InviteCreateNestedManyWithoutInviterInputObjectSchema).optional(),
-  invite_used: z.lazy(() => InviteCreateNestedOneWithoutUserInputObjectSchema).optional(),
-  opportunity_applications: z.lazy(() => OpportunityApplicationCreateNestedManyWithoutUserInputObjectSchema).optional()
+  web_devices: z.lazy(() => WebDeviceCreateNestedManyWithoutUserInputObjectSchema).optional()
 }).strict();
 export const UserCreateWithoutSessionsInputObjectSchema: z.ZodType<Prisma.UserCreateWithoutSessionsInput> = makeSchema() as unknown as z.ZodType<Prisma.UserCreateWithoutSessionsInput>;
 export const UserCreateWithoutSessionsInputObjectZodSchema = makeSchema();

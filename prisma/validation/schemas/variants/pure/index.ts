@@ -5,13 +5,12 @@
 
 export { AccountModelSchema } from './Account.pure';
 export { SessionModelSchema } from './Session.pure';
-export { VerificationTokenModelSchema } from './VerificationToken.pure';
+export { VerificationModelSchema } from './Verification.pure';
 export { BugModelSchema } from './Bug.pure';
 export { ContactRequestModelSchema } from './ContactRequest.pure';
 export { ContributorModelSchema } from './Contributor.pure';
 export { DeviceModelSchema } from './Device.pure';
 export { DummyGenTypesModelSchema } from './DummyGenTypes.pure';
-export { InviteModelSchema } from './Invite.pure';
 export { AgreementModelSchema } from './Agreement.pure';
 export { DeviceAgreementModelSchema } from './DeviceAgreement.pure';
 export { MealModelSchema } from './Meal.pure';
@@ -20,8 +19,6 @@ export { MealOccurrenceSearchModelSchema } from './MealOccurrenceSearch.pure';
 export { MealSearchHitModelSchema } from './MealSearchHit.pure';
 export { MealInteractionModelSchema } from './MealInteraction.pure';
 export { NoticeModelSchema } from './Notice.pure';
-export { OpportunityModelSchema } from './Opportunity.pure';
-export { OpportunityApplicationModelSchema } from './OpportunityApplication.pure';
 export { PostModelSchema } from './Post.pure';
 export { ReviewModelSchema } from './Review.pure';
 export { ScannableDocumentModelSchema } from './ScannableDocument.pure';

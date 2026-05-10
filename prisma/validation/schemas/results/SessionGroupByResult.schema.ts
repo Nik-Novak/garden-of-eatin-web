@@ -1,34 +1,42 @@
 import * as z from 'zod';
 export const SessionGroupByResultSchema = z.array(z.object({
   id: z.string(),
-  sessionToken: z.string(),
+  token: z.string(),
+  expiresAt: z.date(),
+  ipAddress: z.string(),
+  userAgent: z.string(),
   userId: z.string(),
-  expires: z.date(),
-  created_at: z.date(),
-  updated_at: z.date(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
   _count: z.object({
     id: z.number(),
-    sessionToken: z.number(),
+    token: z.number(),
+    expiresAt: z.number(),
+    ipAddress: z.number(),
+    userAgent: z.number(),
     userId: z.number(),
-    expires: z.number(),
     user: z.number(),
-    created_at: z.number(),
-    updated_at: z.number()
+    createdAt: z.number(),
+    updatedAt: z.number()
   }).optional(),
   _min: z.object({
     id: z.string().nullable(),
-    sessionToken: z.string().nullable(),
+    token: z.string().nullable(),
+    expiresAt: z.date().nullable(),
+    ipAddress: z.string().nullable(),
+    userAgent: z.string().nullable(),
     userId: z.string().nullable(),
-    expires: z.date().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
   }).nullable().optional(),
   _max: z.object({
     id: z.string().nullable(),
-    sessionToken: z.string().nullable(),
+    token: z.string().nullable(),
+    expiresAt: z.date().nullable(),
+    ipAddress: z.string().nullable(),
+    userAgent: z.string().nullable(),
     userId: z.string().nullable(),
-    expires: z.date().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
   }).nullable().optional()
 }));

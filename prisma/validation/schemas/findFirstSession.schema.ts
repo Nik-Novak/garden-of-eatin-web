@@ -11,22 +11,26 @@ import { SessionScalarFieldEnumSchema } from './enums/SessionScalarFieldEnum.sch
 
 export const SessionFindFirstSelectSchema: z.ZodType<Prisma.SessionSelect> = z.object({
     id: z.boolean().optional(),
-    sessionToken: z.boolean().optional(),
+    token: z.boolean().optional(),
+    expiresAt: z.boolean().optional(),
+    ipAddress: z.boolean().optional(),
+    userAgent: z.boolean().optional(),
     userId: z.boolean().optional(),
-    expires: z.boolean().optional(),
     user: z.boolean().optional(),
-    created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional()
+    createdAt: z.boolean().optional(),
+    updatedAt: z.boolean().optional()
   }).strict() as unknown as z.ZodType<Prisma.SessionSelect>;
 
 export const SessionFindFirstSelectZodSchema = z.object({
     id: z.boolean().optional(),
-    sessionToken: z.boolean().optional(),
+    token: z.boolean().optional(),
+    expiresAt: z.boolean().optional(),
+    ipAddress: z.boolean().optional(),
+    userAgent: z.boolean().optional(),
     userId: z.boolean().optional(),
-    expires: z.boolean().optional(),
     user: z.boolean().optional(),
-    created_at: z.boolean().optional(),
-    updated_at: z.boolean().optional()
+    createdAt: z.boolean().optional(),
+    updatedAt: z.boolean().optional()
   }).strict();
 
 export const SessionFindFirstSchema: z.ZodType<Prisma.SessionFindFirstArgs> = z.object({ select: SessionFindFirstSelectSchema.optional(), include: z.lazy(() => SessionIncludeObjectSchema.optional()), orderBy: z.union([SessionOrderByWithRelationInputObjectSchema, SessionOrderByWithRelationInputObjectSchema.array()]).optional(), where: SessionWhereInputObjectSchema.optional(), cursor: SessionWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), distinct: z.union([SessionScalarFieldEnumSchema, SessionScalarFieldEnumSchema.array()]).optional() }).strict() as unknown as z.ZodType<Prisma.SessionFindFirstArgs>;

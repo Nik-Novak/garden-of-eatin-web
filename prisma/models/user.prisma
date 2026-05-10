@@ -1,24 +1,26 @@
 model User {
-  id                String    @id @default(auto()) @map("_id") @db.ObjectId
-  name              String?
-  email             String?   @unique
-  emailVerified     DateTime? @map("email_verified")
-  image             String?
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  email         String
+  emailVerified Boolean   @default(false) @map("email_verified")
+  image         String?
 
+  //rbac
+  role String?          @default("user")
+	banned Boolean?
+	banReason String?
+	banExpires DateTime? 
+
+  sessions      Session[]
+  accounts      Account[]
+
+  // ### Custom fields ###
   settings          DeviceSettings?
-
-  accounts          Account[]
-
   devices           Device[]
   web_devices       WebDevice[]
-  
-  sessions          Session[]
-  invites_sent      Invite[]  @relation(name: "invites_sent")
-  invite_used       Invite?   @relation(name: "invite_used")
 
-  opportunity_applications  OpportunityApplication[]
-  
-  created_at        DateTime    @default(now())
-  updated_at        DateTime    @updatedAt
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt      @map("updated_at")
+  @@unique([email])
   @@map("users")
 }

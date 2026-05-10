@@ -4,10 +4,12 @@ import type { Prisma } from '@prisma/client';
 
 const makeSchema = () => z.object({
   id: z.string().max(24).optional(),
-  sessionToken: z.string(),
-  expires: z.coerce.date(),
-  created_at: z.coerce.date().optional(),
-  updated_at: z.coerce.date().optional()
+  token: z.string(),
+  expiresAt: z.coerce.date(),
+  ipAddress: z.string().optional().nullable(),
+  userAgent: z.string().optional().nullable(),
+  createdAt: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional()
 }).strict();
 export const SessionCreateWithoutUserInputObjectSchema: z.ZodType<Prisma.SessionCreateWithoutUserInput> = makeSchema() as unknown as z.ZodType<Prisma.SessionCreateWithoutUserInput>;
 export const SessionCreateWithoutUserInputObjectZodSchema = makeSchema();

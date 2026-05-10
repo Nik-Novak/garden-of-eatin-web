@@ -1,12 +1,9 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
+import { SessionFindManySchema as SessionFindManySchema } from '../findManySession.schema';
 import { AccountFindManySchema as AccountFindManySchema } from '../findManyAccount.schema';
 import { DeviceFindManySchema as DeviceFindManySchema } from '../findManyDevice.schema';
 import { WebDeviceFindManySchema as WebDeviceFindManySchema } from '../findManyWebDevice.schema';
-import { SessionFindManySchema as SessionFindManySchema } from '../findManySession.schema';
-import { InviteFindManySchema as InviteFindManySchema } from '../findManyInvite.schema';
-import { InviteArgsObjectSchema as InviteArgsObjectSchema } from './InviteArgs.schema';
-import { OpportunityApplicationFindManySchema as OpportunityApplicationFindManySchema } from '../findManyOpportunityApplication.schema';
 import { UserCountOutputTypeArgsObjectSchema as UserCountOutputTypeArgsObjectSchema } from './UserCountOutputTypeArgs.schema'
 
 const makeSchema = () => z.object({
@@ -15,16 +12,17 @@ const makeSchema = () => z.object({
   email: z.boolean().optional(),
   emailVerified: z.boolean().optional(),
   image: z.boolean().optional(),
-  settings: z.boolean().optional(),
+  role: z.boolean().optional(),
+  banned: z.boolean().optional(),
+  banReason: z.boolean().optional(),
+  banExpires: z.boolean().optional(),
+  sessions: z.union([z.boolean(), z.lazy(() => SessionFindManySchema)]).optional(),
   accounts: z.union([z.boolean(), z.lazy(() => AccountFindManySchema)]).optional(),
+  settings: z.boolean().optional(),
   devices: z.union([z.boolean(), z.lazy(() => DeviceFindManySchema)]).optional(),
   web_devices: z.union([z.boolean(), z.lazy(() => WebDeviceFindManySchema)]).optional(),
-  sessions: z.union([z.boolean(), z.lazy(() => SessionFindManySchema)]).optional(),
-  invites_sent: z.union([z.boolean(), z.lazy(() => InviteFindManySchema)]).optional(),
-  invite_used: z.union([z.boolean(), z.lazy(() => InviteArgsObjectSchema)]).optional(),
-  opportunity_applications: z.union([z.boolean(), z.lazy(() => OpportunityApplicationFindManySchema)]).optional(),
-  created_at: z.boolean().optional(),
-  updated_at: z.boolean().optional(),
+  createdAt: z.boolean().optional(),
+  updatedAt: z.boolean().optional(),
   _count: z.union([z.boolean(), z.lazy(() => UserCountOutputTypeArgsObjectSchema)]).optional()
 }).strict();
 export const UserSelectObjectSchema: z.ZodType<Prisma.UserSelect> = makeSchema() as unknown as z.ZodType<Prisma.UserSelect>;

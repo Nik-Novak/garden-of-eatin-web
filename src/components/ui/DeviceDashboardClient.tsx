@@ -94,7 +94,7 @@ export default function DeviceDashboardClient({ initialDevices }: { initialDevic
               borderRadius: 2,
               border: '1px solid',
               borderColor: 'divider',
-              '& .MuiDataGrid-main': { borderRadius: 4 }
+              // '& .MuiDataGrid-main': { borderRadius: 4 }
             }}
           />
         </Box>

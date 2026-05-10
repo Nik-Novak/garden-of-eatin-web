@@ -1,10 +1,12 @@
 import * as z from 'zod';
 export const SessionDeleteResultSchema = z.nullable(z.object({
   id: z.string(),
-  sessionToken: z.string(),
+  token: z.string(),
+  expiresAt: z.date(),
+  ipAddress: z.string().optional(),
+  userAgent: z.string().optional(),
   userId: z.string(),
-  expires: z.date(),
   user: z.unknown(),
-  created_at: z.date(),
-  updated_at: z.date()
+  createdAt: z.date(),
+  updatedAt: z.date()
 }));

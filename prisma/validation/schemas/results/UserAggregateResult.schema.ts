@@ -5,32 +5,37 @@ export const UserAggregateResultSchema = z.object({  _count: z.object({
     email: z.number(),
     emailVerified: z.number(),
     image: z.number(),
-    settings: z.number(),
+    role: z.number(),
+    banned: z.number(),
+    banReason: z.number(),
+    banExpires: z.number(),
+    sessions: z.number(),
     accounts: z.number(),
+    settings: z.number(),
     devices: z.number(),
     web_devices: z.number(),
-    sessions: z.number(),
-    invites_sent: z.number(),
-    invite_used: z.number(),
-    opportunity_applications: z.number(),
-    created_at: z.number(),
-    updated_at: z.number()
+    createdAt: z.number(),
+    updatedAt: z.number()
   }).optional(),
   _min: z.object({
     id: z.string().nullable(),
     name: z.string().nullable(),
     email: z.string().nullable(),
-    emailVerified: z.date().nullable(),
     image: z.string().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    role: z.string().nullable(),
+    banReason: z.string().nullable(),
+    banExpires: z.date().nullable(),
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
   }).nullable().optional(),
   _max: z.object({
     id: z.string().nullable(),
     name: z.string().nullable(),
     email: z.string().nullable(),
-    emailVerified: z.date().nullable(),
     image: z.string().nullable(),
-    created_at: z.date().nullable(),
-    updated_at: z.date().nullable()
+    role: z.string().nullable(),
+    banReason: z.string().nullable(),
+    banExpires: z.date().nullable(),
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
   }).nullable().optional()});

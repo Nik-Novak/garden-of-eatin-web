@@ -9,6 +9,7 @@ import { NotificationProvider } from "@/components/ui/NotificationQueue";
 import FloatingNav from "@/components/ui/FloatingNav";
 import { CssBaseline } from "@mui/material";
 import { SmartBanner } from "@/components/ui/SmartButton";
+import FloatingUserMenu from "@/components/ui/FloatingUserMenu";
 
 // Initialize Lora for Headings
 const lora = Lora({
@@ -50,6 +51,7 @@ export default function RootLayout({
             <NotificationProvider>
               <SmartBanner />
               <FloatingNav />
+              <FloatingUserMenu />
               {children}
             </NotificationProvider>
           </ThemeProvider>

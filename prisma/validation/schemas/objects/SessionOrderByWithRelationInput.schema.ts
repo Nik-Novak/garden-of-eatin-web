@@ -5,11 +5,13 @@ import { UserOrderByWithRelationInputObjectSchema as UserOrderByWithRelationInpu
 
 const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
-  sessionToken: SortOrderSchema.optional(),
+  token: SortOrderSchema.optional(),
+  expiresAt: SortOrderSchema.optional(),
+  ipAddress: SortOrderSchema.optional(),
+  userAgent: SortOrderSchema.optional(),
   userId: SortOrderSchema.optional(),
-  expires: SortOrderSchema.optional(),
-  created_at: SortOrderSchema.optional(),
-  updated_at: SortOrderSchema.optional(),
+  createdAt: SortOrderSchema.optional(),
+  updatedAt: SortOrderSchema.optional(),
   user: z.lazy(() => UserOrderByWithRelationInputObjectSchema).optional()
 }).strict();
 export const SessionOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.SessionOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.SessionOrderByWithRelationInput>;

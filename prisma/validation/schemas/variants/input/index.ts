@@ -5,13 +5,12 @@
 
 export { AccountInputSchema } from './Account.input';
 export { SessionInputSchema } from './Session.input';
-export { VerificationTokenInputSchema } from './VerificationToken.input';
+export { VerificationInputSchema } from './Verification.input';
 export { BugInputSchema } from './Bug.input';
 export { ContactRequestInputSchema } from './ContactRequest.input';
 export { ContributorInputSchema } from './Contributor.input';
 export { DeviceInputSchema } from './Device.input';
 export { DummyGenTypesInputSchema } from './DummyGenTypes.input';
-export { InviteInputSchema } from './Invite.input';
 export { AgreementInputSchema } from './Agreement.input';
 export { DeviceAgreementInputSchema } from './DeviceAgreement.input';
 export { MealInputSchema } from './Meal.input';
@@ -20,8 +19,6 @@ export { MealOccurrenceSearchInputSchema } from './MealOccurrenceSearch.input';
 export { MealSearchHitInputSchema } from './MealSearchHit.input';
 export { MealInteractionInputSchema } from './MealInteraction.input';
 export { NoticeInputSchema } from './Notice.input';
-export { OpportunityInputSchema } from './Opportunity.input';
-export { OpportunityApplicationInputSchema } from './OpportunityApplication.input';
 export { PostInputSchema } from './Post.input';
 export { ReviewInputSchema } from './Review.input';
 export { ScannableDocumentInputSchema } from './ScannableDocument.input';

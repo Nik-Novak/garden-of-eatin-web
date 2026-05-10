@@ -2,20 +2,21 @@ import * as z from 'zod';
 // prettier-ignore
 export const UserInputSchema = z.object({
     id: z.string(),
-    name: z.string().optional().nullable(),
-    email: z.string().optional().nullable(),
-    emailVerified: z.date().optional().nullable(),
+    name: z.string(),
+    email: z.string(),
+    emailVerified: z.boolean(),
     image: z.string().optional().nullable(),
-    settings: z.unknown().optional().nullable(),
+    role: z.string().optional().nullable(),
+    banned: z.boolean().optional().nullable(),
+    banReason: z.string().optional().nullable(),
+    banExpires: z.date().optional().nullable(),
+    sessions: z.array(z.unknown()),
     accounts: z.array(z.unknown()),
+    settings: z.unknown().optional().nullable(),
     devices: z.array(z.unknown()),
     web_devices: z.array(z.unknown()),
-    sessions: z.array(z.unknown()),
-    invites_sent: z.array(z.unknown()),
-    invite_used: z.unknown().optional().nullable(),
-    opportunity_applications: z.array(z.unknown()),
-    created_at: z.date(),
-    updated_at: z.date()
+    createdAt: z.date(),
+    updatedAt: z.date()
 }).strict();
 
 export type UserInputType = z.infer<typeof UserInputSchema>;

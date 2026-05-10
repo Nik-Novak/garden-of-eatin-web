@@ -13,29 +13,38 @@ import {
   RestaurantMenuOutlined, 
   ArrowForwardRounded 
 } from "@mui/icons-material";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { canViewAdminDevices, canViewAdminMeals } from "@/actions/access";
 
-/**
+
+
+export default async function AdminDashboard() {
+  const [displayDevices, displayMeals] = await Promise.all([canViewAdminDevices(), canViewAdminMeals()]);
+
+  /**
  * Dashboard configuration for easy scalability.
  * Simply add a new object here to create a new card.
  */
-const ADMIN_MODULES = [
-  {
-    title: "Devices",
-    description: "View platform users, activity heatmaps, and hardware status.",
-    icon: <DevicesOtherOutlined />,
-    href: "/admin/dashboard/devices",
-    accent: "#3b82f6", // Premium Blue
-  },
-  {
-    title: "Meals",
-    description: "Approve meal submissions, manage catalogs, and view interaction stats.",
-    icon: <RestaurantMenuOutlined />,
-    href: "/admin/dashboard/meals",
-    accent: "#10b981", // Emerald Green
-  },
-];
+  const ADMIN_MODULES = [
+    {
+      enabled: displayDevices,
+      title: "Devices",
+      description: "View platform users, activity heatmaps, and hardware status.",
+      icon: <DevicesOtherOutlined />,
+      href: "/admin/dashboard/devices",
+      accent: "#3b82f6", // Premium Blue
+    },
+    {
+      enabled: displayMeals,
+      title: "Meals",
+      description: "Approve meal submissions, manage catalogs, and view interaction stats.",
+      icon: <RestaurantMenuOutlined />,
+      href: "/admin/dashboard/meals",
+      accent: "#10b981", // Emerald Green
+    },
+  ];
 
-export default function AdminDashboard() {
   return (
     <Box sx={{ flexGrow: 1, px: 4, py: 8, maxWidth: 1200, mx: 'auto' }}>
       {/* Header Section */}
@@ -53,7 +62,7 @@ export default function AdminDashboard() {
 
       {/* Scalable Grid */}
       <Grid container spacing={4} sx={{justifyContent:'center'}}>
-        {ADMIN_MODULES.map((module) => (
+        {ADMIN_MODULES.filter(m=>m.enabled).map((module) => (
           <Grid key={module.title} size={{ xs: 12, sm: 6 }}>
             <Paper
               elevation={0}

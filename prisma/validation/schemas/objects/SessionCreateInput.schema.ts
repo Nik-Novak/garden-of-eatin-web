@@ -3,7 +3,7 @@ import type { Prisma } from '@prisma/client';
 import { UserCreateNestedOneWithoutSessionsInputObjectSchema as UserCreateNestedOneWithoutSessionsInputObjectSchema } from './UserCreateNestedOneWithoutSessionsInput.schema'
 
 const makeSchema = () => z.object({
-  id: z.string().max(24).optional(),
+  id: z.string().max(24),
   token: z.string(),
   expiresAt: z.coerce.date(),
   ipAddress: z.string().optional().nullable(),

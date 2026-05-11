@@ -23,7 +23,7 @@ model Account { //BETTER AUTH only
 }
 
 model Session {
-  id        String        @id @map("_id") @db.ObjectId
+  id        String        @id @default(auto()) @map("_id") @db.ObjectId
   token     String
   expiresAt DateTime      @map("expires_at")
 

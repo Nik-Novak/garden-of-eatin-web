@@ -1,0 +1,12 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceOccurrenceOrderByWithRelationInputObjectSchema as ResourceOccurrenceOrderByWithRelationInputObjectSchema } from './objects/ResourceOccurrenceOrderByWithRelationInput.schema';
+import { ResourceOccurrenceWhereInputObjectSchema as ResourceOccurrenceWhereInputObjectSchema } from './objects/ResourceOccurrenceWhereInput.schema';
+import { ResourceOccurrenceWhereUniqueInputObjectSchema as ResourceOccurrenceWhereUniqueInputObjectSchema } from './objects/ResourceOccurrenceWhereUniqueInput.schema';
+import { ResourceOccurrenceCountAggregateInputObjectSchema as ResourceOccurrenceCountAggregateInputObjectSchema } from './objects/ResourceOccurrenceCountAggregateInput.schema';
+import { ResourceOccurrenceMinAggregateInputObjectSchema as ResourceOccurrenceMinAggregateInputObjectSchema } from './objects/ResourceOccurrenceMinAggregateInput.schema';
+import { ResourceOccurrenceMaxAggregateInputObjectSchema as ResourceOccurrenceMaxAggregateInputObjectSchema } from './objects/ResourceOccurrenceMaxAggregateInput.schema';
+
+export const ResourceOccurrenceAggregateSchema: z.ZodType<Prisma.ResourceOccurrenceAggregateArgs> = z.object({ orderBy: z.union([ResourceOccurrenceOrderByWithRelationInputObjectSchema, ResourceOccurrenceOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceOccurrenceWhereInputObjectSchema.optional(), cursor: ResourceOccurrenceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: ResourceOccurrenceMinAggregateInputObjectSchema.optional(), _max: ResourceOccurrenceMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ResourceOccurrenceAggregateArgs>;
+
+export const ResourceOccurrenceAggregateZodSchema = z.object({ orderBy: z.union([ResourceOccurrenceOrderByWithRelationInputObjectSchema, ResourceOccurrenceOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceOccurrenceWhereInputObjectSchema.optional(), cursor: ResourceOccurrenceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceOccurrenceCountAggregateInputObjectSchema ]).optional(), _min: ResourceOccurrenceMinAggregateInputObjectSchema.optional(), _max: ResourceOccurrenceMaxAggregateInputObjectSchema.optional() }).strict();

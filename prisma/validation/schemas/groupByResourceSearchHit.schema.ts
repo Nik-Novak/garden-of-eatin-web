@@ -1,0 +1,13 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceSearchHitWhereInputObjectSchema as ResourceSearchHitWhereInputObjectSchema } from './objects/ResourceSearchHitWhereInput.schema';
+import { ResourceSearchHitOrderByWithAggregationInputObjectSchema as ResourceSearchHitOrderByWithAggregationInputObjectSchema } from './objects/ResourceSearchHitOrderByWithAggregationInput.schema';
+import { ResourceSearchHitScalarWhereWithAggregatesInputObjectSchema as ResourceSearchHitScalarWhereWithAggregatesInputObjectSchema } from './objects/ResourceSearchHitScalarWhereWithAggregatesInput.schema';
+import { ResourceSearchHitScalarFieldEnumSchema } from './enums/ResourceSearchHitScalarFieldEnum.schema';
+import { ResourceSearchHitCountAggregateInputObjectSchema as ResourceSearchHitCountAggregateInputObjectSchema } from './objects/ResourceSearchHitCountAggregateInput.schema';
+import { ResourceSearchHitMinAggregateInputObjectSchema as ResourceSearchHitMinAggregateInputObjectSchema } from './objects/ResourceSearchHitMinAggregateInput.schema';
+import { ResourceSearchHitMaxAggregateInputObjectSchema as ResourceSearchHitMaxAggregateInputObjectSchema } from './objects/ResourceSearchHitMaxAggregateInput.schema';
+
+export const ResourceSearchHitGroupBySchema: z.ZodType<Prisma.ResourceSearchHitGroupByArgs> = z.object({ where: ResourceSearchHitWhereInputObjectSchema.optional(), orderBy: z.union([ResourceSearchHitOrderByWithAggregationInputObjectSchema, ResourceSearchHitOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ResourceSearchHitScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ResourceSearchHitScalarFieldEnumSchema), _count: z.union([ z.literal(true), ResourceSearchHitCountAggregateInputObjectSchema ]).optional(), _min: ResourceSearchHitMinAggregateInputObjectSchema.optional(), _max: ResourceSearchHitMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ResourceSearchHitGroupByArgs>;
+
+export const ResourceSearchHitGroupByZodSchema = z.object({ where: ResourceSearchHitWhereInputObjectSchema.optional(), orderBy: z.union([ResourceSearchHitOrderByWithAggregationInputObjectSchema, ResourceSearchHitOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ResourceSearchHitScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ResourceSearchHitScalarFieldEnumSchema), _count: z.union([ z.literal(true), ResourceSearchHitCountAggregateInputObjectSchema ]).optional(), _min: ResourceSearchHitMinAggregateInputObjectSchema.optional(), _max: ResourceSearchHitMaxAggregateInputObjectSchema.optional() }).strict();

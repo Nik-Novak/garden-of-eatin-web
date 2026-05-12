@@ -5,6 +5,7 @@ enum TravelMode {
 }
 type DeviceSettings {
   travel_mode                   TravelMode?
+  meal_provider_mode            Boolean?
 }
 
 enum DeviceType {
@@ -30,29 +31,35 @@ type DeviceMetadata {
 }
 
 model Device {
-  id        String          @id @default(auto()) @map("_id") @db.ObjectId
-  uuid                      String              @unique
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  uuid                          String              @unique
 
-  web_devices               WebDevice[]
+  web_devices                   WebDevice[]
 
-  metadata                  DeviceMetadata?
+  metadata                      DeviceMetadata?
 
-  settings                  DeviceSettings
-  device_agreements         DeviceAgreement[]
+  settings                      DeviceSettings
+  device_agreements             DeviceAgreement[]
 
-  user                      User?              @relation(fields: [user_id], references: [id])
-  user_id                   String?            @db.ObjectId
+  user                          User?              @relation(fields: [user_id], references: [id])
+  user_id                       String?            @db.ObjectId
 
-  meal_interactions         MealInteraction[] @relation(fields: [], references: [])
+  
 
-  bugs                      Bug[]
-  contact_requests          ContactRequest[]
-  qr_scans                  QRScan[]
-  reviews                   Review[]
+  bugs                          Bug[]
+  contact_requests              ContactRequest[]
+  qr_scans                      QRScan[]
+  reviews                       Review[]
 
-  submitted_meals           Meal[]
-  meal_occurrence_searches  MealOccurrenceSearch[]
-  scannable_documents       ScannableDocument[]
+  submitted_meals               Meal[]
+  meal_occurrence_searches      MealOccurrenceSearch[]
+  meal_interactions             MealInteraction[]
+
+  submitted_resources           Resource[]
+  resource_occurrence_searches  ResourceOccurrenceSearch[]
+  resource_interactions         ResourceInteraction[]
+
+  scannable_documents           ScannableDocument[]
   
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt

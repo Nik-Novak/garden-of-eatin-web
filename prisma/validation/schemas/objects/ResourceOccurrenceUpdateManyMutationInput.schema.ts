@@ -1,0 +1,16 @@
+import * as z from 'zod';
+import type { Prisma } from '@prisma/client';
+import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
+import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
+import { PointUpdateEnvelopeInputObjectSchema as PointUpdateEnvelopeInputObjectSchema } from './PointUpdateEnvelopeInput.schema';
+import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema'
+
+const makeSchema = () => z.object({
+  start: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  end: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  timezone: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
+  created_at: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional()
+}).strict();
+export const ResourceOccurrenceUpdateManyMutationInputObjectSchema: z.ZodType<Prisma.ResourceOccurrenceUpdateManyMutationInput> = makeSchema() as unknown as z.ZodType<Prisma.ResourceOccurrenceUpdateManyMutationInput>;
+export const ResourceOccurrenceUpdateManyMutationInputObjectZodSchema = makeSchema();

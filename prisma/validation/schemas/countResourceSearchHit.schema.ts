@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceSearchHitOrderByWithRelationInputObjectSchema as ResourceSearchHitOrderByWithRelationInputObjectSchema } from './objects/ResourceSearchHitOrderByWithRelationInput.schema';
+import { ResourceSearchHitWhereInputObjectSchema as ResourceSearchHitWhereInputObjectSchema } from './objects/ResourceSearchHitWhereInput.schema';
+import { ResourceSearchHitWhereUniqueInputObjectSchema as ResourceSearchHitWhereUniqueInputObjectSchema } from './objects/ResourceSearchHitWhereUniqueInput.schema';
+import { ResourceSearchHitCountAggregateInputObjectSchema as ResourceSearchHitCountAggregateInputObjectSchema } from './objects/ResourceSearchHitCountAggregateInput.schema';
+
+export const ResourceSearchHitCountSchema: z.ZodType<Prisma.ResourceSearchHitCountArgs> = z.object({ orderBy: z.union([ResourceSearchHitOrderByWithRelationInputObjectSchema, ResourceSearchHitOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceSearchHitWhereInputObjectSchema.optional(), cursor: ResourceSearchHitWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ResourceSearchHitCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.ResourceSearchHitCountArgs>;
+
+export const ResourceSearchHitCountZodSchema = z.object({ orderBy: z.union([ResourceSearchHitOrderByWithRelationInputObjectSchema, ResourceSearchHitOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceSearchHitWhereInputObjectSchema.optional(), cursor: ResourceSearchHitWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), ResourceSearchHitCountAggregateInputObjectSchema ]).optional() }).strict();

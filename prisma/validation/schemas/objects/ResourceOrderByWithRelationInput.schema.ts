@@ -1,0 +1,47 @@
+import * as z from 'zod';
+import type { Prisma } from '@prisma/client';
+import { SortOrderSchema } from '../enums/SortOrder.schema';
+import { PlaceOrderByInputObjectSchema as PlaceOrderByInputObjectSchema } from './PlaceOrderByInput.schema';
+import { PointOrderByInputObjectSchema as PointOrderByInputObjectSchema } from './PointOrderByInput.schema';
+import { ScheduleOrderByInputObjectSchema as ScheduleOrderByInputObjectSchema } from './ScheduleOrderByInput.schema';
+import { ResourceOccurrenceOrderByRelationAggregateInputObjectSchema as ResourceOccurrenceOrderByRelationAggregateInputObjectSchema } from './ResourceOccurrenceOrderByRelationAggregateInput.schema';
+import { ResourceSearchHitOrderByRelationAggregateInputObjectSchema as ResourceSearchHitOrderByRelationAggregateInputObjectSchema } from './ResourceSearchHitOrderByRelationAggregateInput.schema';
+import { ResourceInteractionOrderByRelationAggregateInputObjectSchema as ResourceInteractionOrderByRelationAggregateInputObjectSchema } from './ResourceInteractionOrderByRelationAggregateInput.schema';
+import { DeviceOrderByWithRelationInputObjectSchema as DeviceOrderByWithRelationInputObjectSchema } from './DeviceOrderByWithRelationInput.schema'
+
+const makeSchema = () => z.object({
+  id: SortOrderSchema.optional(),
+  name: SortOrderSchema.optional(),
+  place: z.lazy(() => PlaceOrderByInputObjectSchema).optional(),
+  location: z.lazy(() => PointOrderByInputObjectSchema).optional(),
+  schedule: z.lazy(() => ScheduleOrderByInputObjectSchema).optional(),
+  timezone: SortOrderSchema.optional(),
+  resource_type: SortOrderSchema.optional(),
+  selection_type: SortOrderSchema.optional(),
+  packaging_type: SortOrderSchema.optional(),
+  loading_policy: SortOrderSchema.optional(),
+  vehicle_types: SortOrderSchema.optional(),
+  dietary_tags: SortOrderSchema.optional(),
+  categories: SortOrderSchema.optional(),
+  features: SortOrderSchema.optional(),
+  max_height_clearance_m: SortOrderSchema.optional(),
+  typical_volume_m3: SortOrderSchema.optional(),
+  typical_weight_kg: SortOrderSchema.optional(),
+  is_bulk: SortOrderSchema.optional(),
+  appointment_required: SortOrderSchema.optional(),
+  documentation_required: SortOrderSchema.optional(),
+  id_required: SortOrderSchema.optional(),
+  rules: SortOrderSchema.optional(),
+  approved: SortOrderSchema.optional(),
+  rejection_reason: SortOrderSchema.optional(),
+  submitter_id: SortOrderSchema.optional(),
+  submitter_name: SortOrderSchema.optional(),
+  created_at: SortOrderSchema.optional(),
+  updated_at: SortOrderSchema.optional(),
+  resource_occurrences: z.lazy(() => ResourceOccurrenceOrderByRelationAggregateInputObjectSchema).optional(),
+  resource_search_hits: z.lazy(() => ResourceSearchHitOrderByRelationAggregateInputObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionOrderByRelationAggregateInputObjectSchema).optional(),
+  submitter: z.lazy(() => DeviceOrderByWithRelationInputObjectSchema).optional()
+}).strict();
+export const ResourceOrderByWithRelationInputObjectSchema: z.ZodType<Prisma.ResourceOrderByWithRelationInput> = makeSchema() as unknown as z.ZodType<Prisma.ResourceOrderByWithRelationInput>;
+export const ResourceOrderByWithRelationInputObjectZodSchema = makeSchema();

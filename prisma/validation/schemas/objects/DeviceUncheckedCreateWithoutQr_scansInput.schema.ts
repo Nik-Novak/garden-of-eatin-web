@@ -6,12 +6,15 @@ import { DeviceSettingsCreateEnvelopeInputObjectSchema as DeviceSettingsCreateEn
 import { DeviceSettingsCreateInputObjectSchema as DeviceSettingsCreateInputObjectSchema } from './DeviceSettingsCreateInput.schema';
 import { WebDeviceUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as WebDeviceUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './WebDeviceUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { DeviceAgreementUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as DeviceAgreementUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './DeviceAgreementUncheckedCreateNestedManyWithoutDeviceInput.schema';
-import { MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './MealInteractionUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { BugUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as BugUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './BugUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { ContactRequestUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as ContactRequestUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './ContactRequestUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { ReviewUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as ReviewUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './ReviewUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { MealUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema as MealUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealUncheckedCreateNestedManyWithoutSubmitterInput.schema';
 import { MealOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as MealOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './MealOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInput.schema';
+import { MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './MealInteractionUncheckedCreateNestedManyWithoutDeviceInput.schema';
+import { ResourceUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema as ResourceUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema } from './ResourceUncheckedCreateNestedManyWithoutSubmitterInput.schema';
+import { ResourceOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as ResourceOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInput.schema';
+import { ResourceInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema as ResourceInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceInteractionUncheckedCreateNestedManyWithoutDeviceInput.schema';
 import { ScannableDocumentUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema as ScannableDocumentUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema } from './ScannableDocumentUncheckedCreateNestedManyWithoutSubmitterInput.schema'
 
 const makeSchema = () => z.object({
@@ -24,12 +27,15 @@ const makeSchema = () => z.object({
   updated_at: z.coerce.date().optional(),
   web_devices: z.lazy(() => WebDeviceUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   device_agreements: z.lazy(() => DeviceAgreementUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
-  meal_interactions: z.lazy(() => MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   bugs: z.lazy(() => BugUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   contact_requests: z.lazy(() => ContactRequestUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   reviews: z.lazy(() => ReviewUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   submitted_meals: z.lazy(() => MealUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
   meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  meal_interactions: z.lazy(() => MealInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  submitted_resources: z.lazy(() => ResourceUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
+  resource_occurrence_searches: z.lazy(() => ResourceOccurrenceSearchUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionUncheckedCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   scannable_documents: z.lazy(() => ScannableDocumentUncheckedCreateNestedManyWithoutSubmitterInputObjectSchema).optional()
 }).strict();
 export const DeviceUncheckedCreateWithoutQr_scansInputObjectSchema: z.ZodType<Prisma.DeviceUncheckedCreateWithoutQr_scansInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceUncheckedCreateWithoutQr_scansInput>;

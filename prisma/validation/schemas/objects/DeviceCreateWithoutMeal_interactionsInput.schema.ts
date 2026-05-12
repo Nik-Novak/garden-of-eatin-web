@@ -13,6 +13,9 @@ import { QRScanCreateNestedManyWithoutDeviceInputObjectSchema as QRScanCreateNes
 import { ReviewCreateNestedManyWithoutDeviceInputObjectSchema as ReviewCreateNestedManyWithoutDeviceInputObjectSchema } from './ReviewCreateNestedManyWithoutDeviceInput.schema';
 import { MealCreateNestedManyWithoutSubmitterInputObjectSchema as MealCreateNestedManyWithoutSubmitterInputObjectSchema } from './MealCreateNestedManyWithoutSubmitterInput.schema';
 import { MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema as MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema } from './MealOccurrenceSearchCreateNestedManyWithoutDeviceInput.schema';
+import { ResourceCreateNestedManyWithoutSubmitterInputObjectSchema as ResourceCreateNestedManyWithoutSubmitterInputObjectSchema } from './ResourceCreateNestedManyWithoutSubmitterInput.schema';
+import { ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema as ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInput.schema';
+import { ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema as ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema } from './ResourceInteractionCreateNestedManyWithoutDeviceInput.schema';
 import { ScannableDocumentCreateNestedManyWithoutSubmitterInputObjectSchema as ScannableDocumentCreateNestedManyWithoutSubmitterInputObjectSchema } from './ScannableDocumentCreateNestedManyWithoutSubmitterInput.schema'
 
 const makeSchema = () => z.object({
@@ -31,6 +34,9 @@ const makeSchema = () => z.object({
   reviews: z.lazy(() => ReviewCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   submitted_meals: z.lazy(() => MealCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
   meal_occurrence_searches: z.lazy(() => MealOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  submitted_resources: z.lazy(() => ResourceCreateNestedManyWithoutSubmitterInputObjectSchema).optional(),
+  resource_occurrence_searches: z.lazy(() => ResourceOccurrenceSearchCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
+  resource_interactions: z.lazy(() => ResourceInteractionCreateNestedManyWithoutDeviceInputObjectSchema).optional(),
   scannable_documents: z.lazy(() => ScannableDocumentCreateNestedManyWithoutSubmitterInputObjectSchema).optional()
 }).strict();
 export const DeviceCreateWithoutMeal_interactionsInputObjectSchema: z.ZodType<Prisma.DeviceCreateWithoutMeal_interactionsInput> = makeSchema() as unknown as z.ZodType<Prisma.DeviceCreateWithoutMeal_interactionsInput>;

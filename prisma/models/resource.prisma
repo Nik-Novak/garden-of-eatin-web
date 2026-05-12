@@ -1,0 +1,205 @@
+enum LoadingPolicy {
+  LoadedForYou
+  StaffAssisted
+  SelfLoad
+}
+
+enum SelectionType {
+  Choice
+  NoChoice
+}
+
+enum DietaryTag {
+  Halal
+  Kosher
+  Vegan
+  Vegetarian
+  GlutenFree
+  NutFree
+  LowSodium
+}
+
+enum InventoryCategory {
+  RefrigeratedGoods
+  FrozenGoods
+  FreshProduce
+  Meat
+  Dairy
+  DryGoods
+  PreparedMeals
+  Drinks
+  HygieneProducts
+  BabySupplies // Diapers/Formula are huge for community distribution
+  Clothing
+  Gift_GasCards
+  PetFood
+  PetAccessories
+}
+
+enum ResourceFeature {
+  Restroom
+  LoadingDock      // Essential for BoxTrucks
+  ForkliftAvailable
+  PalletJackAvailable
+  GroundLevel      // For those without ramps
+  ADA_Accessible
+  RefrigeratedGoods
+  VolunteerAssistance
+}
+
+enum ResourcePackagingType {
+  Loose
+  Bags
+  Boxes
+  IndustrialSacks
+  Pallets
+}
+
+enum VehicleType {
+  Car
+  SUV
+  Van
+  BoxTruck
+  Trailer
+  Truck
+  SemiTruck
+}
+
+enum ResourceType {
+  Pickup
+  Dropoff
+}
+
+model Resource {
+  id                          String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  name                        String
+  place                       Place
+  location                    Point
+  schedule                    Schedule
+
+  timezone                    String   // "America/Los_Angeles"
+
+  resource_type               ResourceType
+
+  //Logistics
+  selection_type              SelectionType //PICKUP=can you choose, or predetermined | DROPOFF=will they choose from what is brought, or take all
+  packaging_type              ResourcePackagingType[] //what you can pickup/dropoff
+  loading_policy              LoadingPolicy
+  vehicle_types               VehicleType[] //vehicles (maybe ui will select which vehicle types are NOT allowed)
+
+  //Inventory
+  dietary_tags                DietaryTag[] //any rules for food, picked up or dropped off
+  categories                  InventoryCategory[]//PICKUP=what they have to give | DROPOFF=what they accept
+
+  features                    ResourceFeature[] @default([])
+
+  max_height_clearance_m      Float?
+
+  //PICKUP ONLY
+
+  typical_volume_m3           Float? //maybe have them select from a list of options, how much do people usually take/dropoff? options=(truck bed full, sedan trunk full, pallet, etc.)
+  typical_weight_kg           Float?
+
+  is_bulk                     Boolean? //only if bulk goods. Picking up 10 individual 1lb bags of flour is a different experience than picking up one 50lb industrial sack | ask them: do you primarily deal with bulk goods? (secondary safety check for bulk only)
+  // reviews                     Review[]
+
+  //Requirements
+  appointment_required        Boolean
+  documentation_required      String[]      // ["Org_ID", "Driver_License"]
+  id_required                 Boolean
+  rules                       String[]
+
+  resource_occurrences        ResourceOccurrence[]
+
+  resource_search_hits        ResourceSearchHit[] 
+  resource_interactions       ResourceInteraction[]
+
+  approved                    Boolean?
+  rejection_reason            String?
+
+  submitter                   Device?     @relation(fields: [submitter_id], references: [id])
+  submitter_id                String?     @db.ObjectId
+  submitter_name              String?
+
+  created_at                  DateTime    @default(now())
+  updated_at                  DateTime    @updatedAt
+  // @@unique([name, place.address]) //TODO: MANUALLY INDEX
+  // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
+  @@map("resources")
+}
+
+model ResourceOccurrence {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  resource      Resource      @relation(fields: [resource_id], references: [id], onDelete: Cascade)
+  resource_id   String        @db.ObjectId
+
+  start         DateTime
+  end           DateTime
+  timezone      String
+
+  location      Point     // GeoJSON Point (copied from Resource)
+
+  created_at    DateTime    @default(now())
+  @@unique([resource_id, start, end])
+  @@index([start])
+  @@index([resource_id, start])
+  // @@index([location], type: "2dsphere") //TODO: MANUALLY INDEX
+  @@map("resource_occurrences")
+}
+
+enum ResourceSearchType {
+  Explore
+  Refresh
+}
+model ResourceOccurrenceSearch {
+  id                String      @id @default(auto()) @map("_id") @db.ObjectId
+
+  search_type       ResourceSearchType
+
+  hits              ResourceSearchHit[]
+
+  start             DateTime?
+  end               DateTime?
+  radius_mi         Float
+
+  user_location     Point     // GeoJSON Point
+
+  device            Device    @relation(fields: [device_id], references: [id], onDelete: Cascade)
+  device_id         String    @db.ObjectId
+
+  created_at        DateTime    @default(now())
+  @@map("resource_occurrence_searches")
+}
+model ResourceSearchHit {
+  id                String               @id @default(auto()) @map("_id") @db.ObjectId
+  
+  resource          Resource             @relation(fields: [resource_id], references: [id])
+  resource_id       String               @db.ObjectId
+
+  search            ResourceOccurrenceSearch @relation(fields: [search_id], references: [id], onDelete: Cascade)
+  search_id         String               @db.ObjectId
+
+  created_at        DateTime            @default(now())
+
+  @@index([resource_id])
+  @@map("resource_search_hits")
+}
+
+model ResourceInteraction {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+
+  interaction_type  InteractionType
+
+  resource     Resource   @relation(fields: [resource_id], references: [id], onDelete: Cascade)
+  resource_id  String     @db.ObjectId
+
+  device      Device      @relation(fields: [device_id], references: [id], onDelete: Cascade)
+  device_id   String      @db.ObjectId
+
+  user_location  Point     // GeoJSON Point
+
+  created_at    DateTime    @default(now())
+  @@map("resource_interactions")
+}

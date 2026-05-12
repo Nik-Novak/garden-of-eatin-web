@@ -1,0 +1,15 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceWhereInputObjectSchema as ResourceWhereInputObjectSchema } from './objects/ResourceWhereInput.schema';
+import { ResourceOrderByWithAggregationInputObjectSchema as ResourceOrderByWithAggregationInputObjectSchema } from './objects/ResourceOrderByWithAggregationInput.schema';
+import { ResourceScalarWhereWithAggregatesInputObjectSchema as ResourceScalarWhereWithAggregatesInputObjectSchema } from './objects/ResourceScalarWhereWithAggregatesInput.schema';
+import { ResourceScalarFieldEnumSchema } from './enums/ResourceScalarFieldEnum.schema';
+import { ResourceCountAggregateInputObjectSchema as ResourceCountAggregateInputObjectSchema } from './objects/ResourceCountAggregateInput.schema';
+import { ResourceMinAggregateInputObjectSchema as ResourceMinAggregateInputObjectSchema } from './objects/ResourceMinAggregateInput.schema';
+import { ResourceMaxAggregateInputObjectSchema as ResourceMaxAggregateInputObjectSchema } from './objects/ResourceMaxAggregateInput.schema';
+import { ResourceAvgAggregateInputObjectSchema as ResourceAvgAggregateInputObjectSchema } from './objects/ResourceAvgAggregateInput.schema';
+import { ResourceSumAggregateInputObjectSchema as ResourceSumAggregateInputObjectSchema } from './objects/ResourceSumAggregateInput.schema';
+
+export const ResourceGroupBySchema: z.ZodType<Prisma.ResourceGroupByArgs> = z.object({ where: ResourceWhereInputObjectSchema.optional(), orderBy: z.union([ResourceOrderByWithAggregationInputObjectSchema, ResourceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ResourceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ResourceScalarFieldEnumSchema), _count: z.union([ z.literal(true), ResourceCountAggregateInputObjectSchema ]).optional(), _min: ResourceMinAggregateInputObjectSchema.optional(), _max: ResourceMaxAggregateInputObjectSchema.optional(), _avg: ResourceAvgAggregateInputObjectSchema.optional(), _sum: ResourceSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ResourceGroupByArgs>;
+
+export const ResourceGroupByZodSchema = z.object({ where: ResourceWhereInputObjectSchema.optional(), orderBy: z.union([ResourceOrderByWithAggregationInputObjectSchema, ResourceOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ResourceScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ResourceScalarFieldEnumSchema), _count: z.union([ z.literal(true), ResourceCountAggregateInputObjectSchema ]).optional(), _min: ResourceMinAggregateInputObjectSchema.optional(), _max: ResourceMaxAggregateInputObjectSchema.optional(), _avg: ResourceAvgAggregateInputObjectSchema.optional(), _sum: ResourceSumAggregateInputObjectSchema.optional() }).strict();

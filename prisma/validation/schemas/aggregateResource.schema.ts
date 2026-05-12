@@ -1,0 +1,14 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { ResourceOrderByWithRelationInputObjectSchema as ResourceOrderByWithRelationInputObjectSchema } from './objects/ResourceOrderByWithRelationInput.schema';
+import { ResourceWhereInputObjectSchema as ResourceWhereInputObjectSchema } from './objects/ResourceWhereInput.schema';
+import { ResourceWhereUniqueInputObjectSchema as ResourceWhereUniqueInputObjectSchema } from './objects/ResourceWhereUniqueInput.schema';
+import { ResourceCountAggregateInputObjectSchema as ResourceCountAggregateInputObjectSchema } from './objects/ResourceCountAggregateInput.schema';
+import { ResourceMinAggregateInputObjectSchema as ResourceMinAggregateInputObjectSchema } from './objects/ResourceMinAggregateInput.schema';
+import { ResourceMaxAggregateInputObjectSchema as ResourceMaxAggregateInputObjectSchema } from './objects/ResourceMaxAggregateInput.schema';
+import { ResourceAvgAggregateInputObjectSchema as ResourceAvgAggregateInputObjectSchema } from './objects/ResourceAvgAggregateInput.schema';
+import { ResourceSumAggregateInputObjectSchema as ResourceSumAggregateInputObjectSchema } from './objects/ResourceSumAggregateInput.schema';
+
+export const ResourceAggregateSchema: z.ZodType<Prisma.ResourceAggregateArgs> = z.object({ orderBy: z.union([ResourceOrderByWithRelationInputObjectSchema, ResourceOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceWhereInputObjectSchema.optional(), cursor: ResourceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceCountAggregateInputObjectSchema ]).optional(), _min: ResourceMinAggregateInputObjectSchema.optional(), _max: ResourceMaxAggregateInputObjectSchema.optional(), _avg: ResourceAvgAggregateInputObjectSchema.optional(), _sum: ResourceSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ResourceAggregateArgs>;
+
+export const ResourceAggregateZodSchema = z.object({ orderBy: z.union([ResourceOrderByWithRelationInputObjectSchema, ResourceOrderByWithRelationInputObjectSchema.array()]).optional(), where: ResourceWhereInputObjectSchema.optional(), cursor: ResourceWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ResourceCountAggregateInputObjectSchema ]).optional(), _min: ResourceMinAggregateInputObjectSchema.optional(), _max: ResourceMaxAggregateInputObjectSchema.optional(), _avg: ResourceAvgAggregateInputObjectSchema.optional(), _sum: ResourceSumAggregateInputObjectSchema.optional() }).strict();

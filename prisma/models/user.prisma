@@ -6,7 +6,7 @@ model User {
   image         String?
 
   //rbac
-  role String?          @default("user")
+  role String?          @default("User")
 	banned Boolean?
 	banReason String?
 	banExpires DateTime? 

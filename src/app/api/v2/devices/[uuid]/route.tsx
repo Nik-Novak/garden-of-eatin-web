@@ -84,10 +84,10 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
         return acc;
       }, {...DEFAULT_STATS})
     };
-    console.log(meal.name);
-    console.log(DEFAULT_STATS);
-    console.log(mealStatsRows);
-    console.log(interactionStats)
+    // console.log(meal.name);
+    // console.log(DEFAULT_STATS);
+    // console.log(mealStatsRows);
+    // console.log(interactionStats)
     
     return {
       ...meal,

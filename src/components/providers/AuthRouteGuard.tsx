@@ -16,7 +16,8 @@ type AuthRouteGuardProps = PropsWithChildren & {
 export default async function AuthRouteGuard({permissions, subject, children}:AuthRouteGuardProps){
   try{
     
-    console.log('start check')
+    console.log('start check');
+    //@ts-ignore
     const {success:shouldDisplay} = await auth.api.userHasPermission({headers: await headers(), body:{
       permissions
     }});

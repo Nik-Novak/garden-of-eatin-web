@@ -10,7 +10,7 @@ import { nextCookies } from "better-auth/next-js";
 import ObjectId from 'bson-objectid';
 import { generateAppleClientSecret } from "./utils";
 import { ac, defaultRole, roles } from "./access";
-import { expo } from "@better-auth/expo";
+// import { expo } from "@better-auth/expo";
 
 if(!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET)
   throw Error("SignIn Provider Google requires GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET");

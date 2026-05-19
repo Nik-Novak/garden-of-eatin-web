@@ -16,8 +16,8 @@ import {
 } from "@mui/material";
 import AppleIcon from "@mui/icons-material/Apple";
 import GoogleIcon from "@mui/icons-material/Google";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import MailOutlineIcon from "@mui/icons-material/MailOutlined";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import { authClient } from "@/lib/auth/client";

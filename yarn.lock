@@ -4059,23 +4059,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-call@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "better-call@npm:2.0.3"
-  dependencies:
-    "@better-auth/utils": "npm:^0.4.0"
-    "@better-fetch/fetch": "npm:^1.1.21"
-    rou3: "npm:^0.7.12"
-    set-cookie-parser: "npm:^3.0.1"
-  peerDependencies:
-    zod: ^4.0.0
-  peerDependenciesMeta:
-    zod:
-      optional: true
-  checksum: 10c0/2f59e03cf38e9f1b174747dce1bb343e683d80ab276f82dd2353c254079359f53d1790a96f370a690550f2135081114af771c21f703d47c9160b66b960de8b0f
-  languageName: node
-  linkType: hard
-
 "body-parser@npm:^2.2.1":
   version: 2.2.2
   resolution: "body-parser@npm:2.2.2"
@@ -5264,10 +5247,7 @@ __metadata:
   dependencies:
     "@aws-sdk/client-s3": "npm:^3.1041.0"
     "@aws-sdk/s3-request-presigner": "npm:^3.1041.0"
-    "@better-auth/core": "npm:1.6.11"
     "@better-auth/expo": "npm:^1.6.11"
-    "@better-auth/utils": "npm:^0.4.0"
-    "@better-fetch/fetch": "npm:^1.1.21"
     "@biomejs/biome": "npm:2.2.0"
     "@dotenvx/dotenvx": "npm:^1.52.0"
     "@emotion/cache": "npm:^11.14.0"
@@ -5291,7 +5271,6 @@ __metadata:
     axios: "npm:^1.14.0"
     babel-plugin-react-compiler: "npm:1.0.0"
     better-auth: "npm:^1.6.11"
-    better-call: "npm:^2.0.3"
     bson-objectid: "npm:^2.0.4"
     jose: "npm:^6.2.3"
     lodash: "npm:^4.17.23"

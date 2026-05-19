@@ -96,7 +96,6 @@ export const auth = betterAuth({
         },
       }),
       admin({ac, roles, defaultRole }),
-      expo(),
       nextCookies() //MUST BE LAST PLUGIN
     ],
     

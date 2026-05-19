@@ -3,6 +3,7 @@
   "version": "3.3.0",
   "private": true,
   "scripts": {
+    "build:types": "tsup src/types/api-exports.ts --format esm --dts-only --tsconfig tsconfig.build.json",
     "build:steps": "next build",
     "build": "NODE_ENV=production dotenvx run -f .env.production -- yarn run build:steps",
     "migrate": "NODE_ENV=development dotenvx run -f .env.development -- tsx ./prisma/migrations/index.ts",
@@ -59,6 +60,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "prisma": "6.x.x",
     "prisma-zod-generator": "1.32.1",
+    "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5"
   },

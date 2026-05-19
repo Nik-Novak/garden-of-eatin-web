@@ -51,3 +51,4 @@ generated/
 !.env.development
 !.env.production
  
+dist/

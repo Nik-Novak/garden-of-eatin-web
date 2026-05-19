@@ -10,14 +10,7 @@ import { coercedZodSchema } from "@/utils/fns/zod";
 
 type RouteContext = { params: Promise<{ uuid: string }> };
 
-
-export async function GET(request: NextRequest, {params}: RouteContext) {
-  const { uuid } = await params;
-  const rawParams = Object.fromEntries(request.nextUrl.searchParams);
-  console.log(`GET devices @ uuid=${uuid} ? ${request.nextUrl.searchParams}`);
-  
-  console.log(rawParams);
-
+async function fetchDeviceData(uuid:string, rawParams:Record<string, string>){
   const validation = z.safeParse(coercedZodSchema(ZS.DeviceMetadataCreateInputObjectZodSchema.strip()), rawParams);
 
   if (!validation.success) {
@@ -40,6 +33,21 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
           // This automatically counts the related meal_search_hits for each meal
           _count: {
             select: { meal_search_hits: true } 
+          }
+        }
+      },
+      scannable_documents: {
+        include:{
+          _count: { select:{ 
+            qr_codes:true, //how many qr codes
+            scannable_document_meal_hits:true  //how many meals shown
+          }},
+          qr_codes:{ 
+            include:{
+              _count: {select:{
+                qr_scans:true //how many qr scans
+              }}
+            }
           }
         }
       }
@@ -97,10 +105,24 @@ export async function GET(request: NextRequest, {params}: RouteContext) {
     }
   });
 
-  const responsePayload:AugmentedMealDevice = {
+  const responsePayload = {
     ...device,
     submitted_meals: formattedMeals,
   }
+  return responsePayload;
+}
+
+
+export async function GET(request: NextRequest, {params}: RouteContext) {
+  const { uuid } = await params;
+  const rawParams = Object.fromEntries(request.nextUrl.searchParams);
+  console.log(`GET devices @ uuid=${uuid} ? ${request.nextUrl.searchParams}`);
+  
+  console.log(rawParams);
+
+  let responsePayload = await fetchDeviceData(uuid, rawParams);
 
   return NextResponse.json(responsePayload);
 }
+
+export type DevicePayload = Awaited<ReturnType<typeof fetchDeviceData>>;

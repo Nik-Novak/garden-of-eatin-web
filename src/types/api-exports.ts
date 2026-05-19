@@ -1,0 +1,1 @@
+export type { DevicePayload } from '@/app/api/v2/devices/[uuid]/route';

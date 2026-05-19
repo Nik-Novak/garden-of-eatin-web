@@ -45,11 +45,11 @@ export async function POST(request: NextRequest) {
     // 3. Combine them so the verifier has the raw data to check against
     const verifiableToken = `${rawString}.${signature}`;
 
-    const verificationToken = await database.verificationToken.create({
+    const verificationToken = await database.verification.create({
       data: {
-        expires: spacetime().add(24, 'hours').toNativeDate(),
+        expiresAt: spacetime().add(24, 'hours').toNativeDate(),
         identifier: `meal-${resource.id}`,
-        token: verifiableToken, 
+        value: verifiableToken, 
       }
     });
     

@@ -6,6 +6,7 @@ const makeSchema = () => z.object({
   id: z.literal(true).optional(),
   name: z.literal(true).optional(),
   timezone: z.literal(true).optional(),
+  banner_url: z.literal(true).optional(),
   setting: z.literal(true).optional(),
   service: z.literal(true).optional(),
   parking: z.literal(true).optional(),

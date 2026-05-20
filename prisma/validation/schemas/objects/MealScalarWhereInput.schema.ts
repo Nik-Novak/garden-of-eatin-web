@@ -1,6 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringFilterObjectSchema as StringFilterObjectSchema } from './StringFilter.schema';
+import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { EnumSettingNullableListFilterObjectSchema as EnumSettingNullableListFilterObjectSchema } from './EnumSettingNullableListFilter.schema';
 import { EnumServiceNullableFilterObjectSchema as EnumServiceNullableFilterObjectSchema } from './EnumServiceNullableFilter.schema';
 import { ServiceSchema } from '../enums/Service.schema';
@@ -8,7 +9,6 @@ import { EnumParkingNullableFilterObjectSchema as EnumParkingNullableFilterObjec
 import { ParkingSchema } from '../enums/Parking.schema';
 import { EnumFeatureNullableListFilterObjectSchema as EnumFeatureNullableListFilterObjectSchema } from './EnumFeatureNullableListFilter.schema';
 import { BoolNullableFilterObjectSchema as BoolNullableFilterObjectSchema } from './BoolNullableFilter.schema';
-import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema'
 
 const mealscalarwhereinputSchema = z.object({
@@ -18,6 +18,7 @@ const mealscalarwhereinputSchema = z.object({
   id: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   name: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
   timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
+  banner_url: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   setting: z.lazy(() => EnumSettingNullableListFilterObjectSchema).optional(),
   service: z.union([z.lazy(() => EnumServiceNullableFilterObjectSchema), ServiceSchema]).optional().nullable(),
   parking: z.union([z.lazy(() => EnumParkingNullableFilterObjectSchema), ParkingSchema]).optional().nullable(),

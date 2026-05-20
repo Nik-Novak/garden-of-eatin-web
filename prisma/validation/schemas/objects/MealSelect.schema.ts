@@ -15,6 +15,7 @@ const makeSchema = () => z.object({
   location: z.boolean().optional(),
   schedule: z.boolean().optional(),
   timezone: z.boolean().optional(),
+  banner_url: z.boolean().optional(),
   setting: z.boolean().optional(),
   service: z.boolean().optional(),
   parking: z.boolean().optional(),

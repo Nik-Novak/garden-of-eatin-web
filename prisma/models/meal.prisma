@@ -55,6 +55,8 @@ model Meal {
 
   timezone                    String   // "America/Los_Angeles"
 
+  banner_url                  String?
+
   setting                     Setting[] @default([])
   service                     Service?
   parking                     Parking?

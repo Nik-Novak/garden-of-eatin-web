@@ -6,6 +6,7 @@ const makeSchema = () => z.object({
   id: SortOrderSchema.optional(),
   name: SortOrderSchema.optional(),
   timezone: SortOrderSchema.optional(),
+  banner_url: SortOrderSchema.optional(),
   service: SortOrderSchema.optional(),
   parking: SortOrderSchema.optional(),
   approved: SortOrderSchema.optional(),

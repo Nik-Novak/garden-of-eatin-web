@@ -26,6 +26,7 @@ const makeSchema = () => z.object({
   location: z.union([z.lazy(() => PointCreateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]),
   schedule: z.union([z.lazy(() => ScheduleCreateEnvelopeInputObjectSchema), z.lazy(() => ScheduleCreateInputObjectSchema)]),
   timezone: z.string(),
+  banner_url: z.string().optional().nullable(),
   setting: z.union([z.lazy(() => MealCreatesettingInputObjectSchema), SettingSchema.array()]).optional(),
   service: ServiceSchema.optional().nullable(),
   parking: ParkingSchema.optional().nullable(),

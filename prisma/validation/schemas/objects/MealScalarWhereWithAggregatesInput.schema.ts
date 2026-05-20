@@ -1,6 +1,7 @@
 import * as z from 'zod';
 import type { Prisma } from '@prisma/client';
 import { StringWithAggregatesFilterObjectSchema as StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
+import { StringNullableWithAggregatesFilterObjectSchema as StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 import { EnumSettingNullableListFilterObjectSchema as EnumSettingNullableListFilterObjectSchema } from './EnumSettingNullableListFilter.schema';
 import { EnumServiceNullableWithAggregatesFilterObjectSchema as EnumServiceNullableWithAggregatesFilterObjectSchema } from './EnumServiceNullableWithAggregatesFilter.schema';
 import { ServiceSchema } from '../enums/Service.schema';
@@ -8,7 +9,6 @@ import { EnumParkingNullableWithAggregatesFilterObjectSchema as EnumParkingNulla
 import { ParkingSchema } from '../enums/Parking.schema';
 import { EnumFeatureNullableListFilterObjectSchema as EnumFeatureNullableListFilterObjectSchema } from './EnumFeatureNullableListFilter.schema';
 import { BoolNullableWithAggregatesFilterObjectSchema as BoolNullableWithAggregatesFilterObjectSchema } from './BoolNullableWithAggregatesFilter.schema';
-import { StringNullableWithAggregatesFilterObjectSchema as StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 import { DateTimeWithAggregatesFilterObjectSchema as DateTimeWithAggregatesFilterObjectSchema } from './DateTimeWithAggregatesFilter.schema'
 
 const mealscalarwherewithaggregatesinputSchema = z.object({
@@ -18,6 +18,7 @@ const mealscalarwherewithaggregatesinputSchema = z.object({
   id: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string().max(24)]).optional(),
   name: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional(),
   timezone: z.union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()]).optional(),
+  banner_url: z.union([z.lazy(() => StringNullableWithAggregatesFilterObjectSchema), z.string()]).optional().nullable(),
   setting: z.lazy(() => EnumSettingNullableListFilterObjectSchema).optional(),
   service: z.union([z.lazy(() => EnumServiceNullableWithAggregatesFilterObjectSchema), ServiceSchema]).optional().nullable(),
   parking: z.union([z.lazy(() => EnumParkingNullableWithAggregatesFilterObjectSchema), ParkingSchema]).optional().nullable(),

@@ -11,6 +11,7 @@ export const MealResultSchema = z.object({
     location: z.unknown(),
     schedule: z.unknown(),
     timezone: z.string(),
+    banner_url: z.string().nullable(),
     setting: SettingSchema.array(),
     service: ServiceSchema.nullable(),
     parking: ParkingSchema.nullable(),

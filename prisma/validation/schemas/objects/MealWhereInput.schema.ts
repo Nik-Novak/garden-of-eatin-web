@@ -7,6 +7,7 @@ import { PointCompositeFilterObjectSchema as PointCompositeFilterObjectSchema } 
 import { PointObjectEqualityInputObjectSchema as PointObjectEqualityInputObjectSchema } from './PointObjectEqualityInput.schema';
 import { ScheduleCompositeFilterObjectSchema as ScheduleCompositeFilterObjectSchema } from './ScheduleCompositeFilter.schema';
 import { ScheduleObjectEqualityInputObjectSchema as ScheduleObjectEqualityInputObjectSchema } from './ScheduleObjectEqualityInput.schema';
+import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { EnumSettingNullableListFilterObjectSchema as EnumSettingNullableListFilterObjectSchema } from './EnumSettingNullableListFilter.schema';
 import { EnumServiceNullableFilterObjectSchema as EnumServiceNullableFilterObjectSchema } from './EnumServiceNullableFilter.schema';
 import { ServiceSchema } from '../enums/Service.schema';
@@ -14,7 +15,6 @@ import { EnumParkingNullableFilterObjectSchema as EnumParkingNullableFilterObjec
 import { ParkingSchema } from '../enums/Parking.schema';
 import { EnumFeatureNullableListFilterObjectSchema as EnumFeatureNullableListFilterObjectSchema } from './EnumFeatureNullableListFilter.schema';
 import { BoolNullableFilterObjectSchema as BoolNullableFilterObjectSchema } from './BoolNullableFilter.schema';
-import { StringNullableFilterObjectSchema as StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeFilterObjectSchema as DateTimeFilterObjectSchema } from './DateTimeFilter.schema';
 import { ReviewListRelationFilterObjectSchema as ReviewListRelationFilterObjectSchema } from './ReviewListRelationFilter.schema';
 import { MealOccurrenceListRelationFilterObjectSchema as MealOccurrenceListRelationFilterObjectSchema } from './MealOccurrenceListRelationFilter.schema';
@@ -34,6 +34,7 @@ const mealwhereinputSchema = z.object({
   location: z.union([z.lazy(() => PointCompositeFilterObjectSchema), z.lazy(() => PointObjectEqualityInputObjectSchema)]).optional(),
   schedule: z.union([z.lazy(() => ScheduleCompositeFilterObjectSchema), z.lazy(() => ScheduleObjectEqualityInputObjectSchema)]).optional(),
   timezone: z.union([z.lazy(() => StringFilterObjectSchema), z.string()]).optional(),
+  banner_url: z.union([z.lazy(() => StringNullableFilterObjectSchema), z.string()]).optional().nullable(),
   setting: z.lazy(() => EnumSettingNullableListFilterObjectSchema).optional(),
   service: z.union([z.lazy(() => EnumServiceNullableFilterObjectSchema), ServiceSchema]).optional().nullable(),
   parking: z.union([z.lazy(() => EnumParkingNullableFilterObjectSchema), ParkingSchema]).optional().nullable(),

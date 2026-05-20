@@ -7,6 +7,7 @@ import { PointUpdateEnvelopeInputObjectSchema as PointUpdateEnvelopeInputObjectS
 import { PointCreateInputObjectSchema as PointCreateInputObjectSchema } from './PointCreateInput.schema';
 import { ScheduleUpdateEnvelopeInputObjectSchema as ScheduleUpdateEnvelopeInputObjectSchema } from './ScheduleUpdateEnvelopeInput.schema';
 import { ScheduleCreateInputObjectSchema as ScheduleCreateInputObjectSchema } from './ScheduleCreateInput.schema';
+import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { MealUpdatesettingInputObjectSchema as MealUpdatesettingInputObjectSchema } from './MealUpdatesettingInput.schema';
 import { SettingSchema } from '../enums/Setting.schema';
 import { ServiceSchema } from '../enums/Service.schema';
@@ -16,7 +17,6 @@ import { NullableEnumParkingFieldUpdateOperationsInputObjectSchema as NullableEn
 import { MealUpdatefeaturesInputObjectSchema as MealUpdatefeaturesInputObjectSchema } from './MealUpdatefeaturesInput.schema';
 import { FeatureSchema } from '../enums/Feature.schema';
 import { NullableBoolFieldUpdateOperationsInputObjectSchema as NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema';
-import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
 import { ReviewUpdateManyWithoutMealNestedInputObjectSchema as ReviewUpdateManyWithoutMealNestedInputObjectSchema } from './ReviewUpdateManyWithoutMealNestedInput.schema';
 import { MealSearchHitUpdateManyWithoutMealNestedInputObjectSchema as MealSearchHitUpdateManyWithoutMealNestedInputObjectSchema } from './MealSearchHitUpdateManyWithoutMealNestedInput.schema';
@@ -30,6 +30,7 @@ const makeSchema = () => z.object({
   location: z.union([z.lazy(() => PointUpdateEnvelopeInputObjectSchema), z.lazy(() => PointCreateInputObjectSchema)]).optional(),
   schedule: z.union([z.lazy(() => ScheduleUpdateEnvelopeInputObjectSchema), z.lazy(() => ScheduleCreateInputObjectSchema)]).optional(),
   timezone: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  banner_url: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   setting: z.union([z.lazy(() => MealUpdatesettingInputObjectSchema), SettingSchema.array()]).optional(),
   service: z.union([ServiceSchema, z.lazy(() => NullableEnumServiceFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
   parking: z.union([ParkingSchema, z.lazy(() => NullableEnumParkingFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),

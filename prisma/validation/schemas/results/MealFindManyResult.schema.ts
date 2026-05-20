@@ -7,6 +7,7 @@ export const MealFindManyResultSchema = z.object({
   location: z.unknown(),
   schedule: z.unknown(),
   timezone: z.string(),
+  banner_url: z.string().optional(),
   setting: z.array(z.unknown()),
   service: z.unknown().optional(),
   parking: z.unknown().optional(),

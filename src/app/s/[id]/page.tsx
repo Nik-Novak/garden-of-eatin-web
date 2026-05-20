@@ -32,7 +32,7 @@ export default function QRScanPage({
             const { url } = action.payload as QRActionUrlRedirectPayload;
             // Use window.location.replace so the user can't hit "back" to the loading screen.
             // This safely handles both internal routes and external links.
-            window.location.replace('https://gardenofeatin.io/download');
+            window.location.replace(url);
             break;
           }
           default: {

@@ -24,23 +24,39 @@ export default async function addNotice(){
 // We truly appreciate your patience as we improve the platform 💛  
 // Thank you for being here with us!`
 //   }});
-  const notice = await database.notice.create({data:{
+//   const notice = await database.notice.create({data:{
+//     level: 'Warning',
+//     content_md: `### ⚠️ Please update your app
+
+// As we launch the app, we've introduced **major underlying changes** that could break the app.
+
+// Because of this, you may experience:
+// - No meals found
+// - Other errors
+
+// **🛠️ How to fix**
+// Please ensure you are on the latest version by pressing the blue update button here: [AppStore](itms-apps://apps.apple.com/app/id6759996982).
+
+// ---
+
+// We truly appreciate your patience as we improve the platform 💛  
+// Thank you for being here with us!`
+//   }});
+
+const notice = await database.notice.create({
+  data: {
     level: 'Warning',
-    content_md: `### ⚠️ Please update your app
+    content_md: `### ⚠️ Cancellation Notice: St. Brigid Meatloaf Monday
 
-As we launch the app, we've introduced **major underlying changes** that could break the app.
+We regret to inform you that **St. Brigid Meatloaf Monday** is **canceled for today, Monday, May 25**.
 
-Because of this, you may experience:
-- No meals found
-- Other errors
-
-**🛠️ How to fix**
-Please ensure you are on the latest version by pressing the blue update button here: [AppStore](itms-apps://apps.apple.com/app/id6759996982).
+We apologize for any inconvenience this may cause to your meal planning. Please check the **Garden of Eatin'** dashboard later this week for upcoming community meal opportunities.
 
 ---
 
-We truly appreciate your patience as we improve the platform 💛  
+We truly appreciate your understanding and continued support of our community resources 💛  
 Thank you for being here with us!`
-  }});
+  }
+});
   console.log(`Successfully added notice with ID: ${notice.id}`);
 }

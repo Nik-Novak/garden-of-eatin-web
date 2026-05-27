@@ -3,13 +3,6 @@ import { decodeQueryParam } from "@/utils/fns/request";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
 
-export async function POST(request: NextRequest) {
-  let requestBody = await request.json() as unknown;
-  let data = await database.scannableDocument.validate(requestBody);
-  let qrCode = await database.scannableDocument.create({ data });
-  return NextResponse.json(qrCode, {status:201});
-}
-
 const QuerySchema = z.object({
   meal_ids: z.array(z.string()).optional()
 });
@@ -20,17 +13,19 @@ export async function GET(request: NextRequest) {
   console.log('rawParams', rawParams);
   const validation = QuerySchema.safeParse(rawParams);
   if (!validation.success) {
-    return NextResponse.json(
-      { 
+    let err = { 
         error: "Invalid or missing parameters", 
         details: z.treeifyError(validation.error) 
-      },
+    };
+    console.error(JSON.stringify(err));
+    return NextResponse.json(
+      err,
       { status: 400 }
     );
   }
 
   const { meal_ids } = validation.data;
-  const scannableDocuments = await database.scannableDocument.findMany({where:{scannable_document_meal_hits:{some:{meal_id:{in:meal_ids}}}}});
+  const searches = await database.mealOccurrenceSearch.findMany({where:{hits:{some:{meal_id:{in:meal_ids}}}}});
   
-  return NextResponse.json(scannableDocuments);
+  return NextResponse.json(searches);
 }

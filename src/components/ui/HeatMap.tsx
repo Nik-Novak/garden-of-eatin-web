@@ -64,7 +64,7 @@ function HeatmapLayer({ points }: HeatmapProps) {
 
 export default function Heatmap({ points }: HeatmapProps) {
   return (
-    <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}>
+    <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string} version="3.64">
       <Map
         defaultCenter={{ lat: 0, lng: 0 }}
         defaultZoom={2}

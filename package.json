@@ -1,6 +1,6 @@
 {
   "name": "garden-of-eatin-web",
-  "version": "3.3.0",
+  "version": "4.5.0",
   "private": true,
   "scripts": {
     "build:types": "tsup src/types/api-exports.ts --format esm --dts-only --tsconfig tsconfig.types.json",

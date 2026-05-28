@@ -6,6 +6,7 @@
 export { AccountResultSchema } from './Account.result';
 export { SessionResultSchema } from './Session.result';
 export { VerificationResultSchema } from './Verification.result';
+export { AccountDeletionRequestResultSchema } from './AccountDeletionRequest.result';
 export { BugResultSchema } from './Bug.result';
 export { ContactRequestResultSchema } from './ContactRequest.result';
 export { ContributorResultSchema } from './Contributor.result';

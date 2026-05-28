@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutlined';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
-// import { createAccountDeletionRequest } from '@/actions/account';
+import { createAccountDeletionRequest } from '@/actions/account';
 import { useNotificationQueue } from "@/components/ui/NotificationQueue";
 import Notification from "@/components/ui/Notification";
 
@@ -97,7 +97,12 @@ export default function DeleteAccountPage() {
               }}
             >
               <form action={async (formData) => {
-                // await createAccountDeletionRequest(formData);
+                let email = formData.get('email')?.toString();
+                if(!email)
+                  throw Error("Email required");
+                let reason = formData.get('reason')?.toString() ?? undefined;
+                let feedback = formData.get('feedback')?.toString() ?? undefined;
+                await createAccountDeletionRequest(email, reason, feedback);
                 pushNotification(
                   <Notification>
                     Request received. Your account deletion will be reviewed and processed within 7 business days.

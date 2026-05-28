@@ -6,6 +6,7 @@
 export { AccountModelSchema } from './Account.pure';
 export { SessionModelSchema } from './Session.pure';
 export { VerificationModelSchema } from './Verification.pure';
+export { AccountDeletionRequestModelSchema } from './AccountDeletionRequest.pure';
 export { BugModelSchema } from './Bug.pure';
 export { ContactRequestModelSchema } from './ContactRequest.pure';
 export { ContributorModelSchema } from './Contributor.pure';

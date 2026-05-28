@@ -6,6 +6,7 @@
 export { AccountInputSchema } from './Account.input';
 export { SessionInputSchema } from './Session.input';
 export { VerificationInputSchema } from './Verification.input';
+export { AccountDeletionRequestInputSchema } from './AccountDeletionRequest.input';
 export { BugInputSchema } from './Bug.input';
 export { ContactRequestInputSchema } from './ContactRequest.input';
 export { ContributorInputSchema } from './Contributor.input';

@@ -1,0 +1,10 @@
+import type { Prisma } from '@prisma/client';
+import * as z from 'zod';
+import { AccountDeletionRequestOrderByWithRelationInputObjectSchema as AccountDeletionRequestOrderByWithRelationInputObjectSchema } from './objects/AccountDeletionRequestOrderByWithRelationInput.schema';
+import { AccountDeletionRequestWhereInputObjectSchema as AccountDeletionRequestWhereInputObjectSchema } from './objects/AccountDeletionRequestWhereInput.schema';
+import { AccountDeletionRequestWhereUniqueInputObjectSchema as AccountDeletionRequestWhereUniqueInputObjectSchema } from './objects/AccountDeletionRequestWhereUniqueInput.schema';
+import { AccountDeletionRequestCountAggregateInputObjectSchema as AccountDeletionRequestCountAggregateInputObjectSchema } from './objects/AccountDeletionRequestCountAggregateInput.schema';
+
+export const AccountDeletionRequestCountSchema: z.ZodType<Prisma.AccountDeletionRequestCountArgs> = z.object({ orderBy: z.union([AccountDeletionRequestOrderByWithRelationInputObjectSchema, AccountDeletionRequestOrderByWithRelationInputObjectSchema.array()]).optional(), where: AccountDeletionRequestWhereInputObjectSchema.optional(), cursor: AccountDeletionRequestWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), AccountDeletionRequestCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.AccountDeletionRequestCountArgs>;
+
+export const AccountDeletionRequestCountZodSchema = z.object({ orderBy: z.union([AccountDeletionRequestOrderByWithRelationInputObjectSchema, AccountDeletionRequestOrderByWithRelationInputObjectSchema.array()]).optional(), where: AccountDeletionRequestWhereInputObjectSchema.optional(), cursor: AccountDeletionRequestWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), AccountDeletionRequestCountAggregateInputObjectSchema ]).optional() }).strict();

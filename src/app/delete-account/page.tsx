@@ -47,7 +47,7 @@ export default function DeleteAccountPage() {
               Leaving the garden?
             </Typography>
             <Typography variant="h6" color="text.secondary" sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}>
-              We're sorry to see you go. Submitting this form will initiate the process to permanently uproot your Garden of Eatin' account and erase your footprint.
+              We're sorry to see you go. Submitting this form will initiate the process to permanently uproot your Garden of Eatin' account.
             </Typography>
 
             <Stack spacing={4} sx={{ mt: 4 }}>
@@ -60,7 +60,7 @@ export default function DeleteAccountPage() {
                     Permanent Deletion
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    This action is irreversible. All of your community resources, saved meals, and profile data will be permanently removed.
+                    This action is irreversible. All of your saved personalizations, and profile data will be permanently removed.
                   </Typography>
                 </Box>
               </Box>
